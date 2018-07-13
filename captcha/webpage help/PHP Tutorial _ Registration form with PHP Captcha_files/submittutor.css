@@ -1,0 +1,207 @@
+.trlinput{width:95%; height:40px; border:1px solid #0056A1; margin:5px; }
+.trlinputn{width:46%; height:40px; border:1px solid #0056A1; margin:5px 12px 5px 5px; }
+
+.trlinput:hover{border:1px solid #5CC6D0;}
+.trlinputs:hover{border:1px solid #5CC6D0;}
+
+.submitbutton{width:98%; height:50px; background:#0056A1; color:#fff; margin:5px; font-size:20pt; }
+.submitbutton:hover{background:#28679E; color:#fff;}
+.tutorlist{margin:0; padding:0;}
+
+.tutorlist li{list-style:square; list-style-type:square; margin:0px; padding:0; line-height:1em; text-transform: capitalize; left:0; right:0;}
+.tutorlist li a{text-decoration:none; font-style:none; color:#0056A1; margin:0; padding:0; font-size:9pt; line-height:1em; font-family:Futura Md BT;}
+.tutorlist li a:hover{text-decoration:underline red; color:red;}
+.tutorlist li a:active{text-decoration:underline red; color:red;}
+.tutorlist .active{color:red; list-style:square; list-style-type:square;}
+.rightbarmenuhaiding{padding-top:5px; padding-bottom:5px; text-align:center; margin:0; background:#1764A7; color:#fff; max-width:300px;}
+.rightbarmenuhaiding:hover{background:#354A96;}
+.tutormenuright{height:330px; overflow-y:scroll; margin-left:20px; }
+.submittuto{border:1px solid gray; padding:10px;  font-size:15px; max-width:300px; margin:10px; background:#1764A7;}
+.submittuto a{font-style:none; text-decoration:none; color:#fff;}
+.submittuto:hover{background:#fff;}
+.submittuto a:hover{color:#1764A7;}
+
+.output{margin:10px; padding:10px; border:1px solid blue;}
+#mytextarea{width:95%; height:300px; margin:10px;}
+
+.nextbtn{padding:5px 20px 5px 20px; margin:10px; float:right; background:#DAE8F5; color:#FF0011; font-size:14pt; text-decoration:none;}
+.prvbtn{padding:5px 20px 5px 20px; margin:10px; float:left; background:#DAE8F5; color:#FF0011; font-size:14pt; text-decoration:none;}
+.nextbtn:hover, .prvbtn:hover{background:#FF0011; color:#DAE8F5;}
+
+table, tbody{table-layout:fixed;  background:#FFFBD6; border:0; width:100%; }
+table tr{width:100%; }
+table tr td{width:100%; border:0; background:#FFFBD6;  }
+
+pre{ margin:0; padding:0;  background:#E2E9F0; padding:10px;
+
+   white-space: pre;
+   white-space: pre-wrap;
+   word-wrap: break-word;
+
+}
+
+
+ 
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-button {
+
+	    width: 6px;
+
+	    height:3px;
+
+	}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+	border: thin solid lightgray;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+	background:#999;
+	border: thin solid gray;
+	
+	}
+
+
+::-webkit-scrollbar-thumb:hover {
+	    background:#7d7d7d;
+
+}
+	
+
+	
+::-moz-scrollbar {
+    width: 6px;
+}
+
+::-moz-scrollbar-button {
+
+	    width: 6px;
+
+	    height:3px;
+
+	}
+ 
+::-moz-scrollbar-track {
+    -moz-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+	border: thin solid lightgray;
+}
+ 
+::-moz-scrollbar-thumb {
+    border-radius: 10px;
+    -moz-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+	background:#999;
+	border: thin solid gray;
+	
+	}
+
+
+::-moz-scrollbar-thumb:hover {
+	    background:#7d7d7d;
+
+	} 
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+.mainmenu{
+	
+	width:100%;
+	position:fixed;
+	top:30px;
+	min-height:200px;
+	border: 3px solid #006FE6;
+	z-index:999;
+	background:#fff;
+	display:none;
+}
+
+.mainmenu ul{margin:10px;}
+
+.mainmenu ul li{
+	
+	list-style:none; 
+	display:inline-block;
+	border: 1px solid #006FE6;
+	width:250px;
+	margin:5px;
+	
+	
+	}
+	
+.mainmenu ul li a{
+	
+	padding:10px;
+	color:#006FE6;
+	text-decoration:none;
+	font-style:none;
+
+}	
+
+.mainmenu ul li:hover{
+	
+	background:#006FE6;
+	color:#fff;
+	
+}
+
+.mainmenu ul li a:hover{color:#fff; text-decoration:none;}
+	
+.hidethismenu{
+	background:#006FE6;
+	color:#fff;
+	padding:5px;
+	cursor:pointer;
+	
+}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+.tutorialmenuselect{
+	
+	
+	position:absolute;
+	top:0px;
+	min-height:30px;
+	z-index:99999;
+	background:#fff;
+
+	margin-left:200px;
+	
+}
+	
+.tutorialmenuselect option{
+	
+	width:200px;
+}	
+	
+.tutorialmenuselect a{
+	
+	padding:10px;
+	color:#006FE6;
+	text-decoration:none;
+	font-style:none;
+}
+	
+	
+	
+	

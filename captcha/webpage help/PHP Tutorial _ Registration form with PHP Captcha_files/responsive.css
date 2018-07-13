@@ -1,0 +1,99 @@
+/* lg */ 
+@media (min-width: 1200px) {
+
+}
+
+/* md */
+@media (min-width: 992px) and (max-width: 1199px) {
+  
+ .leftbar{float:left;  width:70%; height:auto; margin-right:10px; background:#fff;}
+ 
+}
+
+
+/* sm */
+@media (min-width: 768px) and (max-width: 991px) {
+.sb-site-container{margin:1px;}
+.leftbar{width:100%; float:none; margin-right:0px; }
+.rightbar{float:none;  border:0; width:100%; }
+
+.leftbar .imgclass{width:100%; height:auto;}
+
+.sb-slidebar{width:30%;}
+
+.sb                           
+ 
+	.sb-slidebar {
+		width: 5%;
+	}
+
+}
+
+/* xs */
+@media (max-width: 767px) {
+
+.rightbarmenuhaiding{width:100%; padding:10px; text-align:center; margin:2px;}
+#sb-site, .sb-site-container {
+	
+	margin:0px;
+	padding:0;
+}
+.sb-site-container{margin:1px;}
+.leftbar{width:100%; float:none; margin-right:0px; }
+.rightbar{float:none;  border:0; width:100%; }
+
+
+.leftbar .imgclass{width:100%; height:auto;}
+.header-middle .logo{ margin:0px;  width:100px;}
+.header-middle .ad790x90 a{ margin:0; padding:0;   }
+.header-middle .ad790x90 a img{margin:0; padding:0; }
+.sb-slidebar{width:50%;}
+.sb-width-thin {
+		width: 10%;
+	}
+	
+	.sb-width-wide {
+		width: 5%;
+	}
+	
+	.sb                           
+ 
+	.sb-slidebar {
+		width: 5%;
+	}
+
+}
+
+/* XS Portrait */
+@media (max-width: 480px) {
+	
+.rightbarmenuhaiding{width:100%; padding:10px; text-align:center; margin:2px;}
+#sb-site, .sb-site-container {
+	
+	margin:0px;
+	padding:0;
+}
+.leftbar{width:100%; float:none; margin-right:0px; }
+.rightbar{float:none;  border:0; width:100%; }	
+.leftbar:before{clear:both;} .leftbar:after{clear:both;}
+.rightbar:before{clear:both;} .rightbar:after{clear:both;}
+
+.leftbar .imgclass{width:100%; height:auto;}
+.header-middle .logo{ margin:0px;  width:100px;}
+.header-middle .ad790x90 a{ margin:0; padding:0;   }
+.header-middle .ad790x90 a img{margin:0; padding:0; }
+.sb-slidebar{width:90%;}
+.sb-width-thin {
+		width: 15%;
+	}
+	
+	.sb-width-wide {
+		width: 15%;
+	}
+	
+	.sb                           
+ 
+	.sb-slidebar {
+		width: 5%;
+	}
+}

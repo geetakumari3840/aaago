@@ -1,0 +1,14 @@
+.navContainer {background-color: black;padding: 5px;position: absolute;width:100%; }
+.navContainer nav {max-width: 1080px;margin: auto;}
+.parent {display: block;position: relative;float: left;line-hei ght: auto;border-rig ht:blue 10px solid;bo rder-left:#CCC 1px solid;} 
+.parent a{margin: 20px;color: white;text-decoration: none;} 
+.parent:hover > ul {display:block;position:absolute;z-index: 1;}
+.child {display: none;}
+.child li {background-color: black;line-height: 30px;border-bottom:red 1px solid;border-left:red 1px solid; width:100%;}
+.child li a{color: white;}
+ul{list-style: none;margin: 0;padding: 5px; min-width:25em;}
+ul ul ul{left: 100%;top: 0;margin-left:1px;}
+li:hover {background-co lor: green; color: green; border-color: yellow;}
+.parent li:hover {background-color: black;color:green;border-left:red 10px solid;}
+.expand{font-size:12px;float:right;margin-right:5px;}
+.right {float: right;}

@@ -1,0 +1,84 @@
+body {
+  background-color: rgb(255, 255, 255);
+  font: 400 1em/1.38 Helvetica;
+  color: rgb(0, 0, 0);
+}
+
+.container {
+  float: left;
+}
+
+.container .container {
+  height: 50px;
+}
+
+.container .element {
+  float: right;
+  width: 100%;
+  height: 69px;
+  margin-right: 0.44542%;
+}
+
+.element {
+  border: 7px dashed rgb(236, 241, 10);
+  border-radius: 36px;
+  background-color: rgb(25, 44, 213);
+  box-shadow: -1px 19px 43px 5px rgba(10, 10, 10, 0.5);
+}
+
+._button {
+  display: block;
+  float: left;
+  width: 100%;
+  height: 50px;
+  border-radius: 3px;
+  background-color: rgb(222, 222, 222);
+  font-size: 1em;
+  text-align: center;
+  color: rgb(0, 0, 0);
+}
+
+.container-1 {
+  position: relative;
+  z-index: 3;
+  width: 18.4166666666%;
+  height: 69px;
+  margin: 209px 0 0 50.08203%;
+}
+
+.container-2 {
+  position: relative;
+  clear: both;
+  z-index: 7;
+  width: 100%;
+  height: 50px;
+  margin-top: 82px;
+}
+
+.container-3 {
+  width: 22.5833333333%;
+  margin: 6px 0 0 39.5%;
+}
+
+.container-4 {
+  width: 100%;
+}
+
+.element-1 {
+  position: fixed;
+  top: 103px;
+  left: 10%;
+  width: 80%;
+  height: 69px;
+}
+
+.element-3 {
+  position: fixed;
+  top: 324px;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  width: 33.4166666666%;
+  height: 129px;
+  margin: 0 auto;
+}

@@ -1,0 +1,14 @@
+
+.footer1 {width:100%;text-align: center;padding:40px;background-color: black;}
+
+.footer2 {width:100%;background-color:black;padding:50px;box-sizing: border-box;}
+
+.footerul {list-style-type: none;margin:auto;overflow: hidden;background-color: black;}
+
+.fparent {float: none;display:inline-block;border-left: red 2px dotted;}
+
+.fparent:first-child {border:none;}
+
+.fparent a {display: block;color:white;text-align: center;padding:5px 8px;text-decoration: none;}
+
+.fparent a:hover {background-co lor: green;border-bot tom: red 1px solid;color:blue;}

@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)https://www.formget.com/captcha-code-php-jquery/ -->
+<html lang="en-US" prefix="og: http://ogp.me/ns#"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Captcha Code in PHP and jQuery | FormGet</title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="ahrefs-site-verification" content="93f44f751157a1337277bc7924ebd9a9ff916b07df1c543c484c10e90cf09033">
+		<link rel="dns-prefetch" href="https://images.formget.com/">
+        <link rel="dns-prefetch" href="https://formget.com/">
+        <link rel="dns-prefetch" href="https://js.formget.com/">
+        <link rel="dns-prefetch" href="https://css.formget.com/">
+        <link rel="dns-prefetch" href="https://www.formget.com/">
+        
+<!-- This site is optimized with the Yoast SEO Premium plugin v7.6.1 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="Start implementing your own Captcha code using PHP, AJAX and jQuery. Its very simple to create and implement.">
+<link rel="canonical" href="https://www.formget.com/captcha-code-php-jquery/">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Captcha Code in PHP and jQuery | FormGet">
+<meta property="og:description" content="Start implementing your own Captcha code using PHP, AJAX and jQuery. Its very simple to create and implement.">
+<meta property="og:url" content="https://www.formget.com/captcha-code-php-jquery/">
+<meta property="og:site_name" content="FormGet">
+<meta property="article:publisher" content="https://www.facebook.com/FormGet/">
+<meta property="article:section" content="Ajax + jQuery + Javascript">
+<meta property="article:published_time" content="2014-06-20T11:04:12+00:00">
+<meta property="article:modified_time" content="2018-03-22T11:26:32+00:00">
+<meta property="og:updated_time" content="2018-03-22T11:26:32+00:00">
+<meta property="og:image" content="https://images.formget.com/wp-content/uploads/2014/06/Captcha-Code-in-PHP-and-jQuery1.png">
+<meta property="og:image:secure_url" content="https://images.formget.com/wp-content/uploads/2014/06/Captcha-Code-in-PHP-and-jQuery1.png">
+<meta property="og:image:width" content="736">
+<meta property="og:image:height" content="300">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="Start implementing your own Captcha code using PHP, AJAX and jQuery. Its very simple to create and implement.">
+<meta name="twitter:title" content="Captcha Code in PHP and jQuery | FormGet">
+<meta name="twitter:site" content="@formgetcom">
+<meta name="twitter:image" content="https://images.formget.com/wp-content/uploads/2014/06/Captcha-Code-in-PHP-and-jQuery1.png">
+<meta name="twitter:creator" content="@formgetcom">
+<!-- / Yoast SEO Premium plugin. -->
+
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="stylesheet" id="formget-total-main-css-css" href="./Captcha Code in PHP and jQuery _ FormGet_files/style-main.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="dlv-latofont-css" href="./Captcha Code in PHP and jQuery _ FormGet_files/fonts.css" type="text/css" media="all">
+<link rel="stylesheet" id="dlv-css-css" href="./Captcha Code in PHP and jQuery _ FormGet_files/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="cookie-notice-front-css" href="./Captcha Code in PHP and jQuery _ FormGet_files/front.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="sh_css-css" href="./Captcha Code in PHP and jQuery _ FormGet_files/sh.css" type="text/css" media="all">
+<link rel="stylesheet" id="mg-style-css" href="./Captcha Code in PHP and jQuery _ FormGet_files/mg_popup.css" type="text/css" media="all">
+<link rel="stylesheet" id="wpfront-scroll-top-css" href="./Captcha Code in PHP and jQuery _ FormGet_files/wpfront-scroll-top.min.css" type="text/css" media="all">
+<script async="" src="./Captcha Code in PHP and jQuery _ FormGet_files/fbevents.js.download"></script><script type="text/javascript" async="" src="./Captcha Code in PHP and jQuery _ FormGet_files/heap-490363613.js.download"></script><script async="" src="./Captcha Code in PHP and jQuery _ FormGet_files/analytics.js.download"></script><script type="text/javascript" src="./Captcha Code in PHP and jQuery _ FormGet_files/jquery.js.download"></script>
+<script type="text/javascript" src="./Captcha Code in PHP and jQuery _ FormGet_files/jquery.fileDownload.js.download"></script>
+<script type="text/javascript" src="./Captcha Code in PHP and jQuery _ FormGet_files/jquery.cookie.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var dlv_script = {"url":"https:\/\/www.formget.com\/wp-admin\/admin-ajax.php","plugin_path":"https:\/\/www.formget.com\/wp-content\/plugins\/content-upgrade\/","link_url":"https:\/\/www.formget.com\/app\/home\/?blog","post_id":"6787"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Captcha Code in PHP and jQuery _ FormGet_files/custom.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var cnArgs = {"ajaxurl":"https:\/\/www.formget.com\/wp-admin\/admin-ajax.php","hideEffect":"fade","onScroll":"no","onScrollOffset":"100","cookieName":"cookie_notice_accepted","cookieValue":"true","cookieTime":"2592000","cookiePath":"\/","cookieDomain":"","redirection":"1","cache":"","refuse":"no","revoke_cookies":"0","revoke_cookies_opt":"automatic","secure":"1"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Captcha Code in PHP and jQuery _ FormGet_files/front.min.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var mg = {"ajaxurl":"https:\/\/www.formget.com\/wp-admin\/admin-ajax.php","imgurl":"https:\/\/www.formget.com\/wp-content\/plugins\/formget-contact-form\/image\/mailget.png","mg_nonce":"42ccad9afe"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Captcha Code in PHP and jQuery _ FormGet_files/mg_front.js.download"></script>
+<link rel="shortcut icon" href="https://images.formget.com/wp-content/themes/formget/assets/imgs/favicon.png">
+
+<!-- BEGIN ExactMetrics v5.3.5 Universal Analytics - https://exactmetrics.com/ -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-43981329-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- END ExactMetrics Universal Analytics -->
+		<style type="text/css" id="wp-custom-css">
+			/*
+You can add your own CSS here.
+
+Click the help icon above to learn more.
+*/
+.dis-non{
+    display:none;
+}
+img.logo.svg_img{
+	max-width: 380px !important;
+    height: auto !important;
+    width: 100% !important;
+}
+tbody {
+    width: 100%;
+    overflow: auto;
+}
+td,th{
+border:1px solid;
+}
+#no_border_omit td,
+#no_border_omit th{
+border:none;
+}
+@media only screen  and (max-width:480px) {
+table,
+tbody{
+display: inline-block; 
+overflow: auto;
+}
+}
+/* cutom CSS code for recommended products*/
+.contentleft img {    
+    margin-right: 25px;
+}
+hr.recomended_border {
+    background-color: #c2cfd9;
+    height: 6px;
+    border: none;
+}
+.recommended_prod h1{
+	font-size: 24px; 
+	line-height: 45px; 
+	color: #2196f3;
+}
+.recommended_prod .contentcenter a{
+	color: #4d4d4d!important;
+}
+.recommended_prod .contentcenter p{
+	width: 83%!important; 
+	font-size: 16px!important; 
+	line-height: 19px!important; 
+	color: #838181!important;
+	margin-top: -11px!important;
+}
+.recommended_prod .contentright{
+	width: 12%; 
+	float: right; 
+	margin-top: -80px;
+}
+.recommended_prod .contentright span{
+	font-size: 24px; 
+	line-height: 23px; 
+	color: #2f2f2f; 
+	font-weight: bold;
+}
+.recommended_prod .contentright a {
+	font-size: 15px;
+    line-height: 23px;
+    color: #ffffff!important;
+    font-weight: bold;
+    background: #ccc;
+    padding: 4px 14px;
+    border-radius: 3px;
+		cursor:pointer;
+}
+.recommended_prod .contentright a:hover {
+background-color: #f57e36;
+}
+
+.inkst-btn.flat{
+    margin-top: 10px;
+    margin-right: 10px;
+    padding: 14px 26px;
+    font-size: 14px;
+    line-height: 100%;
+    text-shadow: 0 1px rgba(0, 0, 0, 0.4);
+    color: #fff !important;
+    display:inline-block;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.1s ease-in-out;
+    -webkit-transition: background 0.1s ease-in-out;
+    -moz-transition: background 0.1s ease-in-out;
+    -ms-transition: background 0.1s ease-in-out;
+    -o-transition: background 0.1s ease-in-out;
+    text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+    color: #fff;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    font-family: 'Helvetica Neue', Helvetica, sans-serif;
+    text-decoration: none !important;
+}
+/*
+#sub_header{
+    background-color: #fff;
+} */
+.blog_sub_header {
+    background-color: #fff !important;
+}
+
+/*
+Custom Style
+*/
+
+span.sub-dt {
+    text-align: center;
+    display: block;
+    margin-bottom: 46px;
+    font-size: 22px;
+}
+#content_wrapper .front-content .main-dt{
+    margin-bottom: 5px;
+}
+
+div#no_border_omit table th, div#no_border_omit table td, div#no_border_omit table tr {
+border: 1px solid #000;
+}
+
+		</style>
+		</head>
+    <body class="post-template-default single single-post postid-6787 single-format-standard cookies-not-set">
+        <div id="main">
+			<a class="menu_top_notice" href="https://www.formget.com/new-year-email-templates/"><div id="counter_section" class="animated" style=""></div></a>
+
+<div id="header_strip" class="fixed">
+    <div class="container">
+        <div class="row strip-row">
+            <div class="col-md-3 col-sm-3 col-xs-6 strip-col">
+                <ul class="header-logo">
+                    <li>
+                                                    <a href="https://www.formget.com/">
+                            <div class="main_formget_logo"></div>
+                            </a>
+                                                </li> 
+                </ul>				            
+            </div>
+            <div class="col-md-6 col-sm-6 strip-col hidden-xs">
+                <div class="product-menu" style="display: block;">
+                    <ul id="header_menu" class="sf-menu header-menu sf-js-enabled sf-arrows" style="touch-action: pan-y;"><li id="menu-item-36056" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-36056"><a href="https://www.formget.com/formget/" class="sf-with-ul">Form Builder</a>
+<ul class="sub-menu" style="display: none;">
+	<li id="menu-item-36121" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-36121"><a href="https://www.formget.com/formget/">Overview</a></li>
+	<li id="menu-item-36095" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-36095"><a target="_blank" href="https://www.formget.com/features/custom-branding-form/">Features</a></li>
+	<li id="menu-item-36096" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-36096"><a href="https://www.formget.com/formget/#pricing">Pricing</a></li>
+	<li id="menu-item-36097" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-36097"><a target="_blank" href="https://www.formget.com/forms/">Templates</a></li>
+	<li id="menu-item-57980" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-57980"><a href="https://www.formget.com/why-forms-are-essential-for-brand-engagement/">Documentation</a></li>
+</ul>
+</li>
+<li id="menu-item-36057" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-36057"><a href="https://www.formget.com/mailget-app/" class="sf-with-ul">MailGet Email Marketing</a>
+<ul class="sub-menu" style="display: none;">
+	<li id="menu-item-36122" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-36122"><a target="_blank" href="https://www.formget.com/mailget-app/">Overview</a></li>
+	<li id="menu-item-36099" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-36099"><a target="_blank" href="https://www.formget.com/email-template-builder/">Features</a></li>
+	<li id="menu-item-36100" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-36100"><a href="https://www.formget.com/mailget-app/#pricing">Pricing</a></li>
+	<li id="menu-item-52905" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-52905"><a target="_blank" href="https://www.formget.com/free-html-email-newsletter-templates/">Email Templates</a></li>
+	<li id="menu-item-57979" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-57979"><a href="https://www.formget.com/email-builder/">Documentation</a></li>
+</ul>
+</li>
+<li id="menu-item-39684" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-39684"><a href="https://www.formget.com/mailget-bolt/" class="sf-with-ul">MailGet Bolt</a>
+<ul class="sub-menu" style="display: none;">
+	<li id="menu-item-52655" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-52655"><a href="https://www.formget.com/mailget-bolt/">Overview</a></li>
+	<li id="menu-item-52656" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-52656"><a target="_blank" href="https://www.formget.com/email-template-builder/">Features</a></li>
+	<li id="menu-item-52657" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-52657"><a href="https://www.formget.com/mailget-bolt/#pricing">Pricing</a></li>
+	<li id="menu-item-52904" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-52904"><a target="_blank" href="https://www.formget.com/free-html-email-newsletter-templates/">Email Templates</a></li>
+</ul>
+</li>
+<li id="menu-item-36059" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-36059"><a href="https://www.formget.com/blog/">Blog</a></li>
+</ul>                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-6 top_rigt_button strip-col">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a id="drop1" href="https://www.formget.com/captcha-code-php-jquery/#" class="dropdown-toggle" aria-haspopup="true" role="button" aria-expanded="false" rel="nofollow">Sign Up For Free</a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.formget.com/app/login/?p=popup" rel="nofollow">FormGet</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.formget.com/mailget/builder_login/new_user?type=mailget" rel="nofollow">MailGet</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.formget.com/mailget/builder_login/trial_user/486" rel="nofollow">MailGet Bolt</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a id="drop2" href="https://www.formget.com/captcha-code-php-jquery/#" class="dropdown-toggle" aria-haspopup="true" role="button" aria-expanded="false" rel="nofollow">Sign In</a>
+                        <ul class="dropdown-menu signin" role="menu" aria-labelledby="drop2">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.formget.com/app/login/" rel="nofollow">FormGet</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.formget.com/mailget/builder_login?type=mailget" rel="nofollow">MailGet</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="https://www.formget.com/mailget/builder_login?type=bolt" rel="nofollow">MailGet Bolt</a></li>
+                        </ul>
+                    </li>
+                </ul>               
+            </div>
+        </div>
+    </div>
+</div>
+  
+            <!--Header-->
+            <header id="header">                             
+                <span class="clear"></span>	</header>
+	<!--/Header-->
+	<!--Content Wrapper-->
+	<div id="content_wrapper" class="content single">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					<div id="sidebar" class="sidebar side-blog">
+					    					    <div class="sidebar-page rmm taxlist graphite blog_category hidden-xs" data-menutitle="CategoriesjQuery"><div class="rmm-toggled rmm-closed" style=""><div class="rmm-toggled-controls"><div class="rmm-toggled-title">CategoriesjQuery</div><div class="rmm-button"><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span></div></div><ul><li id="menu-item-31467" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31467"><a href="https://www.formget.com/cheap-email-marketing-services/">Email Marketing</a></li>
+<li id="menu-item-58046" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58046"><a href="https://www.formget.com/best-doctor-email-templates/">Email Templates</a></li>
+<li id="menu-item-31394" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31394"><a href="https://www.formget.com/10-best-online-form-builders/">Form Builder</a></li>
+<li id="menu-item-52158" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-52158"><a href="https://www.formget.com/subscription-payment-services/">Payment</a></li>
+<li id="menu-item-62094" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-62094"><a href="https://www.formget.com/seo-wordpress-plugins/">WordPress Plugins</a></li>
+<li id="menu-item-31395" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31395"><a href="https://www.formget.com/free-premium-wordpress-themes/">WordPress Themes</a></li>
+<li id="menu-item-31399" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31399"><a href="https://www.formget.com/best-doctor-bulk-email-marketing/">Email Software (For All Business Type)</a></li>
+<li id="menu-item-31391" class="feature-heading menu-item menu-item-type-custom menu-item-object-custom menu-item-31391"><a>Technical Coding Blogs</a></li>
+<li id="menu-item-31890" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31890"><a href="https://www.formget.com/phonegap/">PhoneGap + Android</a></li>
+<li id="menu-item-31400" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31400"><a href="https://www.formget.com/css-active/">HTML/CSS + Bootstrap</a></li>
+<li id="menu-item-31402" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31402"><a href="https://www.formget.com/create-form-using-jquery/">jQuery + Ajax + Javascript</a></li>
+<li id="menu-item-31398" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31398"><a href="https://www.formget.com/codeigniter-mvc/">CodeIgniter</a></li>
+<li id="menu-item-31823" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31823"><a href="https://www.formget.com/what-is-angular-js/">Angular JS</a></li>
+<li id="menu-item-31403" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31403"><a href="https://www.formget.com/php-post-get/">PHP</a></li>
+</ul></div>
+                            <span class="sidebar-title" style="display: block;">Categories</span>
+                            <ul id="menu-blog-category" class="menu rmm-main-list" style=""><li id="menu-item-31467" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31467"><a href="https://www.formget.com/cheap-email-marketing-services/">Email Marketing</a></li>
+<li id="menu-item-58046" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58046"><a href="https://www.formget.com/best-doctor-email-templates/">Email Templates</a></li>
+<li id="menu-item-31394" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31394"><a href="https://www.formget.com/10-best-online-form-builders/">Form Builder</a></li>
+<li id="menu-item-52158" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-52158"><a href="https://www.formget.com/subscription-payment-services/">Payment</a></li>
+<li id="menu-item-62094" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-62094"><a href="https://www.formget.com/seo-wordpress-plugins/">WordPress Plugins</a></li>
+<li id="menu-item-31395" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31395"><a href="https://www.formget.com/free-premium-wordpress-themes/">WordPress Themes</a></li>
+<li id="menu-item-31399" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31399"><a href="https://www.formget.com/best-doctor-bulk-email-marketing/">Email Software (For All Business Type)</a></li>
+<li id="menu-item-31391" class="feature-heading menu-item menu-item-type-custom menu-item-object-custom menu-item-31391"><a>Technical Coding Blogs</a></li>
+<li id="menu-item-31890" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31890"><a href="https://www.formget.com/phonegap/">PhoneGap + Android</a></li>
+<li id="menu-item-31400" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31400"><a href="https://www.formget.com/css-active/">HTML/CSS + Bootstrap</a></li>
+
+<li id="menu-item-31398" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31398"><a href="https://www.formget.com/codeigniter-mvc/">CodeIgniter</a></li>
+<li id="menu-item-31823" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31823"><a href="https://www.formget.com/what-is-angular-js/">Angular JS</a></li>
+<li id="menu-item-31403" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31403"><a href="https://www.formget.com/php-post-get/">PHP</a></li>
+</ul>                        </div>
+                                                
+						<div class="sidebar-page rmm taxlist graphite category hidden-xs" data-menutitle="CategoriesjQuery"><div class="rmm-toggled rmm-closed" style=""><div class="rmm-toggled-controls"><div class="rmm-toggled-title">CategoriesjQuery</div><div class="rmm-button"><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span></div></div><ul><li id="menu-item-31060" class="feature-heading menu-item menu-item-type-custom menu-item-object-custom menu-item-31060"><a href="https://www.formget.com/captcha-code-php-jquery/#">Form</a></li>
+<li id="menu-item-31061" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31061"><a href="https://www.formget.com/create-form-using-jquery/">Form</a></li>
+<li id="menu-item-31062" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31062"><a href="https://www.formget.com/jquery-registration-form/">Registration Form</a></li>
+<li id="menu-item-31063" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31063"><a href="https://www.formget.com/jquery-login-form/">Login Form</a></li>
+<li id="menu-item-31064" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31064"><a href="https://www.formget.com/jquery-popup-form/">Popup Login &amp; Contact Form</a></li>
+<li id="menu-item-31065" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31065"><a href="https://www.formget.com/multi-step-form-using-jquery-and-css3/">Multi Step Form</a></li>
+<li id="menu-item-31066" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31066"><a href="https://www.formget.com/jquery-mobile-form/">Mobile Form</a></li>
+<li id="menu-item-31067" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31067"><a href="https://www.formget.com/jquery-dialog-form/">Dialog Box Form</a></li>
+<li id="menu-item-31068" class="feature-heading menu-item menu-item-type-custom menu-item-object-custom menu-item-31068"><a href="https://www.formget.com/captcha-code-php-jquery/#">Form Fields</a></li>
+<li id="menu-item-31069" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31069"><a href="https://www.formget.com/jquery-select-option/">Select option Tag Common Operations</a></li>
+<li id="menu-item-31070" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31070"><a href="https://www.formget.com/jquery-select-change/">Select Change Event, Get Selected Option</a></li>
+<li id="menu-item-31071" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31071"><a href="https://www.formget.com/jquery-add-option-to-select/">Add Option to Select Tag</a></li>
+<li id="menu-item-31072" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31072"><a href="https://www.formget.com/upload-multiple-images-using-php-and-jquery/">Upload Multiple Images</a></li>
+<li id="menu-item-31073" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31073"><a href="https://www.formget.com/create-multiple-form-fields-based-on-selection-jquery/">Multiple Form Fields</a></li>
+<li id="menu-item-31074" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31074"><a href="https://www.formget.com/jquery-get-value-of-input/">Get Value Of Input, Textarea and Radio Button</a></li>
+<li id="menu-item-31075" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31075"><a href="https://www.formget.com/jquery-datepicker/">Datepicker</a></li>
+<li id="menu-item-31076" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31076"><a href="https://www.formget.com/jquery-disable-radio-button/">Enable/Disable Radio Button Using jQuery</a></li>
+<li id="menu-item-31077" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31077"><a href="https://www.formget.com/checkuncheck-all-checkboxes-using-jquery/">Uncheck/Check All Checkboxes</a></li>
+<li id="menu-item-31078" class="feature-heading menu-item menu-item-type-custom menu-item-object-custom menu-item-31078"><a href="https://www.formget.com/captcha-code-php-jquery/#">Validation</a></li>
+<li id="menu-item-31079" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31079"><a href="https://www.formget.com/jquery-form-validation/">Form Validation</a></li>
+<li id="menu-item-31080" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31080"><a href="https://www.formget.com/email-validation-jquery-codes/">Email Validation</a></li>
+<li id="menu-item-31081" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31081"><a href="https://www.formget.com/jquery-contact-form/">Contact Form Validation</a></li>
+<li id="menu-item-31082" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31082"><a href="https://www.formget.com/prevent-form-submission/">Prevent Form Submission</a></li>
+<li id="menu-item-31083" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31083"><a href="https://www.formget.com/form-shake-effect-on-invalid-entry-using-jquery/">Shake Effect on Invalid Entry</a></li>
+<li id="menu-item-31084" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31084"><a href="https://www.formget.com/enable-disable-button-jquery/">Enable/Disable Submit Button</a></li>
+<li id="menu-item-31085" class="feature-heading menu-item menu-item-type-custom menu-item-object-custom menu-item-31085"><a href="https://www.formget.com/captcha-code-php-jquery/#">Form Actions/Events</a></li>
+<li id="menu-item-31086" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31086"><a href="https://www.formget.com/jquery-reset-form/">Reset Form Fields</a></li>
+<li id="menu-item-31087" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31087"><a href="https://www.formget.com/jquery-form-submit/">Form Submit by Id, Class, Name and Tag</a></li>
+<li id="menu-item-31088" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31088"><a href="https://www.formget.com/dynamically-change-form-action-based-on-selection-using-jquery/">Dynamically Change Form Action</a></li>
+<li id="menu-item-31089" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31089"><a href="https://www.formget.com/disable-auto-complete-in-form-fields-jquery/">Disable Autocomplete of Form Fields</a></li>
+<li id="menu-item-31090" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31090"><a href="https://www.formget.com/submit-your-form-on-pressing-enter-key-using-jquery/">Form Submit On Pressing Enter Key</a></li>
+<li id="menu-item-31091" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31091"><a href="https://www.formget.com/submit-data-from-textarea-on-enter-key/">Textarea Data Submit On Pressing Enter Key</a></li>
+<li id="menu-item-31092" class="feature-heading menu-item menu-item-type-custom menu-item-object-custom menu-item-31092"><a href="https://www.formget.com/captcha-code-php-jquery/#">Miscellaneous</a></li>
+<li id="menu-item-31093" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31093"><a href="https://www.formget.com/implementing-jquery-text-editor-in-textarea/">Text Editor in Textarea</a></li>
+<li id="menu-item-31094" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31094"><a href="https://www.formget.com/password-strength-checker-in-jquery/">Password Strength Checker</a></li>
+<li id="menu-item-31095" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31095"><a href="https://www.formget.com/displaying-progress-bar-on-form-submission-using-jquery/">Display Progress Bar On Form Submission</a></li>
+<li id="menu-item-31096" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31096"><a href="https://www.formget.com/show-and-hide-registrationlogin-form-using-jquery/">Show &amp; Hide Registration/Login Form</a></li>
+<li id="menu-item-31097" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31097"><a href="https://www.formget.com/form-submit-without-page-refreshing-jquery-php/">Form Submit Without Page Refreshing</a></li>
+<li id="menu-item-58149" class="feature-heading menu-item menu-item-type-custom menu-item-object-custom menu-item-58149"><a href="https://www.formget.com/captcha-code-php-jquery/#">Ajax</a></li>
+<li id="menu-item-58150" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58150"><a href="https://www.formget.com/jquery-post-data/">Post Data</a></li>
+<li id="menu-item-58151" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58151"><a href="https://www.formget.com/ajax-image-upload-php/">Image Upload</a></li>
+<li id="menu-item-58152" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58152"><a href="https://www.formget.com/submit-form-using-ajax-php-and-jquery/">Submit Form</a></li>
+<li id="menu-item-58153" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58153"><a href="https://www.formget.com/form-validation-using-ajax/">Form Validation</a></li>
+<li id="menu-item-58154" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58154"><a href="https://www.formget.com/form-submission-using-ajax-php-and-javascript/">Form Submission</a></li>
+<li id="menu-item-58218" class="feature-heading menu-item menu-item-type-custom menu-item-object-custom menu-item-58218"><a>JavaScript</a></li>
+<li id="menu-item-58196" class="feature-heading menu-item menu-item-type-custom menu-item-object-custom menu-item-58196"><a>Forms</a></li>
+<li id="menu-item-58197" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58197"><a href="https://www.formget.com/javascript-contact-form/">Contact Form</a></li>
+<li id="menu-item-58198" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58198"><a href="https://www.formget.com/how-to-design-sidebar-sliding-contact-form-with-javascript/">Sidebar Sliding Contact Form</a></li>
+<li id="menu-item-58199" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58199"><a href="https://www.formget.com/create-multi-step-form-using-javascript-and-css3/">Multi Step Form</a></li>
+<li id="menu-item-58200" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58200"><a href="https://www.formget.com/how-to-create-pop-up-contact-form-using-javascript/">Pop-up Contact Form</a></li>
+<li id="menu-item-58201" class="feature-heading menu-item menu-item-type-custom menu-item-object-custom menu-item-58201"><a>Form Fields</a></li>
+<li id="menu-item-58202" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58202"><a href="https://www.formget.com/how-to-dynamically-add-and-remove-form-fields-using-javascript/">Dynamically Add and Remove Form Fields</a></li>
+<li id="menu-item-58203" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58203"><a href="https://www.formget.com/how-to-dynamically-add-and-remove-form-fields-using-javascript/">Dynamically Add Name And Email Fields</a></li>
+<li id="menu-item-58204" class="feature-heading menu-item menu-item-type-custom menu-item-object-custom menu-item-58204"><a>Validation</a></li>
+<li id="menu-item-58205" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58205"><a href="https://www.formget.com/form-validation-using-javascript/">Form Validation</a></li>
+<li id="menu-item-58206" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58206"><a href="https://www.formget.com/javascript-login-form/">Limit Login Attempts</a></li>
+<li id="menu-item-58207" class="feature-heading menu-item menu-item-type-custom menu-item-object-custom menu-item-58207"><a>Form Actions/Events</a></li>
+<li id="menu-item-58208" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58208"><a href="https://www.formget.com/javascript-serialize/">Serialize Form Data</a></li>
+<li id="menu-item-58209" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58209"><a href="https://www.formget.com/reset-form-fields-using-javascript/">Reset Form Fields</a></li>
+<li id="menu-item-58210" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58210"><a href="https://www.formget.com/form-action-javascript/">Set Form Action</a></li>
+<li id="menu-item-58211" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58211"><a href="https://www.formget.com/javascript-auto-submit-form/">Auto Submit Form</a></li>
+<li id="menu-item-58212" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58212"><a href="https://www.formget.com/javascript-onsubmit/">Onsubmit Event</a></li>
+<li id="menu-item-58213" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58213"><a href="https://www.formget.com/javascript-submit-form/">Onclick Submit Form</a></li>
+<li id="menu-item-58214" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58214"><a href="https://www.formget.com/change-form-action-with-javascript/">Dynamically Change Form Action</a></li>
+<li id="menu-item-58215" class="feature-heading menu-item menu-item-type-custom menu-item-object-custom menu-item-58215"><a>Miscellaneous : Chrome Extension</a></li>
+<li id="menu-item-58216" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58216"><a href="https://www.formget.com/chrome-extension-inject-javascript/">Inject Javascript Into Web Page</a></li>
+<li id="menu-item-58217" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58217"><a href="https://www.formget.com/chrome-extension-tutorial/">Display RSS Blog Feeds</a></li>
+</ul></div>
+							<span class="sidebar-title" style="display: block;">jQuery</span>
+							<ul id="menu-jquery" class="menu rmm-main-list" style=""><li id="menu-item-31060" class="feature-heading menu-item menu-item-type-custom menu-item-object-custom menu-item-31060"><a href="https://www.formget.com/captcha-code-php-jquery/#">Form</a></li>
+<li id="menu-item-31061" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31061"><a href="https://www.formget.com/create-form-using-jquery/">Form</a></li>
+<li id="menu-item-31062" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31062"><a href="https://www.formget.com/jquery-registration-form/">Registration Form</a></li>
+<li id="menu-item-31063" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31063"><a href="https://www.formget.com/jquery-login-form/">Login Form</a></li>
+<li id="menu-item-31064" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31064"><a href="https://www.formget.com/jquery-popup-form/">Popup Login &amp; Contact Form</a></li>
+<li id="menu-item-31065" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31065"><a href="https://www.formget.com/multi-step-form-using-jquery-and-css3/">Multi Step Form</a></li>
+<li id="menu-item-31066" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31066"><a href="https://www.formget.com/jquery-mobile-form/">Mobile Form</a></li>
+<li id="menu-item-31067" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31067"><a href="https://www.formget.com/jquery-dialog-form/">Dialog Box Form</a></li>
+<li id="menu-item-31068" class="feature-heading menu-item menu-item-type-custom menu-item-object-custom menu-item-31068"><a href="https://www.formget.com/captcha-code-php-jquery/#">Form Fields</a></li>
+<li id="menu-item-31069" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31069"><a href="https://www.formget.com/jquery-select-option/">Select option Tag Common Operations</a></li>
+<li id="menu-item-31070" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31070"><a href="https://www.formget.com/jquery-select-change/">Select Change Event, Get Selected Option</a></li>
+<li id="menu-item-31071" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31071"><a href="https://www.formget.com/jquery-add-option-to-select/">Add Option to Select Tag</a></li>
+<li id="menu-item-31072" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31072"><a href="https://www.formget.com/upload-multiple-images-using-php-and-jquery/">Upload Multiple Images</a></li>
+<li id="menu-item-31073" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31073"><a href="https://www.formget.com/create-multiple-form-fields-based-on-selection-jquery/">Multiple Form Fields</a></li>
+<li id="menu-item-31074" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31074"><a href="https://www.formget.com/jquery-get-value-of-input/">Get Value Of Input, Textarea and Radio Button</a></li>
+<li id="menu-item-31075" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31075"><a href="https://www.formget.com/jquery-datepicker/">Datepicker</a></li>
+<li id="menu-item-31076" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31076"><a href="https://www.formget.com/jquery-disable-radio-button/">Enable/Disable Radio Button Using jQuery</a></li>
+<li id="menu-item-31077" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31077"><a href="https://www.formget.com/checkuncheck-all-checkboxes-using-jquery/">Uncheck/Check All Checkboxes</a></li>
+<li id="menu-item-31078" class="feature-heading menu-item menu-item-type-custom menu-item-object-custom menu-item-31078"><a href="https://www.formget.com/captcha-code-php-jquery/#">Validation</a></li>
+<li id="menu-item-31079" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31079"><a href="https://www.formget.com/jquery-form-validation/">Form Validation</a></li>
+<li id="menu-item-31080" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31080"><a href="https://www.formget.com/email-validation-jquery-codes/">Email Validation</a></li>
+<li id="menu-item-31081" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31081"><a href="https://www.formget.com/jquery-contact-form/">Contact Form Validation</a></li>
+<li id="menu-item-31082" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31082"><a href="https://www.formget.com/prevent-form-submission/">Prevent Form Submission</a></li>
+<li id="menu-item-31083" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31083"><a href="https://www.formget.com/form-shake-effect-on-invalid-entry-using-jquery/">Shake Effect on Invalid Entry</a></li>
+<li id="menu-item-31084" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31084"><a href="https://www.formget.com/enable-disable-button-jquery/">Enable/Disable Submit Button</a></li>
+<li id="menu-item-31085" class="feature-heading menu-item menu-item-type-custom menu-item-object-custom menu-item-31085"><a href="https://www.formget.com/captcha-code-php-jquery/#">Form Actions/Events</a></li>
+<li id="menu-item-31086" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31086"><a href="https://www.formget.com/jquery-reset-form/">Reset Form Fields</a></li>
+<li id="menu-item-31087" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31087"><a href="https://www.formget.com/jquery-form-submit/">Form Submit by Id, Class, Name and Tag</a></li>
+<li id="menu-item-31088" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31088"><a href="https://www.formget.com/dynamically-change-form-action-based-on-selection-using-jquery/">Dynamically Change Form Action</a></li>
+<li id="menu-item-31089" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31089"><a href="https://www.formget.com/disable-auto-complete-in-form-fields-jquery/">Disable Autocomplete of Form Fields</a></li>
+<li id="menu-item-31090" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31090"><a href="https://www.formget.com/submit-your-form-on-pressing-enter-key-using-jquery/">Form Submit On Pressing Enter Key</a></li>
+<li id="menu-item-31091" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31091"><a href="https://www.formget.com/submit-data-from-textarea-on-enter-key/">Textarea Data Submit On Pressing Enter Key</a></li>
+<li id="menu-item-31092" class="feature-heading menu-item menu-item-type-custom menu-item-object-custom menu-item-31092"><a href="https://www.formget.com/captcha-code-php-jquery/#">Miscellaneous</a></li>
+<li id="menu-item-31093" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31093"><a href="https://www.formget.com/implementing-jquery-text-editor-in-textarea/">Text Editor in Textarea</a></li>
+<li id="menu-item-31094" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31094"><a href="https://www.formget.com/password-strength-checker-in-jquery/">Password Strength Checker</a></li>
+<li id="menu-item-31095" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31095"><a href="https://www.formget.com/displaying-progress-bar-on-form-submission-using-jquery/">Display Progress Bar On Form Submission</a></li>
+<li id="menu-item-31096" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31096"><a href="https://www.formget.com/show-and-hide-registrationlogin-form-using-jquery/">Show &amp; Hide Registration/Login Form</a></li>
+<li id="menu-item-31097" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31097"><a href="https://www.formget.com/form-submit-without-page-refreshing-jquery-php/">Form Submit Without Page Refreshing</a></li>
+<li id="menu-item-58149" class="feature-heading menu-item menu-item-type-custom menu-item-object-custom menu-item-58149"><a href="https://www.formget.com/captcha-code-php-jquery/#">Ajax</a></li>
+<li id="menu-item-58150" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58150"><a href="https://www.formget.com/jquery-post-data/">Post Data</a></li>
+<li id="menu-item-58151" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58151"><a href="https://www.formget.com/ajax-image-upload-php/">Image Upload</a></li>
+<li id="menu-item-58152" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58152"><a href="https://www.formget.com/submit-form-using-ajax-php-and-jquery/">Submit Form</a></li>
+<li id="menu-item-58153" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58153"><a href="https://www.formget.com/form-validation-using-ajax/">Form Validation</a></li>
+<li id="menu-item-58154" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58154"><a href="https://www.formget.com/form-submission-using-ajax-php-and-javascript/">Form Submission</a></li>
+<li id="menu-item-58218" class="feature-heading menu-item menu-item-type-custom menu-item-object-custom menu-item-58218"><a>JavaScript</a></li>
+<li id="menu-item-58196" class="feature-heading menu-item menu-item-type-custom menu-item-object-custom menu-item-58196"><a>Forms</a></li>
+<li id="menu-item-58197" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58197"><a href="https://www.formget.com/javascript-contact-form/">Contact Form</a></li>
+<li id="menu-item-58198" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58198"><a href="https://www.formget.com/how-to-design-sidebar-sliding-contact-form-with-javascript/">Sidebar Sliding Contact Form</a></li>
+<li id="menu-item-58199" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58199"><a href="https://www.formget.com/create-multi-step-form-using-javascript-and-css3/">Multi Step Form</a></li>
+<li id="menu-item-58200" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58200"><a href="https://www.formget.com/how-to-create-pop-up-contact-form-using-javascript/">Pop-up Contact Form</a></li>
+<li id="menu-item-58201" class="feature-heading menu-item menu-item-type-custom menu-item-object-custom menu-item-58201"><a>Form Fields</a></li>
+<li id="menu-item-58202" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58202"><a href="https://www.formget.com/how-to-dynamically-add-and-remove-form-fields-using-javascript/">Dynamically Add and Remove Form Fields</a></li>
+<li id="menu-item-58203" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58203"><a href="https://www.formget.com/how-to-dynamically-add-and-remove-form-fields-using-javascript/">Dynamically Add Name And Email Fields</a></li>
+<li id="menu-item-58204" class="feature-heading menu-item menu-item-type-custom menu-item-object-custom menu-item-58204"><a>Validation</a></li>
+<li id="menu-item-58205" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58205"><a href="https://www.formget.com/form-validation-using-javascript/">Form Validation</a></li>
+<li id="menu-item-58206" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58206"><a href="https://www.formget.com/javascript-login-form/">Limit Login Attempts</a></li>
+<li id="menu-item-58207" class="feature-heading menu-item menu-item-type-custom menu-item-object-custom menu-item-58207"><a>Form Actions/Events</a></li>
+<li id="menu-item-58208" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58208"><a href="https://www.formget.com/javascript-serialize/">Serialize Form Data</a></li>
+<li id="menu-item-58209" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58209"><a href="https://www.formget.com/reset-form-fields-using-javascript/">Reset Form Fields</a></li>
+<li id="menu-item-58210" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58210"><a href="https://www.formget.com/form-action-javascript/">Set Form Action</a></li>
+<li id="menu-item-58211" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58211"><a href="https://www.formget.com/javascript-auto-submit-form/">Auto Submit Form</a></li>
+<li id="menu-item-58212" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58212"><a href="https://www.formget.com/javascript-onsubmit/">Onsubmit Event</a></li>
+<li id="menu-item-58213" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58213"><a href="https://www.formget.com/javascript-submit-form/">Onclick Submit Form</a></li>
+<li id="menu-item-58214" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58214"><a href="https://www.formget.com/change-form-action-with-javascript/">Dynamically Change Form Action</a></li>
+<li id="menu-item-58215" class="feature-heading menu-item menu-item-type-custom menu-item-object-custom menu-item-58215"><a>Miscellaneous : Chrome Extension</a></li>
+<li id="menu-item-58216" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58216"><a href="https://www.formget.com/chrome-extension-inject-javascript/">Inject Javascript Into Web Page</a></li>
+<li id="menu-item-58217" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58217"><a href="https://www.formget.com/chrome-extension-tutorial/">Display RSS Blog Feeds</a></li>
+</ul>						</div>
+						<!--<div class="sidebar-banner">
+   							 <a id="formget-banner" href="https://www.formget.com/formget/" rel="nofollow"><img src="https://images.formget.com/wp-content/themes/formget/assets/banner-img/sidebar-banner.png" alt="Form Builder"/></a>
+						</div>
+						<div class="sidebar-banner">
+							<a id="mailget-banner" href="https://www.formget.com/mailget-app/" rel="nofollow"><img src="https://images.formget.com/wp-content/themes/formget/assets/banner-img/mailget-banner.png" alt="Email Marketing"/>
+							</a>
+						</div>-->
+						<div class="sidebar-banner heap-banner hidden-xs">
+							<a id="heap-banner" target="_blank" href="https://heapanalytics.com/?utm_source=formget&amp;utm_medium=banner&amp;utm_campaign=formgetbanner" rel="nofollow"><img src="./Captcha Code in PHP and jQuery _ FormGet_files/heapad.png" alt="Heap"></a>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-9">
+					<!--Blog-->
+					<div class="blog">
+						<div class="blog-content">
+																<!--Post-->
+<div class="post">
+	<h1 class="post-title">Captcha Code in PHP and jQuery</h1>
+		<!--	<a href="https://www.formget.com/app/form/share/HW3o-270401">
+			<img src="https://images.formget.com/wp-content/uploads/2017/11/2017-11-21.png" />
+		</a> -->
+		<!-- <ul class="post-meta">
+		<li class="posted-by">BY<a href="https://www.formget.com/author/admin/" title="Posts by Neeraj Agarwal" rel="author">Neeraj Agarwal</a></li>
+		<li class="post-comment"><a href="https://www.formget.com/captcha-code-php-jquery/#comments">22 Comments</a></li>
+	</ul> -->
+	<div class="author-avatar">
+		<img src="./Captcha Code in PHP and jQuery _ FormGet_files/admin_profile_pic.png" width="81" height="81" alt="Neeraj Agarwal" class="avatar avatar-81 wp-user-avatar wp-user-avatar-81 alignnone photo"><br>
+		<span class="author-name" title="Posts by Neeraj Agarwal" rel="author">Neeraj Agarwal</span>
+	</div>
+	<div class="post-content">
+		<p>This blog post demonstrate you, how to implement <span style="color: #222222;">your own simple captcha using PHP, jQuery and AJAX </span>in form.</p>
+<p><strong>Description</strong> : Captcha is basically a random <span style="color: #222222;">generate captcha&nbsp;</span>string and which can be&nbsp;stored in session variable for further use.</p>
+<p>After that, the generated string is bunched with an image to pretend as a single image in such a way that&nbsp;only human being is able read it.</p>
+<ul>
+<li>Here we used an alphanumeric string and stored it in a PHP variable.</li>
+<li>This variable is then passed in <strong>str_shuffle()</strong>&nbsp;function.</li>
+<li>After shuffling, we took sub-string of defined length and stored it in a session (global variable).</li>
+<li>Then, we convert the string into image and used it in our form.</li>
+</ul>
+<p><span style="color: #444444;">&nbsp;</span></p>
+<p><img class="aligncenter wp-image-8011 size-full" title="Implement Captcha in Form" src="./Captcha Code in PHP and jQuery _ FormGet_files/Content-Create-Captcha-using-PHP.jpg" alt="create captcha using php, jQuery and ajax" width="595" height="571" srcset="https://images.formget.com/wp-content/uploads/2014/06/Content-Create-Captcha-using-PHP.jpg 595w,  https://images.formget.com/wp-content/uploads/2014/06/Content-Create-Captcha-using-PHP-300x287.jpg 300w" sizes="(max-width: 595px) 100vw, 595px"></p>
+<p>&nbsp;</p>
+<p><span style="color: #444444;"></span></p><div class="dlv_container"><a class="dlv_download" id="popup" data-download1="/wp-content/uploads/2015/05/captcha_code_phpajax.zip" href="javascript:void(0)">Download script</a>&nbsp;&nbsp;&nbsp;<div id="abc"></div><div id="popupContact"></div></div><script type="text/javascript">var dl_script_content = "<div class='dl-info'><p class='pinfo'>This usually takes about 20 seconds for collecting your files and to send email.</p></div>";var dl_email_content = '';var dlv_loadeer = '<p style="visibility: hidden;margin-top: 20px;" class="loaderwrap"><img class="loader" src="https://images.formget.com/wp-content/plugins/content-upgrade/images/loader-small.gif"><span></span></p>';var dl_domain = "mailget";var dlv_close = '<img src = "https://images.formget.com/wp-content/plugins/content-upgrade/images/close.png\" onclick="dlv_close_popup(jQuery(this));" id ="close" / >';function create_popup() {output = "";output += '<div class="meter">';output += '<span style = "width: 100%"></span></div><div id="loading_submit"></div><form method="post" id="form">';output += '<label for="name">Your Name</label><span class="input_wrapper"><input type="text" name="name" id="name"/></span>';output += '<input type ="hidden" name="subs_id" id="subs_id" value="Ijc4NTg2NiI_3D"/>';output += '<input type ="hidden" name="download" id="download" value="/wp-content/uploads/2015/05/captcha_code_phpajax.zip"/>';output += '<label for="email">Your Email Address</label><span class="input_wrapper"><input onclick="dlv_email_validate(jQuery(this));" placeholder="joie@example.com" type ="text" required="" value="" name="email" id="email"/></span>';output += '<input type ="button" id="popup_submit" name="submit" value="Download File" />';output += '<p> Download link will be send to your Email.';output += '</form>';return output;}</script><p></p>
+<p><strong>HTML File: index.html</strong></p>
+<p>We have created a simple HTML form.</p>
+<div class="syntax-highlighter" html="">
+<pre class=" language-markup"><code class=" language-markup"><span class="token doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>Create Captcha using PHP,jQuery and AJAX<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>style.css<span class="token punctuation">"</span></span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/css<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token script"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span>
+<span class="token script"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>script.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>mainform<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>innerdiv<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token comment" spellcheck="true">&lt;!-- Required Div Starts Here --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">&gt;</span></span>Create Captcha using PHP,jQuery and AJAX<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>myForm<span class="token punctuation">"</span></span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>post<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>myForm<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">&gt;</span></span>Fill Your Information!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>table</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">&gt;</span></span>Username:<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span>'username1'</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span>'username'</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span>'text'</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">&gt;</span></span>Email:<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span>'email1'</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span>'email'</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span>'text'</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>imgparent<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>imgdiv<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>img<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>captcha.php<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>reload<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>reload.png<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">&gt;</span></span>Enter Image Text:<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>captcha1<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>captcha<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span>'button'</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span>'Submit'</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>table</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span></code></pre>
+</div>
+<p>&nbsp;</p>
+<p><strong>CAPTCHA Generating code: captcha.php</strong></p>
+<p>Here, we generate our CAPTCHA&nbsp;<span style="color: #222222;">code in PHP</span>&nbsp;as mentioned above.</p>
+<div class="syntax-highlighter" php="">
+<pre class=" language-php"><code class=" language-php"><span class="token php"><span class="token delimiter">&lt;?php</span>
+<span class="token function">session_start<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true"> // Staring Session
+</span><span class="token variable">$captchanumber</span> <span class="token operator">=</span> <span class="token string">'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyz'</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true"> // Initializing PHP variable with string
+</span><span class="token variable">$captchanumber</span> <span class="token operator">=</span> <span class="token function">substr<span class="token punctuation">(</span></span><span class="token function">str_shuffle<span class="token punctuation">(</span></span><span class="token variable">$captchanumber</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true"> // Getting first 6 word after shuffle.
+</span><span class="token global">$_SESSION</span><span class="token punctuation">[</span><span class="token string">"code"</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$captchanumber</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true"> // Initializing session variable with above generated sub-string
+</span><span class="token variable">$image</span> <span class="token operator">=</span> <span class="token function">imagecreatefromjpeg<span class="token punctuation">(</span></span><span class="token string">"bj.jpg"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true"> // Generating CAPTCHA
+</span><span class="token variable">$foreground</span> <span class="token operator">=</span> <span class="token function">imagecolorallocate<span class="token punctuation">(</span></span><span class="token variable">$image</span><span class="token punctuation">,</span> <span class="token number">175</span><span class="token punctuation">,</span> <span class="token number">199</span><span class="token punctuation">,</span> <span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true"> // Font Color
+</span><span class="token function">imagestring<span class="token punctuation">(</span></span><span class="token variable">$image</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">45</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token variable">$captchanumber</span><span class="token punctuation">,</span> <span class="token variable">$foreground</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">header<span class="token punctuation">(</span></span><span class="token string">'Content-type: image/png'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">imagepng<span class="token punctuation">(</span></span><span class="token variable">$image</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token delimiter">?&gt;</span></span></code></pre>
+</div>
+<p>&nbsp;</p>
+<p><strong>jQuery and Ajax Code : script.js</strong></p>
+<p>here, we performed validation of other fields and sending user input&nbsp;CAPTCHA text via Ajax to verfy.php file.</p>
+<div class="syntax-highlighter">
+<pre class=" language-javascript"><code class=" language-javascript">$<span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">ready<span class="token punctuation">(</span></span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token comment" spellcheck="true">//change CAPTCHA on each click or on refreshing page
+</span>$<span class="token punctuation">(</span><span class="token string">"#reload"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">click<span class="token punctuation">(</span></span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+$<span class="token punctuation">(</span><span class="token string">"img#img"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">remove<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> id <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">random<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+$<span class="token punctuation">(</span><span class="token string">'&lt;img id="img" src="captcha.php?id='</span><span class="token operator">+</span>id<span class="token operator">+</span><span class="token string">'"/&gt;'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">appendTo<span class="token punctuation">(</span></span><span class="token string">"#imgdiv"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+id <span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//validation function
+</span>$<span class="token punctuation">(</span><span class="token string">'#button'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">click<span class="token punctuation">(</span></span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">var</span> name <span class="token operator">=</span> $<span class="token punctuation">(</span><span class="token string">"#username1"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">val<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> email <span class="token operator">=</span> $<span class="token punctuation">(</span><span class="token string">"#email1"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">val<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> captcha <span class="token operator">=</span> $<span class="token punctuation">(</span><span class="token string">"#captcha1"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">val<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>name <span class="token operator">==</span> <span class="token string">''</span> <span class="token operator">||</span> email <span class="token operator">==</span> <span class="token string">''</span> <span class="token operator">||</span> captcha <span class="token operator">==</span> <span class="token string">''</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+<span class="token function">alert<span class="token punctuation">(</span></span><span class="token string">"Fill All Fields"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">else</span>
+<span class="token punctuation">{</span> <span class="token comment" spellcheck="true">//validating CAPTCHA with user input text
+</span><span class="token keyword">var</span> dataString <span class="token operator">=</span> <span class="token string">'captcha='</span> <span class="token operator">+</span> captcha<span class="token punctuation">;</span>
+$<span class="token punctuation">.</span><span class="token function">ajax<span class="token punctuation">(</span></span><span class="token punctuation">{</span>
+type<span class="token punctuation">:</span> <span class="token string">"POST"</span><span class="token punctuation">,</span>
+url<span class="token punctuation">:</span> <span class="token string">"verify.php"</span><span class="token punctuation">,</span>
+data<span class="token punctuation">:</span> dataString<span class="token punctuation">,</span>
+success<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>html<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token function">alert<span class="token punctuation">(</span></span>html<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>VERIFYING CAPTCHA : verify.php</strong></p>
+<p>verifying user input CAPTCHA&nbsp;text with generated CAPTCHA string, stored in session variable.</p>
+<div class="syntax-highlighter" php="">
+<pre class=" language-php"><code class=" language-php"><span class="token php"><span class="token delimiter">&lt;?php</span><span class="token comment" spellcheck="true">
+//CAPTCHA Matching code
+</span><span class="token function">session_start<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token global">$_SESSION</span><span class="token punctuation">[</span><span class="token string">"code"</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token global">$_POST</span><span class="token punctuation">[</span><span class="token string">"captcha"</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">echo</span> <span class="token string">"Form Submitted successfully....!"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+<span class="token keyword">die</span><span class="token punctuation">(</span><span class="token string">"Wrong TEXT Entered"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token delimiter">?&gt;</span></span>
+</code></pre>
+</div>
+<p><strong>&nbsp;CSS File: style.css</strong></p>
+<p>Styling HTML elements.</p>
+<div class="syntax-highlighter" css="">
+<pre class=" language-css"><code class=" language-css"><span class="token atrule">@import "http<span class="token punctuation">:</span>//fonts.googleapis.com/css?family=Fauna+One|Muli"<span class="token punctuation">;</span></span>
+<span class="token selector">#mainform</span><span class="token punctuation">{</span>
+<span class="token property">width</span><span class="token punctuation">:</span>960px<span class="token punctuation">;</span>
+<span class="token property">margin</span><span class="token punctuation">:</span>20px auto<span class="token punctuation">;</span>
+<span class="token property">padding-top</span><span class="token punctuation">:</span>20px<span class="token punctuation">;</span>
+<span class="token property">font-family</span><span class="token punctuation">:</span><span class="token string">'Fauna One'</span>,serif
+<span class="token punctuation">}</span>
+<span class="token selector">#mainform h2</span><span class="token punctuation">{</span>
+<span class="token property">width</span><span class="token punctuation">:</span>100%<span class="token punctuation">;</span>
+<span class="token property">float</span><span class="token punctuation">:</span>left<span class="token punctuation">;</span>
+<span class="token property">text-align</span><span class="token punctuation">:</span>center<span class="token punctuation">;</span>
+<span class="token property">margin-top</span><span class="token punctuation">:</span>35px
+<span class="token punctuation">}</span>
+<span class="token selector">.innerdiv</span><span class="token punctuation">{</span>
+<span class="token property">width</span><span class="token punctuation">:</span>65%<span class="token punctuation">;</span>
+<span class="token property">float</span><span class="token punctuation">:</span>left
+<span class="token punctuation">}</span>
+<span class="token selector">form</span><span class="token punctuation">{</span>
+<span class="token property">background-color</span><span class="token punctuation">:</span>#fff<span class="token punctuation">;</span>
+<span class="token property">color</span><span class="token punctuation">:</span>#123456<span class="token punctuation">;</span>
+<span class="token property">box-shadow</span><span class="token punctuation">:</span>0 1px 1px 1px gray<span class="token punctuation">;</span>
+<span class="token property">width</span><span class="token punctuation">:</span>500px<span class="token punctuation">;</span>
+<span class="token property">margin</span><span class="token punctuation">:</span>50px 250px 0 50px<span class="token punctuation">;</span>
+<span class="token property">float</span><span class="token punctuation">:</span>left<span class="token punctuation">;</span>
+<span class="token property">height</span><span class="token punctuation">:</span>430px
+<span class="token punctuation">}</span>
+<span class="token selector">h3</span><span class="token punctuation">{</span>
+<span class="token property">margin-top</span><span class="token punctuation">:</span>0<span class="token punctuation">;</span>
+<span class="token property">margin-bottom</span><span class="token punctuation">:</span>10px<span class="token punctuation">;</span>
+<span class="token property">color</span><span class="token punctuation">:</span>#fff<span class="token punctuation">;</span>
+<span class="token property">background-color</span><span class="token punctuation">:</span>#3C599B<span class="token punctuation">;</span>
+<span class="token property">text-align</span><span class="token punctuation">:</span>center<span class="token punctuation">;</span>
+<span class="token property">width</span><span class="token punctuation">:</span>100%<span class="token punctuation">;</span>
+<span class="token property">height</span><span class="token punctuation">:</span>50px<span class="token punctuation">;</span>
+<span class="token property">padding-top</span><span class="token punctuation">:</span>30px
+<span class="token punctuation">}</span>
+<span class="token selector">input</span><span class="token punctuation">{</span>
+<span class="token property">width</span><span class="token punctuation">:</span>250px<span class="token punctuation">;</span>
+<span class="token property">height</span><span class="token punctuation">:</span>30px<span class="token punctuation">;</span>
+<span class="token property">border-radius</span><span class="token punctuation">:</span>3px<span class="token punctuation">;</span>
+<span class="token property">padding</span><span class="token punctuation">:</span>2px<span class="token punctuation">;</span>
+<span class="token property">box-shadow</span><span class="token punctuation">:</span>0 0 10px #a9a9a9<span class="token punctuation">;</span>
+<span class="token property">margin</span><span class="token punctuation">:</span>10px
+<span class="token punctuation">}</span>
+<span class="token selector">input[type=button]</span><span class="token punctuation">{</span>
+<span class="token property">background-color</span><span class="token punctuation">:</span>#3C599B<span class="token punctuation">;</span>
+<span class="token property">border</span><span class="token punctuation">:</span>1px solid #fff<span class="token punctuation">;</span>
+<span class="token property">font-family</span><span class="token punctuation">:</span><span class="token string">'Fauna One'</span>,serif<span class="token punctuation">;</span>
+<span class="token property">font-weight</span><span class="token punctuation">:</span>700<span class="token punctuation">;</span>
+<span class="token property">font-size</span><span class="token punctuation">:</span>18px<span class="token punctuation">;</span>
+<span class="token property">color</span><span class="token punctuation">:</span>#fff<span class="token punctuation">;</span>
+<span class="token property">margin-top</span><span class="token punctuation">:</span>15px
+<span class="token punctuation">}</span>
+<span class="token selector">span</span><span class="token punctuation">{</span>
+<span class="token property">color</span><span class="token punctuation">:</span>green
+<span class="token punctuation">}</span>
+<span class="token selector">#myForm div</span><span class="token punctuation">{</span>
+<span class="token property">color</span><span class="token punctuation">:</span>red<span class="token punctuation">;</span>
+<span class="token property">font-size</span><span class="token punctuation">:</span>14px
+<span class="token punctuation">}</span>
+<span class="token selector">table</span><span class="token punctuation">{</span>
+<span class="token property">margin-left</span><span class="token punctuation">:</span>40px
+<span class="token punctuation">}</span>
+<span class="token selector">#imgdiv</span><span class="token punctuation">{</span>
+<span class="token property">width</span><span class="token punctuation">:</span>160px<span class="token punctuation">;</span>
+<span class="token property">float</span><span class="token punctuation">:</span>left<span class="token punctuation">;</span>
+<span class="token property">margin-left</span><span class="token punctuation">:</span>20px
+<span class="token punctuation">}</span>
+<span class="token selector">#reload</span><span class="token punctuation">{</span>
+<span class="token property">float</span><span class="token punctuation">:</span>right<span class="token punctuation">;</span>
+<span class="token property">margin-right</span><span class="token punctuation">:</span>40px
+<span class="token punctuation">}</span></code></pre>
+</div>
+<p><strong>Conclusion:</strong></p>
+<p>So, in this way you can create your own <span style="color: #222222;">php captcha</span>, keep following to learn more.</p>
+	</div>
+	<div class="clear"></div>
+		<!--Comments-->
+	<div id="commentsbox">
+		<span class="comments-heading"><span>Comments and Responses</span></span>
+		<!--<h3 id="comments"></h3>-->
+		<div id="comment-form">
+			<div id="respond" class="rounded">
+				<div class="cancel-comment-reply"> <small>
+						<a rel="nofollow" id="cancel-comment-reply-link" href="https://www.formget.com/captcha-code-php-jquery/#respond" style="display:none;">Click here to cancel reply.</a>					</small> </div>
+																			
+					<p>Your email address will not be published. Required fields are marked *</p>
+
+					<form action="https://www.formget.com/wp-comments-post.php" method="post" id="commentform">
+
+						  
+							<div id="comment-author" class="form-row">
+								<input type="text" placeholder="Name (required)" name="author" id="author" value="" size="22" tabindex="1" aria-required="true">
+							</div>
+							<div id="comment-email" class="form-row"> 
+								<input type="text" placeholder="Mail (will not be published) (required)" name="email" id="email" value="" size="22" tabindex="2" aria-required="true">
+							</div>
+
+							<div id="comment-url" class="form-row">
+								<input type="text" placeholder="Website" name="url" id="url" value="" size="22" tabindex="3">
+							</div>
+
+												<div id="comment-message" class="form-row">
+							<textarea name="comment" placeholder="Message" id="comment" cols="100" rows="10" tabindex="4"></textarea>
+						</div>
+						<input class="fbtn bright-blue" name="submit" type="submit" id="commentSubmit" tabindex="5" value="Submit Comment">             
+						<input type="hidden" name="comment_post_ID" value="6787" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+						<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="32da520102"></p><p style="display: none;"></p>
+					<input type="hidden" id="ak_js" name="ak_js" value="1530463207396"></form>
+							</div>
+		</div>                                                                          
+	</div>
+  
+</div>
+<!--/Post-->
+<!--Comment List-->
+<div id="comment_list">
+			<div class="comments-heading"><span>Leave a Reply</span></div>
+		<ol class="commentlist">
+				<li class="comment even thread-even depth-1 parent" id="comment-101790">
+			<div id="div-comment-101790" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn">af</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="https://www.formget.com/captcha-code-php-jquery/#comment-101790">
+				September 2, 2014 at 6:48 am</a>		</div>
+
+		<p>code does not work!</p>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.formget.com/captcha-code-php-jquery/#comment-101790" onclick="return addComment.moveForm( &quot;div-comment-101790&quot;, &quot;101790&quot;, &quot;respond&quot;, &quot;6787&quot; )" aria-label="Reply to af">Reply</a>		</div>
+				</div>
+		<ul class="children">
+	<li class="comment byuser comment-author-admin bypostauthor odd alt depth-2" id="comment-129950">
+			<div id="div-comment-129950" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn">admin</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="https://www.formget.com/captcha-code-php-jquery/#comment-129950">
+				September 29, 2014 at 11:18 am</a>		</div>
+
+		<p>Hello Af,</p>
+<p>Let me know what error you are getting so that I check it at my end.</p>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.formget.com/captcha-code-php-jquery/#comment-129950" onclick="return addComment.moveForm( &quot;div-comment-129950&quot;, &quot;129950&quot;, &quot;respond&quot;, &quot;6787&quot; )" aria-label="Reply to admin">Reply</a>		</div>
+				</div>
+		</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1 parent" id="comment-120920">
+			<div id="div-comment-120920" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn">gaurav</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="https://www.formget.com/captcha-code-php-jquery/#comment-120920">
+				September 21, 2014 at 10:05 pm</a>		</div>
+
+		<p>Your captcha does not work in firefox</p>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.formget.com/captcha-code-php-jquery/#comment-120920" onclick="return addComment.moveForm( &quot;div-comment-120920&quot;, &quot;120920&quot;, &quot;respond&quot;, &quot;6787&quot; )" aria-label="Reply to gaurav">Reply</a>		</div>
+				</div>
+		<ul class="children">
+	<li class="comment byuser comment-author-admin bypostauthor odd alt depth-2" id="comment-129949">
+			<div id="div-comment-129949" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn">admin</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="https://www.formget.com/captcha-code-php-jquery/#comment-129949">
+				September 29, 2014 at 11:17 am</a>		</div>
+
+		<p>Hello Gaurav,</p>
+<p>Thanks for looking into it.</p>
+<p>We sincerely apologize for this inconvenience. Now, we have updated our codes and it’s reference.</p>
+<p>Now captcha image refresh working on any browsers.</p>
+<p>Keep reading our other blog posts.. for getting more coding tricks.</p>
+<p>Thanks &amp; Regards,<br>
+FormGet.com</p>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.formget.com/captcha-code-php-jquery/#comment-129949" onclick="return addComment.moveForm( &quot;div-comment-129949&quot;, &quot;129949&quot;, &quot;respond&quot;, &quot;6787&quot; )" aria-label="Reply to admin">Reply</a>		</div>
+				</div>
+		</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1 parent" id="comment-129657">
+			<div id="div-comment-129657" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn">Luan</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="https://www.formget.com/captcha-code-php-jquery/#comment-129657">
+				September 26, 2014 at 6:06 pm</a>		</div>
+
+		<p>Thanks man, works great!</p>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.formget.com/captcha-code-php-jquery/#comment-129657" onclick="return addComment.moveForm( &quot;div-comment-129657&quot;, &quot;129657&quot;, &quot;respond&quot;, &quot;6787&quot; )" aria-label="Reply to Luan">Reply</a>		</div>
+				</div>
+		<ul class="children">
+	<li class="comment byuser comment-author-admin bypostauthor odd alt depth-2" id="comment-130886">
+			<div id="div-comment-130886" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn">admin</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="https://www.formget.com/captcha-code-php-jquery/#comment-130886">
+				October 7, 2014 at 10:21 am</a>		</div>
+
+		<p>Thanks for your appreciation !</p>
+<p>Keep reading our blog posts.</p>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.formget.com/captcha-code-php-jquery/#comment-130886" onclick="return addComment.moveForm( &quot;div-comment-130886&quot;, &quot;130886&quot;, &quot;respond&quot;, &quot;6787&quot; )" aria-label="Reply to admin">Reply</a>		</div>
+				</div>
+		</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1 parent" id="comment-131159">
+			<div id="div-comment-131159" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn">Sanjay</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="https://www.formget.com/captcha-code-php-jquery/#comment-131159">
+				October 8, 2014 at 7:46 pm</a>		</div>
+
+		<p>This is good captcha code but reload image is not working in internet explorer and firefox.</p>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.formget.com/captcha-code-php-jquery/#comment-131159" onclick="return addComment.moveForm( &quot;div-comment-131159&quot;, &quot;131159&quot;, &quot;respond&quot;, &quot;6787&quot; )" aria-label="Reply to Sanjay">Reply</a>		</div>
+				</div>
+		<ul class="children">
+	<li class="comment odd alt depth-2" id="comment-140540">
+			<div id="div-comment-140540" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn">LP</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="https://www.formget.com/captcha-code-php-jquery/#comment-140540">
+				November 28, 2014 at 5:56 am</a>		</div>
+
+		<p>I too checked in firefox. Reload image is not working.</p>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.formget.com/captcha-code-php-jquery/#comment-140540" onclick="return addComment.moveForm( &quot;div-comment-140540&quot;, &quot;140540&quot;, &quot;respond&quot;, &quot;6787&quot; )" aria-label="Reply to LP">Reply</a>		</div>
+				</div>
+		</li><!-- #comment-## -->
+	<li class="comment even depth-2" id="comment-140552">
+			<div id="div-comment-140552" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn">Robin</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="https://www.formget.com/captcha-code-php-jquery/#comment-140552">
+				November 28, 2014 at 7:46 am</a>		</div>
+
+		<p>Thank you very much for the captcha code. But as Mr.Sanjay said, the reload image wasn’t working in the internet explorer and firefox. </p>
+<p>But I found the issue, there is a image cache clearing issue with firefox. You just need to modify the script.js as follows:</p>
+<p>//change CAPTCHA on each click or on refreshing page<br>
+    $(“#reload”).click(function() {<br>
+        $(“#img”).remove();<br>
+		var d=new Date();<br>
+        //$(”).empty().appendTo(“#imgdiv”);<br>
+		$(‘#imgdiv’).empty().append(”);<br>
+    });</p>
+<p>you can see in the above code I have added a variable “d” for date function and appended in the capctha.php</p>
+<p>Let me know any queries.</p>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.formget.com/captcha-code-php-jquery/#comment-140552" onclick="return addComment.moveForm( &quot;div-comment-140552&quot;, &quot;140552&quot;, &quot;respond&quot;, &quot;6787&quot; )" aria-label="Reply to Robin">Reply</a>		</div>
+				</div>
+		</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-admin bypostauthor odd alt depth-2" id="comment-140571">
+			<div id="div-comment-140571" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn">admin</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="https://www.formget.com/captcha-code-php-jquery/#comment-140571">
+				November 28, 2014 at 9:43 am</a>		</div>
+
+		<p>Thanks Robin for the code.</p>
+<p>Hello Sanjay,</p>
+<p>You need to do some changes for firefox in script.js file.</p>
+<p>Use this   : $(“#reload”).click(function() {<br>
+	          $(“#img”).remove();<br>
+	          location.reload();<br>
+                  });</p>
+<p>Hope that will work for you.</p>
+<p>Regards,<br>
+FormGet Team.</p>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.formget.com/captcha-code-php-jquery/#comment-140571" onclick="return addComment.moveForm( &quot;div-comment-140571&quot;, &quot;140571&quot;, &quot;respond&quot;, &quot;6787&quot; )" aria-label="Reply to admin">Reply</a>		</div>
+				</div>
+		</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="comment-154903">
+			<div id="div-comment-154903" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn">Celleke</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="https://www.formget.com/captcha-code-php-jquery/#comment-154903">
+				January 23, 2015 at 4:09 am</a>		</div>
+
+		<p>Thank you very much for the captcha code<br>
+I used this code to solve the bug of reload button it worked fine for me</p>
+<p>$(“#reload”).click(function() {<br>
+		$(“#img”).remove();<br>
+		$(‘#imgdiv’).append(”)<br>
+		$(‘#img’).attr(‘src’, ‘../php/captcha.php?’+new Date().getTime());<br>
+    });<br>
+maybe it is useful for someone?</p>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.formget.com/captcha-code-php-jquery/#comment-154903" onclick="return addComment.moveForm( &quot;div-comment-154903&quot;, &quot;154903&quot;, &quot;respond&quot;, &quot;6787&quot; )" aria-label="Reply to Celleke">Reply</a>		</div>
+				</div>
+		</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-160989">
+			<div id="div-comment-160989" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn">nicoaudy</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="https://www.formget.com/captcha-code-php-jquery/#comment-160989">
+				February 11, 2015 at 8:40 am</a>		</div>
+
+		<p>Totally works! Thanks a lot</p>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.formget.com/captcha-code-php-jquery/#comment-160989" onclick="return addComment.moveForm( &quot;div-comment-160989&quot;, &quot;160989&quot;, &quot;respond&quot;, &quot;6787&quot; )" aria-label="Reply to nicoaudy">Reply</a>		</div>
+				</div>
+		</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1 parent" id="comment-190063">
+			<div id="div-comment-190063" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn">vaibhav</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="https://www.formget.com/captcha-code-php-jquery/#comment-190063">
+				March 19, 2015 at 5:14 am</a>		</div>
+
+		<p>refresh image dosen’t work ???</p>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.formget.com/captcha-code-php-jquery/#comment-190063" onclick="return addComment.moveForm( &quot;div-comment-190063&quot;, &quot;190063&quot;, &quot;respond&quot;, &quot;6787&quot; )" aria-label="Reply to vaibhav">Reply</a>		</div>
+				</div>
+		<ul class="children">
+	<li class="comment byuser comment-author-admin bypostauthor odd alt depth-2" id="comment-211440">
+			<div id="div-comment-211440" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn">Neeraj Agarwal</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="https://www.formget.com/captcha-code-php-jquery/#comment-211440">
+				May 19, 2015 at 7:02 am</a>		</div>
+
+		<p>Hello Vaibhav,</p>
+<p>Now, we have updated our codes and it’s reference.</p>
+<p>Now captcha image refresh button working on any browsers which you use like( IE, Firefox, chrome  etc ).</p>
+<p>Keep reading our other blog posts.. for getting more coding tricks.</p>
+<p>Thanks &amp; Regards,<br>
+FormGet.com</p>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.formget.com/captcha-code-php-jquery/#comment-211440" onclick="return addComment.moveForm( &quot;div-comment-211440&quot;, &quot;211440&quot;, &quot;respond&quot;, &quot;6787&quot; )" aria-label="Reply to Neeraj Agarwal">Reply</a>		</div>
+				</div>
+		</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1 parent" id="comment-205181">
+			<div id="div-comment-205181" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn">Kapil Geed</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="https://www.formget.com/captcha-code-php-jquery/#comment-205181">
+				April 16, 2015 at 1:29 pm</a>		</div>
+
+		<p>The captcha image is not working.<br>
+even it is not getting load..<br>
+please get me back soon..</p>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.formget.com/captcha-code-php-jquery/#comment-205181" onclick="return addComment.moveForm( &quot;div-comment-205181&quot;, &quot;205181&quot;, &quot;respond&quot;, &quot;6787&quot; )" aria-label="Reply to Kapil Geed">Reply</a>		</div>
+				</div>
+		<ul class="children">
+	<li class="comment byuser comment-author-admin bypostauthor odd alt depth-2" id="comment-211439">
+			<div id="div-comment-211439" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn">Neeraj Agarwal</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="https://www.formget.com/captcha-code-php-jquery/#comment-211439">
+				May 19, 2015 at 6:58 am</a>		</div>
+
+		<p>Hello Kapil,</p>
+<p>Thanks for looking into it.</p>
+<p>We sincerely apologize for this inconvenience. Now, we have updated our codes and it’s reference.</p>
+<p>Now captcha image refresh working on any browsers.</p>
+<p>Keep reading our other blog posts.. for getting more coding tricks.</p>
+<p>Thanks &amp; Regards,<br>
+FormGet.com</p>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.formget.com/captcha-code-php-jquery/#comment-211439" onclick="return addComment.moveForm( &quot;div-comment-211439&quot;, &quot;211439&quot;, &quot;respond&quot;, &quot;6787&quot; )" aria-label="Reply to Neeraj Agarwal">Reply</a>		</div>
+				</div>
+		</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="comment-236087">
+			<div id="div-comment-236087" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn">Mahyar</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="https://www.formget.com/captcha-code-php-jquery/#comment-236087">
+				January 5, 2016 at 5:32 pm</a>		</div>
+
+		<p>Your blog posts are really useful ??<br>
+Thanks a lot ✋?</p>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.formget.com/captcha-code-php-jquery/#comment-236087" onclick="return addComment.moveForm( &quot;div-comment-236087&quot;, &quot;236087&quot;, &quot;respond&quot;, &quot;6787&quot; )" aria-label="Reply to Mahyar">Reply</a>		</div>
+				</div>
+		</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-242603">
+			<div id="div-comment-242603" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn">Muhammad Arbi</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="https://www.formget.com/captcha-code-php-jquery/#comment-242603">
+				February 11, 2016 at 9:36 am</a>		</div>
+
+		<p>Does not work not show images with captcha ………………..</p>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.formget.com/captcha-code-php-jquery/#comment-242603" onclick="return addComment.moveForm( &quot;div-comment-242603&quot;, &quot;242603&quot;, &quot;respond&quot;, &quot;6787&quot; )" aria-label="Reply to Muhammad Arbi">Reply</a>		</div>
+				</div>
+		</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="comment-247828">
+			<div id="div-comment-247828" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn">shaifali</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="https://www.formget.com/captcha-code-php-jquery/#comment-247828">
+				March 16, 2016 at 7:35 am</a>		</div>
+
+		<p>I am using your site code in my registration page then captcha is not properly work without check the value of textbox with captcha image form is submitted successfully(when captcha text have wrong value).in my registration page i am using javascript validation.Only for captcha we use jquery validator</p>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.formget.com/captcha-code-php-jquery/#comment-247828" onclick="return addComment.moveForm( &quot;div-comment-247828&quot;, &quot;247828&quot;, &quot;respond&quot;, &quot;6787&quot; )" aria-label="Reply to shaifali">Reply</a>		</div>
+				</div>
+		</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-251423">
+			<div id="div-comment-251423" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn">Fathima</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="https://www.formget.com/captcha-code-php-jquery/#comment-251423">
+				April 1, 2016 at 4:29 am</a>		</div>
+
+		<p>Hello Sir / Mam..</p>
+<p>            I workout this coding.i got one error in this coding..when i run this image will not be display on screen.suppose i want to create any database for this error?</p>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.formget.com/captcha-code-php-jquery/#comment-251423" onclick="return addComment.moveForm( &quot;div-comment-251423&quot;, &quot;251423&quot;, &quot;respond&quot;, &quot;6787&quot; )" aria-label="Reply to Fathima">Reply</a>		</div>
+				</div>
+		</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="comment-377687">
+			<div id="div-comment-377687" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn">Amit</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="https://www.formget.com/captcha-code-php-jquery/#comment-377687">
+				September 23, 2017 at 12:25 pm</a>		</div>
+
+		<p>Hi, Great article,  but there is a problem with the Captcha generating code…after I replaced it, then it begun to work and show…But thank you very much</p>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.formget.com/captcha-code-php-jquery/#comment-377687" onclick="return addComment.moveForm( &quot;div-comment-377687&quot;, &quot;377687&quot;, &quot;respond&quot;, &quot;6787&quot; )" aria-label="Reply to Amit">Reply</a>		</div>
+				</div>
+		</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-377967">
+			<div id="div-comment-377967" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn">Hem Raj Bhatta</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="https://www.formget.com/captcha-code-php-jquery/#comment-377967">
+				September 24, 2017 at 11:18 am</a>		</div>
+
+		<p>Your validation doesn’t work @ email sections.</p>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.formget.com/captcha-code-php-jquery/#comment-377967" onclick="return addComment.moveForm( &quot;div-comment-377967&quot;, &quot;377967&quot;, &quot;respond&quot;, &quot;6787&quot; )" aria-label="Reply to Hem Raj Bhatta">Reply</a>		</div>
+				</div>
+		</li><!-- #comment-## -->
+		</ol>
+		<div class="comment-nav">
+			<div class="alignleft">
+							</div>
+			<div class="alignright">
+							</div>
+		</div>
+		<!--/Comment List--> 
+</div>															</div>
+					</div>
+					<!--/Blog-->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 	<div style="background-color: #373e86; text-align: center;">
+		<a href="https://www.formget.com/mailget-app/?utm_source=formget&utm_medium=footer-big-banner&utm_campaign=formget-footer-banner" rel="nofollow">
+			<img style="max-width: 100%; height: auto;" src="https://images.formget.com/wp-content/themes/formget/assets/banner-img/formget-form.jpg" alt="formget form"/>
+		</a>
+	</div> -->
+	<!--Footer-->
+<div id="footer" class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+				<div class="rmm minimal graphite" data-menutitle="Footer Menu"><div class="rmm-toggled rmm-closed" style=""><div class="rmm-toggled-controls"><div class="rmm-toggled-title">Footer Menu</div><div class="rmm-button"><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span></div></div><ul><li id="menu-item-334" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-334"><a rel="nofollow" href="https://www.formget.com/">Home</a></li>
+<li id="menu-item-33818" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-33818"><a rel="nofollow" href="https://www.formget.com/formget-documentation/">FormGet Documentation</a></li>
+<li id="menu-item-1170" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1170"><a rel="nofollow" href="https://www.formget.com/affiliate/">Affiliate</a></li>
+<li id="menu-item-577" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-577"><a rel="nofollow" href="https://www.formget.com/terms-conditions/">Terms &amp; Conditions</a></li>
+<li id="menu-item-588" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-588"><a rel="nofollow" href="https://www.formget.com/privacy-policy/">Privacy Policy</a></li>
+<li id="menu-item-21750" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-21750"><a rel="nofollow" href="https://www.formget.com/formget-branding/">FormGet Branding</a></li>
+<li id="menu-item-183" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-183"><a rel="nofollow" href="https://www.formget.com/contact-us/">Contact Us</a></li>
+<li id="menu-item-576" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-576"><a rel="nofollow" href="https://www.formget.com/about-us/">About Us</a></li>
+</ul></div><ul id="menu-footer" class="rmm-main-list" style=""><li id="menu-item-334" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-334"><a rel="nofollow" href="https://www.formget.com/">Home</a></li>
+<li id="menu-item-33818" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-33818"><a rel="nofollow" href="https://www.formget.com/formget-documentation/">FormGet Documentation</a></li>
+<li id="menu-item-1170" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1170"><a rel="nofollow" href="https://www.formget.com/affiliate/">Affiliate</a></li>
+<li id="menu-item-577" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-577"><a rel="nofollow" href="https://www.formget.com/terms-conditions/">Terms &amp; Conditions</a></li>
+<li id="menu-item-588" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-588"><a rel="nofollow" href="https://www.formget.com/privacy-policy/">Privacy Policy</a></li>
+<li id="menu-item-21750" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-21750"><a rel="nofollow" href="https://www.formget.com/formget-branding/">FormGet Branding</a></li>
+<li id="menu-item-183" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-183"><a rel="nofollow" href="https://www.formget.com/contact-us/">Contact Us</a></li>
+<li id="menu-item-576" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-576"><a rel="nofollow" href="https://www.formget.com/about-us/">About Us</a></li>
+</ul></div>            </div>
+        </div>
+    </div>
+</div>
+<!--/Footer-->
+<!--Footer Bottom-->
+<div id="footer_bottom" class="footer-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="copyright">© 2018 MagnetBrains LLC. All rights reserved.</div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Footer Bottom-->
+</div>
+
+
+
+    <div id="wpfront-scroll-top-container" style="opacity: 0.8; right: 20px; bottom: 20px; display: block;">
+        <img src="./Captcha Code in PHP and jQuery _ FormGet_files/1.png" alt="Back to top" style="width: auto; height: auto;">    </div>
+    <script type="text/javascript">function wpfront_scroll_top_init() {if(typeof wpfront_scroll_top == "function" && typeof jQuery !== "undefined") {wpfront_scroll_top({"scroll_offset":100,"button_width":0,"button_height":0,"button_opacity":0.8,"button_fade_duration":200,"scroll_duration":400,"location":1,"marginX":20,"marginY":20,"hide_iframe":false,"auto_hide":false,"auto_hide_after":2,"button_action":"top","button_action_element_selector":"","button_action_container_selector":"html, body","button_action_element_offset":0});} else {setTimeout(wpfront_scroll_top_init, 100);}}wpfront_scroll_top_init();</script>
+	<script type="text/javascript">
+		window.heap = window.heap || [], heap.load = function (e, t) {
+			window.heap.appid = e, window.heap.config = t = t || {};
+			var r = t.forceSSL || "https:" === document.location.protocol, a = document.createElement("script");
+			a.type = "text/javascript", a.async = !0, a.src = (r ? "https:" : "http:") + "//cdn.heapanalytics.com/js/heap-" + e + ".js";
+			var n = document.getElementsByTagName("script")[0];
+			n.parentNode.insertBefore(a, n);
+			for (var o = function (e) {
+				return function () {
+					heap.push([e].concat(Array.prototype.slice.call(arguments, 0)))
+				}
+			}, p = ["addEventProperties", "addUserProperties", "clearEventProperties", "identify", "removeEventProperty", "setEventProperties", "track", "unsetEventProperty"], c = 0; c < p.length; c++)
+				heap[p[c]] = o(p[c])
+		};
+		heap.load("490363613");
+	</script>
+	<!-- Facebook Pixel Code -->
+	<script>
+		!function (f, b, e, v, n, t, s) {
+			if (f.fbq)
+				return;
+			n = f.fbq = function () {
+				n.callMethod ?
+						n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+			};
+			if (!f._fbq)
+				f._fbq = n;
+			n.push = n;
+			n.loaded = !0;
+			n.version = '2.0';
+			n.queue = [];
+			t = b.createElement(e);
+			t.async = !0;
+			t.src = v;
+			s = b.getElementsByTagName(e)[0];
+			s.parentNode.insertBefore(t, s)
+		}(window,
+				document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+
+		fbq('init', '338458722986297');
+	        fbq('track', "PageView");</script>
+	<noscript><img height="1" width="1" style="display:none"
+				   src="https://www.facebook.com/tr?id=338458722986297&ev=PageView&noscript=1" alt="facebook"
+				   /></noscript>
+	<!-- End Facebook Pixel Code -->
+	<script type="text/javascript" src="./Captcha Code in PHP and jQuery _ FormGet_files/scripts.1.0.js.download"></script>
+<script type="text/javascript" src="./Captcha Code in PHP and jQuery _ FormGet_files/init.1.2.js.download"></script>
+<script type="text/javascript" src="./Captcha Code in PHP and jQuery _ FormGet_files/comment-reply.min.js.download"></script>
+<script type="text/javascript" src="./Captcha Code in PHP and jQuery _ FormGet_files/sh.js.download"></script>
+<script type="text/javascript" src="./Captcha Code in PHP and jQuery _ FormGet_files/wpfront-scroll-top.min.js.download"></script>
+<script type="text/javascript" src="./Captcha Code in PHP and jQuery _ FormGet_files/superfish.min.js.download"></script>
+<script type="text/javascript" src="./Captcha Code in PHP and jQuery _ FormGet_files/jquery.meanmenu.js.download"></script>
+<script type="text/javascript" src="./Captcha Code in PHP and jQuery _ FormGet_files/js_init.js.download"></script>
+<script async="async" type="text/javascript" src="./Captcha Code in PHP and jQuery _ FormGet_files/form.js.download"></script>
+
+			<div id="cookie-notice" role="banner" class="cn-bottom bootstrap" style="color: #fff; background-color: #000;"><div class="cookie-notice-container"><span id="cn-notice-text">We use cookies to ensure that we give you the best experience on our website. If you continue to use this site we will assume that you are happy with it.</span><a href="https://www.formget.com/captcha-code-php-jquery/#" id="cn-accept-cookie" data-cookie-set="accept" class="cn-set-cookie cn-button bootstrap button_cache">Allow Cookies</a><a href="https://www.formget.com/privacy-policy/" target="_blank" id="cn-more-info" class="cn-more-info cn-button bootstrap button_cache">Read more</a>
+				</div>
+				
+			</div>
+<script>
+  
+
+    jQuery(window).ready(function () {
+	
+  //Remove Current list item From Blog Category list
+    if(jQuery('.sidebar-page.rmm.taxlist.graphite.category').length > 0){
+    var blog_attr = jQuery('.sidebar-page.rmm.taxlist.graphite.blog_category').attr('data-menutitle');
+    var cate_attr = jQuery('.sidebar-page.rmm.taxlist.graphite.category').attr('data-menutitle');
+
+    if (blog_attr == cate_attr) {
+    var menu_item = blog_attr.replace('Categories','');
+
+
+var chk_data='';
+if(jQuery('.sidebar-page.rmm.taxlist.graphite.category ul.menu li:first a').attr('href')=='#'){
+    chk_data=jQuery('.sidebar-page.rmm.taxlist.graphite.category ul.menu li:nth-child(2) a').attr('href');
+    }else{
+         chk_data=jQuery('.sidebar-page.rmm.taxlist.graphite.category ul.menu li:first a').attr('href');
+        }
+
+
+    jQuery('.sidebar-page.rmm.taxlist.graphite.blog_category ul.menu li a').filter(function() {   
+        
+        if(jQuery(this).attr('href')==chk_data){
+            return jQuery(this).parent().remove();
+            }
+        
+        
+        
+        //return jQuery.text([this]) === menu_item; 
+        
+        });
+    }
+}
+    });  
+    </script>
+
+
+
+
+</body></html>

@@ -1,0 +1,9 @@
+var APPCONFIG;
+APPCONFIG = {"baseUrl":"http:\/\/asif18.com\/","assetsUrl":"\/cdn\/","assetsAbsUrl":"http:\/\/cdn.asif18.com\/","gCaptchaSiteKey":"6Lfw-jAUAAAAAKxn15SOXR5LvfN-2T_ZkqaK2HO_","user":{"__ci_last_regenerate":1530463406,"user_type":"user"}};
+APPCONFIG.WSURLS = {
+	
+	getComments  : APPCONFIG.baseUrl+'comments/getComments',
+	saveComment  : APPCONFIG.baseUrl+'comments/saveComment'
+	
+};
+

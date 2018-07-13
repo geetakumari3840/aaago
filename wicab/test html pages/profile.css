@@ -1,0 +1,74 @@
+.accordion {
+    background-color: #8800cc;
+    color: black;
+    cursor: pointer;
+    padding: 8px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+    border-bottom: red 1px solid;
+}
+
+.active, .accordion:hover {
+    background-color: #dd99ff;
+    color : white;
+    border-bottom: yellow 1px solid;
+}
+
+.accordion:after {
+    content: '\2795';
+    color: red;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\2796";
+}
+
+.panel {
+    padding: 0 18px;
+    background-color: lightgrey;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+.heading { background-color: pink;
+            text-align: center;
+            color:green;width: 830px;
+            margin: auto;
+            text-shadow: 3px 2px red;
+            font-size: 30px;
+            padding: 0px;
+            margin-left: 10px;}
+
+
+.text {
+  float: left;
+}
+
+.text-2 p {
+  margin-bottom: 1em;
+}
+
+.text-1 {
+  margin: 66px 0 0 38.734375%;
+  font-size: 1.35em;
+  text-decoration: underline;
+  color: rgb(251, 8, 8);
+}
+.text-2 {
+  clear: both;
+  width: 830px;
+  margin-left: 10px;
+  font-style: italic;
+  font-size: 1em;
+  text-align: justify;
+  color: rgb(0, 0, 0);
+  background-color: white;
+}

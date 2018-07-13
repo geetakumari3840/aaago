@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<!-- saved from url=(0084)https://ivebe.com/blog/simple-php-captcha-tutorial-part2-reload-without-refresh.html -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Simple Php Captcha Tutorial Part2 Reload Without Refresh</title>
+    <meta name="description" content="This is 2nd part of Simple PHP captcha tutorial in which we will reload captcha without refreshing whole page.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="./Simple Php Captcha Tutorial Part2 Reload Without Refresh_files/css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="./Simple Php Captcha Tutorial Part2 Reload Without Refresh_files/style.css">
+    <link href="./Simple Php Captcha Tutorial Part2 Reload Without Refresh_files/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://ivebe.com/assets/imgs/favicon.ico">
+    <link rel="canonical" href="https://ivebe.com/blog/simple-php-captcha-tutorial-part2-reload-without-refresh.html">
+  <script async="" src="./Simple Php Captcha Tutorial Part2 Reload Without Refresh_files/analytics.js.download"></script><script src="./Simple Php Captcha Tutorial Part2 Reload Without Refresh_files/embed.js.download" data-timestamp="1530459987654"></script><link rel="preload" as="style" href="https://c.disquscdn.com/next/embed/styles/lounge.3999ac261b914f8b8b5e85df0ff3eaea.css"><link rel="preload" as="script" href="https://c.disquscdn.com/next/embed/common.bundle.5f8e47303ecf1055cd7c6905466d140a.js"><link rel="preload" as="script" href="https://c.disquscdn.com/next/embed/lounge.bundle.33067ddbd4792de0b384ceb588602715.js"><link rel="preload" as="script" href="https://disqus.com/next/config.js"><script src="./Simple Php Captcha Tutorial Part2 Reload Without Refresh_files/alfalfa.4a5fcca1fe50a757044dfd331b660625.js.download" async="" charset="UTF-8"></script></head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Ivebe</h1>
+      <h2 class="project-tagline">Software, Web apps/packages, and little more by Ivebe.</h2>
+      <a href="https://ivebe.com/" class="btn"><i class="fa fa-home"></i> Home</a>
+      <a href="https://ivebe.com/blog/" class="btn"><i class="fa fa-comments"></i> Blog</a>
+      <a href="https://github.com/ivebe" class="btn"><i class="fa fa-github"></i> GitHub</a>
+      <a href="http://stackoverflow.com/users/2663825/dexa" class="btn"><i class="fa fa-stack-overflow"></i> Stack Overflow</a>
+      <a href="https://www.linkedin.com/in/petrovicdanijel" class="btn"><i class="fa fa-linkedin-square"></i> LinkedIn</a>
+    </section>
+
+    <section class="main-content">
+      <h1 id="simple-php-captcha-tutorial---part-2">Simple PHP captcha tutorial - part 2</h1>
+
+<p>Before reading this tutorial, I assume you read <a href="https://ivebe.com/blog/simple-php-captcha-tutorial.html">part 1</a> of this tutorial. Here we will introduce few easy techniques to make captcha reload without refreshing whole page using jQuery. jQuery is javascript library which is widely used, so we will use it as well. We need to include it in our page, put this line in your head part of document:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"//<a class="vglnk" href="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" rel="nofollow"><span>ajax</span><span>.</span><span>googleapis</span><span>.</span><span>com</span><span>/</span><span>ajax</span><span>/</span><span>libs</span><span>/</span><span>jquery</span><span>/</span><span>1</span><span>.</span><span>10</span><span>.</span><span>2</span><span>/</span><span>jquery</span><span>.</span><span>min</span><span>.</span><span>js</span></a>"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<p>You could also download jQuery library and reference it from your own website. Let’s move on. In this tutorial we will modify only demo.html page from previous tutorial, as php files generates captcha just fine.</p>
+
+<p>Let’s go and add id attribute to our captcha image so we can locate it more easily. Our captcha image should look like this:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"captcha.php"</span> <span class="na">id=</span><span class="s">"captcha"</span> <span class="nt">/&gt;</span> 
+</code></pre></div></div>
+
+<p>Now let’s remove onclick function from demo.html file and just add id attribute to the button.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">id=</span><span class="s">"reload"</span> <span class="na">value=</span><span class="s">"Reload"</span> <span class="nt">/&gt;</span>    
+</code></pre></div></div>
+
+<p>Note that this doesn’t have to be a button, but for simplicity I’ll use a existing button from previous tutorial. Now let’s make jQuery script that will change captcha image. We will write it after document is loaded, so we will use some form of <code class="highlighter-rouge">document.ready</code> function. jQuery have handy form for this it goes like this:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Handler for .ready() called.</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>We will put this code just before closing body tag between <script></script> tags. Inside we will put handler for click on our “reload” button. Code:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script&gt;</span>
+    <span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">$</span><span class="p">(</span><span class="s1">'#reload'</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+            <span class="c1">//here goes code for reloading image</span>
+        <span class="p">});</span>
+    <span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>Now comes the interesting part. In order to reload image, all we need to do is call the same url, “captcha.php”, and just add query string to it, so web browser will think it’s a new image and reload it, but we will actually generate new image in the same “captcha.php” file. In order to generate new query string every time, we will use javascript <code class="highlighter-rouge">Date.getTime()</code> function which return time in milliseconds since 1970/01/01, that way it will be unique value every time you hit reload button. Let’s see it.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+    <span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">$</span><span class="p">(</span><span class="s1">'#reload'</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+            <span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+            <span class="nx">$</span><span class="p">(</span><span class="s1">'img'</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'src'</span><span class="p">,</span> <span class="s1">'captcha.php?'</span> <span class="o">+</span> <span class="nx">d</span><span class="p">.</span><span class="nx">getTime</span><span class="p">());</span>
+        <span class="p">});</span>
+    <span class="p">});</span>
+<span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
+</span></code></pre></div></div>
+
+<p>That’s it. In just few lines of code we made functional captcha which can be reloaded without refreshing whole page. Enjoy, and don’t forget to check next part of tutorial where I will show how to limit number of attempts user can try to enter captcha.</p>
+
+<p>Now complete demo.html source:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">"X-UA-Compatible"</span> <span class="na">content=</span><span class="s">"IE=edge,chrome=1"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;title&gt;</span>Simple PHP captcha demo<span class="nt">&lt;/title&gt;</span>
+        <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width; initial-scale=1.0"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"//<a class="vglnk" href="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" rel="nofollow"><span>ajax</span><span>.</span><span>googleapis</span><span>.</span><span>com</span><span>/</span><span>ajax</span><span>/</span><span>libs</span><span>/</span><span>jquery</span><span>/</span><span>1</span><span>.</span><span>10</span><span>.</span><span>2</span><span>/</span><span>jquery</span><span>.</span><span>min</span><span>.</span><span>js</span></a>"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;div&gt;</span>
+            <span class="nt">&lt;header&gt;</span>
+                <span class="nt">&lt;h1&gt;</span>Simple PHP captcha demo<span class="nt">&lt;/h1&gt;</span>
+            <span class="nt">&lt;/header&gt;</span>
+            <span class="nt">&lt;div&gt;</span>
+                <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"captcha.php"</span> <span class="na">id=</span><span class="s">"captcha"</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">"captcha-validate.php"</span> <span class="na">method=</span><span class="s">"post"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"answer"</span> <span class="na">placeholder=</span><span class="s">"Enter captcha here"</span> <span class="nt">/&gt;</span>
+                    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">value=</span><span class="s">"CHECK"</span> <span class="nt">/&gt;</span>
+                    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">id=</span><span class="s">"reload"</span> <span class="na">value=</span><span class="s">"Reload"</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;/form&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;footer&gt;</span>
+                <span class="nt">&lt;p&gt;</span>
+                    <span class="ni">&amp;copy;</span> Copyright  by <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"<a class="vglnk" href="http://www.ivebe.com/" rel="nofollow"><span>http</span><span>://</span><span>www</span><span>.</span><span>ivebe</span><span>.</span><span>com</span></a>"</span><span class="nt">&gt;</span>Danijel Petrovic<span class="nt">&lt;/a&gt;</span>
+                <span class="nt">&lt;/p&gt;</span>
+            <span class="nt">&lt;/footer&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;script&gt;</span>
+        <span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="c1">// Handler for .ready() called.</span>
+            <span class="nx">$</span><span class="p">(</span><span class="s1">'#reload'</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+                <span class="nx">$</span><span class="p">(</span><span class="s1">'#captcha'</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'src'</span><span class="p">,</span> <span class="s1">'captcha.php?'</span> <span class="o">+</span> <span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">).</span><span class="nx">getTime</span><span class="p">());</span>
+            <span class="p">});</span>
+        <span class="p">});</span>
+        <span class="nt">&lt;/script&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<ul class="blog-info">
+<li><i class="fa fa-user"></i> By Dan</li>
+<li><i class="fa fa-calendar"></i> August 15, 2013</li>
+<li><i class="fa fa-tags"></i> EN, PHP, Beginner, jQuery</li>
+</ul>
+
+<div id="disqus_thread"><iframe id="dsq-app7531" name="dsq-app7531" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" width="100%" src="./Simple Php Captcha Tutorial Part2 Reload Without Refresh_files/saved_resource.html" style="width: 1px !important; min-width: 100% !important; border: none !important; overflow: hidden !important; height: 385px !important;" horizontalscrolling="no" verticalscrolling="no"></iframe></div>
+<script>
+     var disqus_config = function () {
+     this.page.url = 'https://ivebe.com/blog/simple-php-captcha-tutorial-part2-reload-without-refresh.html';
+     this.page.identifier = '/blog/simple-php-captcha-tutorial-part2-reload-without-refresh.html';
+     };
+    
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://ivebe.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<noscript>Please enable JavaScript to view the <a href="<a class="vglnk" href="https://disqus.com/?ref_noscript" rel="nofollow"><span>https</span><span>://</span><span>disqus</span><span>.</span><span>com</span><span>/?</span><span>ref</span><span>_</span><span>noscript</span></a>">comments powered by Disqus.</a></noscript>
+
+
+      <footer class="site-footer">
+        <span class="site-footer-credits">Copyright © 2018 Danijel Petrovic.</span>
+      </footer>
+    </section>
+
+    
+      <script type="text/javascript">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-19939845-3', 'auto');
+        ga('send', 'pageview');
+      </script>
+    
+  
+
+<iframe style="display: none;" src="./Simple Php Captcha Tutorial Part2 Reload Without Refresh_files/saved_resource(1).html"></iframe></body></html>

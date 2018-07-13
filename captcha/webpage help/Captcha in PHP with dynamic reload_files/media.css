@@ -1,0 +1,106 @@
+@media (min-width: 1199px) {
+}
+
+@media (max-width: 992px) {
+.navbar-toggle{display:block;}
+
+.mynavbar .navbar-toggle {margin: 10px 0px 0 0;}
+.mynavbar .navbar-toggle .icon-bar {
+    background-color: #04a8f1;}
+.splrit, .leftset, .splleft{width:100%;}
+.toprit{margin: 0 20px 0 0;}
+.toprit.splrits {
+    clear: none;
+    float: left;
+    margin: 0;}
+.splleft {
+    padding: 15px 0 0;}
+.splmobile{background: none repeat scroll 0 0 #04a8f1;
+    display: block;
+    padding: 0 15px;}
+.splmobile:hover{color:#fff;}
+.splmobile .fa{margin:0 0 0 10px;}
+.nav > li.menuli{display:block;}
+.navbar-nav > li.menuli > a{border: 0 none;
+    text-align: left;
+	border-top:1px solid #fafcfe;
+	border-bottom:1px solid #e3ebf2 }
+.navbar-nav > li > .dropdown-menu.multimenu {
+	border: medium none;
+    box-shadow: none;
+    float: none;}
+.dropdown-menu.multimenu{border: medium none;
+    box-shadow: none;
+    float: none;}
+.nameservice{padding:0;}
+.countrymap img{width:100%;}
+.fulatnine{width:100%;}
+.nav > li.menuli.quotereqst .rqstbtn{padding: 0 40px 0 10px;}
+
+}
+
+@media (max-width: 992px) and (min-width: 650px){
+.steplistng{min-height: 200px;
+    padding: 10px 5px;
+    width: 20%;}
+.celltbl {
+    display: block;
+    overflow: hidden;
+    width: 100%;}
+.mainstp{font-size: 14px;
+    line-height: 16px;text-align:center;}
+}
+
+
+
+@media (max-width: 768px) {
+.socialtop{display:none;}
+.pgsmplhd{font-size:30px;}
+.ourprjcts .col-xs-4{width:50%;}
+.nav.navbar-nav.ritsec {
+    margin: 0;
+}
+}
+@media (max-width: 650px) {
+.sixfifty{display: block;
+    width: 100%;}
+.oursrvces .col-xs-4{width:50%;}
+.qtfa.fa{font-size: 16px;margin:0;}
+.contftr .col-xs-4{width:100%;}
+.sideval .fullio{width:100%;}
+}
+@media (max-width: 550px) {
+.mylogo {float:left; max-width: 250px;}
+.mylogo img{width: 100%;}
+.pageheadblk{font-size:28px;}
+.includservc .col-xs-6{width:100%;}
+.nameservice{padding:12px 0 0;}
+.allsmal{width:100%;}
+}
+	
+@media (max-width: 500px) {
+.nameservice{padding:0;}
+.ourprjcts .col-xs-4{width:100%;}
+}
+
+@media (max-width: 450px) {
+.comntoplink{font-size: 100%;margin: 0 0 0 10px;}
+.splmobile{padding:0 10px;}
+.comntoplink .fa{display:none;}
+.mainheading{font-size: 36px;line-height: 44px;}
+.submainsocinner{font-size: 18px;line-height: 26px;}
+.optndrt {font-size: 20px;
+    line-height: 28px;max-width: 100%;}
+
+@media (max-width: 450px) {
+.oursrvces .col-xs-4{width:100%;}
+.mainstp{font-size: 16px;
+    line-height: 22px;}
+}
+
+
+@media (max-width: 350px) {
+.mylogo {max-width: 200px;}
+.sectn{margin: 0 -10px;}
+.numbers{font-size: 26px;}
+}

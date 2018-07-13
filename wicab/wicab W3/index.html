@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WICAB Eng. (P) Ltd.</title>
+    <link rel="shortcut icon" href="myimages/logo transparent.png" type="image/png">
+    <link rel="shortcut icon" type="image/png" href="myimages/logo transparent.png" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="mycode/w3_4.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+</style>
+</head>
+<body class="w3-light-grey w3-content" style="backgr ound-image: url('myimages/backy.jpg');max-width: 1600px;">
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left w3-card-4" style="z-index:3;width:300px;" id="mySidebar">
+      <div class="w3-container">
+        <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-xxlarge w3-padding w3-hove r-grey" title="close menu">
+          <i class="fa fa-remove"></i>
+        </a>
+        <img src="myimages/123456.jpg" style="width:77%;" class="w3-round w3-center w3-margin-top "><br><br>
+        <h6 class="w3-text-red w3-center"><b>WICAB Engineering India Pvt Ltd.</b></h6>
+      
+      </div>
+      <div class="w3-bar-block">
+            <a href="#" onclick="w3_close()" class="w3-hover-red w3-bar-item w3-button w3-padding "><i class="fa fa-home fa-fw w3-margin-right"></i>HOME</a> 
+   
+  <div class="w3-bar-item  w3-hover-blue w3-button" onclick="myAccFunc()"><i class="fa fa-user  fa-fw w3-margin-right"></i>
+  ABOUT US&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-caret-down"></i></div>
+        <div id="demoAcc" class="w3-hide w3-white w3-card-4">
+            <a href="#ABOUT" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-lignt-grey"><i class="fa fa-vcard-o  fa-fw w3-margin-right"></i>Company Profile</a>
+            <a href="#TEAM"  onclick="w3_close()" class=" w3-hover-lignt-grey  w3-bar-item w3-button w3-padding"><i class="fa fa-handshake-o  fa-fw w3-margin-right"></i>OUR TEAM</a> 
+            <a href="#STRENGHT"  onclick="w3_close()" class=" w3-hover-lignt-grey w3-bar-item w3-button"><i class="fa fa-users  fa-fw w3-margin-right w3-hover-blue"></i>Our Strength</a></div> 
+            <a href="#SERVICE"  onclick="w3_close()" class="w3-hover-green w3-bar-item w3-button w3-padding"><i class="fa fa-cogs  fa-fw  w3-margin-right"></i>SERVICE</a> 
+            <a href="products.html"  onclick="w3_close()" class="w3-hover-aqua w3-bar-item w3-button w3-padding"><i class="fa fa-th-large  fa-fw w3-margin-right"></i>PRODUCTS</a> 
+            <a href="#QUALITY"  onclick="w3_close()" class="w3-hover-orange w3-bar-item w3-button w3-padding"><i class="fa fa-eye  fa-fw w3-margin-right"></i>QUALITY</a> 
+      <div class="w3-bar-item w3-button" onclick="myAccFunc1()"><i class="fa fa-envelope  fa-fw  w3-margin-right w3-hover-blue"></i>
+      CONTACT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-caret-down"></i></div>
+      <div id="demoAcc1" class="w3-hide w3-white w3-card-4">
+    <a href="#INDIA"  onclick="w3_close()" class="w3-bar-item w3-button"><i class="fa fa-rupee   fa-fw w3-margin-right w3-hover-blue"></i>India</a>
+    <a href="#UN"  onclick="w3_close()" class="w3-bar-item w3-button"><i class="fa fa-dollar  fa-fw w3-margin-right w3-hover-blue"></i>United State</a>
+    <a href="#IDA"  onclick="w3_close()" class="w3-bar-item w3-button"><i class="fa fa-truck  fa-fw w3-margin-right w3-hover-blue"></i>International Distributor and &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Associates</a>
+  </div> 
+            <a href="#QUERY"  onclick="w3_close()" class="w3-hover-lime w3-bar-item w3-button w3-padding"><i class="fa fa-comments  w3-margin-right"></i>QUREY</a> 
+      </div>
+   
+        <script>
+    function myAccFunc() {
+        var x = document.getElementById("demoAcc");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+            x.previousElementSibling.className += " w3-blue";
+        } else { 
+            x.className = x.className.replace(" w3-show", "");
+            x.previousElementSibling.className = 
+            x.previousElementSibling.className.replace(" w3-blue", "");
+        }
+    }
+    </script>
+            <script>
+    function myAccFunc1() {
+        var x = document.getElementById("demoAcc1");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+            x.previousElementSibling.className += " w3-purple";
+        } else { 
+            x.className = x.className.replace(" w3-show", "");
+            x.previousElementSibling.className = 
+            x.previousElementSibling.className.replace(" w3-purple", "");
+        }
+    }
+    </script>
+</nav>
+<!-- Overlay effect when opening sidebar on small screens -->
+<!--<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay" ></div> -->
+<script>
+  // Script to open and close sidebar
+  function w3_open() {
+      document.getElementById("mySidebar").style.display = "block";
+      document.getElementById("myOverlay").style.display = "block";
+
+  }
+   
+  function w3_close() {
+      document.getElementById("mySidebar").style.display = "none";
+      document.getElementById("myOverlay").style.display = "none";
+
+  }
+ </script>
+  <div class="w3-main" style="margin-left:300px;padding: 10px;bo rder : green 1px solid;">
+   <div class="w3-white"> <a href="#"><img src="myimages/123456.jpg" style="width:85px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity "></a>
+    <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey " onclick="w3_open()"><i class="fa fa-bars"></i></span></div>
+<!-- top --
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="w3-bottom w3-right">
+<a href="#" class="w3-xxxlarge w3-animate-bottom"><i class="w3-r ed fa fa-arrow-circle-up" style="font-size:60px;color:red;"></i></a>
+</div> -->
+<style>
+
+#myBtn {
+  display: none;
+  position: fixed ;
+  bottom : 20px;
+  right: 30px;
+  z-index: 99;
+  fo nt-size: 18px;
+  bor der: none;
+  outl ine: none;
+  back ground-color: red;
+  col or: white;
+  cursor: pointer;
+  padd ing: 15px;
+  bord er-radius: 4px;
+}
+
+
+</style>
+<div onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-arrow-circle-up" style="font-size:60px;color:red;"></i></div>
+
+<script>
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("myBtn").style.display = "block";
+    } else {
+        document.getElementById("myBtn").style.display = "none";
+    }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+</script>
+<!-- end top -->
+<!-- header -->
+    <style>@media only screen and (max-width: 900px) {#HOME {display: none;}} </style>
+    <div class="w3-card-4 w3-round-large w3-white  w3-animate-right" id="HOME">
+        <img src="myimages/logo transparent.png" style="margin: 10px 0px 0px 10px;float: left;">
+        <img src="myimages/iso transparent.png" style="width:auto;float: right;margin: 15px 10px 0px 0px;">
+      <h1 class="w3-text-red w3-xxxlarge w3-center" style="text-shadow:1px 1px 0 #444;padding: 0px;margin:0px;">WICAB ENGINEERING (P) LTD.</h1>
+      <p class="w3-text-green w3-center" style="padding: 0px;margin:0px;"><b>Design, Manufacturing, Supplying &amp; Servicing of Electrical and Electronic Wires &amp; Cables</b></p>
+    </div>
+<!-- End header -->
+
+<!-- slideshow -->
+ <div  class="w3-round-xlarge w3-border w3-border-black w3-card-4 w3-white w3-margin-top w3-animate-right">
+    <div class="w3-margin w3-card-4 w3-round-xlarge w3-content w3-display-container">
+      <img class="mySlides w3-round-xlarge " src="myimages/123.jpg" style="width: 100%">
+      <img class="mySlides w3-round-xlarge " src="myimages/1234.jpg" style="width: 100%">
+      <img class="mySlides w3-round-xlarge " src="myimages/12345.jpg" style="width: 100%">
+      <img class="mySlides w3-round-xlarge " src="myimages/123456.jpg" style="width: 100%">
+    <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">
+    <div class="w3-left w3-hover-text-green w3-xxxlarge w3-text-red" onclick="plusDivs(-1)">&#10094;</div>
+    <div class="w3-right w3-hover-text-green w3-xxxlarge w3-text-red" w3-xxxlarge w3-text-redow3-xxxlarge w3-text-rednclick="plusDivs(1)">&#10095;</div>
+    <span class="w3-badge `demo w3-border w3-transparent w3-hover-black" onclick="currentDiv(1)"></span>
+    <span class="w3-badge demo w3-border w3-transparent w3-hover-black" onclick="currentDiv(2)"></span>
+    <span class="w3-badge demo w3-border w3-transparent w3-hover-black" onclick="currentDiv(3)"></span>
+    <span class="w3-badge demo w3-border w3-transparent  w3-hover-black" onclick="currentDiv(4)"></span>
+  </div>
+    </div></div>
+        <script>
+                   var slideIndex = 1;
+            showDivs(slideIndex);
+
+            function plusDivs(n) {
+              showDivs(slideIndex += n);
+            }
+
+            function currentDiv(n) {
+              showDivs(slideIndex = n);
+            }
+
+            function showDivs(n) {
+              var i;
+              var x = document.getElementsByClassName("mySlides");
+              var dots = document.getElementsByClassName("demo");
+              if (n > x.length) {slideIndex = 1}    
+              if (n < 1) {slideIndex = x.length}
+              for (i = 0; i < x.length; i++) {
+                 x[i].style.display = "none";  
+              }
+              for (i = 0; i < dots.length; i++) {
+                 dots[i].className = dots[i].className.replace(" w3-white", "");
+              }
+              x[slideIndex-1].style.display = "block";  
+              dots[slideIndex-1].className += " w3-white";
+            }
+        </script>
+        <script>
+            var myIndex = 0;
+            carousel();
+
+            function carousel() {
+                var i;
+                var x = document.getElementsByClassName("mySlides");
+                for (i = 0; i < x.length; i++) {
+                   x[i].style.display = "none";  
+                }
+                myIndex++;
+                if (myIndex > x.length) {myIndex = 1}    
+                x[myIndex-1].style.display = "block";  
+                setTimeout(carousel, 5000); // Change image every 2 seconds
+            }
+      </script>
+<!-- End Slideshow -->
+<div id="ABOUT"><br></div>
+<!-- About Us -->
+ <div class=" w3-blue w3-round-xxlarge">
+  <div class="w3-container w3-round-xxlarge" >
+       <h1>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-vcard-o w3-margin-right w3-hover-blue"></i>&nbsp;Company Profile</h1>
+    </div>
+   <div class="w3-white w3-round-xxlarge w3-card-4 w3-justify w3-border w3-border-blue">
+    <div class="w3-container">
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<spand style="color:blue;"><b>WICAB Engineering Private Ltd.</b></spand> an ISO 9001:2000 Company is established in the industrial area of NCR New Delhi, India. WICAB is a pioneer in designing and manufacturing of special wires and cables for electrical and electronic products for various industrial segments under the brand ‘Wicab’, with electrical insulation base of PTFE (Teflon), Silicon Rubber and Polyester/ Polymers, Plastics, Kapton, Mylar, FHP, FHF etc. Wicab’s specialisation is in designing high performance special wires and cables with fine insulations, fine size and accuracy &amp; weight, with excellent Electrical &amp; Electronic characteristics &amp; properties in capacitive, inductive and resistive loads under various mechanical, thermal, metallurgical &amp; chemical environmental conditions suitable for customized &amp; industrial applications and equipments for the niche OEMs in domestic and overseas..</p>
+
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Wicab has got well-defined development and manufacturing process to ensure products of high quality and consistency. We are manufacturing the products as per UL, CSA, BS, US-MIL, IEC and BIS/IS standards and following the process for getting CE marking for our products. Wicab has got the large corporate and Industrial organizations of repute, in India and overseas, as its customers.</p>
+     </div>
+    <div id="TEAM"><br></div>
+        <h1 class="w3-blue">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-handshake-o w3-margin-right w3-hover-blue"></i>&nbsp;Our Team</h1> 
+        <div class="w3-container">
+        <div class="w3-row-padding w3-grayscale">
+    <div class="w3-col l3 m6 w3-margin-bottom w3-hover-shadow">
+      <img src="myimages/team3.jpg" alt="John" style="width:100%">
+      <h3>Mr. ABCD</h3>
+      <p class="w3-opacity">CEO &amp; Founder</p>
+      <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+      <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom w3-hover-shadow">
+      <img src="myimages/team1.jpg" alt="Jane" style="width:100%">
+      <h3>Ms. ABCD</h3>
+      <p class="w3-opacity">Head Engineer</p>
+      <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+      <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom w3-hover-shadow">
+      <img src="myimages/team2.jpg" alt="Mike" style="width:100%">
+      <h3>Mr. ABCD</h3>
+      <p class="w3-opacity">Engineer</p>
+      <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+      <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom w3-hover-shadow">
+      <img src="myimages/team4.jpg" alt="Dan" style="width:100%">
+      <h3>Mr. ABCD</h3>
+      <p class="w3-opacity">Management</p>
+      <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+      <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
+    </div>
+  </div>
+         
+        </div>
+
+    <div id="STRENGHT"><br></div>
+        <h1 class="w3-blue">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-users w3-margin-right w3-hover-blue"></i>&nbsp;Our Strength</h1> 
+        <div class="w3-container">
+         <ul style="list-style-type:disc">
+          <li>Rigorous monitoring, control and implementation of design, manufacturing and testing process.</li>
+          <li>100% tested and inspected, routine Breakdown tests on samples</li>
+          <li>Focus on innovation, design & development for complex and critical applications</li>
+          <li>Application of technology for better performance & reliability(conductor to insulation ratio up 65:35)</li>
+          <li>Wicab’s innovative spirit has already given rise to a number of patentable products (being patented)</li>
+          <li>Adequate investment & planning in Equipment, Time and Manpower</li>
+          <li>Well Equipped development Laboratory and Testing Facilities</li>
+          <li>Technically qualified and experienced professional team</li>
+          <li>Products are as per the functional parameters of UL, CSA, US-MIL , IEC and BIS / IS standards and specifications</li>
+          <li>Manufacturing Process as per CE Mark</li>
+          <li>Product portfolio includes more than 1000 products</li>
+          <li>Guaranteed performance and reliability and consistency</li>
+          <li>Prompt low cost desk delivery of small as well as large orders</li>
+          <li>Strong relationship management with customers, vendors and Industry</li>
+          <li>Collaborative Engineering Design of End Products by customer andWicab</li>
+          <li>Exclusive design and supply for customer’s applications & their innovative products</li>
+        </ul>
+      </div>
+
+
+
+      </div></div>
+      
+<!-- End About Us -->
+<div id="PRODUCTS"><br></div>
+
+<div id="SERVICE"><br></div>
+<!-- service -->
+
+ <div class=" w3-green w3-round-xxlarge" >
+
+  <div class="w3-container w3-round-xxlarge" >
+       <h1>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-cogs w3-margin-right w3-hover-blue"></i>&nbsp;Services</h1>
+    </div>
+   <div class="w3-white w3-round-xxlarge w3-card-4 w3-justify w3-border w3-border-green">
+    <div class="w3-container">
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<spand style="color:blue;"><b>WICAB Engineering Private Ltd.</b></spand> an ISO 9001:2000 A Technology Driven organisation provides various services:</p>
+
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Wicab has expertise in insulating material & Insulation process for different conductors. Design aspects based upon: working temperature (–500C to +6000C); Working voltage - upto 50 kV / BDV upto 90kV, low leakage current (a few mA) High conductor current density (upto 50 Amp/sqmm); Conductor to Insulation Area Ratio as high as 67:33: excellent mechanical parameters and Insulation Inertness for various known chemicals.</p>
+
+          <ol>
+          <li><spand style="color:blue;"><b>Professional Advisory Services - </b></spand> for application of wires and cables in various industrial and process industries and also for Appliances and equipments.</li>
+          <br>
+          <li><spand style="color:blue;"><b>Design services - </b></spand> For providing the design and development of wires and cables based upon the application parameters and Usage environment like Marine, Mines and collieries, Chemical plants considering the various Electrical, Mechanical, Thermal parameters as well as Chemical Environmental conditions while considering the required Physical Dimensions.</li><br>
+          <li><spand style="color:blue;"><b>Repairs &amp; maintenance services -</b></spand>For providing repairs and maintenance services for costly cables.</li><br>
+          <li><spand style="color:blue;"><b>Testing and Measurment services - </b></spand>We provide the testing services on different Wires and cables for different parameters through our test laboratory.</li><br>
+        </ol>
+      </div></div>
+  </div>
+<!-- end service -->
+<div id="QUALITY"><br></div>
+
+<!-- quality -->
+    <div class=" w3-orange w3-round-xxlarge">
+    <div class="w3-container w3-round-xxlarge" >
+       <h1>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-eye w3-margin-right w3-hover-blue"></i>&nbsp;Quality</h1>
+    </div>
+   <div class="w3-white w3-round-xxlarge w3-card-4 w3-justify w3-border w3-border-orange">
+    <div class="w3-container">
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<spand style="color:blue;"><b>WICAB Engineering Private Ltd.</b></spand> An ISO 9001: 2000 company for design, development, manufacturing and servicing of Special Electrical and Electronic wires &amp; cables.</p>
+
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ISO 9001:2000 is one of the key elements that demonstrates Wicab’s commitment to quality in terms of both product and service offerings.</p>
+      <p><spand style="color:blue;"><b>The route </b></spand> to continual success for Wicab Engineering lies through:</p>
+      <ul style="list-style-type:disc">
+      <li>Providing products that constantly meet customers’ requirements</li>
+      <li>Adhering to delivery schedules / times</li>
+      <li>Cost effective and competitive products in market place.</li>
+      <li>Continual Improvement in product design & development</li>
+      <li>Implementation of technology in manufacturing process</li>
+      </ul>
+
+      <p style="color:blue;"><b>It is the policy of Wicab Engineering to:</b></p>
+      <ul style="list-style-type:disc">
+      <li>Maintain and implement an effective management system</li>
+      <li>Continually improve the effectiveness of the management system</li>
+      <li>Establish and monitor measurable objectives</li>
+      <li>Commitment to comply with applicable statutory and regulatory requirements</li>
+      <li>Ensure that staff are competent to carry out assigned work</li>
+      </ul>
+
+      <p style="color:blue;"><b>Products are:</b></p>
+      <ul style="list-style-type:disc">
+      <li>Designed and Manufactured as per specifications</li>
+      <li>100% Tested and Inspected for technical parameters as per Standards</li>
+      <li>Routine Breakdown Tests on samples</li>
+      <li>Consistency in product manufacturing and process</li>
+      </ul>
+
+      <p style="color:blue;"><b>Staff Must:</b></p>
+      <ul style="list-style-type:disc">
+      <li>Understand the importance of their tasks in meeting company objectives and customer requirements</li>
+      <li>Be aware of the specification of the product that is a result of their task</li>
+      <li>Achieve the required product specification</li>
+      <li>Contribute to the development and improvement of work processes and the ISO 9001:2000 management syste</li>
+      </ul>
+
+      <p style="color:blue;"><b><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This Quality Policy and associated quality objectives are established and reviewed, and are communicated and understood by all levels of our organisation - for its continuing suitability and effectiveness in achieving the aims of this Quality policy.</i></b></p> 
+          </div>
+      </div>
+   </div>
+<!-- end quality -->
+<br>
+<!-- Address 28.660200,77.461880 
+ <div class="w3-purple w3-round-xxlarge" id="INDIA">
+    <div class="w3-container w3-round-xxlarge" >
+       <h1>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-envelope w3-margin-right w3-hover-blue"></i>&nbsp;CONTACTS</h1>
+    </div>
+   <div class="w3-white w3-round-xxlarge w3-card-4 w3-border w3-border-purple">
+    <br>
+</div></div>
+-->
+ <div id="INDIA"><br></div>
+
+ <div class="w3-purple w3-round-xxlarge w3-card-4" style="height:377px;border: purple 1px solid;">
+    <h1 class="w3-center "><b>INDIA</b></h1>
+    <div class="w3-light-grey w3-round-xxlarge" style="height:300px;">
+  
+      <div class="w3-half" >
+     <div id="map1" class="w3-round-xxlarge" style="height:300px;"></div>
+      </div>
+  <div class="w3-half  w3-light-grey w3-round-xxlarge ">
+   <h2 class="w3-center"><b><u>HEAD OFFICE &amp; WORKS </u></b></h2>
+     
+      <p style="margin:0px;color:red;text-align: center;font-size: 25px;"><u>Contact person: <b>Mr. Rakesh Garg</b></u></p>
+      <p style="margin:0px;text-align: center;font-size: 20px;">A-2/3, Sector 17, Kavinagar Industrial Area, </p>
+      <p style="margin:0px;text-align: center;font-size: 20px;">Ghaziabad-201002, (INDIA)</p><br>
+      <p style="col or:green;margin:0px;text-align: center;font-size: 15px;"><b>Telephone:</b> +91 120 2700735, 2757285, 2820084</p>
+      <p style="co lor:green;margin:0px;text-align: center;font-size: 15px;"><b>TeleFax:</b> +91 120 4373169 , +91 120 4567313, </p>
+      <p style="col or:green;margin:0px;text-align: center;font-size: 15px;"><b>Mobile:</b> +91 9811673750 ; +91 98 73923750</p>
+      <p style="col or:blue;margin:0px;text-align: center;font-size: 15px;"><b>E-mail:</b>rakesh.garg@wicabindia.com, sales@wicabindia.org</p>
+      <p style="col or:blue;margin:0px;text-align: center;font-size: 15px;">Yahoo-id:rg1221, URL: www.wicabindia.org</p> 
+          </div>
+        </div>
+    </div>
+      
+
+ <div id="UN"><br></div>
+
+ <div class="w3-purple w3-round-xxlarge w3-card-4" style="height:377px;border: purple 1px solid;">
+    <h1 class="w3-center "><b>UNITED STATE</b></h1>
+    <div class="w3-light-grey w3-round-xxlarge" style="height:300px;">
+  
+      <div class="w3-half" >
+     <div id="map2" class="w3-round-xxlarge" style="height:300px;"></div>
+      </div>
+  <div class="w3-half  w3-light-grey w3-round-xxlarge ">
+      <h2 class="w3-center"><b><u>UNITED STATES OFFICE</u></b></h2>
+      <h3 style="margin:0px;text-align: center;font-size: 25px;color:green;"><u><b>Konnect-Wicab Inc.</b></u></h3>
+      <p style="margin:0px;text-align: center;font-size: 20px;color:red;"><u>Contact person: <b>Shirish Agnihotri, P.Eng.</b></u></p>
+      <p style="margin:0px;text-align: center;font-size: 15px;color:blue;">(President)</p>
+      <p style="margin:0px;text-align: center;font-size: 15px;colo r:yellow;">Konnect-Wicab Inc.</p>
+      <p style="margin:0px;text-align: center;font-size: 15px;">Wicab Engineering Pvt. Ltd. </p>
+      <p style="margin:0px;text-align: center;font-size: 15px;">22 Magnolia Rd, Sharon, MA 02067 USA</p>
+      <p style="margin:0px;text-align: center;font-size: 15px;"><b>Tel No.:</b>781.818.7744 O/781.690.3484 M</p>
+      <p style="margin:0px;text-align: center;font-size: 15px;c olor:blue;"><b>Fax No.: </b>781.784.0155</p>
+      <p style="margin:0px;text-align: center;font-size: 15px;co lor:blue;"><b>E-mail : </b>shirish@wicabindia.com</p>
+          </div>
+        </div>
+    </div>
+ 
+ <!-- International Address--> 
+ <div id="IDA"><br></div>
+
+ <div class="w3-purple w3-round-xxlarge w3-card-4" style="height:455px;border: purple 1px solid;">
+    <h1 class="w3-center "><b>International Distributor and Associates:</b></h1>
+    <div class="w3-white w3-round-xxlarge w3-card-4" style="height:380px;border: purple 1px solid;" >
+   <br>
+        <div class="w3-third">
+          <div class="w3-margin-left w3-center">
+            <h1 class="w3-card-4 w3-center w3-blue" style="margin:0px;">Australia</h1>
+            <div class="w3-white w3-card-4 w3-hover-black" style="height:270px;border:transparent 1px solid;">
+             <p class="w3-lime">Contact person: </p>
+              <p>Mr. Amandeep singh Gill /</p><p> Mrs. Karamjit K Gill
+              Gilso ns Trading,10, Golf Links Aven.Warwick, Old Australia,</p>
+              <p>Tel: +61 7 466 18786</p>
+              <p>Mobile +61 40 165 2326 / +61 40 722 2917</p>
+            </div>
+          </div>
+        </div>
+
+       <div class="w3-third">
+          <div class="w3-margin-left w3-center">
+            <h1 class="w3-card-4 w3-center w3-blue" style="margin:0px;">Newzealand</h1>
+            <div class="w3-white w3-card-4 w3-hover-black" style="height:270px;border:transparent 1px solid;">
+             <p class="w3-lime">Contact person: </p>
+              <p>Mr. Raj Vasudev Nagaraj, 23 A Linwood Avenue, Mt. Albert, Auckland-1025, Newzealand</p>
+              <p>Tel: +64 9815092, Mobile +64 21312904</p>
+              <p>Email:nagaraj@slingshot.co.nz</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="w3-third">
+          <div class="w3-container w3-center">
+            <h1 class="w3-card-4 w3-center w3-blue" style="margin:0px;">Mauritius</h1>
+            <div class="w3-white w3-card-4 w3-hover-black" style="height:270px;border:transparent 1px solid;">
+             <p class="w3-lime">Contact person: </p>
+              <p>Mr. Bala Damry,Galvanised &amp; Fine Wires Ltd (Mauritius) P O Box 98, Bell Village , Port Louis - Mauritius</p>
+              <p>Tel No: +230 210 1170, +230 212 0016 Fax No:+ 230 211 7639</p>
+              <p>Email: mrc.gfw@intnet.mu</p>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+
+   <script>
+        function myMap() {
+          var myCenter = new google.maps.LatLng(28.660358,77.461568);
+          var mapCanvas = document.getElementById("map1");
+          var mapOptions = {center: myCenter, zoom: 14,
+              mapTypeId: google.maps.MapTypeId.TERRAIN};
+          var map = new google.maps.Map(mapCanvas, mapOptions);
+          var marker = new google.maps.Marker({
+            position: myCenter,
+            animation: google.maps.Animation.BOUNCE });
+            marker.setMap(map); 
+        // second map //
+          var myCenter = new google.maps.LatLng(42.102813,-71.148842);
+          var mapCanvas = document.getElementById("map2");
+          var mapOptions = {center: myCenter, zoom: 18, 
+              mapTypeId: google.maps.MapTypeId.SATELLITE};
+          var map = new google.maps.Map(mapCanvas, mapOptions);
+          var marker = new google.maps.Marker({
+            position: myCenter,
+            animation: google.maps.Animation.BOUNCE });
+            marker.setMap(map); 
+           // Zoom to 9 when clicking on marker and change in 3 sec.
+          google.maps.event.addListener(marker,'click',function() {
+            var pos = map.getZoom();
+            map.setZoom(9);
+            map.setCenter(marker.getPosition());
+            window.setTimeout(function() {map.setZoom(pos);},3000);
+          });
+            }
+    </script>
+
+         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZlOq9JX20iJ_DA_J_OViEZt9uGJD3hnY&callback=myMap"></script>
+
+<!-- End Address AIzaSyDZlOq9JX20iJ_DA_J_OViEZt9uGJD3hnY -->
+<div id="QUERY"><br></div>
+ <!-- end query -->
+  <div class="w3-lime w3-round-xxlarge w3-card-4">
+    <h1>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-comments w3-margin-right w3-hover-blue"></i>&nbsp;QUERY</h1>
+    <div class="w3-container w3-white w3-round-xxlarge w3-card-4 w3-border w3-border-lime">
+    <!-- <div c lass="w3-row-padding w3-center" s tyle="margin:0 -18px">
+      <div class="w3-third w3-dark-grey">
+        <p><i class="fa fa-envelope w3-xxlarge w3-text-light-grey"></i></p>
+        <p>shirish@wicabindia.com</p>
+      </div>
+      <div class="w3-third w3-teal">
+        <p><i class="fa fa-map-marker w3-xxlarge w3-text-light-grey"></i></p>
+        <p>India, US</p>
+      </div>
+      <div class="w3-third w3-dark-grey">
+        <p><i class="fa fa-phone w3-xxlarge w3-text-light-grey"></i></p>
+        <p>781.818.7744 O/781.690.3484 M</p>
+      </div>
+    </div> -->
+    <hr class="w3-opacity">
+    <form action="/action_page.php" target="_blank">
+      <div class="w3-section">
+        <label>Name</label>
+        <input class="w3-input w3-border" type="text" name="Name" required>
+      </div>
+      <div class="w3-section">
+        <label>Email</label>
+        <input class="w3-input w3-border" type="text" name="Email" required>
+      </div>
+      <div class="w3-section">
+        <label>Subject</label>
+        <input class="w3-input w3-border" type="text" name="Subject" required>
+      </div>
+      <div class="w3-section">
+        <label>Message</label>
+        <input class="w3-input w3-border" type="text" name="Message" required>
+      </div>
+      <button type="submit" class="w3-button w3-black w3-margin-bottom"><i class="fa fa-paper-plane w3-margin-right"></i>Send Message</button>
+    </form>
+  </div></div>
+<!-- end query -->
+<br>
+<!-- footer -->
+  <link rel="stylesheet" type="text/css" href="mycode/footer.css">
+  <div class="footer1 w3-round-xxlarge w3-card-4">
+    <ul class="footerul">
+        <li class="fparent"><a href="#HOME">Home</a></li>
+        <li class="fparent"><a href="#ABOUT">About Us</a></li>
+        <li class="fparent"><a href="#PRODUCTS">Products</a></li>
+        <li class="fparent"><a href="#SERVICE">Services</a></li>
+        <li class="fparent"><a href="#QUALITY">Quality</a></li>
+        <li class="fparent"><a href="#INDIA">Contact</a></li>
+        <li class="fparent"><a href="#QUERY">Query</a></li>
+        <li class="fparent"><a href="#TEAM">Our Team</a></li>
+    </ul>
+  <div class="footer2">
+  <img src="myimages/facebook.png" href="#" width="70" height="70">
+  <img src="myimages/google+.png" href="#" width="70" height="70">
+  <img src="myimages/twitter.png" href="#" width="70" height="70">
+    
+    <p style="color:red;padding:20px;font-size: 15px;"> All right revered in WICAB India Engineering Private Limited, Ghaziabad</p>
+  </div>
+  </div>
+<!-- footer -->
+
+</body>
+</html>

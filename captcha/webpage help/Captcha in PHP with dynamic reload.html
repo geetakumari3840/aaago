@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<!-- saved from url=(0080)http://www.developers.mobileapptelligence.com/captcha-in-php-with-dynamic-reload -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE">
+	<title>Captcha in PHP with dynamic reload</title>
+	<meta name="description" content="Captcha in PHP with dynamic reload">
+	<meta name="keywords" content="Captcha, PHP,dynamic, reload, spam, spammer, form, website">
+	<link href="./Captcha in PHP with dynamic reload_files/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="./Captcha in PHP with dynamic reload_files/custom.css" rel="stylesheet" type="text/css">
+<link href="./Captcha in PHP with dynamic reload_files/media.css" rel="stylesheet" type="text/css">
+<link href="./Captcha in PHP with dynamic reload_files/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="./Captcha in PHP with dynamic reload_files/css" rel="stylesheet" type="text/css">
+<link href="./Captcha in PHP with dynamic reload_files/css(1)" rel="stylesheet" type="text/css">
+<link href="./Captcha in PHP with dynamic reload_files/css(2)" rel="stylesheet" type="text/css">
+<link href="./Captcha in PHP with dynamic reload_files/owl.carousel.css" rel="stylesheet">
+<script src="./Captcha in PHP with dynamic reload_files/jquery-1.11.0.js.download" type="application/javascript"></script>
+<script src="./Captcha in PHP with dynamic reload_files/owl.carousel.min.js.download"></script>
+</head>
+
+<body>
+
+
+<div class="topsection">
+  <div class="container">
+    <div class="col-xs-12 nopadding">
+      <div class="nonetwo">
+          <ul class="socialtop">
+            <li class="social"> <a target="_blank" href="http://www.facebook.com/mobileapptelligence" class="sociala fa fa-facebook"></a> </li>
+            <li class="social"> <a target="_blank" href="http://plus.google.com/b/109881979345322159222/109881979345322159222/posts" class="sociala fa fa-google-plus"></a> </li>
+            <li class="social"> <a target="_blank" href="http://www.twitter.com/mobileapptelli" class="sociala fa fa-twitter"></a> </li>
+            <li class="social"> <a target="_blank" href="http://www.mobileapptelligence.com/mobile-application-development/" class="sociala fa fa-wordpress"></a> </li>
+            <li class="social"> <a target="_blank" href="http://www.developers.mobileapptelligence.com/captcha-in-php-with-dynamic-reload" class="sociala fa fa-youtube"></a> </li>
+            <li class="social"> <a target="_blank" href="http://www.pinterest.com/mobileapptelli/" class="sociala fa fa-pinterest"></a> </li>
+          </ul>
+          <div class="blogancontact">
+            <a target="_blank" href="http://www.mobileapptelligence.com/mobile-application-development/" class="comntoplink">
+                <span class="fa fa-pencil"></span>Our Blog
+            </a>
+            <a target="_blank" href="http://www.mobileapptelligence.com/contact-us.html" class="comntoplink">
+                <span class="fa fa-map-marker"></span>Contact Us
+            </a>
+            <a href="http://www.mobileapptelligence.com/enquiry.html" class="comntoplink splmobile">Request A Quote<span class="fa fa-chevron-circle-right"></span></a>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="clearfix"></div>
+
+<div class="fixedtop">
+<nav class="navbar  mynavbar" role="navigation">
+  <div class="container"> 
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="logocontct">
+    
+     
+     <div class="col-xs-8 nopadding splrit">
+     	<div class="leftset">
+          <div class="toprit"> <span class="sprite flagicon indianflag">&nbsp;</span> <span class="phonenumber arimo">+91 974 267 0797</span> </div>
+          <div class="toprit"> <span class="sprite flagicon usflag">&nbsp;</span> <span class="phonenumber arimo">+1 347 709 7902</span> </div>
+          <div class="clearfix"></div>
+          <div class="toprit splrits"> <span class="sprite flagicon mailicon">&nbsp;</span> <a href="mailto:info@mobileapptelligence.com" class="phonenumber arimo">info@mobileapptelligence.com</a> </div>
+        </div>
+     </div>
+     
+     <div class="navbar-header col-xs-4 nopadding splleft">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+      <a class="mylogo" href="http://www.mobileapptelligence.com/"><img src="./Captcha in PHP with dynamic reload_files/logo.png" alt="MobileAPPtelligence"></a> 
+     </div>
+     
+     </div>
+     
+     <div class="clearfix"></div>
+    
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="row">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav ritsec">
+        <li class="menuli"> <a class="" href="http://www.developers.mobileapptelligence.com/captcha-in-php-with-dynamic-reload">Home</a> </li>        
+        <li class="menuli root"> <a href="http://www.developers.mobileapptelligence.com/captcha-in-php-with-dynamic-reload#" class="dropdown-toggle" data-toggle="dropdown">Services</a>
+          <ul class="dropdown-menu multimenu">
+            <li><a class="levelmenu" href="http://www.mobileapptelligence.com/iphone-app-development.html">iPhone App Development</a></li>
+            <li><a class="levelmenu" href="http://www.mobileapptelligence.com/android-app-development.html">Android App Development</a></li>
+            <li><a class="levelmenu" href="http://www.mobileapptelligence.com/ipad-app-development.html">iPad App Development</a></li>
+            <li><a class="levelmenu" href="http://www.mobileapptelligence.com/cross-platform-appdevelopment.html">Cross Platform Apps </a></li>
+            <li><a class="levelmenu" href="http://www.mobileapptelligence.com/hybrid-app-development.html">Hybrid App Development</a></li>
+            <li><a class="levelmenu" href="http://www.mobileapptelligence.com/mobile-website-design.html">Mobile Website Development</a></li>
+            <li class="dropdown-submenu"> <a class="levelmenu" tabindex="-1" href="http://www.mobileapptelligence.com/mobile-game-development.html">Mobile Game Development</a>
+              <ul class="dropdown-menu multimenu">
+                <li><a class="levelmenu" tabindex="-1" href="http://www.mobileapptelligence.com/android-game-development.html">Android Game Development</a></li>
+                <li><a class="levelmenu" href="http://www.mobileapptelligence.com/iphone-game-development.html">iPhone Game Development</a> </li>
+                <li><a class="levelmenu nobord" href="http://www.mobileapptelligence.com/html5-game-development.html">HTML5 Game Development</a> </li>
+              </ul>
+            </li>
+            <li><a class="levelmenu" href="http://www.mobileapptelligence.com/html5-development.html">HTML5 Development</a></li>
+          </ul>
+        </li>
+        <li class="menuli "> <a href="http://www.mobileapptelligence.com/mobile-app-developers.html" class="dropdown-toggle" data-toggle="dropdown">Hire Developers</a>
+          <ul class="dropdown-menu multimenu">
+            <li><a class="levelmenu" href="http://www.mobileapptelligence.com/android-app-developer.html">Android App Developer</a></li>
+            <li><a class="levelmenu" href="http://www.mobileapptelligence.com/iphone-app-developer.html">iPhone App Developer</a></li>
+            <li><a class="levelmenu" href="http://www.mobileapptelligence.com/ipad-app-developer.html">iPad App Developer</a></li>
+            <li><a class="levelmenu" href="http://www.mobileapptelligence.com/html5-developer.html">HTML5 Developer</a></li>
+          </ul>
+        </li>
+        <li class="menuli"> <a class="" href="http://www.mobileapptelligence.com/products.html">Products</a> </li>
+        <li class="menuli"> <a class="" href="http://www.mobileapptelligence.com/mobile-application-development-projects.html">Portfolio</a> </li>
+        <li class="menuli "> <a href="http://www.mobileapptelligence.com/mobile-application-development-company.html" class="">Company</a>
+          <ul class="dropdown-menu multimenu">
+            <li><a class="levelmenu" href="http://www.mobileapptelligence.com/mobile-application-development-company.html">About Us</a></li>
+            <li><a class="levelmenu" href="http://www.mobileapptelligence.com/mobile-application-development/">Blog</a></li>
+            <li class="dropdown-submenu"> <a class="levelmenu" tabindex="-1" href="http://www.developers.mobileapptelligence.com/captcha-in-php-with-dynamic-reload#">Resources</a>
+              <ul class="dropdown-menu multimenu">
+                <li><a class="levelmenu" tabindex="-1" href="http://www.mobileapptelligence.com/howto-develop-androidapps.html">How to Develop Android App</a></li>
+                <li><a class="levelmenu" tabindex="-1" href="http://www.mobileapptelligence.com/android-app-development-educationsector.html">Educational Android App</a></li>
+                <li><a class="levelmenu" href="http://www.mobileapptelligence.com/business-android-apps-development.html">Business Android App</a> </li>
+                <li><a class="levelmenu nobord" href="http://www.mobileapptelligence.com/mobile-apps-trend2014.html">Mobile App Trend</a> </li>
+              </ul>
+            </li>
+            <li class="dropdown-submenu"><a class="levelmenu nobord" tabindex="-1" href="http://www.mobileapptelligence.com/differntiators.html">Careers</a>
+              <ul class="dropdown-menu multimenu">
+                <li><a class="levelmenu" tabindex="-1" href="http://www.mobileapptelligence.com/mobile-developers-india.html">Mobile Developers</a></li>
+                <li><a class="levelmenu" href="http://www.mobileapptelligence.com/android-developers-india.html">Android Developers</a> </li>
+                <li><a class="levelmenu nobord" href="http://www.mobileapptelligence.com/iphone-developers-india.html">iPhone Developers</a> </li>
+                <li><a class="levelmenu nobord" href="http://www.mobileapptelligence.com/html5-developers.html">HTML5 Developers</a> </li>
+                <li><a class="levelmenu nobord" href="http://www.mobileapptelligence.com/mobile-game-developer.html">Mobile Game Developers</a> </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li class="menuli quotereqst">
+            	<a href="http://www.mobileapptelligence.com/enquiry.html" class="rqstbtn arimo">Request A Quote</a>
+            </li>
+      </ul>
+    </div>
+    </div>
+    <!-- /.navbar-collapse --> 
+  </div>
+  <!-- /.container-fluid --> 
+</nav>
+
+</div>
+<div class="clearfix"></div>
+ 
+	<div class="fullcrump topmargin">
+		<div class="container">
+			<ul class="breadcrumb mycrumb">
+				<li><a href="http://www.developers.mobileapptelligence.com/">Home</a></li>
+				<li class="active">Mobile App Developers Forum</li>
+			</ul>
+			<div class="clearfix"></div>
+						<div class="tblnor">
+				
+					<div class="imagemobful">
+						<img src="./Captcha in PHP with dynamic reload_files/mob2.png" alt="Captcha">
+					</div>
+					<div class="captionmain ovrvisble">
+						<span class="fafacru fatopic fa fa-list splcolor"></span>
+						<div class="qustion">
+							<div class="mainheadingin arimo">
+							Captcha in PHP with dynamic reload
+							</div>
+						</div>
+						<span class="fafacru facmnts fa fa-comments-o"></span>
+						<div class="qustion">
+							<div class="submain ansrh">
+								Captcha is used to avoid Spam users in websites. It is also used to avoid spam comments in our blog or websites.&nbsp;<br>
+How captcha will filter spam users?&nbsp;<br>
+Suppose you have a form with the fields of username, email, message with the action of POST with the action of `action.php` file. Any user can post values or spam values without using your website or your form page in browser. They can simply POST the values to your site.com/action.php. To avoid this, we shall use captcha to authenticate that the user is human. Here is the simple captcha ready to integrate in your website which contains dynamic captcha reload without page reload.<br>
+&nbsp;
+
+&lt;?php<br>
+session_start();<br>
+$msg = '';<br>
+if(isset($_POST["submit"])){<br>
+&nbsp; &nbsp; $original_captcha = $_SESSION["captcha"]; // session 'captcha' has been alreadey created in captcha.php file, if you want to rename the session open the captcha.php file and find and change the name of the session<br>
+&nbsp; &nbsp; $user_captcha = $_POST["captcha"];<br>
+&nbsp; &nbsp; if($user_captcha == $original_captcha){<br>
+&nbsp; &nbsp; &nbsp; &nbsp; $msg = '&lt;span class="success"&gt;Captcha Matched!&lt;/span&gt;';<br>
+&nbsp; &nbsp; }else{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; $msg = '&lt;span class="error"&gt;Oops! Captcha Mismatched!&lt;/span&gt;';<br>
+&nbsp; &nbsp; }<br>
+}<br>
+?&gt;<br>
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;<br>
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;<br>
+&lt;head&gt;<br>
+&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt;<br>
+&lt;title&gt;Simple captcha validation with dynamic captcha refresh by asif18&lt;/title&gt;<br>
+&lt;script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"&gt;&lt;/script&gt;<br>
+&lt;script type="text/javascript"&gt;<br>
+$(document).ready(function(){<br>
+&nbsp; &nbsp; $("#change_captcha").click(function(){<br>
+&nbsp; &nbsp; &nbsp; &nbsp; $("#as_captcha").attr("src", "captcha.php?"+(new Date()).getTime()); // browser will save the captcha image in its cache so add '?some_unique_char' to set new URL for each click<br>
+&nbsp; &nbsp; });<br>
+});<br>
+&lt;/script&gt;<br>
+&lt;style&gt;<br>
+body{<br>
+&nbsp; &nbsp; margin: 0;<br>
+&nbsp; &nbsp; padding: 0;<br>
+&nbsp; &nbsp; font-family: arial;<br>
+&nbsp; &nbsp; color: #2C2C2C;<br>
+&nbsp; &nbsp; font-size: 14px;<br>
+}<br>
+h1 a{<br>
+&nbsp; &nbsp; color:#2C2C2C;<br>
+&nbsp; &nbsp; text-decoration:none;<br>
+}<br>
+h1 a:hover{<br>
+&nbsp; &nbsp; text-decoration:underline;<br>
+}<br>
+a{<br>
+&nbsp; &nbsp; color: #069FDF;<br>
+&nbsp; &nbsp; cursor:pointer;<br>
+}<br>
+.wrapper{<br>
+&nbsp; &nbsp; margin: 0 auto;<br>
+&nbsp; &nbsp; width: 1000px;<br>
+}<br>
+.mytable{<br>
+&nbsp; &nbsp; width: 700px;<br>
+&nbsp; &nbsp; margin: 0 auto;<br>
+&nbsp; &nbsp; border:2px dashed #17A3F7;<br>
+&nbsp; &nbsp; padding: 20px;<br>
+}<br>
+.success{<br>
+&nbsp; &nbsp; color:#009900;<br>
+&nbsp; &nbsp; font-weight:bold;<br>
+}<br>
+.error{<br>
+&nbsp; &nbsp; color:#F33C21;<br>
+&nbsp; &nbsp; font-weight:bold;<br>
+}<br>
+&lt;/style&gt;<br>
+&lt;/head&gt;<br>
+&lt;body&gt;<br>
+&lt;div class="wrapper"&gt;<br>
+&lt;h1&gt;&lt;a href=""&gt;Simple captcha with dynamic refresh&lt;/a&gt;&lt;/h1&gt;<br>
+&lt;form method="post" action="&lt;?php $_SERVER['PHP_SELF']; ?&gt;"&gt;<br>
+&lt;table class="mytable"&gt;<br>
+&lt;tr&gt;<br>
+&nbsp; &nbsp; &lt;td colspan="2" align="center"&gt;&lt;?php echo $msg; ?&gt;&lt;/td&gt;<br>
+&lt;/tr&gt;<br>
+&lt;tr&gt;<br>
+&nbsp; &nbsp; &lt;td valign="bottom"&gt;Enter the captcha&lt;/td&gt;<br>
+&nbsp; &nbsp; &lt;td&gt;&lt;img src="captcha.php" id="as_captcha" alt="Captcha" /&gt;&lt;/td&gt;<br>
+&lt;/tr&gt;<br>
+&lt;tr&gt;<br>
+&nbsp; &nbsp; &lt;td&gt;&lt;input type="text" name="captcha" /&gt;&lt;/td&gt;<br>
+&nbsp; &nbsp; &lt;td&gt;&lt;a class="a" id="change_captcha"&gt;Can't read? try another one&lt;/a&gt;&lt;/td&gt;<br>
+&lt;/tr&gt;<br>
+&lt;tr&gt;<br>
+&nbsp; &nbsp; &lt;td&gt;&lt;input type="submit" name="submit" value="Post It" /&gt;&lt;/td&gt;<br>
+&lt;/tr&gt;<br>
+&lt;/table&gt;<br>
+&lt;/form&gt;<br>
+&lt;/div&gt;<br>
+&lt;/body&gt;<br>
+&lt;/html&gt;
+							</div>
+						</div>
+					</div>
+			 </div>
+					</div>
+	</div>
+	<div class="clearfix"></div>
+
+						<div class="fullgray">
+				<div class="container">
+					<div class="innerpadng">
+						<div class="col-xs-3 celltbl">
+							<div class="imagemob smalmg">
+									<img src="./Captcha in PHP with dynamic reload_files/1.png" alt=" PHP"> 							</div>
+						</div>
+						<div class="col-xs-9 celltbl nopadding">
+							<div class="splwrap">
+								<div class="subheadingq arimo"> <a href="http://www.developers.mobileapptelligence.com/linux-ls-command">Linux Ls Command
+</a>	</div>
+								<span class="parnormal">ls command is one of the most frequently used command in Linux. I believe ls command is the first command you may use when you get into the command prompt of Linux Box. We use ls command daily basis and frequently even though we may not aware and never use all the option available. In this article, we’ll be discussing basic ls command where we have tried to cover as much parameters as possible.
+
+Linux ls Command
+
+1. List Files using ls with no option
+
+ls with no option list files and directories in bare format where we won’t be able to view details like file types, size, modified date and time, permission and links etc.
+
+# ls
+
+...</span>
+								<div class="clearfix"></div>
+								<a href="http://www.developers.mobileapptelligence.com/linux-ls-command" class="readmore left">Read More</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+			
+						<div class="fullwhite">
+				<div class="container">
+					<div class="innerpadng">
+						<div class="col-xs-9 celltbl nopadding ritalign">
+							<div class="splwrap">
+								<div class="subheadingq arimo"> Navigation View using Android Design Support Library
+	</div>
+								<span class="parnormal">Google introduced great new assets to the world of Android — including the new Design Support Library. With the introduction of this, it will be easy to follow the Material Design Guidelines provided by Google.
+
+Navigation View
+
+In this article I’ll implement Navigation Drawer using Design Support Library.<br>
+The Navigation Drawer is most commonly used component in modern applications, implementing it over and over was never a quick process - until now! The new NavigationView component can simply be placed within our DrawerLayout and display our navigation items from the referenced menu resource.<br>
+Above screenshot shows...</span>
+								<div class="clearfix"></div>
+								<a href="http://www.developers.mobileapptelligence.com/navigation-view-using-android-design-support-library" class="readmore right">Read More</a>
+							</div>
+						</div>
+						
+						<div class="col-xs-3 celltbl">
+							<div class="imagemob smalmg">
+								<img src="./Captcha in PHP with dynamic reload_files/2.png" alt="dynamic">
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+			
+						<div class="fullgray">
+				<div class="container">
+					<div class="innerpadng">
+						<div class="col-xs-3 celltbl">
+							<div class="imagemob smalmg">
+																	<img src="./Captcha in PHP with dynamic reload_files/mob1.png" alt=" reload"> 							</div>
+						</div>
+						<div class="col-xs-9 celltbl nopadding">
+							<div class="splwrap">
+								<div class="subheadingq arimo"> <a href="http://www.developers.mobileapptelligence.com/non-scripted-testing-method-for-agile-development">Non scripted testing method for Agile Development
+</a>	</div>
+								<span class="parnormal">Agile development aims to reduce massive planning overhead in software projects to allow fast reactions to change e.g. in customer wishes. It believes that documentation should be just barely good enough, and more emphasis is given to ship out a working software. Not much effort is done on documentation. It is good to use exploratory testing for agile development as it is conducted with minimum documents.&nbsp;"Exploratory Testing" involves simultaneous learning, test design and test execution. The tester explores the system, learn the application, simultaneously test and report the issues. The main document to/ from testing team...</span>
+								<div class="clearfix"></div>
+								<a href="http://www.developers.mobileapptelligence.com/non-scripted-testing-method-for-agile-development" class="readmore left">Read More</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+			
+	
+<div class="clearfix"></div>
+<div class="blufull">
+	<div class="container">
+    <div class="innerpadng">
+    	<h2 class="pagehead arimo">Our Services</h2>
+        <div class="allservice oursrvces">
+        	<div class="col-xs-4">
+            	<div class="indvlser">
+                	<div class="imageaple sprite imageallico"></div>
+                    <h2 class="servcename arimo">iPhone App Development</h2>
+                </div>
+            </div>
+            <div class="col-xs-4">
+            	<div class="indvlser">
+                	<div class="imageandoid sprite imageallico"></div>
+                    <h2 class="servcename arimo">Android App Development</h2>
+                </div>
+            </div>
+            <div class="col-xs-4">
+            	<div class="indvlser">
+                	<div class="imagecrossap sprite imageallico"></div>
+                    <h2 class="servcename arimo">Cross Platform App Development</h2>
+                </div>
+            </div>
+            <div class="col-xs-4">
+            	<div class="indvlser">
+                	<div class="imagemobap sprite imageallico"></div>
+                    <h2 class="servcename arimo">Mobile Website Design</h2>
+                </div>
+            </div>
+            <div class="col-xs-4">
+            	<div class="indvlser">
+                	<div class="imagegame sprite imageallico"></div>
+                    <h2 class="servcename arimo">Mobile Game Development</h2>
+                </div>
+            </div>
+            <div class="col-xs-4">
+            	<div class="indvlser">
+                	<div class="imageaple sprite imageallico"></div>
+                    <h2 class="servcename arimo">iPhone App Development</h2>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+ 
+<div class="clearfix"></div>
+<div class="fullwite">
+	<div class="container">
+        <div class="innerpadng">
+            <h2 class="pgsmplhd arimo">When the customer succeeds, we succeed</h2>
+            <span class="captnsmall arimo">Our Clients choose to work with us because of the key advantages we bring to their business.</span>
+            <div class="clearfix"></div>
+            <div class="mapall">
+            	<div class="col-xs-8 nopadding fulatnine">
+                	<div class="countrymap">
+                    	<img src="./Captcha in PHP with dynamic reload_files/map.png" alt=" spam">
+                    </div>
+                </div>
+                <div class="col-xs-4 nopadding fulatnine">
+                	<div class="setupol">
+                    	<ul class="listing">
+                        	<li class="steplistng">
+                            	<div class="tablstp">
+                                	<div class="col-xs-3 celltbl">
+                                    	<div class="sprite sectn success"></div>
+                                    </div>
+                                    <div class="col-xs-3 celltbl nopadding">
+                                    	<div class="numbers arimobold">10+</div>
+                                    </div>
+                                    <div class="col-xs-6 celltbl">
+                                    	<div class="mainstp arimo">Successfull<br>Years</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="steplistng">
+                            	<div class="tablstp">
+                                	<div class="col-xs-3 celltbl">
+                                    	<div class="sprite sectn uiengi"></div>
+                                    </div>
+                                    <div class="col-xs-3 celltbl nopadding">
+                                    	<div class="numbers arimobold">165+</div>
+                                    </div>
+                                    <div class="col-xs-6 celltbl">
+                                    	<div class="mainstp arimo">Developers &amp; UI<br>Engineers</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="steplistng">
+                            	<div class="tablstp">
+                                	<div class="col-xs-3 celltbl">
+                                    	<div class="sprite sectn clints"></div>
+                                    </div>
+                                    <div class="col-xs-3 celltbl nopadding">
+                                    	<div class="numbers arimobold">650+</div>
+                                    </div>
+                                    <div class="col-xs-6 celltbl">
+                                    	<div class="mainstp arimo">Successfull Mobile<br>&amp; Web Clients</div>
+                                    </div>
+                                </div>
+                            </li>
+                             <li class="steplistng">
+                            	<div class="tablstp">
+                                	<div class="col-xs-3 celltbl">
+                                    	<div class="sprite sectn countis"></div>
+                                    </div>
+                                    <div class="col-xs-3 celltbl nopadding">
+                                    	<div class="numbers arimobold">18+</div>
+                                    </div>
+                                    <div class="col-xs-6 celltbl">
+                                    	<div class="mainstp arimo">Countries with<br>Happy Clients</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="steplistng">
+                            	<div class="tablstp">
+                                	<div class="col-xs-3 celltbl">
+                                    	<div class="sprite sectn custmsatis"></div>
+                                    </div>
+                                    <div class="col-xs-3 celltbl nopadding">
+                                    	<div class="numbers arimobold">99%</div>
+                                    </div>
+                                    <div class="col-xs-6 celltbl">
+                                    	<div class="mainstp arimo">Customer<br>Satisfaction</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ 
+	<div class="clearfix"></div>
+	<div class="witfull">
+		<div class="container">
+		<div class="innerpadng">
+			<h2 class="pageheadblk arimo">Our Recent Projects</h2>
+			<div class="allservice ourprjcts">
+									<div class="col-xs-4 nopadding">
+						<div class="innerprjct">
+							<div class="effect-terry">
+								
+									<img src="./Captcha in PHP with dynamic reload_files/1428739249app1.jpg" alt="mobileapp">
+									<div class="figcaption">
+										<a target="_blank" href="http://www.mobileapptelligence.com/portfolio/androidapp-india-wow.html">
+										<h4 class="arimo">Wow APP</h4>
+										</a>
+										<div class="socs">
+																							<a href="https://itunes.apple.com/us/app/wowmessenger/id922025085?mt=8"><i class="fa fa-fw fa-apple"></i></a>
+																						
+																							<a href="https://play.google.com/store/apps/details?id=com.pro.wowapp&amp;hl=en"><i class="fa fa-fw fa-android"></i></a>
+																						
+																					</div>
+									</div>
+								
+							</div>
+						</div>
+					</div>
+									<div class="col-xs-4 nopadding">
+						<div class="innerprjct">
+							<div class="effect-terry">
+								
+									<img src="./Captcha in PHP with dynamic reload_files/1428914187app10.jpg" alt="mobileapp">
+									<div class="figcaption">
+										<a target="_blank" href="http://www.mobileapptelligence.com/mobile-application-development-projects.html">
+										<h4 class="arimo">Smile GH</h4>
+										</a>
+										<div class="socs">
+																							<a href="https://itunes.apple.com/us/app/smilegh/id593011419?mt=8"><i class="fa fa-fw fa-apple"></i></a>
+																						
+																							<a href="https://play.google.com/store/apps/details?id=com.smilegh.resource"><i class="fa fa-fw fa-android"></i></a>
+																						
+																					</div>
+									</div>
+								
+							</div>
+						</div>
+					</div>
+									<div class="col-xs-4 nopadding">
+						<div class="innerprjct">
+							<div class="effect-terry">
+								
+									<img src="./Captcha in PHP with dynamic reload_files/1428739259app4.jpg" alt="mobileapp">
+									<div class="figcaption">
+										<a target="_blank" href="http://www.mobileapptelligence.com/portfolio/mobileappdevelopment-nigeria-beetwo.html">
+										<h4 class="arimo">Bee Two</h4>
+										</a>
+										<div class="socs">
+																							<a href="https://itunes.apple.com/us/app/beetwo/id927341940?mt=8"><i class="fa fa-fw fa-apple"></i></a>
+																						
+																							<a href="https://play.google.com/store/apps/details?id=prv.school.beetwo&amp;hl=fr_CA"><i class="fa fa-fw fa-android"></i></a>
+																						
+																					</div>
+									</div>
+								
+							</div>
+						</div>
+					</div>
+									<div class="col-xs-4 nopadding">
+						<div class="innerprjct">
+							<div class="effect-terry">
+								
+									<img src="./Captcha in PHP with dynamic reload_files/1428914129app5.jpg" alt="mobileapp">
+									<div class="figcaption">
+										<a target="_blank" href="http://www.mobileapptelligence.com/portfolio/androiddevelopment-india-irestra.html">
+										<h4 class="arimo">iRestra</h4>
+										</a>
+										<div class="socs">
+																							<a href="https://itunes.apple.com/us/app/irestra/id869207910?mt=8"><i class="fa fa-fw fa-apple"></i></a>
+																						
+																							<a href="https://play.google.com/store/apps/details?id=com.restaurant.irestra&amp;hl=en"><i class="fa fa-fw fa-android"></i></a>
+																						
+																					</div>
+									</div>
+								
+							</div>
+						</div>
+					</div>
+									<div class="col-xs-4 nopadding">
+						<div class="innerprjct">
+							<div class="effect-terry">
+								
+									<img src="./Captcha in PHP with dynamic reload_files/1428914199app3.jpg" alt="mobileapp">
+									<div class="figcaption">
+										<a target="_blank" href="http://www.mobileapptelligence.com/portfolio/iosapp-development-iraq.html">
+										<h4 class="arimo">Kurdistan Events</h4>
+										</a>
+										<div class="socs">
+																							<a href="https://itunes.apple.com/in/app/kurdistan-events/id882418848?mt=8"><i class="fa fa-fw fa-apple"></i></a>
+																						
+																							<a href="https://play.google.com/store/apps/details?id=com.pro.eventmanagement&amp;hl=en"><i class="fa fa-fw fa-android"></i></a>
+																						
+																					</div>
+									</div>
+								
+							</div>
+						</div>
+					</div>
+									<div class="col-xs-4 nopadding">
+						<div class="innerprjct">
+							<div class="effect-terry">
+								
+									<img src="./Captcha in PHP with dynamic reload_files/1428914159app9.jpg" alt="mobileapp">
+									<div class="figcaption">
+										<a target="_blank" href="http://www.mobileapptelligence.com/portfolio/androidapplication-india-respro.html">
+										<h4 class="arimo">Respro</h4>
+										</a>
+										<div class="socs">
+																						
+																							<a href="https://play.google.com/store/apps/details?id=com.samskruthi"><i class="fa fa-fw fa-android"></i></a>
+																						
+																					</div>
+									</div>
+								
+							</div>
+						</div>
+					</div>
+							</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+	<div class="witfull">
+		<div class="container">
+		<div class="innerpadngno">
+			<h2 class="pageheadblk arimo">Client's Testimonial</h2>
+			<div class="clearfix"></div>
+			<div class="allservice">
+				
+				<div class="testiwrap">
+				<div id="testimonial" class="owl-carousel owlindex">
+									<div class="item">
+						<a href="http://www.developers.mobileapptelligence.com/captcha-in-php-with-dynamic-reload" target="_blank">
+						<div class="testimon">
+							<div class="xcel leftqt">
+								<span class="qtfa fa fa-quote-left"></span>
+							</div>
+							<div class="xcel">
+							<div class="testipora arimo">
+								<p>Having a website designed was never going to be easy for AutoPliot because being a new product we still hadn't finalised promotional content which makes it hard to therefore have a idea of what the website should be structured.<br>
+In summary, we made a great decision with using provab for producing our project.</p>
+							 </div>
+							</div>
+							<div class="xcel ritqut">
+								<span class="qtfa fa fa-quote-right "></span>
+							</div>
+						</div> 
+						<div class="clintadrs arimo">Garth Wright<strong>Managing Director Australian Public Resource Service Pty Ltd </strong></div>
+						</a>
+					</div>
+									<div class="item">
+						<a href="http://www.agentboca.com/" target="_blank">
+						<div class="testimon">
+							<div class="xcel leftqt">
+								<span class="qtfa fa fa-quote-left"></span>
+							</div>
+							<div class="xcel">
+							<div class="testipora arimo">
+								<p>When I finally decided to make an investment in redesigning my web site, a web site that I can be proud of, I did all my research. Provab was the best value and offered the most. They walked me through every step of the way in redesigning my web site. I'm pretty proficient in website design, so we communicated only through email which I preferred.</p>
+							 </div>
+							</div>
+							<div class="xcel ritqut">
+								<span class="qtfa fa fa-quote-right "></span>
+							</div>
+						</div> 
+						<div class="clintadrs arimo">Jen Sommers<strong>Director Boca Raton, Florida </strong></div>
+						</a>
+					</div>
+									<div class="item">
+						<a href="http://inmcc.istrac.org/DirectorsMessage.html" target="_blank">
+						<div class="testimon">
+							<div class="xcel leftqt">
+								<span class="qtfa fa fa-quote-left"></span>
+							</div>
+							<div class="xcel">
+							<div class="testipora arimo">
+								<p>I extend my thanks all to you who have actively interacted with INMCC and provided best support and valuable inputs during the development of this website and online beacon registration module. My special thanks to Cospas-Sarsat Secretariat and Australian Maritime Safety Authority (AMSA) for providing us very useful suggestions and helping us while testing. I appreciate the INMCC team for taking initiative and completing the task, ISTRAC network services for hosting the website and PROVAB for developing a mission critical web application to get state of art, space based SAR alerting services.</p>
+							 </div>
+							</div>
+							<div class="xcel ritqut">
+								<span class="qtfa fa fa-quote-right "></span>
+							</div>
+						</div> 
+						<div class="clintadrs arimo">S.V. ShivaKumar<strong>Director ISRO </strong></div>
+						</a>
+					</div>
+									<div class="item">
+						<a href="http://www.dreambooking.eu/" target="_blank">
+						<div class="testimon">
+							<div class="xcel leftqt">
+								<span class="qtfa fa fa-quote-left"></span>
+							</div>
+							<div class="xcel">
+							<div class="testipora arimo">
+								<p>Dear all on Dreambooking team (Dream Team)</p>
+
+<p>I am very happy with the efforts, you all have put into the work for the last 4 month to get DreamBooking project live. Now we are finally on production environment. Thanks to you all. Now I look forward to finish the additional modules with the same pace.</p>
+							 </div>
+							</div>
+							<div class="xcel ritqut">
+								<span class="qtfa fa fa-quote-right "></span>
+							</div>
+						</div> 
+						<div class="clintadrs arimo">Brian Larsen<strong>Managing Director DreamBooking AS – Denmark </strong></div>
+						</a>
+					</div>
+									<div class="item">
+						<a href="http://www.developers.mobileapptelligence.com/www.travelezze.com" target="_blank">
+						<div class="testimon">
+							<div class="xcel leftqt">
+								<span class="qtfa fa fa-quote-left"></span>
+							</div>
+							<div class="xcel">
+							<div class="testipora arimo">
+								<p>We have utilized PROVAB TECHNOSOFT services for our complete travel portal development and we have experienced wonderful results! From a Navdurga Raj Travels Pvt. Ltd. perspective , PROVAB went the extra mile to learn more about our business and to determine the specific integrations required for our portal development. We feel the development was done on time with best quality.</p>
+							 </div>
+							</div>
+							<div class="xcel ritqut">
+								<span class="qtfa fa fa-quote-right "></span>
+							</div>
+						</div> 
+						<div class="clintadrs arimo">Akash Bharadwaj<strong>Director Navdurga Raj Travels Pvt. Ltd. </strong></div>
+						</a>
+					</div>
+								</div>
+				</div>
+
+			</div>
+			</div>
+		</div>
+	</div>
+ 
+<div class="clearfix"></div>
+<div class="contcfull">
+	<div class="container">
+    	<div class="innerpadng contftr">
+        	<div class="col-xs-4">
+            	<div class="allsopd">
+                	<div class="iconces fa fa-map-marker"></div>
+                    <div class="detscentr arimo">
+                    	Venkataadri IT Park, Electronic City,<br>
+						Bangalore, Karnataka 560100, India.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xs-4">
+            	<div class="allsopd">
+                	<div class="iconces fa fa-mobile-phone"></div>
+                    <div class="detscentr arimo">
+                    	<div class="phonrt"><span class="sprite flagicon indianflag">&nbsp;</span> <span class="phonenumber arimo">+91 974 267 0797</span></div>
+                        <div class="phonrt"><span class="sprite flagicon usflag">&nbsp;</span> <span class="phonenumber arimo">&nbsp; +1 347 709 7902</span></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xs-4">
+            	<div class="allsopd">
+                	<div class="iconces fa fa-envelope"></div>
+                    <div class="detscentr arimo">
+                    	<a href="mailto:info@mobileapptelligence.com"> info@mobileapptelligence.com </a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<div class="clearfix"></div>
+
+
+<div class="contcfullsecnd">
+	<div class="bakfade"></div>
+	<div class="container">
+    	<div class="innerpadng">
+            <div class="sideval">
+                <div class="col-xs-8 fullio">
+                	<div class="col-xs-3 nopadding allsmal">
+                    	<h4 class="ftrhead arimo">Company</h4>
+                        <a href="http://www.mobileapptelligence.com/mobile-application-development-company.html" class="ftrlinks">About</a>
+                        <a href="http://www.mobileapptelligence.com/contact-us.html" class="ftrlinks">Contact</a>
+                        <a href="http://www.mobileapptelligence.com/mobile-application-development/" class="ftrlinks">Our Blog</a>
+                    </div>
+                    <div class="col-xs-5 nopadding allsmal">
+                    	<h4 class="ftrhead arimo">Services</h4>
+                        <a href="http://www.mobileapptelligence.com/android-app-development.html" class="ftrlinks">Android App Development</a>
+                        <a href="http://www.mobileapptelligence.com/iphone-app-development.html" class="ftrlinks">iphone App Development</a>
+                        <a href="http://www.mobileapptelligence.com/ipad-app-development.html" class="ftrlinks">iPad App Development</a>
+                        <a href="http://www.mobileapptelligence.com/mobile-game-development.html" class="ftrlinks">Games Development</a>
+                        <a href="http://www.mobileapptelligence.com/html5-development.html" class="ftrlinks">HTML5 Development</a>
+                    </div>
+                    <div class="col-xs-4 nopadding allsmal">
+                    	<h4 class="ftrhead arimo">Hire Mobile Developers</h4>
+                        <a href="http://www.mobileapptelligence.com/android-app-developer.html" class="ftrlinks">Android App Developer</a>
+                        <a href="http://www.mobileapptelligence.com/iphone-app-developer.html" class="ftrlinks">iphone App Developer</a>
+                        <a href="http://www.mobileapptelligence.com/ipad-app-developer.html" class="ftrlinks">iPad App Developer</a>
+                        <a href="http://www.mobileapptelligence.com/html5-developer.html" class="ftrlinks">HTML5 Developer</a>
+                    </div>
+                </div>
+                <div class="col-xs-4 fullio allsmal">
+                	<h4 class="ftrhead arimo">Get Social</h4>
+                    <div class="getsoc">
+                    	<a target="_blank" href="http://www.facebook.com/mobileapptelligence" class="soclink"><span class="fa fa-facebook"></span></a>
+                        <a target="_blank" href="http://plus.google.com/b/109881979345322159222/109881979345322159222/posts" class="soclink"><span class="fa fa-google-plus"></span></a>
+                        <a target="_blank" href="http://www.twitter.com/mobileapptelli" class="soclink"><span class="fa fa-twitter"></span></a>
+                        <a target="_blank" href="http://www.mobileapptelligence.com/mobile-application-development/" class="soclink"><span class="fa fa-wordpress"></span></a>
+                        <a target="_blank" href="http://www.developers.mobileapptelligence.com/captcha-in-php-with-dynamic-reload" class="soclink"><span class="fa fa-youtube"></span></a>
+                        <a target="_blank" href="http://www.pinterest.com/mobileapptelli/" class="soclink"><span class="fa fa-pinterest"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </div>
+     <div class="trnsprnt">
+        <div class="bakfade"></div>
+        <div class="container">
+            <div class="copyrit">copyright © 2018<a href="http://www.developers.mobileapptelligence.com/"> MobileAPPtelligence</a>. All rights reserved. </div>
+        </div>
+    </div>
+     
+</div>
+
+<div class="clearfix"></div>
+<script src="./Captcha in PHP with dynamic reload_files/bootstrap.min.js.download" type="text/javascript"></script>
+<script type="text/javascript" src="./Captcha in PHP with dynamic reload_files/jquery.smartmenus.js.download"></script></body></html>

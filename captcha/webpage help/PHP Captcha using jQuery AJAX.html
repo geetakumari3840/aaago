@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<!-- saved from url=(0056)https://phppot.com/jquery/php-captcha-using-jquery-ajax/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>PHP Captcha using jQuery AJAX</title>
+<meta name="description" content="Captcha code in a form is used for ensuring that the form is submitted with manual intervention without any tools or programs. In the previous tutorial, we have seen how to add captcha in PHP. In this tutorial, we are using jQuery AJAX for getting captcha image from PHP. Using jQuery we can also refresh […]">
+<meta name="keywords" content="PHP Captcha using jQuery AJAX">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index,follow"><link rel="next" href="https://phppot.com/demo/php-captcha-using-jquery-ajax/">
+<meta property="og:image" content="https://phppot.com/wp-content/uploads/2014/12/image.png">
+<meta property="og:image:width" content="550">
+<meta property="og:image:height" content="340">
+<meta property="og:image:alt" content="PHP Captcha using jQuery AJAX">
+<link rel="shortcut icon" href="https://phppot.com/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" id="solandra-style-css" href="./PHP Captcha using jQuery AJAX_files/papers_06062018.css" type="text/css" media="all">
+<link rel="canonical" href="https://phppot.com/jquery/php-captcha-using-jquery-ajax/">
+<script type="text/javascript" async="" src="./PHP Captcha using jQuery AJAX_files/ga.js.download"></script><script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-40067115-1']);
+  _gaq.push(['_setDomainName', 'phppot.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script></head>
+<body onload="prettyPrint()">
+<div id="site_header"><div class="content"><a href="https://phppot.com/" title="PhpPot Home"><img id="site-logo" src="./PHP Captcha using jQuery AJAX_files/sprite.png" alt="PhpPot Home"></a>
+<div class="search-container">
+	<form method="get" action="https://phppot.com/" class="search-form">
+		<input name="s" class="search" placeholder="Search PHP Pot" title="Search PhpPot" autocomplete="off">
+		<button type="submit" title="Search PhpPot" id="search-button">
+		<img src="./PHP Captcha using jQuery AJAX_files/sprite.png" alt="Search" class="search-img"></button>
+	</form>
+</div>
+<div class="header-link-container">
+<a class="header-link" style="float:none;" href="https://phppot.com/demo/">Demo &amp; Download</a>
+<a id="header-contact-navigation" href="https://phppot.com/contact/">Contact</a>
+</div>
+</div>
+</div>
+<div class="content"><div id="menu-icon"><a href="https://phppot.com/jquery/php-captcha-using-jquery-ajax/#tutorial-menu" title="Tutorial Menu"><img src="./PHP Captcha using jQuery AJAX_files/sprite.png" alt="Tutorial Menu" class="menu-img"></a></div><div id="tutorial-body"><div id="tutorial">
+<h1>PHP Captcha using jQuery AJAX</h1>
+<div class="modified-on">Last modified on April 6th, 2017 by Vincy.</div> <div class="share">
+    <ul>
+	    <li><a class="social-link facebook-social-link" href="https://www.facebook.com/sharer/sharer.php?u=https://phppot.com/jquery/php-captcha-using-jquery-ajax/" title="Share on Facebook"><img src="./PHP Captcha using jQuery AJAX_files/sprite.png" class="facebook-social-img"><span>Share</span></a></li>
+        <li><a class="social-link twitter-social-link" href="https://twitter.com/intent/tweet?original_referer=https://phppot.com&amp;source=tweetbutton&amp;text=PHP%20Captcha%20using%20jQuery%20AJAX;url=https://phppot.com/jquery/php-captcha-using-jquery-ajax/&amp;via=phppot" title="Share on Twitter"><img src="./PHP Captcha using jQuery AJAX_files/sprite.png" class="twitter-social-img"><span>Tweet</span></a></li>
+        <li><a class="social-link linkedin-social-link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://phppot.com/jquery/php-captcha-using-jquery-ajax/&amp;media=PHP%20Captcha%20using%20jQuery%20AJAX" title="Share on Linkedin"><img src="./PHP Captcha using jQuery AJAX_files/sprite.png" class="linkedin-social-img"><span>Share</span></a></li>
+    </ul>
+</div>
+<p>Captcha code in a form is used for ensuring that the form is submitted with manual intervention without any tools or programs. In the previous tutorial, we have seen <a href="https://phppot.com/php/php-captcha/">how to add captcha in PHP</a>.</p>
+<p>In this tutorial, we are using jQuery AJAX for getting captcha image from PHP. Using jQuery we can also refresh the captcha code by resending AJAX call to generate new captcha image.</p>
+<p><a class="demo" href="https://phppot.com/demo/php-captcha-using-jquery-ajax/">View Demo</a><a class="download" href="https://phppot.com/demo/php-captcha-using-jquery-ajax/php-captcha-using-jquery-ajax.zip">Download</a></p>
+<p><img style="display: inline; border-width: 0px;" title="image" src="./PHP Captcha using jQuery AJAX_files/image.png" alt="image" width="616" height="570" border="0"></p>
+<h2>Contact Form with Captcha</h2>
+<p>This code is for displaying contact form with refreshable captcha image.</p>
+<pre class="prettyprint lang-php prettyprinted" style=""><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"frmContact"</span><span class="tag">&gt;</span><span class="pln">
+	</span><span class="tag">&lt;div&gt;</span><span class="pln">
+		</span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">style</span><span class="pun">=</span><span class="atv">"</span><span class="pln">padding</span><span class="pun">-</span><span class="pln">top</span><span class="pun">:</span><span class="lit">20px</span><span class="pun">;</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">Name</span><span class="tag">&lt;/label&gt;</span><span class="pln">
+		</span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"userName-info"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"info"</span><span class="tag">&gt;&lt;/span&gt;&lt;br/&gt;</span><span class="pln">
+		</span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"userName"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"userName"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"demoInputBox"</span><span class="tag">&gt;</span><span class="pln">
+	</span><span class="tag">&lt;/div&gt;</span><span class="pln">
+	</span><span class="tag">&lt;div&gt;</span><span class="pln">
+		</span><span class="tag">&lt;label&gt;</span><span class="pln">Email</span><span class="tag">&lt;/label&gt;</span><span class="pln">
+		</span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"userEmail-info"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"info"</span><span class="tag">&gt;&lt;/span&gt;&lt;br/&gt;</span><span class="pln">
+		</span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"userEmail"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"userEmail"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"demoInputBox"</span><span class="tag">&gt;</span><span class="pln">
+	</span><span class="tag">&lt;/div&gt;</span><span class="pln">
+	</span><span class="tag">&lt;div&gt;</span><span class="pln">
+		</span><span class="tag">&lt;label&gt;</span><span class="pln">Subject</span><span class="tag">&lt;/label&gt;</span><span class="pln"> 
+		</span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"subject-info"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"info"</span><span class="tag">&gt;&lt;/span&gt;&lt;br/&gt;</span><span class="pln">
+		</span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"subject"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"subject"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"demoInputBox"</span><span class="tag">&gt;</span><span class="pln">
+	</span><span class="tag">&lt;/div&gt;</span><span class="pln">
+	</span><span class="tag">&lt;div&gt;</span><span class="pln">
+		</span><span class="tag">&lt;label&gt;</span><span class="pln">Content</span><span class="tag">&lt;/label&gt;</span><span class="pln"> 
+		</span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"content-info"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"info"</span><span class="tag">&gt;&lt;/span&gt;&lt;br/&gt;</span><span class="pln">
+		</span><span class="tag">&lt;textarea</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"content"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"content"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"demoInputBox"</span><span class="pln"> </span><span class="atn">cols</span><span class="pun">=</span><span class="atv">"60"</span><span class="pln"> </span><span class="atn">rows</span><span class="pun">=</span><span class="atv">"6"</span><span class="tag">&gt;&lt;/textarea&gt;</span><span class="pln">
+	</span><span class="tag">&lt;/div&gt;</span><span class="pln">
+	</span><span class="tag">&lt;div&gt;</span><span class="pln">
+		</span><span class="tag">&lt;label&gt;</span><span class="pln">Captcha</span><span class="tag">&lt;/label&gt;</span><span class="pln"> 
+		</span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"captcha-info"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"info"</span><span class="tag">&gt;&lt;/span&gt;&lt;br/&gt;</span><span class="pln">
+		</span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"captcha"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"captcha"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"demoInputBox"</span><span class="tag">&gt;&lt;br&gt;</span><span class="pln">
+	</span><span class="tag">&lt;/div&gt;</span><span class="pln">
+	</span><span class="tag">&lt;div&gt;</span><span class="pln">
+		</span><span class="tag">&lt;img</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"captcha_code"</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"captcha_code.php"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+		</span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"submit"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"btnRefresh"</span><span class="pln"> </span><span class="atn">onClick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">refreshCaptcha</span><span class="pun">();</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">Refresh Captcha</span><span class="tag">&lt;/button&gt;</span><span class="pln">
+	</span><span class="tag">&lt;/div&gt;</span><span class="pln">
+	</span><span class="tag">&lt;div&gt;</span><span class="pln">
+		</span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"submit"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"btnAction"</span><span class="pln"> </span><span class="atn">onClick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">sendContact</span><span class="pun">();</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">Send</span><span class="tag">&lt;/button&gt;</span><span class="pln">
+	</span><span class="tag">&lt;/div&gt;</span><span class="pln">
+</span><span class="tag">&lt;/div&gt;</span></pre>
+<p>We have same validation script as we have seen in <a href="https://phppot.com/jquery/php-contact-form-with-jquery-ajax/">jQuery contact form</a> tutorial. So, the following code shows only the validation of the captcha field.</p>
+<pre class="prettyprint lang-php prettyprinted" style=""><span class="kwd">if</span><span class="pun">(!</span><span class="pln">$</span><span class="pun">(</span><span class="str">"#captcha"</span><span class="pun">).</span><span class="pln">val</span><span class="pun">())</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+	$</span><span class="pun">(</span><span class="str">"#captcha-info"</span><span class="pun">).</span><span class="pln">html</span><span class="pun">(</span><span class="str">"(required)"</span><span class="pun">);</span><span class="pln">
+	$</span><span class="pun">(</span><span class="str">"#captcha"</span><span class="pun">).</span><span class="pln">css</span><span class="pun">(</span><span class="str">'background-color'</span><span class="pun">,</span><span class="str">'#FFFFDF'</span><span class="pun">);</span><span class="pln">
+	valid </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span></pre>
+<h2>jQuery Captcha Refresh</h2>
+<p>This simple jQuery script will refresh PHP captcha code and recreate the image with the new code. This new image will be set as captcha image source.</p>
+<pre class="prettyprint lang-php prettyprinted" style=""><span class="kwd">function</span><span class="pln"> refreshCaptcha</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+	$</span><span class="pun">(</span><span class="str">"#captcha_code"</span><span class="pun">).</span><span class="pln">attr</span><span class="pun">(</span><span class="str">'src'</span><span class="pun">,</span><span class="str">'captcha_code.php'</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">}</span></pre>
+<h2>PHP Captcha Image Creation</h2>
+<p>In PHP we are using PHP rand() to generate a random number. This random number will be encrypted by using md5() and cropped into 6 character captcha code. Then this code will be added to PHP session and as a source of captcha image by using PHP GD functions.</p>
+<pre class="prettyprint lang-php prettyprinted" style=""><span class="pln">session_start</span><span class="pun">();</span><span class="pln">
+$random_alpha </span><span class="pun">=</span><span class="pln"> md5</span><span class="pun">(</span><span class="pln">rand</span><span class="pun">());</span><span class="pln">
+$captcha_code </span><span class="pun">=</span><span class="pln"> substr</span><span class="pun">(</span><span class="pln">$random_alpha</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">6</span><span class="pun">);</span><span class="pln">
+$_SESSION</span><span class="pun">[</span><span class="str">"captcha_code"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> $captcha_code</span><span class="pun">;</span><span class="pln">
+$target_layer </span><span class="pun">=</span><span class="pln"> imagecreatetruecolor</span><span class="pun">(</span><span class="lit">70</span><span class="pun">,</span><span class="lit">30</span><span class="pun">);</span><span class="pln">
+$captcha_background </span><span class="pun">=</span><span class="pln"> imagecolorallocate</span><span class="pun">(</span><span class="pln">$target_layer</span><span class="pun">,</span><span class="pln"> </span><span class="lit">255</span><span class="pun">,</span><span class="pln"> </span><span class="lit">160</span><span class="pun">,</span><span class="pln"> </span><span class="lit">119</span><span class="pun">);</span><span class="pln">
+imagefill</span><span class="pun">(</span><span class="pln">$target_layer</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="pln">$captcha_background</span><span class="pun">);</span><span class="pln">
+$captcha_text_color </span><span class="pun">=</span><span class="pln"> imagecolorallocate</span><span class="pun">(</span><span class="pln">$target_layer</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">);</span><span class="pln">
+imagestring</span><span class="pun">(</span><span class="pln">$target_layer</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> $captcha_code</span><span class="pun">,</span><span class="pln"> $captcha_text_color</span><span class="pun">);</span><span class="pln">
+header</span><span class="pun">(</span><span class="str">"Content-type: image/jpeg"</span><span class="pun">);</span><span class="pln">
+imagejpeg</span><span class="pun">(</span><span class="pln">$target_layer</span><span class="pun">);</span></pre>
+<p><a class="demo" href="https://phppot.com/demo/php-captcha-using-jquery-ajax/">View Demo</a><a class="download" href="https://phppot.com/demo/php-captcha-using-jquery-ajax/php-captcha-using-jquery-ajax.zip">Download</a></p>
+<p>This jQuery code tutorial was published on December 10, 2014.</p>
+
+<div id="tutorial-navigation">
+<div id="previous-tutorial"><div class="navigation-label">Previous:</div><a href="https://phppot.com/php/read-facebook-data-via-graph-api-using-php/" rel="prev">Read Facebook Data via Graph API using PHP</a></div><div id="next-tutorial"><div class="navigation-label">Next:</div><a href="https://phppot.com/jquery/file-size-validation-using-jquery/" rel="next">File Size Validation using jQuery</a></div></div>
+<p><a href="https://phppot.com/jquery/php-captcha-using-jquery-ajax/#top" class="top">↑ Back to Top</a></p>
+</div>
+<div id="tutorial-menu">
+	<ul class="main-menu"><li class="cat-item cat-item-72"><a href="https://phppot.com/category/php/">PHP</a><ul class="sub-menu"><li class="cat-item cat-item-59"><a href="https://phppot.com/category/php/php-introduction/">PHP Introduction</a></li><li class="cat-item cat-item-26"><a href="https://phppot.com/category/php/php-basics/">PHP Basics</a></li><li class="cat-item cat-item-79"><a href="https://phppot.com/category/php/php-shopping-cart/">PHP Shopping Cart</a></li><li class="cat-item cat-item-94"><a href="https://phppot.com/category/php/php-contact-form/">PHP Contact Form</a></li><li class="cat-item cat-item-57"><a href="https://phppot.com/category/php/types-variables-operators/">Types, Variables &amp; Operators</a></li><li class="cat-item cat-item-58"><a href="https://phppot.com/category/php/php-strings/">PHP Strings</a></li><li class="cat-item cat-item-22"><a href="https://phppot.com/category/php/php-arrays/">PHP Arrays</a></li><li class="cat-item cat-item-61"><a href="https://phppot.com/category/php/php-functions/">PHP Functions</a></li><li class="cat-item cat-item-35"><a href="https://phppot.com/category/php/php-oops/">PHP OOPS</a></li><li class="cat-item cat-item-31"><a href="https://phppot.com/category/php/php-forms/">PHP Forms</a></li><li class="cat-item cat-item-78"><a href="https://phppot.com/category/php/advanced/">Advanced</a></li><li class="cat-item cat-item-90"><a href="https://phppot.com/category/php/php-ajax/">PHP AJAX</a><ul class="post-list"><li><a class="post-menu" href="https://phppot.com/php/country-state-city-example-cascading-jquery-dependent-dropdown/">Country-State-City Example: Cascading jQuery Dependent Dropdown</a></li><li><a class="post-menu" href="https://phppot.com/php/load-dependent-dropdown-on-multi-select-using-php-and-jquery/">Load Dependent Dropdown on Multi-Select using PHP and jQuery</a></li><li><a class="post-menu" href="https://phppot.com/php/facebook-like-header-notification-in-php/">Facebook Like Header Notification in PHP</a></li><li><a class="post-menu" href="https://phppot.com/php/sorting-mysql-row-order-using-jquery/">Sorting MySQL Row Order using jQuery</a></li><li><a class="post-menu" href="https://phppot.com/php/ajax-pagination-with-php/">AJAX Pagination with PHP</a></li><li><a class="post-menu" href="https://phppot.com/php/ajax-programming-with-php/">PHP AJAX Programming</a></li><li><a class="post-menu" href="https://phppot.com/php/php-star-rating-system-with-javascript/">PHP Star Rating System with JavaScript</a></li><li class="current-post">PHP Captcha using jQuery AJAX</li><li><a class="post-menu" href="https://phppot.com/php/events-display-using-php-ajax-with-clndr-calendar-plugin/">Events Display using PHP AJAX with CLNDR Calendar Plugin</a></li></ul></li><li class="cat-item cat-item-89"><a href="https://phppot.com/category/php/restful-api/">RESTful API</a></li><li class="cat-item cat-item-15"><a href="https://phppot.com/category/php/php-databases/">PHP Databases</a></li><li class="cat-item cat-item-23"><a href="https://phppot.com/category/php/php-sessions-and-cookies/">PHP Sessions and Cookies</a></li><li class="cat-item cat-item-51"><a href="https://phppot.com/category/php/error-exception-handling/">Error and Exception Handling</a></li><li class="cat-item cat-item-36"><a href="https://phppot.com/category/php/files-and-directories/">Files and Directories</a></li><li class="cat-item cat-item-45"><a href="https://phppot.com/category/php/php-date-time/">PHP Date Time</a></li><li class="cat-item cat-item-12"><a href="https://phppot.com/category/php/php-graphics/">PHP Graphics</a></li><li class="cat-item cat-item-24"><a href="https://phppot.com/category/php/php-xml/">PHP XML</a></li><li class="cat-item cat-item-62"><a href="https://phppot.com/category/php/php-code-samples/">PHP Code Samples</a></li><li class="cat-item cat-item-96"><a href="https://phppot.com/category/php/library/">Library</a></li><li class="cat-item cat-item-88"><a href="https://phppot.com/category/php/php-freelancer/">PHP Freelancer</a></li></ul></li><li class="cat-item cat-item-73"><a href="https://phppot.com/category/jquery/">jQuery</a></li><li class="cat-item cat-item-74"><a href="https://phppot.com/category/wordpress/">WordPress</a></li><li class="cat-item cat-item-75"><a href="https://phppot.com/category/mysql/">MySQL</a></li><li class="cat-item cat-item-76"><a href="https://phppot.com/category/css/">CSS</a></li></ul></div>
+
+<div id="social-icon">
+    <div class="heading">Share this Article</div>
+    <ul>
+        <li><a class="social-link facebook-social-link" href="https://www.facebook.com/sharer/sharer.php?u=https://phppot.com/jquery/php-captcha-using-jquery-ajax/" title="Share on Facebook"><img src="./PHP Captcha using jQuery AJAX_files/sprite.png" class="facebook-social-img"><span>Share</span></a></li>
+        <li><a class="social-link twitter-social-link" href="https://twitter.com/intent/tweet?original_referer=https://phppot.com&amp;source=tweetbutton&amp;text=PHP%20Captcha%20using%20jQuery%20AJAX;url=https://phppot.com/jquery/php-captcha-using-jquery-ajax/&amp;via=phppot" title="Share on Twitter"><img src="./PHP Captcha using jQuery AJAX_files/sprite.png" class="twitter-social-img"><span>Tweet</span></a></li>
+        <li><a class="social-link linkedin-social-link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://phppot.com/jquery/php-captcha-using-jquery-ajax/&amp;media=PHP%20Captcha%20using%20jQuery%20AJAX" title="Share on Linkedin"><img src="./PHP Captcha using jQuery AJAX_files/sprite.png" title="Share on Linkedin" class="linkedin-social-img"><span>Share</span></a></li>
+    </ul>
+</div>
+</div>
+<div id="sidebar">
+	<div id="aboutcntnt"><div id="photo"><img src="./PHP Captcha using jQuery AJAX_files/Vincy.jpg" alt="Vincy" width="100" height="100" title="Vincy"></div><div id="aboutdesc"><p>Hello! I am Vincy, a PHP freelancer and PHP Pot is my programming blog. I'm fond of developing modern web applications.</p>
+<p><a href="mailto:vincy@phppot.com" title="Contact Me">Contact me</a>, I accept paid work.</p></div><div id="contactMe"><a href="mailto:vincy@phppot.com" title="Contact Me">vincy@phppot.com</a></div></div>
+<div class="hiadcomponent"><div class="heading">Free Email Updates</div>	<div>
+	<form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#39;https://feedburner.google.com/fb/a/mailverify?uri=phppot&#39;, &#39;popupwindow&#39;, &#39;scrollbars=yes,width=550,height=520&#39;);return true">
+	<p>
+	<input placeholder="Enter your email here" type="text" class="feedb-email" name="email">
+	<input type="hidden" value="phppot" name="uri">
+	<input type="hidden" name="loc" value="en_US">
+	<input type="submit" value="Subscribe" class="subscribe"></p></form>
+	</div>
+	<div>
+	</div>
+</div>
+
+<div id="recommended">
+<div class="heading">Trending Code</div>
+<ul>
+<li><a href="https://phppot.com/php/simple-php-shopping-cart/">Simple PHP Shopping Cart</a></li>
+<li><a href="https://phppot.com/php/skills-every-php-freelancer-must-have/">Skills Every PHP Freelancer Must Have</a>
+</li>
+<li><a href="https://phppot.com/php/php-restful-web-service/">PHP RESTful Web Service</a></li>
+<li><a href="https://phppot.com/jquery/php-contact-form-with-jquery-ajax/">PHP Contact Form with jQuery AJAX</a></li>
+<li><a href="https://phppot.com/jquery/jquery-ajax-inline-crud-with-php/">jQuery AJAX Inline CRUD with PHP</a>
+</li>
+<li><a href="https://phppot.com/php/how-to-become-a-full-time-freelance-php-developer-and-consultant/">How to Become a Full Time Freelance PHP Developer and Consultant</a>
+</li>
+</ul>
+</div>
+</div></div>
+<div id="footer-contact-note">
+	<div class="footer-contact-banner-title">Let's get to work.</div>
+	<div id="footer-photo">
+		<img src="./PHP Captcha using jQuery AJAX_files/Vincy.jpg" alt="Vincy" width="100" height="100" title="Vincy">
+	</div>
+	<div id="footer-intro">I love the web and passionate in software
+		development. I have been programming non-stop for a decade. I provide
+		application development, enhancement, and problem-solving services.</div>
+	<div id="footer-button-container">
+		<a id="footer-contact-navigation" href="https://phppot.com/contact/">Contact Me</a>
+	</div>
+</div>
+<div id="footer">
+	<ul id="footer-menu">
+		<li class="cat-item cat-item-2"><a href="https://phppot.com/category/php/">PHP</a></li>
+		<li class="cat-item cat-item-8"><a href="https://phppot.com/category/jquery/">jQuery</a></li>
+		<li class="cat-item cat-item-4"><a href="https://phppot.com/category/mysql/">MySQL</a></li>
+		<li class="cat-item cat-item-3"><a href="https://phppot.com/category/wordpress/">Wordpress</a></li>
+		<li class="cat-item cat-item-10"><a href="https://phppot.com/category/css/">CSS</a></li>
+	</ul>
+
+	<div class="follow">
+		<a class="linkedin" href="https://www.linkedin.com/in/vincya/" title="LinkedIn" target="_blank"><img src="./PHP Captcha using jQuery AJAX_files/sprite.png" alt="LinkedIn" class="linkedin-img"></a><a href="https://plus.google.com/100835954832081019478/posts" title="Google Plus"><img src="./PHP Captcha using jQuery AJAX_files/sprite.png" alt="Google Plus" class="google-plus-img"></a><a class="facebook" href="https://www.facebook.com/pages/phppotcom/1428212654057945" title="Facebook" target="_blank"><img src="./PHP Captcha using jQuery AJAX_files/sprite.png" alt="Facebook" class="facebook-img"></a><a class="twitter" href="https://twitter.com/phppot" title="Twitter" target="_blank"><img src="./PHP Captcha using jQuery AJAX_files/sprite.png" alt="Twitter" class="twitter-img"></a><a class="feed" href="https://phppot.com/feed/" title="Feed"><img src="./PHP Captcha using jQuery AJAX_files/sprite.png" alt="Feed" class="feed-img"></a>
+	</div>
+	<div id="footer-bottom">
+		<p>
+			© 2018 <a href="https://phppot.com/" title="PhpPot Home">phppot.com</a>. The
+			design and content are copyrighted to Vincy and may not be reproduced
+			in any form.
+		</p>
+	</div>
+</div>
+<script async="" src="./PHP Captcha using jQuery AJAX_files/prettify.js.download"></script>
+</body></html>

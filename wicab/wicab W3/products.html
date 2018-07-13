@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WICAB Eng. (P) Ltd.</title>
+    <link rel="shortcut icon" href="myimages/logo transparent.png" type="image/png">
+    <link rel="shortcut icon" type="image/png" href="myimages/logo transparent.png" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="mycode/w3_4.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+</style>
+</head>
+<body class="w3-light-grey w3-content" style="max-width:1600px">
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left w3-card-4" style="z-index:3;width:300px;" id="mySidebar">
+      <div class="w3-container">
+        <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-xxlarge w3-padding w3-hove r-grey" title="close menu">
+          <i class="fa fa-remove"></i>
+        </a>
+        <img src="myimages/123456.jpg" style="width:77%;" class="w3-round w3-center w3-margin-top "><br><br>
+        <h6 class="w3-text-red w3-center"><b>WICAB Engineering India Pvt Ltd.</b></h6>
+      
+      </div>
+      <div class="w3-bar-block">
+            <a href="index.html" onclick="w3_close()" class="w3-hover-red w3-bar-item w3-button w3-padding "><i class="fa fa-home fa-fw w3-margin-right"></i>HOME</a> 
+   
+  <div class="w3-bar-item w3-button" onclick="myAccFunc()"><i class="fa fa-user  fa-fw w3-margin-right w3-hover-blue"></i>
+  ABOUT US&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-caret-down"></i></div>
+        <div id="demoAcc" class="w3-hide w3-white w3-card-4">
+            <a href="index.html#ABOUT" onclick="w3_close()" class="w3-bar-item w3-button"><i class="fa fa-vcard-o  fa-fw w3-margin-right w3-hover-blue"></i>Company Profile</a>
+            <a href="index.html#TEAM"  onclick="w3_close()" class="w3-hover-brown w3-bar-item w3-button w3-padding"><i class="fa fa-handshake-o  fa-fw w3-margin-right"></i>OUR TEAM</a> 
+            <a href="#index.htmlSTRENGHT"  onclick="w3_close()" class="w3-bar-item w3-button"><i class="fa fa-users  fa-fw w3-margin-right w3-hover-blue"></i>Our Strength</a></div> 
+            <a href="index.html#SERVICE"  onclick="w3_close()" class="w3-hover-green w3-bar-item w3-button w3-padding"><i class="fa fa-cogs  fa-fw  w3-margin-right"></i>SERVICE</a> 
+            <a href="#"  onclick="w3_close()" class="w3-hover-aqua w3-bar-item w3-button w3-padding"><i class="fa fa-th-large  fa-fw w3-margin-right"></i>PRODUCTS</a> 
+            <a href="index.html#QUALITY"  onclick="w3_close()" class="w3-hover-orange w3-bar-item w3-button w3-padding"><i class="fa fa-eye  fa-fw w3-margin-right"></i>QUALITY</a> 
+      <div class="w3-bar-item w3-button" onclick="myAccFunc1()"><i class="fa fa-envelope  fa-fw  w3-margin-right w3-hover-blue"></i>
+      CONTACT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-caret-down"></i></div>
+      <div id="demoAcc1" class="w3-hide w3-white w3-card-4">
+    <a href="index.html#INDIA"  onclick="w3_close()" class="w3-bar-item w3-button"><i class="fa fa-rupee   fa-fw w3-margin-right w3-hover-blue"></i>India</a>
+    <a href="index.html#UN"  onclick="w3_close()" class="w3-bar-item w3-button"><i class="fa fa-dollar  fa-fw w3-margin-right w3-hover-blue"></i>United State</a>
+    <a href="index.html#IDA"  onclick="w3_close()" class="w3-bar-item w3-button"><i class="fa fa-truck  fa-fw w3-margin-right w3-hover-blue"></i>International Distributor and &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Associates</a>
+  </div> 
+            <a href="index.html#QUERY"  onclick="w3_close()" class="w3-hover-lime w3-bar-item w3-button w3-padding"><i class="fa fa-comments  w3-margin-right"></i>QUREY</a> 
+      </div>
+   
+        <script>
+    function myAccFunc() {
+        var x = document.getElementById("demoAcc");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+            x.previousElementSibling.className += " w3-blue";
+        } else { 
+            x.className = x.className.replace(" w3-show", "");
+            x.previousElementSibling.className = 
+            x.previousElementSibling.className.replace(" w3-blue", "");
+        }
+    }
+    </script>
+            <script>
+    function myAccFunc1() {
+        var x = document.getElementById("demoAcc1");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+            x.previousElementSibling.className += " w3-purple";
+        } else { 
+            x.className = x.className.replace(" w3-show", "");
+            x.previousElementSibling.className = 
+            x.previousElementSibling.className.replace(" w3-purple", "");
+        }
+    }
+    </script>
+</nav>
+<!-- Overlay effect when opening sidebar on small screens -->
+<!--<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay" ></div> -->
+<script>
+  // Script to open and close sidebar
+  function w3_open() {
+      document.getElementById("mySidebar").style.display = "block";
+      document.getElementById("myOverlay").style.display = "block";
+
+  }
+   
+  function w3_close() {
+      document.getElementById("mySidebar").style.display = "none";
+      document.getElementById("myOverlay").style.display = "none";
+
+  }
+ </script>
+  <div class="w3-main" style="margin-left:300px;padding: 10px;bo rder : green 1px solid;">
+   <div class="w3-white"> <a href="#"><img src="myimages/123456.jpg" style="width:85px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity "></a>
+    <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey " onclick="w3_open()"><i class="fa fa-bars"></i></span></div>
+
+<!-- Products -->
+ <div class=" w3-aqua w3-round-xxlarge">
+
+  <div class="w3-container w3-round-xxlarge" >
+       <h1>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-th-large w3-margin-right w3-hover-blue"></i>&nbsp;Products</h1>
+    </div>
+   <div class="w3-light-green w3-round-xxlarge w3-card-4 w3-justify w3-border w3-border-aqua">
+   <div class="w3-container">
+  <br>
+
+<!-- Side Nav -->
+  <link rel="stylesheet" type="text/css" href="mycode/sidenav.css">
+  <div>
+
+  <button class="accordion w3-light-green w3-xlarge  w3-hover-text-white"><strong>Bare Wire Products</strong></button><div class="panel w3-white">
+  <div onclick="document.getElementById('id01').style.display='block'"
+  class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">Bare Copper (solid &amp;stranded)</a></div>
+  <div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">Plated Copper (Nickel, Silver, Tin)</a></div>
+  <div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">Resistance Alloys</a></div>
+  <div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">Nickel &amp;Nickel Alloys</a></div>
+  <div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">Silver Plated Nickle</a></div>
+  <div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">CS/CCA (Copper Clad Steel/ alum.)</a></div>
+  <div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">Strandard / Bunched Copper wire </a></div></div>
+
+
+  <div id="id01" class="w3-modal">
+    <div class="w3-modal-content w3-card-4">
+      <header class="w3-container w3-teal"> 
+        <span onclick="document.getElementById('id01').style.display='none'" 
+        class="w3-button w3-display-topright">&times;</span>
+        <h2>Modal Header</h2>
+      </header>
+      <div class="w3-container">
+        <p>You have two options to close this modal:</p>
+        <p>Click on the "x" or click anywhere outside of the modal!</p>
+      </div>
+      <footer class="w3-container w3-teal">
+        <p>Modal Footer</p>
+      </footer>
+    </div>
+  </div>
+
+
+
+
+
+
+  <button class="accordion w3-light-green w3-xlarge w3-hover-text-white"><strong>Insulated Winding Wires</strong></button><div class="panel w3-white">
+  <div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">PVC Insulated Solid wire</a></div>
+  <div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">PVC Insulated flexible wire</a></div>
+  <div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">Polymers Insulated PBN / PBW wire</a></div>
+  <div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">High temp. / High Dens. EPB / EPM wire</a></div>
+  <div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">High temp. / High Dens. TFP / TFW wire</a></div>
+  <div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">High Voltage (5KV) winding wires</a></div>
+  <div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">Muti-strand special MSP-140 wire</a></div>
+  <div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">High Tem Flexible MSP-320 wire</a></div>
+  <div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">XLPE inslulated winding wire</a></div>
+  <div onclick="document.getElementById('id01').style.display='block'"
+  class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">Super enamelled insulated wire</a></div></div>
+
+  <button class="accordion w3-light-green w3-xlarge w3-hover-text-white"><strong>Insulated Power Cables</strong></button><div class="panel w3-white">
+  <div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">PVC Multi-core Flat &amp;Round</a></div>
+  <div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">PVC Braided / Shielded cable</a></div>
+  <div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">PVC Submersible Multicore cable</a></div>
+  <div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">Rubber Multi-core Flat &amp;Round</a></div>
+  <div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">Rubber Braided / Shielded cable</a></div>
+  <div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">Rubber Submersible Multicore cable</a></div>
+  <div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">XLPE Single/Multi-core Flat &amp;Round</a></div>
+  <div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">XLPE Braided / Shielded cable</a></div></div>
+
+
+  <button class="accordion w3-light-green w3-xlarge w3-hover-text-white"><strong>PVC Insulated House Wiring</strong></button><div class="panel w3-white">
+  <div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">PVC Three core / Four Core</a></div>
+  <div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">PVC single core / Two core</a></div></div>
+       
+  <button class="accordion w3-light-green w3-xlarge w3-hover-text-white"><strong>Special Products</strong></button><div class="panel w3-white">
+  <div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">PTFE Resistance wires</a></div>
+  <div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">PTFE Heating cables</a></div>
+  <div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">PVC Round Magnet copper wires</a></div>
+  <div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">PTFE Sleeves and Tubings and Tape</a></div>
+  <div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">SS Wrapped Flexible Power Cables</a></div>
+  <div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">Connector Fitted cut length cable assembly</a></div>
+  <div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">PTFE Thermo-Couple wires</a></div>
+  <div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">PMotor Lead wires</a></div></div>
+
+  <button class="accordion w3-light-green w3-xlarge w3-hover-text-white"><strong>PTFE/TEFLON INSULATED WIRES</strong></button><div class="panel w3-white">
+
+<div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">PTFE Equipment / Hook-up wires</a></div>
+<div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">PTFE Appliance wire</a></div>
+<div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">PTFE Motor Lead wires</a></div>
+<div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">PTFE Coaxial / Miniature Coaxial cables</a></div>
+<div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">PTFE Multi-core wires &amp; cables</a></div>
+<div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">PTFE Miniature shielded wires &amp; cables</a></div>
+<div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">PTFE Braided/shielded cables</a></div>
+<div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">PTFE High Voltage Corona Resistance</a></div>
+<div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">PTFE Power supply / Internal lead wires</a></div>
+<div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">PTFE Nickel plated silver wire</a></div>
+<div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">PTFE Nickel plated silver wire</a></div>
+<div onclick="document.getElementById('id01').style.display='block'"class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">PTFE Control Signal cables / Harness</a></div></div>
+
+<button class="accordion w3-light-green w3-xlarge w3-hover-text-white"><strong>PVC INSULATED WIREs</strong></button><div class="panel w3-white">
+
+<div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">PVC Equipment / Appliance wires</a></div>
+<div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">PVC Control signal wires/cables/harness</a></div>
+<div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">PVC Braided/Shielded wire/ cables/pairs</a></div>
+<div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">PVC Multi core signal wires / harness</a></div>
+<div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">PVC Miniature wires</a></div>
+<div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">PVC Appliance wires</a></div>
+<div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">PVC Power supply lead wires</a></div></div>
+
+
+ <button class="accordion w3-light-green w3-xlarge w3-hover-text-white"><strong>SPECIAL APPLICATION / EQUIPMENT WIRES &amp; CABLES</strong></button><div class="panel w3-white">
+  <h3 class="w3-text-red"><strong>Industries: </strong></h3>
+  <div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">Space,Aviation,Automobiles, Marine, Defence, Military,Chemical plants, Mines &amp; Collieries,Health-care,Sea <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp; ocean,Oil Extraction & Oil Drilling</a></div>
+<h3 class="w3-text-red"><strong>Products: </strong></h3>
+<div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">Power cables (Flexible Armoured)</a></div>
+<div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">Motor Winding wires</a></div>
+<div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">Equipment /Control signal wires</a></div>
+<div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">Chemical Inert Cables</a></div>
+<div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">Downwell Flexible Armoured Flat Power cables</a></div>
+<div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">High Voltage Equipment wires</a></div></div>
+
+
+
+<button class="accordion w3-light-green w3-xlarge w3-hover-text-white"><strong>Customised Products:</strong></button><div class="panel w3-white">
+<div class="w3-button w3-block w3-left-align w3-hover-aqua"><i class="fa fa-hand-o-right">&nbsp;&nbsp;</i><a href="#">PVC / PTFE or Polymers Insulated customesd products</a></div></div>
+
+<br><br>
+      </div>
+      <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+          acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight){
+              panel.style.maxHeight = null;
+            } else {
+              panel.style.maxHeight = panel.scrollHeight + "px";
+            } 
+          });
+        }
+    </script>
+ <!-- End Side Nav -->
+
+  </div></div></div>
+
+<!-- end Products -->
+<br>
+<!-- footer -->
+  <link rel="stylesheet" type="text/css" href="mycode/footer.css">
+  <div class="footer1 w3-round-xxlarge w3-card-4">
+    <ul class="footerul">
+        <li class="fparent"><a href="index.html#HOME">Home</a></li>
+        <li class="fparent"><a href="index.html#ABOUT">About Us</a></li>
+        <li class="fparent"><a href="index.html#PRODUCTS">Products</a></li>
+        <li class="fparent"><a href="index.html#SERVICE">Services</a></li>
+        <li class="fparent"><a href="index.html#QUALITY">Quality</a></li>
+        <li class="fparent"><a href="index.html#INDIA">Contact</a></li>
+        <li class="fparent"><a href="index.html#QUERY">Query</a></li>
+        <li class="fparent"><a href="index.html#TEAM">Our Team</a></li>
+    </ul>
+  <div class="footer2">
+  <img src="myimages/facebook.png" href="#" width="70" height="70">
+  <img src="myimages/google+.png" href="#" width="70" height="70">
+  <img src="myimages/twitter.png" href="#" width="70" height="70">
+    
+    <p style="color:red;padding:20px;font-size: 15px;"> All right revered in WICAB India Engineering Private Limited, Ghaziabad</p>
+  </div>
+  </div>
+<!-- footer -->
+<!-- top --
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="w3-bottom w3-right">
+<a href="#" class="w3-xxxlarge w3-animate-bottom"><i class="w3-r ed fa fa-arrow-circle-up" style="font-size:60px;color:red;"></i></a>
+</div> -->
+<style>
+
+#myBtn {
+  display: none;
+  position: fixed ;
+  bottom : 20px;
+  right: 30px;
+  z-index: 99;
+  fo nt-size: 18px;
+  bor der: none;
+  outl ine: none;
+  back ground-color: red;
+  col or: white;
+  cursor: pointer;
+  padd ing: 15px;
+  bord er-radius: 4px;
+}
+
+
+</style>
+<div onclick="topFunction()" id="myBtn" title="Go to top"><i class="w3-card-4 fa fa-arrow-circle-up" style="font-size:60px;color:red;"></i></div>
+
+<script>
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("myBtn").style.display = "block";
+    } else {
+        document.getElementById("myBtn").style.display = "none";
+    }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+</script>
+<!-- end top -->
+</body>
+</html>

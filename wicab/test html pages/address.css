@@ -1,0 +1,90 @@
+
+* {box-sizing: border-box}
+/* 28.660358,77.461568   42.102813,-71.148842 
+AIzaSyDZlOq9JX20iJ_DA_J_OViEZt9uGJD3hnY     */
+/* Set height of body and the document to 100% */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial;
+}
+
+/* Style tab links */
+.tablink {
+    background-color: #555 ;
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 23px;
+    width: 33.333%;
+}
+
+.tablink:hover {
+    background-color: #777;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+    color: white;
+    display: none;
+    padding: 100px 20px;
+    height: 100%;
+}
+
+#India {background-color: orange;}
+#United {background-color: green;}
+#Inter {background-color: blue;box-sizing: border-box;}
+
+
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 33.3%;
+  height: auto;
+  margin-bottom: 16px;
+  padding: 0 30px;
+}
+
+@media (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+
+.card {
+  box-shadow: 0 40px 18px 0 rgba(0, 0, 0, 0);height: 350px; background-color: white; color:black;}
+
+.card:hover {
+  box-shadow: 0 40px 18px 0 rgba(10, 0, 2, 0.2);height: 350px; background-color: black; color:white;}
+
+.card h2 
+{
+  text-align: center;background-color: red;margin: 0px;padding: 0px; font-size: 36px;
+  border-bottom: blue 5px solid;
+  color:white;
+}
+
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+
