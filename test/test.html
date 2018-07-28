@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>CGST ADJ NOIDA</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+
+<h2>What Can JavaScript Do?</h2>
+
+
+
+<button type="button" onclick='document.getElementById("demo").innerHTML = "Hello JavaScript!"'>
+<?php
+$servername = "localhost";
+$username = "2027387_salary";
+$password = "b4513.4513z";
+$myDB = "2027387_salary";
+try {
+    $conn = new PDO("mysql:host=$servername;dbname=$myDB", $username, $password);
+    // set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo "Connected successfully"; 
+    }
+catch(PDOException $e)
+    {
+    echo "Connection failed: " . $e->getMessage();
+    }
+?></button>
+<p id="demo">JavaScript can change HTML content.</p>
+</body>
+</html>

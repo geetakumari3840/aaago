@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html><head>
+
+<title>CGST ADJ NOIDA</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Download CSS file -->
+<link rel="stylesheet" href="jquery_css_file/w3.css">
+<link rel="stylesheet" href="jquery_css_file/mycss.css">
+<!-- Download  JS file -->
+<script src="jquery_css_file/jquery-3.3.1.js"></script>
+<script src="jquery_css_file/myjs.js"></script>	
+
+<!-- head js file -->
+<script type="text/javascript">
+
+$(function(){ report(); });
+
+function report() { $('#display').html($('#testSubject').
+	width()+'<h1><b>x</b></h1>'+$('#testSubject').height());
+}
+</script>
+<!-- end heed -->
+</head>
+<body onresize="report();">
+<br>
+<div id="testSubject" >
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+Aliquam eget enim id neque aliquet porttitor. Suspendisse
+nisl enim, nonummy ac, nonummy ut, dignissim ac, justo.
+Aenean imperdiet semper nibh. Vivamus ligula. In in ipsum
+sed neque vehicula rhoncus. Nam faucibus pharetra nisi.
+Integer at metus. Suspendisse potenti. Vestibulum ante
+ipsum primis in faucibus orci luctus et ultrices posuere
+cubilia Curae; Proin quis eros at metus pretium elementum.
+</div>
+<div id="display"></div>
+
+<br>
+<div class="w3-container">
+<button class="w3-button w3-red aaa1">add class</button>
+<button class="w3-button w3-red aaa2">alert & hide</button>
+<button class="w3-button w3-red aaa3">hide</button>
+<h1 id="xyz1"> I am Ajay Kumar</h1>
+<br>
+<h1 id="xyz2"> I am Ajay Kumar</h1>
+<br>
+<div id="xyz3" style="border: solid 1px red;">
+<h1> Hi, Ajay </h1>
+<p>To help you learn about element selection, we’ve put together a Selectors
+Lab page that’s available with the downloadable code examples for this book. If
+you haven’t yet downloaded the example code, now would be a great time to do
+so. Please see the book’s front section for details on how to find and download
+this code.</p>
+</div>
+<div class='foo'>I have foo!</div>
+<img id="myImage" src="maxresdefault.jpg" alt="An image" class="someClass"
+title="This is Dr. B. R. Ambedar" height="100" width="200" />
+<p class="img"></p>
+<div>I don't</div>
+</div>	
+</body>
+</html>

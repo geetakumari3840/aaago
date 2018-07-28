@@ -1,16 +1,15 @@
 <?php
-
-
+session_start();
+header ('content-type: image/jpeg');
 //$text = $_SESSION['code'] = mt_rand (11111,99999);
 
 //$a="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 //$str=str_shuffle ($a);
 $str = md5(microtime());
-$str=substr($str,0,6);
-session_start();
-$_SESSION['cap_code']=$str;
+$str=substr($str,0,3);
+
 $font_size 	= 	40;
-$width		=	180;
+$width		=	130;
 $height		=	60;
 $total_lines = 20;
 
@@ -38,7 +37,7 @@ imageline($image, $x1, $y1, $x2, $y2, $font_color);
 }
 
 $angle = mt_rand (-10,10);
-imagettftext($image, $font_size, $angle, 20, 40, $font_color, 'font.ttf', $str);
-header ('content: image/jpeg');
+imagettftext($image, $font_size, $angle, 20, 40, $font_color, 'ITCBLKAD.TTF', $str);
+
 imagejpeg($image);
 ?>

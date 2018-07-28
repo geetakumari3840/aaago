@@ -1,8 +1,9 @@
 <?php
 session_start();
-if(isset($_POST['submit'])) {
-	$code = $_SESSION['code'];
-	if ($_POST['code'] == $code){
+if(isset($_POST['chek'])) {
+	$code = $_SESSION['cap_code']; 
+	$user = $_POST['cap'];
+	if ($code === $user){
 		echo 'Matched';
 		} else {
 			echo 'Mismatch';
@@ -14,12 +15,20 @@ if(isset($_POST['submit'])) {
 <head>
 	<title></title>
 </head>
+<script type='text/javascript'>
+function refreshCaptcha(){
+	var img = document.images['captchaimg'];
+	img.src = img.src.substring(0,img.src.lastIndexOf("?"))+"?rand="+Math.random()*1000;
+}
+</script>
 <body>
-<form method="post">
-	<input id="meeting" type="date" value="2018-08-13"/><br><br>
-	<input type="text" name="code"> <br><br>
-	<img src="image.php"><br><br>
-	<input type="submit" name="submit" value="Send">
+<form action="" method="post">
+	
+	<input type="text" name="cap"> <br><br>
+	<img src="image.php?rand=<?php echo rand();?>" id='captchaimg'><br>
+        Can't read the image? click <a href='javascript: refreshCaptcha();'>here</a> to refresh.<br><br>
+	<input type="submit" onclick="return validate();" name="chek" value="Verify">
+
 </form>
 </body>
 </html>
