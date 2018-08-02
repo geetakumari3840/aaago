@@ -10,7 +10,8 @@ $conn = new PDO("mysql:host=$servername;dbname=$myDB", $username, $password);
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 if($_POST["action"] == "fetch")
  {
-$sql="SELECT ID,picture,firstname,lastname FROM `tbl_images`";
+$sql="SELECT ID,picture,firstname,lastname FROM `tbl_images` 
+            ORDER BY ID DESC";
         $qu = $conn->query($sql);
         $qu->setFetchMode(PDO::FETCH_ASSOC);
 
@@ -31,7 +32,6 @@ while ($r = $qu->fetch()) {
     <td class='w3-card-4'>" . $r['lastname'] . "</td>
     <td class='w3-card-4'><p ></p></td>
     <td class='w3-card-4'><button name='update' 
-    onclick='document.getElementById('id01').style.display='block''
     class='Update w3-btn w3-block w3-amber w3-round' id=".$r["ID"].">Edit / Update</button></td>
     <td class='w3-card-4'><button name='delete' class='delete w3-button w3-block w3-purple w3-round' id=".$r["ID"].">Delete Records</button> </td>
     </tr>";
@@ -69,7 +69,7 @@ echo "</table>";
 
  if($_POST["action"] == "delete")
  {
-  echo $_POST["image_id"];
+  echo "ID Number ".$_POST["image_id"];
   $sql = "DELETE FROM tbl_images WHERE ID = '".$_POST["image_id"]."'";
   $conn->exec($sql);
   $sql="SELECT MAX(ID) + 1 FROM tbl_images";
