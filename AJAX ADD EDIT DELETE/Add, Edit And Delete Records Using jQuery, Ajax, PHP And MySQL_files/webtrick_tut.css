@@ -1,0 +1,419 @@
+#wrapper
+{
+	clear:both;	
+	float:left;
+	width:100%;
+	margin:0px auto;
+	padding:0px;
+}
+#content
+{
+width:995px;
+margin:0px auto;
+padding:0px;
+
+}
+#content *
+{
+font-family: "Myriad Pro","Helvetica Neue",Helvetica,Arial,Sans-Serif;	
+}
+#left_div
+{
+	margin-top:50px;	
+	float:left;
+	width:640px;
+	margin-left:5px;
+}
+#webtrick_div
+{
+width:100%;
+float:left;
+background-color:white;
+box-sizing:border-box;
+padding:20px;
+}
+#webtrick_div .page_title
+{
+color:#424242;
+font-size:38px;
+}
+#webtrick_div .posttime
+{
+	margin-top:10px;
+	color:#A4A4A4;
+	font-size:15px;
+	font-style:italic;
+}
+#webtrick_div .tuttags
+{
+margin-top:10px;
+margin-bottom:40px;
+color:#6E6E6E;
+font-size:15px;
+}
+#webtrick_div .tuttags a
+{
+	color: #424242;
+    text-decoration: none;
+    font-size: 13px;
+    background-color: #D8D8D8;
+    padding: 5px;
+    font-weight: bold;
+}
+#webtrick_div .demolink
+{
+	clear:both;
+	float:left;	
+	margin-top:20px;
+	padding:15px;
+	padding-left:50px;
+	padding-right:50px;
+	font-size:20px;
+	text-decoration:none;
+	color:white;
+	margin-left:200px;
+	background-color:#585858;
+	border-radius:4px;
+	border-bottom:4px solid #424242;
+}
+#webtrick_div .tut_image
+{
+	width:95%;
+	height:315px;
+	margin:0px;
+	padding:7px;
+	margin-top:40px;
+	border:1px solid silver;
+}
+#webtrick_div .explain_para
+{
+	color:#585858;
+	font-size: 17px;
+	font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+	line-height: 1.8em;
+	word-spacing: 8px;
+}
+#webtrick_div .explain_para a
+{
+	color:#176092;
+	text-decoration:none;
+}
+#webtrick_div .explain_para a:hover
+{
+	text-decoration:underline;
+}
+#webtrick_div ol,#webtrick_div ul
+{
+	color:#585858;
+	margin-top:20px;
+}
+#webtrick_div ol,#webtrick_div ul li
+{
+	line-height: 1.3em;
+	word-spacing:3px;
+	margin-left:25px;
+}
+#webtrick_div .code_div pre
+{
+	border:none;
+	background-color:#eee;
+	padding:10px;
+	line-height: 1.6em;
+	word-spacing:4px;
+	overflow:auto;
+	margin-top:10px;
+	font-family: Menlo, Consolas, "Bitstream Vera Sans Mono", "DejaVu Sans Mono", Monaco, monospace;
+}
+#webtrick_div .code_div pre *
+{
+	font-family: Menlo, Consolas, "Bitstream Vera Sans Mono", "DejaVu Sans Mono", Monaco, monospace;
+}
+#webtrick_div #second_middlead_display
+{
+	text-align:center;
+}
+#right_div
+{
+	float:right;
+	width:300px;
+	margin-top:50px;
+	margin-right:5px;
+	position:relative;
+}
+#right_div *
+{
+	font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+}
+#right_div #affiliate_div
+{
+	background-color:white;
+	box-sizing:border-box;
+	width:300px;
+	height:100%;
+	max-height:620px;
+	box-shadow:0px 0px 10px 0px #585858;
+	margin-top:1%;
+	overflow:hidden;
+}
+#right_div #affiliate_div a
+{
+	display:block;
+	width:100%;
+	text-decoration:none;
+	box-sizing:border-box;
+}
+#right_div #affiliate_div .head
+{
+	width:100%;
+	color:white;
+	display:block;
+	background-color:#585858;
+	padding:10px;
+	padding-top:20px;
+	padding-bottom:20px;
+	box-sizing:border-box;
+	font-weight:bold;
+	font-size:22px;
+}
+#right_div #affiliate_div img
+{
+	width:300px;
+}
+#right_div #affiliate_div .desc
+{
+	padding:10px;
+	color:#585858;
+	font-weight:700;
+	font-size:15px;
+}
+#right_div #affiliate_div .button
+{
+	background-color:#585858;
+	width:96%;
+	height:50px;
+	line-height:50px;
+	margin-left:2%;
+	text-align:center;
+	margin-top:10px;
+	color:white;
+	font-weight:bold;
+	border-radius:3px;
+	border-bottom:5px solid #424242;
+}
+
+#about_me_div
+{
+clear:both;
+float:left;
+width:640px;
+box-sizing:border-box;
+background-color:white;
+}
+#about_me_div *
+{
+font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+}
+#about_me_div .div1
+{
+	float:left;
+	background-color:#585858;
+	width:40%;
+	padding-left:40px;
+	padding-right:40px;
+	padding-top:0px;
+	padding-bottom:20px;
+	box-sizing:border-box;
+}
+#about_me_div .div1 p
+{
+	margin-top:10px;
+	font-style:italic;
+	color:white;
+	text-align:center;
+	text-decoration:underline;
+	font-size:20px;
+	box-sizing:border-box;
+}
+#about_me_div .div1 img
+{
+	margin-top:10px;
+	width:100%;
+	box-sizing:border-box;
+	border-radius:100%;
+	border:5px solid white;
+}
+#about_me_div .div2
+{
+	float:left;
+	width:60%;
+	padding:10px;
+	box-sizing:border-box;
+}
+#about_me_div .div2 p
+{
+	color:#424242;
+	line-height:25px;
+}
+#about_me_div .social_image_wrapper
+{
+	text-align:center;
+}
+#about_me_div .social_image
+{
+	text-align:center;
+	width:40px;
+	margin:5px;
+}
+
+#comment_div
+{
+margin-top:30px;
+padding:0px;
+width:640px;
+float:left;
+box-sizing:border-box;
+margin-bottom:50px;
+}
+#comment_div #latest_tutorial_div
+{
+	float:left;
+	background-color:white;
+	box-sizing:border-box;
+	margin-top:20px;
+	padding:20px;
+	width:100%;
+}
+#comment_div #latest_tutorial_div h2
+{
+	color:#585858;
+}
+#comment_div #latest_tutorial_div li
+{
+float:left;
+width:190px;
+max-height:250px;
+min-height:200px;
+margin:10px;
+margin-left:0px;
+box-sizing:border-box;
+list-style-type:none;
+overflow:hidden;
+}
+#comment_div #latest_tutorial_div .latest_tut_links
+{
+text-decoration:none;
+color:#585858;
+font-size:13px;
+font-weight:bold;
+}
+#comment_div #latest_tutorial_div .latest_tut_links:hover
+{
+	color:red;
+}
+#comment_div #latest_tutorial_div .latest_tut_links img
+{
+	width:100%;
+	max-height:120px;
+	margin-bottom:10px;
+}
+.sharethis-inline-share-buttons
+{
+	margin-top:20px;
+	margin-bottom:20px;
+}
+#comment_div #user_comments
+{
+	clear:both;
+	floar:left;
+	margin-top:50px;
+	background-color:white;
+	padding:15px;
+	box-sizing:border-box;
+}
+
+@media only screen and (max-width: 960px)
+{
+#full_window_subscribe_div
+{
+	display:none;
+}
+#right_div
+{
+	display:none;
+}
+#user_comments
+{
+	display:none;
+	padding:0px;
+}
+#about_me_div
+{
+	display:none;
+	padding:0px;
+}
+#comment_div #latest_tutorial_div
+{
+	display:none;
+}
+#wrapper,#content,#left_div
+{
+width:100%;
+}
+#left_div
+{
+width:100%;
+margin-left:0px;
+}
+#webtrick_div .page_title
+{
+	font-size:30px;
+}
+#webtrick_div .demolink
+{
+	text-align:center;
+	margin-left:0px;
+	padding:10px;
+	padding-left:7%;
+	padding-right:7%;
+}
+#webtrick_div .tut_image
+{
+width:90%;
+max-width:450px;
+}
+#webtrick_div #second_middlead_display
+{
+	width:100%;
+	height:200px;
+	overflow:hidden;
+}
+#related_link_div
+{
+width:100%;
+margin-left:0px;
+padding:0px;
+}
+#related_link_div p
+{
+width:100%;
+text-align:left;
+overflow:visible;
+padding:10px;
+}
+#related_link_div .related_links
+{
+font-weight:normal;
+display:block;
+}
+#related_link_div img
+{
+visibility:hidden;
+display:none;
+}
+#comment_div
+{
+width:100%;
+margin-left:0px;
+}
+
+}

@@ -1,0 +1,16 @@
+#middlead_display,#second_middlead_display,#third_middlead_display
+{
+	margin-top:30px;
+	margin-bottom:30px;
+	width:336px;
+	height:280px;
+}
+
+@media only screen and (max-width: 960px)
+{
+#middlead_display,#second_middlead_display,#third_middlead_display
+{
+display:none;
+visiblity:hidden;
+}
+}

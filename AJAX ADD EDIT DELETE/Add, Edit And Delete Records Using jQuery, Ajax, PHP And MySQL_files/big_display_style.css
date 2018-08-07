@@ -1,0 +1,15 @@
+#bigad_display
+{
+	clear:both;
+	min-width:970px;
+	min-height:250px;
+	margin-top:20px;
+}
+@media only screen and (max-width: 960px)
+{
+#bigad_display, #linkad_middle
+{
+display:none;
+visiblity:hidden;
+}
+}

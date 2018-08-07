@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<title>FoxPush Data</title>
+<meta name="robots" content="noindex,nofollow">
+<script type="text/javascript">
+
+        /*
+        if(Notification.permission == 'granted')
+        {
+            localStorage['foxpush_status'] = 'allowed';
+        }
+        else if(Notification.permission == 'denied')
+        {
+            localStorage['foxpush_status'] = 'blocked';
+        }
+        else
+        {
+            localStorage['foxpush_status'] = 'none';
+        }
+        */
+
+        var Cookie =
+        {
+            set: function(name, value, days)
+            {
+                var domain, domainParts, date, expires, host;
+
+                if (days)
+                {
+                    date = new Date();
+                    date.setTime(date.getTime()+(days*24*60*60*1000));
+                    expires = "; expires="+date.toGMTString();
+                }
+                else
+                {
+                    expires = "";
+                }
+
+                host = location.host;
+                if (host.split('.').length === 1)
+                {
+                    document.cookie = name+"="+value+expires+"; path=/";
+                }
+                else
+                {
+                    domainParts = host.split('.');
+                    domainParts.shift();
+                    domain = '.'+domainParts.join('.');
+                    document.cookie = name+"="+value+expires+"; path=/; domain="+domain;
+                    if (Cookie.get(name) == null || Cookie.get(name) != value)
+                    {
+                        domain = '.'+host;
+                        document.cookie = name+"="+value+expires+"; path=/; domain="+domain;
+                    }
+                }
+            },
+
+            get: function(name)
+            {
+                var nameEQ = name + "=";
+                var ca = document.cookie.split(';');
+                for (var i=0; i < ca.length; i++)
+                {
+                    var c = ca[i];
+                    while (c.charAt(0)==' ')
+                    {
+                        c = c.substring(1,c.length);
+                    }
+
+                    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+                }
+                return null;
+            },
+
+            erase: function(name)
+            {
+                Cookie.set(name, '', -1);
+            }
+        };
+
+        function getParameterByName(name, url) {
+            if (!url) {
+                url = window.location.href;
+            }
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                    results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+        function set_foxpush_data(browser_id)
+        {
+            var fox_data  = {};
+            var ssl_token =  getParameterByName('token');
+
+            if(localStorage['foxpush_status'] !== undefined || ssl_token != null)
+            {
+
+                fox_data.status     = localStorage['foxpush_status'];
+
+                if(ssl_token)
+                {
+                    localStorage['foxpush_status'] = 'allowed';
+                    localStorage['foxpush_user_token'] = ssl_token;
+
+                    fox_data.status     = 'allowed';
+                    fox_data.token      = ssl_token;
+                }
+                else
+                {
+                    fox_data.token      = localStorage['foxpush_user_token'];
+                }
+
+                fox_data.browser_id = browser_id;
+                fox_data.refpage    = (window.location != window.parent.location) ? document.referrer : document.location.href;
+                fox_data.pagetitle  = getParameterByName('title');
+            }
+
+            if(fox_data.status == 'allowed' && fox_data.token !== null)
+            {
+                var analytics_request = new XMLHttpRequest();
+
+
+                var params = "browser_id="+ fox_data.browser_id +"&page_url="+ fox_data.refpage +"&page_title=" + fox_data.pagetitle+"&token="+fox_data.token;
+                analytics_request.open("POST", 'https://subscribersbase.foxpush.com/hit/', true);
+                analytics_request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                analytics_request.send(params);
+
+
+                //AI Request
+                function getSubdomain() {
+                    var regexParse = new RegExp('[a-z\-0-9]{2,63}\.[a-z\.]{2,5}$');
+                    var urlParts = regexParse.exec(window.location.hostname);
+                    return window.location.hostname.replace(urlParts[0],'').slice(0, -1);
+                }
+
+                var foxdomain = getSubdomain();
+                var xhttp = new XMLHttpRequest();
+                xhttp.open("GET", "https://ai.foxpush.com/analytics?url="+ encodeURIComponent(fox_data.refpage)  +"&title="+ encodeURIComponent(fox_data.pagetitle) +"&browser_id="+ fox_data.browser_id +"&foxdomain="+foxdomain, true);
+                xhttp.send();
+            }
+        }
+
+
+        function foxpush_guid() {
+            function s4() {
+                return Math.floor((1 + Math.random()) * 0x10000)
+                        .toString(16)
+                        .substring(1);
+            }
+            return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+                    s4() + '-' + s4() + s4() + s4();
+        }
+
+        var foxpush_uuid = foxpush_guid();
+
+
+        var browser_id;
+
+        if(Cookie.get('foxpush_browserid'))
+        {
+            browser_id = Cookie.get('foxpush_browserid');
+            set_foxpush_data(browser_id);
+            Cookie.set('foxpush_browserid', browser_id,365);
+        }
+        else
+        {
+            browser_id = foxpush_uuid;
+            Cookie.set('foxpush_browserid', browser_id,365);
+            set_foxpush_data(browser_id);
+        }
+
+
+        if(window.parent)
+        {
+
+            var permission = 'default';
+            if(typeof Notification !== 'undefined')
+            {
+                permission = Notification.permission;
+            }
+
+            var foxpush_message =
+            {
+                status:(localStorage['foxpush_status']) ? localStorage['foxpush_status'] : '',
+                token:(localStorage['foxpush_user_token']) ? localStorage['foxpush_user_token'] : '',
+                browser_id:browser_id,
+                permission:permission
+            };
+
+            window.parent.postMessage(foxpush_message, '*');
+        }
+
+    </script>
+</head>
+<body>
+
+</body></html>

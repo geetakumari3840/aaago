@@ -1,0 +1,2958 @@
+(function() {
+heyoya.UUID = /**
+ * Created with IntelliJ IDEA.
+ * User: idan
+ * Date: 8/4/13
+ * Time: 11:01 PM
+ * To change this template use File | Settings | File Templates.
+ */
+UUID = function(){
+
+    function create(){
+        var s = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx';
+        var n = s.replace(/[xy]/g, function(c) {
+            var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+            return v.toString(16);
+        });
+        return n;
+    }
+
+
+    return {
+        create: create
+    };
+
+}();
+;
+heyoya.querystring = querystring = function(){
+
+    function extract(querystring){
+        var qsResult = {};
+
+        if (!querystring)
+            return qsResult;
+
+        querystring.replace(
+            new RegExp("([^?=&]+)(=([^&]*))?", "g"),
+            function($0, $1, $2, $3)
+            {
+                if ($3 != undefined && $3 != null && $1 != undefined && $1 != null){
+                    try {
+                        qsResult[$1] = decodeURIComponent($3);
+                    }
+                    catch(err){
+
+                    }
+
+                }
+            }
+        );
+
+        return qsResult;
+    }
+
+
+    return {
+        extract: extract
+    };
+
+}();;
+heyoya.statistics = statistics = (function(){
+    var sessionId = null;
+    var guestId = null;
+    var userId = null;
+    var userString = null;
+    var testGroup = null;
+    var userStation = null;
+    var UUIDLib = null;
+    var baseUrl = null;
+    var reportActionUrl = null;
+    var pageUrl = null;
+    var affiliateId = "heyoya";
+    var initiated = false;
+    var pendingReports = [];
+
+    function init(UUIDLibRef, baseUrlValue, reportActionUrlValue, guestIdValue, sessionIdValue, pageUrlValue, affiliateIdValue, userIdValue, userStringValue, testGroupValue, userStationValue){
+        if (UUIDLibRef)
+            UUIDLib = UUIDLibRef;
+
+        if (baseUrlValue)
+            baseUrl = baseUrlValue;
+
+        if (reportActionUrlValue)
+            reportActionUrl = reportActionUrlValue;
+
+        if (userIdValue)
+            userId = userIdValue;
+
+        if (guestIdValue)
+            guestId = guestIdValue;
+
+        if (sessionIdValue)
+            sessionId = sessionIdValue;
+        else if (UUIDLibRef)
+            sessionId = UUIDLib.create();
+
+        if (pageUrlValue)
+            pageUrl = encodeURIComponent(pageUrlValue);
+
+        if (affiliateIdValue)
+            affiliateId = affiliateIdValue;
+
+        if (userStringValue)
+            userString = userStringValue;
+
+        if (!isNaN(testGroupValue))
+            testGroup = testGroupValue;
+        else
+            testGroup = -1;
+
+        if (userStationValue)
+            userStation = userStationValue;
+
+        if (baseUrl && reportActionUrl){
+            var baseUrlIndex = baseUrl.lastIndexOf("/");
+            var reportUrlIndex = reportActionUrl.indexOf("/");
+
+            if (baseUrlIndex !== (baseUrl.length-1) && reportUrlIndex !== 0)
+                baseUrl += "/";
+            else if (baseUrlIndex === (baseUrl.length-1) && reportUrlIndex === 0)
+                reportActionUrl = reportActionUrl.substring(1);
+
+            reportActionUrl = baseUrl + reportActionUrl;
+        }
+
+        initiated = true;
+        reportBacklog();
+    }
+
+    function reportBacklog(){
+        var backlogLength = pendingReports.length;
+        for(var reportIterator=0; reportIterator < backlogLength; reportIterator++){
+            report(pendingReports[reportIterator].action, pendingReports[reportIterator].additionalParameters);
+        }
+
+        pendingReports = [];
+    }
+
+    function canReport(){
+        if (!UUIDLib || !sessionId || !reportActionUrl || !pageUrl)
+            return false;
+
+        return true;
+    }
+
+    function report(actionName, additionalParameters){
+        if (!initiated && actionName){
+            var pendingRequest = {};
+            pendingRequest.action = actionName;
+            pendingRequest.additionalParameters = additionalParameters;
+            pendingReports.push(pendingRequest);
+            return true;
+        }
+
+        if (!canReport || !actionName || Object.prototype.toString.call( actionName ) !== "[object String]" )
+            return false;
+
+
+
+        var reportUrl = reportActionUrl;
+        reportUrl += "?action=" + actionName;
+        reportUrl += "&sessionId=" + sessionId;
+
+        if (guestId)
+            reportUrl += "&userId=" + guestId;
+
+        reportUrl += "&pageUrl=" + pageUrl;
+        reportUrl += "&affiliateId=" + affiliateId;
+        reportUrl += "&tg=" + testGroup;
+
+        reportUrl += stringifyAdditionalParameters(additionalParameters);
+
+        var oImg=document.createElement("img");
+        oImg.setAttribute('src', reportUrl + '&r1=' + Math.random() + "&r2=" + Math.random() );
+        oImg.setAttribute('width', '1px');
+        oImg.setAttribute('height', '1px');
+
+        var appendObject = document.getElementById("imageContainer");
+        if (appendObject == null){
+            oImg.setAttribute('style', 'position: absolute;top: -30000px;');
+            appendObject = document.body;
+	}
+
+        appendObject.appendChild(oImg);
+
+        return true;
+    }
+
+    function stringifyAdditionalParameters(additionalParameters){
+        if (!additionalParameters || Object.prototype.toString.call( additionalParameters ) !== "[object Object]")
+            return "";
+
+        var resultString = "";
+        for (paramName in additionalParameters){
+            if (additionalParameters[paramName] == undefined || additionalParameters[paramName] == null)
+                continue;
+
+            resultString += "&" + paramName + "=" + encodeURIComponent(additionalParameters[paramName]);
+        }
+
+        return resultString;
+    }
+
+    function setGuestId(guestIdValue){
+        guestId = guestIdValue;
+    }
+
+    function setUserId(userIdValue){
+        userId = userIdValue;
+    }
+
+    function setUserString(userStringValue){
+        userString = userStringValue;
+    }
+
+    function setPageUrl(pageUrlValue){
+        pageUrl = pageUrlValue;
+    }
+
+    function setTestGroup(testGroupValue){
+        testGroup = testGroupValue;
+    }
+
+    function setUserStation(userStationValue){
+        userStation = userStationValue;
+    }
+
+    function getUserId(){
+        return userId;
+    }
+
+    function getUserString(){
+        return userString;
+    }
+
+    function getGuestId(){
+        return guestId;
+    }
+
+    function getSessionId(){
+        return sessionId;
+    }
+
+    function getPageUrl(){
+        var pageUrlDecodedUrl;
+
+        try{
+            pageUrlDecodedUrl = decodeURIComponent(pageUrl);
+        } catch(err){
+            pageUrlDecodedUrl = unescape(pageUrl);
+        }
+        return pageUrlDecodedUrl
+    }
+
+    function getAffiliateId(){
+        return affiliateId;
+    }
+
+    function getTestGroup(){
+        return testGroup;
+    }
+
+    function getUserStation(){
+        return userStation;
+    }
+
+    return{
+        init: init,
+        canReport: canReport,
+        report: report,
+        setUserId: setUserId,
+        setUserString: setUserString,
+        setGuestId: setGuestId,
+        setPageUrl: setPageUrl,
+        setTestGroup: setTestGroup,
+        setUserStation: setUserStation,
+        getUserId: getUserId,
+        getUserString: getUserString,
+        getGuestId: getGuestId,
+        getSessionId: getSessionId,
+        getPageUrl: getPageUrl,
+        getAffiliateId: getAffiliateId,
+        getTestGroup: getTestGroup,
+        getUserStation: getUserStation
+    };
+})();
+;
+heyoya.params.qs = heyoya.querystring.extract(heyoya.params.initialQS);
+heyoya.params.heycid = null;
+var heyoyaDiv = document.getElementById("heyoyaDiv");
+var pageUrl = window.location.href.split("#")[0].replace("?connatix=demo", "").replace("&connatix=demo", "").replace("?taboola=demo", "").replace("&taboola=demo", "").replace("?mgid=demo", "").replace("&mgid=demo", "");
+if (pageUrl.indexOf("scrollToHeyoya") != -1){
+    if (pageUrl.indexOf("?scrollToHeyoya") != -1)
+        pageUrl = window.location.href.split("?")[0];
+    else
+        pageUrl = pageUrl.substring(0, pageUrl.indexOf("&scrollToHeyoya"));
+}
+
+if (pageUrl.indexOf("hOpenInNative=1") != -1){
+    if (pageUrl.indexOf("?hOpenInNative=1") != -1)
+        pageUrl = window.location.href.split("?")[0];
+    else
+        pageUrl = pageUrl.substring(0, pageUrl.indexOf("&hOpenInNative=1"));
+}
+
+
+if (window.heyoyaSettings && window.heyoyaSettings.keepHash)
+    pageUrl = window.location.href;
+
+if (heyoyaDiv != null && heyoyaDiv.getAttribute("page_url") != null)
+    pageUrl = heyoyaDiv.getAttribute("page_url").split("#")[0];
+
+if ( heyoyaSettings && heyoyaSettings.pageUrl && typeof heyoyaSettings.pageUrl == "string" )
+    pageUrl = heyoyaSettings.pageUrl.split("#")[0];
+
+if(pageUrl.indexOf("heycid=") != -1){
+    var parentQueryString = heyoya.querystring.extract(pageUrl);
+        if(parentQueryString && parentQueryString.heycid)
+            heyoya.params.heycid =  parentQueryString.heycid;
+
+    pageUrl = removeURLParameter(pageUrl,"heycid");
+    if(pageUrl[pageUrl.length - 1] == "?")
+        pageUrl = pageUrl.substr(0, pageUrl.length - 1);
+}
+
+heyoya.statistics.init(heyoya.UUID, heyoya.params.receiverUrl, heyoya.params.reportUrl, null, null, pageUrl, (heyoya.params.qs.affId?heyoya.params.qs.affId:null));
+
+(function(){
+
+	/*yepnope1.5.x|WTFPL*/
+	(function(a,b,c){function d(a){return"[object Function]"==o.call(a)}function e(a){return"string"==typeof a}function f(){}function g(a){return!a||"loaded"==a||"complete"==a||"uninitialized"==a}function h(){var a=p.shift();q=1,a?a.t?m(function(){("c"==a.t?B.injectCss:B.injectJs)(a.s,0,a.a,a.x,a.e,1)},0):(a(),h()):q=0}function i(a,c,d,e,f,i,j){function k(b){if(!o&&g(l.readyState)&&(u.r=o=1,!q&&h(),l.onload=l.onreadystatechange=null,b)){"img"!=a&&m(function(){t.removeChild(l)},50);for(var d in y[c])y[c].hasOwnProperty(d)&&y[c][d].onload()}}var j=j||B.errorTimeout,l=b.createElement(a),o=0,r=0,u={t:d,s:c,e:f,a:i,x:j};1===y[c]&&(r=1,y[c]=[]),"object"==a?l.data=c:(l.src=c,l.type=a),l.width=l.height="0",l.onerror=l.onload=l.onreadystatechange=function(){k.call(this,r)},p.splice(e,0,u),"img"!=a&&(r||2===y[c]?(t.insertBefore(l,s?null:n),m(k,j)):y[c].push(l))}function j(a,b,c,d,f){return q=0,b=b||"j",e(a)?i("c"==b?v:u,a,b,this.i++,c,d,f):(p.splice(this.i++,0,a),1==p.length&&h()),this}function k(){var a=B;return a.loader={load:j,i:0},a}var l=b.documentElement,m=a.setTimeout,n=b.getElementsByTagName("script")[0],o={}.toString,p=[],q=0,r="MozAppearance"in l.style,s=r&&!!b.createRange().compareNode,t=s?l:n.parentNode,l=a.opera&&"[object Opera]"==o.call(a.opera),l=!!b.attachEvent&&!l,u=r?"object":l?"script":"img",v=l?"script":u,w=Array.isArray||function(a){return"[object Array]"==o.call(a)},x=[],y={},z={timeout:function(a,b){return b.length&&(a.timeout=b[0]),a}},A,B;B=function(a){function b(a){var a=a.split("!"),b=x.length,c=a.pop(),d=a.length,c={url:c,origUrl:c,prefixes:a},e,f,g;for(f=0;f<d;f++)g=a[f].split("="),(e=z[g.shift()])&&(c=e(c,g));for(f=0;f<b;f++)c=x[f](c);return c}function g(a,e,f,g,h){var i=b(a),j=i.autoCallback;i.url.split(".").pop().split("?").shift(),i.bypass||(e&&(e=d(e)?e:e[a]||e[g]||e[a.split("/").pop().split("?")[0]]),i.instead?i.instead(a,e,f,g,h):(y[i.url]?i.noexec=!0:y[i.url]=1,f.load(i.url,i.forceCSS||!i.forceJS&&"css"==i.url.split(".").pop().split("?").shift()?"c":c,i.noexec,i.attrs,i.timeout),(d(e)||d(j))&&f.load(function(){k(),e&&e(i.origUrl,h,g),j&&j(i.origUrl,h,g),y[i.url]=2})))}function h(a,b){function c(a,c){if(a){if(e(a))c||(j=function(){var a=[].slice.call(arguments);k.apply(this,a),l()}),g(a,j,b,0,h);else if(Object(a)===a)for(n in m=function(){var b=0,c;for(c in a)a.hasOwnProperty(c)&&b++;return b}(),a)a.hasOwnProperty(n)&&(!c&&!--m&&(d(j)?j=function(){var a=[].slice.call(arguments);k.apply(this,a),l()}:j[n]=function(a){return function(){var b=[].slice.call(arguments);a&&a.apply(this,b),l()}}(k[n])),g(a[n],j,b,n,h))}else!c&&l()}var h=!!a.test,i=a.load||a.both,j=a.callback||f,k=j,l=a.complete||f,m,n;c(h?a.yep:a.nope,!!i),i&&c(i)}var i,j,l=this.yepnope.loader;if(e(a))g(a,0,l,0);else if(w(a))for(i=0;i<a.length;i++)j=a[i],e(j)?g(j,0,l,0):w(j)?B(j):Object(j)===j&&h(j,l);else Object(a)===a&&h(a,l)},B.addPrefix=function(a,b){z[a]=b},B.addFilter=function(a){x.push(a)},B.errorTimeout=1e4,null==b.readyState&&b.addEventListener&&(b.readyState="loading",b.addEventListener("DOMContentLoaded",A=function(){b.removeEventListener("DOMContentLoaded",A,0),b.readyState="complete"},0)),a.yepnope=k(),a.yepnope.executeStack=h,a.yepnope.injectJs=function(a,c,d,e,i,j){var k=b.createElement("script"),l,o,e=e||B.errorTimeout;k.src=a;for(o in d)k.setAttribute(o,d[o]);c=j?h:c||f,k.onreadystatechange=k.onload=function(){!l&&g(k.readyState)&&(l=1,c(),k.onload=k.onreadystatechange=null)},m(function(){l||(l=1,c(1))},e),i?k.onload():n.parentNode.insertBefore(k,n)},a.yepnope.injectCss=function(a,c,d,e,g,i){var e=b.createElement("link"),j,c=i?h:c||f;e.href=a,e.rel="stylesheet",e.type="text/css";for(j in d)e.setAttribute(j,d[j]);g||(n.parentNode.insertBefore(e,n),m(c,0))}})(this,document);
+
+	/**
+	 * Utility for loading jQuery as a seperate object into any page
+	**/
+	var jQueryLoader = function(){
+
+		// get jquery from current window if it exists
+		var originalJq = window.jQuery;
+		
+		// setup a new property for incoming jquery
+		var jq = null
+		
+		/**
+		 * loads a new jquery into the window
+		 *
+		 * @options 		 Object		Should contain two properties
+		 * @options.url 	 String		(Optional) The location of jQuery.js
+		 * @options.callback     Function 	(Optional) Callback that runs after the jquery setup
+		**/
+		function load( options ){
+			
+			var t = this;
+			
+			this.url = options.url || 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js';
+			this.callback = options.callback || false;
+            this.caller = options.caller || window;
+		
+			// inject jquery using yepnope
+			yepnope([{
+				load: t.url,
+				callback: function(){
+                    (function($) {
+						t.jq = jQuery.noConflict(true);
+
+						// return original jq object
+						window.jQuery = t.originalJq;
+						
+						// add :regex selector to jquery
+                        t.jq.expr[':'].regex = function( elem, index, match ) {
+							var matchParams = match[3].split(','),
+								validLabels = /^(data|css):/,
+								attr = {method: matchParams[0].match(validLabels) ? matchParams[0].split(':')[0] : 'attr', property: matchParams.shift().replace(validLabels,'')},
+								regexFlags = 'ig',
+								regex = new RegExp(matchParams.join('').replace(/^\s+|\s+$/g,''), regexFlags);
+								
+							return regex.test( jQueryLoader.jq(elem)[attr.method](attr.property) );
+						}
+						
+						if( t.callback ){
+						
+							// run callback sent in through options
+							t.callback.call(t.caller, t.jq );
+							
+						}
+
+					})(jQuery);
+				}
+			}]);
+
+		}
+
+        return {
+            load: load,
+            originalJq: originalJq
+        }
+		
+	}();
+
+    if(window.heyoya.jqLoader == undefined){
+        // pop jq up to global scope
+        window.heyoya.utils.jqLoader = jQueryLoader;
+    }
+})();;
+heyoya.flow = flow = function(){
+    var loadFileLibRef;
+    var jqLoaderLibRef;
+    var messagingLibRef;
+    var storageLibRef;
+    var statisticsLibRef;
+    var isPPLibRef;
+    var basePathUrl;
+    var configurationPathUrl;
+    var dataPathUrl;
+    var uiPathUrl;
+    var hostCssUrl;
+    var uiVersion;
+    var dataVersion;
+    var hhostCssVersion;
+    var querystringObj;
+    var heyoyaSettings;
+    var ready;
+    var $ = function(){};
+    var dataReady;
+    var uiReady;
+    var uiInitiated;
+    var uiLoaded;
+    var commentsData;
+    var uiFrame;
+    var uiBtn;
+    var uiIsAddCommentDisplayed;
+    var uiNumberOfPageComment;
+    var windowResizeSet;
+    var setMinimizeButtonClickCallback;
+    var windowScrollWidth;
+    var hostBaseHTML;
+    var setSizeHeyoyaDivZeroTimeout;
+    var uiImAliveInterval, uiImAliveIntervalUI;
+    var uiImAliveReportedBadNumberOfTimes;
+    var isSDK = false;
+    var isWix = false;
+    var isWeebly = false;
+    var wixCommentRequested = false;
+    var wixShowUseDemoData = false;
+    var wixPageTitle = null;
+    var shouldHideIOSBoxes = false;
+    var wixHivePendingArray;
+    var scrollToCommentId = null;
+    var isWooCommerce = false;
+    var initiateVisibleWidgetCheckInterval, initiateVisibleWidgetCheckIntervalNumberOfChecks;
+
+    function init(loadFileObj, jqLoaderObj, messagingObj, storageObj, statisticsObj,  basePath, configurationPath, dataPath, uiPath, hostCssPath, uiVer, dataVer, hhostCssVer, qsObj, isPPObj, externalSettingsObj, baseHtml, readyCallback, isWixParam, scrollCommentId ){
+        if (loadFileObj == null || loadFileObj == undefined || loadFileObj == "" ||
+            jqLoaderObj == null || jqLoaderObj == undefined || jqLoaderObj == "" ||
+            storageObj == null || storageObj == undefined || storageObj == "" ||
+            statisticsObj == null || statisticsObj == undefined || statisticsObj == "" ||
+            messagingObj == null || messagingObj == undefined || messagingObj == "" ||
+            baseHtml == null || baseHtml == undefined || baseHtml == "" ||
+            hostCssPath == null || hostCssPath == undefined || hostCssPath == ""
+            )
+                return;
+
+        if (typeof heyoyaSettings == "undefined")
+            window.heyoyaSettings = undefined;
+
+
+        loadFileLibRef = loadFileObj;
+        jqLoaderLibRef = jqLoaderObj;
+        storageLibRef = storageObj;
+        messagingLibRef = messagingObj;
+        statisticsLibRef = statisticsObj;
+        isPPLibRef = isPPObj;
+
+        basePathUrl = basePath;
+        configurationPathUrl = configurationPath;
+        dataPathUrl = dataPath;
+        uiPathUrl = uiPath;
+        hostCssUrl = hostCssPath;
+
+        uiVersion = uiVer;
+        dataVersion = dataVer;
+        hhostCssVersion = hhostCssVer;
+
+        querystringObj = qsObj;
+        heyoyaSettings = externalSettingsObj;
+        hostBaseHTML = baseHtml;
+
+        ready = false;
+        dataReady = false;
+        uiReady = false;
+        uiInitiated = false;
+        uiLoaded= false;
+        windowResizeSet = false;
+        commentsData = null;
+
+        setMinimizeButtonClickCallback = null;
+        setSizeHeyoyaDivZeroTimeout = null;
+        uiImAliveInterval = null;
+        uiImAliveIntervalUI = null;
+
+
+        windowScrollWidth = 0;
+
+        uiIsAddCommentDisplayed = false;
+        uiNumberOfPageComment = 0;
+        uiImAliveReportedBadNumberOfTimes = 0;
+
+        scrollToCommentId = scrollCommentId;
+
+        if (window["HeyoyaSDKWeb"])
+            isSDK = true;
+
+        if (isWixParam){
+            isWix = true;
+            wixHivePendingArray = [];
+	}
+
+
+        isWeebly = window && window.Weebly ? true:false;
+
+        wixShowUseDemoData = heyoyaSettings && heyoyaSettings.swdt == 1;
+
+        if (!isWix)
+	    shouldDisplayIOSMobileLayers = !isHTML5RecordingSupported() && navigator && navigator.userAgent && /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream && !(/CPU OS 7_|CPU OS 6_|CPU OS 8_|CPU OS 9_1|CPU OS 9_0|CPU OS 7_|CPU OS 6_|CPU OS 8_|CPU OS 9_1|CPU OS 9_0|CPU iPhone OS 7_|CPU iPhone OS 6_|CPU iPhone OS 8_|CPU iPhone OS 9_1|CPU iPhone OS 9_0/.test(navigator.userAgent));
+	else
+            shouldDisplayIOSMobileLayers = !isHTML5RecordingSupported() && navigator && navigator.userAgent && /iPad|iPhone|iPod/.test(navigator.userAgent);// && !window.MSStream && !(/CPU OS 7_|CPU OS 6_|CPU OS 8_|CPU OS 7_|CPU OS 6_|CPU OS 8_|CPU iPhone OS 7_|CPU iPhone OS 6_|CPU iPhone OS 8_/.test(navigator.userAgent));
+
+        storageLibRef.init(messagingLibRef);
+        setPushState();
+
+        cleanPageUrl();
+
+        if (typeof readyCallback === "function")
+            readyCallback();
+    }
+
+    function cleanPageUrl(){
+        if (heyoyaSettings && heyoyaSettings.affId && (heyoyaSettings.affId == "a9DZRcxeWe" || heyoyaSettings.affId == "pKn93HdhN1"  || heyoyaSettings.affId == "yhGCard6ll" || heyoyaSettings.affId == "v1CDof2Ne4") && statisticsLibRef.getPageUrl())
+            statisticsLibRef.setPageUrl(statisticsLibRef.getPageUrl().split("?")[0]);
+
+        if (heyoyaSettings && heyoyaSettings.affId && heyoyaSettings.affId == "LFqWgfobAL" && statisticsLibRef.getPageUrl()){
+            var pageQuerystring = heyoya.querystring.extract(statisticsLibRef.getPageUrl());
+            if (pageQuerystring["m"] != undefined && pageQuerystring["m"] != null){
+                var paramString = "?m=" + pageQuerystring["m"];
+                var indexOfValue = statisticsLibRef.getPageUrl().indexOf(paramString);
+                if (indexOfValue == -1){
+                    paramString = "&m=" + pageQuerystring["m"];
+                    indexOfValue = statisticsLibRef.getPageUrl().indexOf(paramString);
+                }
+
+                if (indexOfValue != -1) {
+                    var newPageUrl = statisticsLibRef.getPageUrl().substring(0, indexOfValue);
+                    if (statisticsLibRef.getPageUrl().length - paramString.length > indexOfValue){
+                        newPageUrl += (paramString.indexOf("?") != -1 ? "?" : "&");
+                        newPageUrl += statisticsLibRef.getPageUrl().substring(indexOfValue + paramString.length + 1);
+                    }
+
+                    statisticsLibRef.setPageUrl(newPageUrl);
+                }
+            }
+        }
+    }
+
+    function start(){
+ //       if ( window.heyoyaStructure && (!window.heyoyaStructure.heyoyaRootUrl || (document.domain.match("[^.]*\.[^.]{2,3}(?:\.[^.]{2,3})?$")[0] != window.heyoyaStructure.heyoyaRootUrl.rootUrl.replace("https://","").replace("http://","").split("/")[0].match("[^.]*\.[^.]{2,3}(?:\.[^.]{2,3})?$")[0] && window.heyoyaStructure.heyoyaRootUrl.rootUrl.replace("https://","").replace("http://","").indexOf(";" + document.domain.match("[^.]*\.[^.]{2,3}(?:\.[^.]{2,3})?$")[0] + ";") == -1)) && document.domain.toLowerCase().indexOf("heyoya.com") == -1)
+//            return;
+
+        loadJQ(this);
+    }
+
+    function loadJQ(callerObj){
+        jqLoaderLibRef.load({
+            caller: callerObj,
+            callback: function(jQObj){
+                this.jQueryLoaded(jQObj);
+            }
+        });
+    }
+
+    function jQueryLoaded(jQueryObj){
+        $ = jQueryObj;
+
+        if ($("body").hasClass("woocommerce"))
+            isWooCommerce = true;
+
+        if (typeof String.prototype.trim !== 'function'){
+            String.prototype.trim = function(){
+                return this.replace(/(?:(?:^|\n)\s+|\s+(?:$|\n))/g,'').replace(/\s+/g,' ');
+            };
+        }
+
+        //bindPopState();
+
+        if (heyoyaSettings && heyoyaSettings.affId == "AxcYGoBeD1"){
+            statisticsLibRef.report("heyoya-mlyp-imp");
+            return;
+        }
+
+        if (heyoyaSettings && heyoyaSettings.affId == "DU7ZlwU68c"){
+            $("#heyoyaDiv").detach();
+        }
+
+        if ((!heyoyaSettings || !heyoyaSettings.ppPath) && $("#heyoyaDiv").length == 0){
+            if (typeof(window.heyretry) == "undefined" || window.heyretry < 10) {
+                if(typeof(window.heyretry) == "undefined")
+                    window.heyretry = 1;
+                else
+                    window.heyretry++;
+
+                setTimeout(function(){ jQueryLoaded(jQueryObj); }, 200);
+                return;
+            }
+
+            statisticsLibRef.report("heyoya-frame-and-ppPath-not-find");
+            return;        
+        }
+
+        if ((!heyoyaSettings || !heyoyaSettings.ppPath) && $("#heyoyaDiv").length == 0){
+            statisticsLibRef.report("heyoya-frame-and-ppPath-not-find");
+            return;
+        }
+
+        if ($("#heyoyaDiv").length == 0){
+            isPPLibRef.init($);
+
+            if (heyoyaSettings.isStore && !isPPLibRef.isPP()){
+                var rnd = parseInt(Math.random() * 100, 10);
+                if (rnd < 5)
+                    statisticsLibRef.report("not-a-pp");
+
+//                return;
+            }
+
+            if (!createHeyoyaDiv(heyoyaSettings.ppPath, heyoyaSettings.containerClass)){
+                var rnd = parseInt(Math.random() * 100, 10);
+                if (rnd < 5)
+                    statisticsLibRef.report("placement-error");
+
+                return;
+            }
+
+            if (!heyoyaSettings.cancelMargin)
+                $("#heyoyaDiv").css("margin-top", "20px");
+        }
+
+        if (heyoyaSettings && heyoyaSettings.mainClass)
+            $("#heyoyaDiv").addClass(heyoyaSettings.mainClass);
+
+
+        if(heyoyaSettings.width && heyoyaSettings.width != 0){
+            $("#heyoyaDiv").css("width", heyoyaSettings.width );
+            $("#heyoyaDiv").css("max-width", "100%");
+        }
+
+        loadFrames();
+	    if (heyoyaSettings && (!heyoyaSettings.width || heyoyaSettings.width == 0)  &&  (!heyoyaSettings.pec || heyoyaSettings.pec != 1) && (!heyoyaSettings.wa || heyoyaSettings.wa != 2) && heyoyaSettings.affId && heyoyaSettings.affId != "ynet" && heyoyaSettings.affId != "nysYB19tz3" && heyoyaSettings.affId != "Vh6A9cY6dh" && heyoyaSettings.affId != "8F2QmfNDzd" && heyoyaSettings.affId != "ampm" &&  heyoyaSettings.affId!= "hQ6bYcripZ" ) {
+            $("#heyoyaDiv").css("max-width", "564px");
+
+            if (!heyoyaSettings.wa || heyoyaSettings.wa == 0)
+                $("#heyoyaDiv").css("margin", "0 auto");
+        }
+
+       if ((!heyoyaSettings.width || heyoyaSettings.width == 0) && ((heyoyaSettings.pec && heyoyaSettings.pec == 1) || (heyoyaSettings.wa && heyoyaSettings.wa == 2))) { 
+               $("#heyoyaDiv").css("max-width", "100%").css("width", "100%");
+
+            if (!heyoyaSettings.pec && heyoyaSettings.wa && heyoyaSettings.wa == 2) {
+                $("#heyoyaDiv #heyoyaB2BApp").css("max-width", "564px");//.css("float", "right");
+                $( window ).resize( setWARightPadding );
+                setWARightPadding();
+            }
+        }
+
+        if(isWeebly && (heyoyaSettings.pec && heyoyaSettings.pec == 1)){
+            $("#heyoyaDiv").css("max-width", "1000px");
+
+            switch(heyoyaSettings.wa){
+                case 0:$("#heyoyaDiv").css("margin", "0  auto");
+                       break;
+
+                case 1:$("#heyoyaDiv").css("margin-left", "0");
+                       break;
+
+                case 2:$("#heyoyaDiv").css("margin-left", "auto");
+                        break;
+            }
+        }
+
+
+     if(!heyoyaSettings.ignoreWhitelabel){
+        if (heyoyaSettings && heyoyaSettings.affId && heyoyaSettings.affId == "JlbOY3wjh9"){
+            $("#heyoyaDiv").addClass("jwr");
+        }
+
+        if (heyoyaSettings && heyoyaSettings.affId && heyoyaSettings.affId == "toivj" ){
+            $("#heyoyaDiv").css("max-width", "706px");
+        }
+
+        if (heyoyaSettings && heyoyaSettings.affId && heyoyaSettings.affId == "lOPgNiqdW1" ){
+	    $("#heyoyaDiv").css("width", "100%").css("max-width", "700px").css("margin", "0 auto");
+        }
+
+        if (heyoyaSettings && heyoyaSettings.affId && heyoyaSettings.affId != "farfesh"){
+            $( window ).resize(function() {
+                messagingLibRef.postMessage(null, messagingLibRef.messageTypes.windowResize, setUIWidth() , undefined, messagingLibRef.messageDestinations.ui );
+            });
+        }
+
+        if (heyoyaSettings && heyoyaSettings.affId && ( heyoyaSettings.affId == "p1k7UfXLPY" || heyoyaSettings.affId == "makemysushi" ) ){ //heyoyaSettings.affId == "ynet" || heyoyaSettings.affId == "ynet-demo" ||
+            $("#heyoyaDiv").css("max-width", "624px");
+        }
+
+        if (heyoyaSettings && heyoyaSettings.affId && ( heyoyaSettings.affId == "galis" || heyoyaSettings.affId == "galis-demo" ) ){
+            $("#heyoyaDiv").css("max-width", "624px").css("margin", "10px auto 20px");
+        }
+
+        if (heyoyaSettings && heyoyaSettings.affId && heyoyaSettings.affId == "AhGMIO7TOY" ){
+            $("#heyoyaDiv").css("max-width", "624px").css("margin", "0 auto");
+        }
+
+        if (heyoyaSettings && heyoyaSettings.affId && heyoyaSettings.affId == "bukisa"){
+            $("#heyoyaDiv").css("max-width", "626px");
+        }
+
+        if (heyoyaSettings && heyoyaSettings.affId && heyoyaSettings.affId == "farfesh"){
+            $("#heyoyaDiv").css("width", "600px").css("padding", "0").css("position", "relative");
+
+            if (window.location.href.toLowerCase().indexOf("/view.asp?") == -1)
+                $("#heyoyaDiv").css("left", "15px")
+        }
+
+
+        if (heyoyaSettings && heyoyaSettings.affId && heyoyaSettings.affId == "zig7nH1PbX"){
+            $("#heyoyaDiv").css("clear", "both");
+        }
+
+        if (heyoyaSettings && heyoyaSettings.affId && heyoyaSettings.affId == "t7L9m2lGkS"){
+            $("#heyoyaDiv").css("max-width", "624px").css("margin", "20px auto");
+        }
+
+        if (heyoyaSettings && heyoyaSettings.affId && heyoyaSettings.affId == "5XfwRlNP0V"){
+            $("#heyoyaDiv").css("max-width", "630px").css("float", "left").css("width","100%");
+        }
+
+        if (heyoyaSettings && heyoyaSettings.affId && heyoyaSettings.affId == "E7NioZtWFM"){
+            $("#heyoyaDiv").css("max-width", "630px").css("margin-top", "0");
+        }
+
+	    if (heyoyaSettings && heyoyaSettings.affId && heyoyaSettings.affId == "toidf"){
+            $("#heyoyaDiv").css("max-width", "630px");
+        }
+
+	    if (heyoyaSettings && heyoyaSettings.affId && heyoyaSettings.affId == "v1CDof2Ne4"){
+            $("#heyoyaDiv").css("max-width", "635px").css("margin", "20px auto 100px auto");
+        }
+
+	    if (heyoyaSettings && heyoyaSettings.affId && heyoyaSettings.affId == "Bz8wDGScpo"){
+            $("#heyoyaDiv").css("max-width", "627px").css("margin", "20px auto");
+        }
+
+	if (heyoyaSettings && heyoyaSettings.affId && heyoyaSettings.affId == "Xmtrfbi62p"){
+	    $("#heyoyaDiv").addClass("hey-Xmtrfbi62p")
+        }
+
+        if (heyoyaSettings && heyoyaSettings.affId && heyoyaSettings.affId == "gYs1cdKdfs" ){
+            $("#heyoyaDiv").css("margin-top", "20px").css("margin-bottom", "20px");;
+        }
+
+        if (heyoyaSettings && heyoyaSettings.affId && (heyoyaSettings.affId == "hvONi5f8AF" || heyoyaSettings.affId == "QfePioIdUW")){
+            $("#heyoyaDiv").css("margin", "20px auto 20px auto");
+        }
+
+     }
+        messagingLibRef.init(messagingCallback, document.getElementById("heyB2BData").contentWindow, document.getElementById("heyB2BUI").contentWindow);
+
+        if (isWix) {
+            window.heyoya.setWixEventsFunction = setWixEvents;
+            window.heyoya.setWixEventsFunctionInterval = null;
+            window.heyoya.setWixEventsFunctionIntervalCount = 0;
+	    window.heyoya.setWixEventsSacht = heyoyaSettings.sacht;
+
+            setWixEvents();
+        }
+
+        ready = true;
+    }
+
+    function createHeyoyaDiv(placementPath, containerClass){
+        if (!placementPath)
+            return false;
+
+        var pathArray, position, placementObj;
+        position = placementObj = null;
+
+        if (heyoyaSettings && heyoyaSettings.affId && heyoyaSettings.affId == "Bz8wDGScpo")
+            placementPath = ".details_description||into";
+
+
+        if (heyoyaSettings && heyoyaSettings.affId && heyoyaSettings.affId == "AwdUTjLtpN") {
+            placementObj = $("#content>article");
+            position = "after";
+            heyoyaSettings.titleColorText = "#a9913b";
+            heyoyaSettings.titleColorBackground = "#954a03";
+        } else {
+
+            var placementArray = placementPath.split(",");
+            for (var placementIterator = 0; placementIterator < placementArray.length; placementIterator++){
+                pathArray = placementArray[placementIterator].split("||");
+                if (pathArray.length != 2){
+                    placementObj = null;
+                    continue;
+                }
+
+                try{
+                    placementObj = $(pathArray[0]);
+                }
+                catch(err){
+                    placementObj = null;
+                }
+
+                if (placementObj == null || placementObj.length == 0){
+                    placementObj = null;
+                    continue;
+                }
+
+                if (placementObj.length > 1)
+                    placementObj = $(placementObj[0]);
+
+                position = $.trim(pathArray[1]);
+                if (!position){
+                    placementObj = null;
+                    position = null;
+                    continue;
+                }
+
+                if (placementObj.length == 1 && position != null && position != "")
+                    break;
+            }
+        }
+
+
+        if (placementObj == null || position == null)
+            return false;
+
+
+        var heyoyaDivString = "";
+        if (containerClass)
+            heyoyaDivString = "<div class='" + containerClass + "'>";
+
+        heyoyaDivString += "<div id='heyoyaDiv'></div>";
+
+        if (containerClass)
+            heyoyaDivString += "</div>";
+
+        switch (position){
+            case "after":
+                placementObj.after(heyoyaDivString);
+                break;
+
+            case "before":
+                placementObj.before(heyoyaDivString);
+                break;
+
+            case "into":
+                placementObj.append(heyoyaDivString);
+                break;
+        }
+
+        return true;
+    }
+
+    var initialURL;
+    var urlChangedInterval = null;
+    function bindPopState(){
+        initialURL = window.location.href;
+        urlChangedInterval = setInterval(function(){
+            if (window.location.href != initialURL){
+                initialURL = window.location.href;
+
+                statisticsLibRef.setPageUrl(initialURL);
+                statisticsLibRef.report("ajaxPageChange");
+                messagingLibRef.postMessage(null, messagingLibRef.messageTypes.ajaxPageChange, "1", undefined, messagingLibRef.messageDestinations.ui );
+                getPageComments();
+            }
+
+        }, 1000);
+
+    }
+
+    function loadFrames() {
+        if (window && window.location && window.location.href && window.location.href.indexOf("connatix=demo") != -1 ){
+            querystringObj.affId = "connatix";
+        }
+
+        if (window && window.location && window.location.href && window.location.href.indexOf("taboola=demo") != -1 ){
+            querystringObj.affId = "taboola";
+        }
+
+        if (window && window.location && window.location.href && window.location.href.indexOf("mgid=demo") != -1 ){
+            querystringObj.affId = "mgid";
+        }
+
+        loadFileLibRef.loadFile(loadFileLibRef.urlTypes.css,basePathUrl + hostCssUrl + "?" + hhostCssVersion);
+        if (heyoyaSettings){
+            if (heyoyaSettings.titleColorText)
+                heyoyaSettings.titleColorText = heyoyaSettings.titleColorText.replace("#",";anchor;");
+
+            if (heyoyaSettings.titleColorBackground)
+                heyoyaSettings.titleColorBackground = heyoyaSettings.titleColorBackground.replace("#",";anchor;");
+
+            if (heyoyaSettings.affId && heyoyaSettings.affId == "vYMu56ooZa")
+                heyoyaSettings.stit = 0;
+        }
+
+        var uiWidth = setUIWidth();
+
+        if (!heyoyaSettings.rt)
+            heyoyaSettings.rt = 30000;
+
+        hostBaseHTML = hostBaseHTML.replace("$dataUrl", basePathUrl + dataPathUrl + "?" + dataVersion + (querystringObj.guestId?"&guestId=" + querystringObj.guestId:""))
+                                   .replace("$UIUrl", basePathUrl + uiPathUrl + "?" + uiVersion + (querystringObj.affId?"&affIdId=" + querystringObj.affId:"") + "&bw=" + uiWidth + (heyoyaSettings && heyoyaSettings.titleColorText?"&stct=" + heyoyaSettings.titleColorText:"") + (heyoyaSettings && heyoyaSettings.titleColorBackground?"&stcb=" + heyoyaSettings.titleColorBackground:"") + (heyoyaSettings && heyoyaSettings.mainColor?"&stcm=" + heyoyaSettings.mainColor:"") + (heyoyaSettings && heyoyaSettings.logoPath?"&stlp=" + encodeURIComponent(heyoyaSettings.logoPath):"") + (querystringObj.ahdfatr?"&ahdfatr=" + querystringObj.ahdfatr:"") + (querystringObj.ahdfatr?"&ahdfaun=" + querystringObj.ahdfaun:"") + (heyoyaSettings && heyoyaSettings.title?"&st=" + encodeURIComponent(heyoyaSettings.title):"") +  (heyoyaSettings && heyoyaSettings.sads?"&sads=1":"") + (heyoyaSettings && heyoyaSettings.sadscid?"&sadscid=" + heyoyaSettings.sadscid:"")  + (isWix?"&iw=1":"")  + (heyoyaSettings && heyoyaSettings.stit == 0?"&stit=0":"") + (wixShowUseDemoData?"&swdt=1":"") +
+                                            (window && window.location && window.location.href && window.location.href.indexOf("hOpenInNative=1") != -1?"&rina=1":"") +
+                                            (window && window.location && window.location.protocol && window.location.protocol.toLowerCase() == "https:" && !window.heyoyaParentNotSecure?"&secure=1":"&secure=0") +
+                                            (shouldDisplayIOSMobileLayers?"&sdiosml=1":"&sdiosml=0") + (heyoyaSettings && heyoyaSettings.smachl == 0?"&smachl=0":"") + (heyoyaSettings && heyoyaSettings.srachl == 0?"&srachl=0":"") + (heyoyaSettings && heyoyaSettings.macht?"&macht=" + encodeURIComponent(heyoyaSettings.macht):"") + (heyoyaSettings && heyoyaSettings.racht?"&racht=" + encodeURIComponent(heyoyaSettings.racht):"") + (heyoyaSettings && heyoyaSettings.sacht?"&sacht=" + encodeURIComponent(heyoyaSettings.sacht):"") +
+                                            (heyoyaSettings && heyoyaSettings.fonts?"&fonts=" + encodeURIComponent(heyoyaSettings.fonts):"") + (heyoyaSettings && heyoyaSettings.recordingIconsColor?"&recordingIconsColor=" + encodeURIComponent(heyoyaSettings.recordingIconsColor):"") + (heyoyaSettings && heyoyaSettings.ssacht== 0?"&ssacht=0":"") + (heyoyaSettings && heyoyaSettings.srsacht== 0?"&srsacht=0":"") + (heyoyaSettings && heyoyaSettings.rsacht?"&rsacht=" + encodeURIComponent(heyoyaSettings.rsacht):"") +
+                                            (heyoyaSettings && heyoyaSettings.pec && heyoyaSettings.pec == 1?"&pec=1":"") + (heyoyaSettings && heyoyaSettings.wa && (heyoyaSettings.wa > -1 && heyoyaSettings.wa < 3)?"&wa=" + heyoyaSettings.wa:"") +
+                                            (heyoyaSettings && heyoyaSettings.linksColor?"&linksColor=" + encodeURIComponent(heyoyaSettings.linksColor):"") + (heyoyaSettings && heyoyaSettings.textColor?"&textColor=" + encodeURIComponent(heyoyaSettings.textColor):"") + (heyoyaSettings && heyoyaSettings.cardsColor?"&cardsColor=" + encodeURIComponent(heyoyaSettings.cardsColor):"") + (heyoyaSettings && heyoyaSettings.buttonsColor?"&buttonsColor=" + encodeURIComponent(heyoyaSettings.buttonsColor):"") + 
+		(heyoyaSettings && heyoyaSettings.asi?"&asi=" + encodeURIComponent(heyoyaSettings.asi):"") +
+		(heyoyaSettings && heyoyaSettings.sl?"&sl=" + encodeURIComponent(heyoyaSettings.sl):"&sl=en") +
+		(heyoyaSettings && heyoyaSettings.rt?"&rt=" + encodeURIComponent(heyoyaSettings.rt):"") +
+		(heyoyaSettings && heyoyaSettings.ignoreWhitelabel?"&iwl=" + encodeURIComponent(heyoyaSettings.ignoreWhitelabel):"") +
+                (isWeebly ? "&wbb=1" : "&wbb=0") +
+		(window && window.location && window.location.href && window.location.href.indexOf("client-admin") != -1 ? "" : (heyoyaSettings && heyoyaSettings.width?"&wd=" + encodeURIComponent(heyoyaSettings.width): "&wd=0"))                                  
+ );
+
+
+        cleanDuplicateHeyoyaDivs();
+        $("#heyoyaDiv").append($(hostBaseHTML));
+        if(heyoyaSettings.ignoreWhitelabel){
+            $("#heyoyaDiv").attr("rel","nofollow,noindex");
+            if (!heyoyaSettings.title)
+                heyoyaSettings.title = "Comments";
+
+            if (!heyoyaSettings.titleColorBackground)
+                heyoyaSettings.titleColorBackground = "#2b6398";
+            if (!heyoyaSettings.titleColorText)
+                heyoyaSettings.titleColorText = "#ffffff";
+            $("#heyoyaDiv").addClass("video-page");
+            $("#heyoyaB2BApp").before("<div id='heyoyaB2BHeader' style='background-color:" + heyoyaSettings.titleColorBackground.replace(";anchor;","#") + " !important;color:" + heyoyaSettings.titleColorText.replace(";anchor;","#") + "!important;'><div id='heyoyaB2BHeaderText' style='background-color:" + heyoyaSettings.titleColorBackground.replace(";anchor;","#") + " !important;color:" + heyoyaSettings.titleColorText.replace(";anchor;","#") + "!important;'>" + heyoyaSettings.title + "</div></div>");
+            adjustVideoPageHeaderSize();
+        }
+
+        if (shouldDisplayIOSMobileLayers)
+            initIOSMobileLayers();
+
+        uiFrame = $("#heyoyaDiv #heyB2BUI");
+
+        if (heyoyaSettings && !heyoyaSettings.ignoreWhitelabel && heyoyaSettings.affId && heyoyaSettings.affId == "vYMu56ooZa") {
+            if (!heyoyaSettings.title)
+                heyoyaSettings.title = "Comments";
+
+            if (!heyoyaSettings.titleColorBackground)
+                heyoyaSettings.titleColorBackground = "#2b6398";
+            if (!heyoyaSettings.titleColorText)
+                heyoyaSettings.titleColorText = "#ffffff";
+
+            $("#heyoyaDiv").addClass("iltv");
+            $("#heyoyaB2BApp").before("<div id='heyoyaB2BHeader' style='background-color:" + heyoyaSettings.titleColorBackground.replace(";anchor;","#") + " !important;color:" + heyoyaSettings.titleColorText.replace(";anchor;","#") + "!important;'><div id='heyoyaB2BHeaderText' style='background-color:" + heyoyaSettings.titleColorBackground.replace(";anchor;","#") + " !important;color:" + heyoyaSettings.titleColorText.replace(";anchor;","#") + "!important;'>" + heyoyaSettings.title + "</div></div>");
+
+            if ($("#heyoyaDiv").width() < 564 &&
+                navigator.userAgent.toLowerCase().indexOf("android") != -1 || navigator.userAgent.toLowerCase().indexOf("iphone") != -1 || navigator.userAgent.toLowerCase().indexOf("ipad") != -1){
+                adjustILTVHeaderSize();
+		window.addEventListener("resize", adjustILTVHeaderSize, false);
+            }
+
+        }
+
+    }
+
+    function adjustILTVHeaderSize(){
+        if (!$("#heyoyaB2BHeader").attr("orig-font-size")) {
+            $("#heyoyaB2BHeader").attr("orig-font-size", parseInt($("#heyoyaB2BHeader").css("font-size"), 10));
+            $("#heyoyaB2BHeader").attr("orig-line-height", 34);
+
+            $("#heyoyaB2BHeaderText").attr("orig-font-size", parseInt($("#heyoyaB2BHeader").css("font-size"), 10));
+        }
+        var scaleRatio = (1.8 * $("#heyoyaDiv").width() / 564);
+        var heyoyaB2BHeaderStyle = $("#heyoyaB2BHeader").attr("style");
+        var heyoyaB2BHeaderTextStyle = $("#heyoyaB2BHeaderText").attr("style");
+        if (heyoyaB2BHeaderStyle.indexOf(";font-size:") != -1){
+            heyoyaB2BHeaderStyle = heyoyaB2BHeaderStyle.substring(0, heyoyaB2BHeaderStyle.indexOf(";font-size:"));
+            heyoyaB2BHeaderTextStyle = heyoyaB2BHeaderTextStyle.substring(0, heyoyaB2BHeaderTextStyle.indexOf(";font-size:"));
+        }
+
+        $("#heyoyaB2BHeader").attr("style", heyoyaB2BHeaderStyle + ";font-size:" + (parseInt($("#heyoyaB2BHeader").attr("orig-font-size"), 10) * scaleRatio) + "px !important;line-height:" + (parseInt($("#heyoyaB2BHeader").attr("orig-line-height"), 10) * scaleRatio/1.8) + "px !important;");
+        $("#heyoyaB2BHeaderText").attr("style", heyoyaB2BHeaderTextStyle + ";font-size:" + (parseInt($("#heyoyaB2BHeaderText").attr("orig-font-size"), 10) * scaleRatio) + "px !important;");
+    }
+    
+    function adjustVideoPageHeaderSize(){
+            if (!$("#heyoyaB2BHeader").attr("orig-font-size")) {
+                $("#heyoyaB2BHeader").attr("orig-font-size", parseInt($("#heyoyaB2BHeader").css("font-size"), 10));
+                $("#heyoyaB2BHeader").attr("orig-line-height", 34);
+
+                $("#heyoyaB2BHeaderText").attr("orig-font-size", parseInt($("#heyoyaB2BHeader").css("font-size"), 10));
+            }
+
+            var scaleRatio = (1.8 * $("#heyoyaDiv").width() / 564);
+            var heyoyaB2BHeaderStyle = $("#heyoyaB2BHeader").attr("style");
+            var heyoyaB2BHeaderTextStyle = $("#heyoyaB2BHeaderText").attr("style");
+            if (heyoyaB2BHeaderStyle.indexOf(";font-size:") != -1){
+                heyoyaB2BHeaderStyle = heyoyaB2BHeaderStyle.substring(0, heyoyaB2BHeaderStyle.indexOf(";font-size:"));
+                heyoyaB2BHeaderTextStyle = heyoyaB2BHeaderTextStyle.substring(0, heyoyaB2BHeaderTextStyle.indexOf(";font-size:"));
+            }
+
+            $("#heyoyaB2BHeader").attr("style", heyoyaB2BHeaderStyle + ";position:relative;font-size:" + (parseInt($("#heyoyaB2BHeader").attr("orig-font-size"), 10) * scaleRatio) + "px !important;line-height:" + (parseInt($("#heyoyaB2BHeader").attr("orig-line-height"), 10) * scaleRatio/1.8) + "px !important;");
+            if($("#heyoyaDiv").width() > 564){
+                $("#heyoyaB2BHeaderText").attr("style", "line-height: 34px !important;font-size:30px !important;");
+                $("#heyoyaB2BHeader").append("<img src='https://commerce-static.heyoya.com/b2b/images/logo_hayoya_white_small.png' style=' height: 36px;position: absolute;top: 6px;right: 11px;' >");
+            }
+            else{
+                 $("#heyoyaB2BHeaderText").attr("style", heyoyaB2BHeaderTextStyle + ";font-size:" + (parseInt($("#heyoyaB2BHeaderText").attr("orig-font-size"), 10) * scaleRatio) + "px !important;");
+                 $("#heyoyaB2BHeader").append("<img src='https://commerce-static.heyoya.com/b2b/images/logo_hayoya_white_small.png' style=' height: " + parseInt($("#heyoyaB2BHeaderText").height() + 5)+ "px;position: absolute;top: "  + parseInt(6 / scaleRatio)+ "px;right: 11px;' >");
+            }    
+}
+    function setUIWidth(forceSendMessage){
+        var timeoutCallback = false;
+        if (setSizeHeyoyaDivZeroTimeout != null){
+            clearTimeout(setSizeHeyoyaDivZeroTimeout)
+            setSizeHeyoyaDivZeroTimeout = null;
+            timeoutCallback = true;
+        }
+
+        var uiWidth = $("#heyoyaDiv").width();
+        if (typeof window.heyparcont != undefined && typeof window.heyparcont == "object") {
+            uiWidth = calcInvisibleElementWidth(window.heyparcont);
+            $("#heyoyaDiv").css("width", uiWidth);
+        }
+
+        if (uiWidth < 250){
+            var bodyWidth = $("body").width();
+            if (bodyWidth < 768) {
+                uiWidth = $("body").width();
+                setSizeHeyoyaDivZeroTimeout = setTimeout(setUIWidth, 1000);
+                timeoutCallback = false;
+            }
+        }
+
+        if (isWooCommerce && $("#heyoyaDiv").height() == 0){
+            setSizeHeyoyaDivZeroTimeout = setTimeout(setUIWidth, 1000);
+            messagingLibRef.postMessage(null, messagingLibRef.messageTypes.windowResize, [uiWidth, "-1"] , undefined, messagingLibRef.messageDestinations.ui );
+            return;
+        }
+
+        if (timeoutCallback || forceSendMessage)
+            messagingLibRef.postMessage(null, messagingLibRef.messageTypes.windowResize, uiWidth , undefined, messagingLibRef.messageDestinations.ui );
+
+        return uiWidth;
+    }
+
+    function cleanDuplicateHeyoyaDivs(){
+        var heyoyaDivs = $("[id=heyoyaDiv]");
+        if (heyoyaDivs.length <= 1)
+            return;
+
+        heyoyaDivs.each(function(index,object){
+            var currentDiv = $(object);
+            if (currentDiv.attr("creator") == "heyoya")
+                currentDiv.detach();
+        });
+
+
+        heyoyaDivs = $("[id=heyoyaDiv]");
+        if (heyoyaDivs.length <= 1)
+            return;
+
+        heyoyaDivs.each(function(index,object){
+            if (index == 0)
+                return;
+
+            $(this).detach();
+        });
+    }
+
+    var refreshIframe,isSafari = false,isMac = false;
+    if(navigator && navigator.userAgent && navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1)
+        isSafari = true;
+    if(navigator && navigator.platform && navigator.platform.toUpperCase().indexOf('MAC')>=0)
+       isMac = true;
+
+    if(isSafari && isMac && window.location.href.indexOf("preview.editmysite.com/editor/main.php") > -1 ){
+        var refreshIframe = setInterval(function(){
+	    if (!messagingLibRef)
+		return;
+            if(document.getElementById("heyB2BData") != null)
+                messagingLibRef.messageDestinations.data = document.getElementById("heyB2BData").contentWindow;
+            if(document.getElementById("heyB2BUI") != null)
+                messagingLibRef.messageDestinations.ui = document.getElementById("heyB2BUI").contentWindow;
+        },0.5);
+    }
+
+    function messagingCallback(messageId,messageType, paramsArray){
+        if (messageType === undefined || messageType === "" || !messagingLibRef.isValidMessageType(messageType) || paramsArray === undefined || paramsArray === "" || !(Object.prototype.toString.call( paramsArray ) === '[object Array]' ) || paramsArray.length === 0)
+            return;
+
+        switch (messageType){
+            case messagingLibRef.messageTypes.readyData:
+                statisticsLibRef.setTestGroup(paramsArray[3]);
+		statisticsLibRef.setUserStation(paramsArray[4]);
+                getBasicInfo(messagingLibRef.messageDestinations.data, paramsArray[0], paramsArray[1], paramsArray[2], paramsArray[3], paramsArray[4]);
+
+                dataReady = true;
+
+                if (uiLoaded)
+                    getBasicInfo(messagingLibRef.messageDestinations.ui, paramsArray[0], paramsArray[1], paramsArray[2], paramsArray[3], paramsArray[4]);
+
+                if (!isWix || (statisticsLibRef.getPageUrl().indexOf("b2b_settings.hey") == -1 && !wixCommentRequested))
+                    getPageComments();
+                break;
+
+            case messagingLibRef.messageTypes.readyUI:
+                uiReady = true;
+                break;
+
+            case messagingLibRef.messageTypes.setWidth:
+                $("#heyoyaDiv").css("width", paramsArray[0]);
+                $("#heyoyaDiv").css("max-width","inherit");
+                break;
+
+            case messagingLibRef.messageTypes.initiatedUI:
+                uiInitiated = true;
+                if (commentsData != null){
+                    passCommentsToUI(commentsData);
+                    commentsData = null;
+                }
+
+                //sendPageText();
+                break;
+
+
+            case messagingLibRef.messageTypes.loadedUI:
+                initiateUIImAlive();
+                uiLoaded = true;
+                setLanguage(heyoyaSettings?heyoyaSettings.sl ?heyoyaSettings.sl:"en":"en");
+		setPageHeadline(heyoyaSettings?heyoyaSettings.affId ?heyoyaSettings.affId:"":"");
+                if (dataReady)
+                    getBasicInfo(messagingLibRef.messageDestinations.ui);
+
+                initiateVisibleWidgetCheck();
+                break;
+
+
+            case messagingLibRef.messageTypes.setNumberOfComments:
+                uiNumberOfPageComment = parseInt(paramsArray, 10);
+                break;
+
+            case messagingLibRef.messageTypes.setNumberOfDisplayedComments:
+                setApplicationHeight(paramsArray[0]);//[0],paramsArray[1], paramsArray[2]);
+                if (heyoyaSettings && heyoyaSettings.affId && heyoyaSettings.affId == "xP4QLJjCdp")
+                    setUIWidth(true);
+                if (heyoyaSettings && heyoyaSettings.affId && (heyoyaSettings.affId == "lOPgNiqdW1" || heyoyaSettings.affId == "Hsi2uPz7wX" || isWooCommerce) && $("#heyoyaDiv").parent().hasClass("woocommerce-Tabs-panel"))
+                    $("#heyoyaDiv").parent().css("height", "").attr("style", $("#heyoyaDiv").parent().attr("style") + ";height:auto !important;");
+                break;
+
+            case messagingLibRef.messageTypes.getPageComments:
+
+                if (uiInitiated)
+                    passCommentsToUI(paramsArray[0]);
+                else
+                    commentsData = paramsArray[0];
+
+                break;
+
+            case messagingLibRef.messageTypes.getSubComments:
+                messagingLibRef.postMessage(null, messageType, paramsArray, undefined, messagingLibRef.messageDestinations.ui );
+                break;
+
+            case messagingLibRef.messageTypes.getData:
+                messagingLibRef.postMessage(messageId, messageType, paramsArray, undefined, messagingLibRef.messageDestinations.data );
+                break;
+
+            case messagingLibRef.messageTypes.dataReceived:
+                messagingLibRef.postMessage(messageId, messageType, paramsArray, undefined, messagingLibRef.messageDestinations.ui );
+                break;
+
+
+            case messagingLibRef.messageTypes.writeData:
+                messagingLibRef.postMessage(null, messageType, paramsArray, undefined, messagingLibRef.messageDestinations.data );
+                break;
+
+            case messagingLibRef.messageTypes.requestPageComments:
+                var pageComment = -1;
+                var pageLoadMore = -1;
+                if (paramsArray.length > 2)
+                    pageComment = paramsArray[2];
+
+                if (paramsArray.length > 3)
+                    pageLoadMore = paramsArray[3];
+
+                var pageId = undefined;
+                if (paramsArray.length > 4)
+                    pageId = paramsArray[4];
+
+                getPageComments(paramsArray[0], paramsArray[1], pageComment, pageLoadMore, pageId);
+                break;
+
+            case messagingLibRef.messageTypes.requestSubComments:
+                messagingLibRef.postMessage(null, messageType, paramsArray, undefined, messagingLibRef.messageDestinations.data );
+                break;
+
+            case messagingLibRef.messageTypes.reportDislike:
+            case messagingLibRef.messageTypes.reportLike:
+            case messagingLibRef.messageTypes.commentShared:
+                messagingLibRef.postMessage(null, messageType, paramsArray, undefined, messagingLibRef.messageDestinations.data );
+                break;
+
+            case messagingLibRef.messageTypes.setPageId:
+                messagingLibRef.postMessage(null, messageType, paramsArray, undefined, messagingLibRef.messageDestinations.data );
+                break;
+
+            case messagingLibRef.messageTypes.scrollToPoint:
+                scrollTo(paramsArray[0]);
+                break;
+
+            case messagingLibRef.messageTypes.sug:
+                sug(paramsArray[0], paramsArray[1]);
+                break;
+
+            case messagingLibRef.messageTypes.userLoggedIn:
+                messagingLibRef.postMessage(null, messageType, paramsArray, undefined, messagingLibRef.messageDestinations.data );
+                break;
+
+            case messagingLibRef.messageTypes.userLoggedOut:
+                messagingLibRef.postMessage(null, messageType, paramsArray, undefined, messagingLibRef.messageDestinations.data );
+                break;
+
+            case messagingLibRef.messageTypes.commentFlagged:
+                messagingLibRef.postMessage(null, messageType, paramsArray, undefined, messagingLibRef.messageDestinations.data );
+                break;
+
+            case messagingLibRef.messageTypes.scrollToVideoTop:
+                scrollToVideoTop( parseInt(paramsArray[0], 10), parseInt(paramsArray[1], 10) );
+                break;
+
+            case messagingLibRef.messageTypes.setHeyoyaDivOverflow:
+                setHeyoyaDivOverflow( paramsArray );
+                break;
+
+            case messagingLibRef.messageTypes.uiAlive:
+                uiImAliveReceived();
+                break;
+
+            case messagingLibRef.messageTypes.recordWithIOSApplication:
+                openRecordingIOSApplication( paramsArray[0], paramsArray[1] );
+                break;
+
+            case messagingLibRef.messageTypes.IOSLinkAdd:
+		        addIOSMobileLayers( paramsArray[0], paramsArray[1], paramsArray[2], paramsArray[3], paramsArray[4]);
+                break;
+
+            case messagingLibRef.messageTypes.IOSLinkRemoveAll:
+                clearIOSMobileLayers();
+                break;
+
+            case messagingLibRef.messageTypes.hideRecordingBars:
+                hideRecordingBars();
+                break;
+
+            case messagingLibRef.messageTypes.showRecordingBars:
+                showRecordingBars();
+                break;
+
+            case messagingLibRef.messageTypes.sendToWixHive:
+                reportCommentToWix( paramsArray );
+                break;
+
+            case messagingLibRef.messageTypes.wixHiveReportingClearPage:
+                wixHiveReportingClearPage( paramsArray );
+                break;
+
+            case messagingLibRef.messageTypes.wixOpenModal:
+                openWixModal( paramsArray[0], paramsArray[1], paramsArray[2]);
+                break;
+
+            case messagingLibRef.messageTypes.wixSetPageUrl:
+                getWixSiteUrl();
+                break;
+
+            case messagingLibRef.messageTypes.setUIWidth:
+                setUIWidth(true);
+                break;
+        }
+    }
+    var events = ["pagehide", "blur", "beforeunload"];
+    var timeout = null;
+    function preventDialog() {
+        clearTimeout(timeout);
+        timeout = null;
+        $(window).unbind(events.join(""));
+    };
+
+    function openRecordingIOSApplication(iOSCommand, isUC){
+        if (!iOSCommand)
+            return;
+
+	setPendingWixHiveKey();
+
+	if (!isUC) {
+        	var now = new Date().valueOf();
+	        setTimeout(function(){
+        	    if (new Date().valueOf() - now > 1000) return;
+	            window.location.href = "https://itunes.apple.com/il/app/heyoya-voice-comments-reviews/id1062215446?mt=8";
+	        }, 25);
+	}
+
+        window.location.href = iOSCommand;
+    }
+
+    function initiateUIImAlive(){
+        if (uiImAliveIntervalUI != null){
+            clearInterval(uiImAliveIntervalUI);
+            uiImAliveIntervalUI = null;
+        }
+
+        uiImAliveIntervalUI = setInterval(function(){
+            if ($("#heyoyaDiv").length == 0)
+                return;
+
+            messagingLibRef.postMessage(null, messagingLibRef.messageTypes.uiAlive, "1", undefined, messagingLibRef.messageDestinations.ui );
+        }, 5000);
+
+
+        if (uiImAliveInterval != null){
+            clearInterval(uiImAliveInterval);
+            uiImAliveInterval = null;
+        }
+
+        uiImAliveInterval = setInterval(function(){
+            uiImAliveReportedBadNumberOfTimes++;
+            if (uiImAliveReportedBadNumberOfTimes >= 3){
+                statisticsLibRef.report("ui is dead");
+                clearInterval(uiImAliveInterval);
+                uiImAliveInterval = null;
+
+                clearInterval(uiImAliveIntervalUI);
+                uiImAliveIntervalUI = null;
+
+            }
+
+        }, 10000);
+    }
+
+
+    function uiImAliveReceived(){
+        uiImAliveReportedBadNumberOfTimes = 0;
+    }
+
+    function setHeyoyaDivOverflow(setOverflow){
+        if ( !setOverflow || isNaN(setOverflow) || setOverflow != "1")
+            $("#heyoyaDiv").css("overflow", "");
+        else
+            $("#heyoyaDiv").css("overflow", "hidden");
+    }
+
+    function setApplicationHeight(applicationHeight){//numberOfAudioComments, numberOfTextComments, numberOfShareLinksVisible){
+//        if (isNaN(numberOfAudioComments) || isNaN(numberOfTextComments))
+//            return;
+//
+//        numberOfAudioComments = parseInt(numberOfAudioComments, 10);
+//        numberOfTextComments = parseInt(numberOfTextComments, 10);
+//        numberOfShareLinksVisible = parseInt(numberOfShareLinksVisible, 10);
+//
+//        var baseHeight = 370;
+//        var commentHeight = 300;
+//        var commentTextHeight = 227;
+//        var commentAudioHeight = 300;
+//
+//        var noCommentsHeight = 150;
+//        var loadMoreHeight = 64;
+//        var footerHeight = 30;
+//        var shareLinkHeight = 30;
+//
+//        var height = baseHeight;
+//
+//        if (numberOfAudioComments + numberOfTextComments  == 0)
+//            height += noCommentsHeight;
+//        else{
+//            height += numberOfAudioComments * commentAudioHeight;
+//            height += numberOfTextComments * commentTextHeight;
+//            height += numberOfShareLinksVisible * shareLinkHeight;
+//        }
+//
+//        if (uiNumberOfPageComment > 11 && (numberOfAudioComments + numberOfTextComments) < uiNumberOfPageComment)
+//            height += loadMoreHeight;
+//
+//        height += footerHeight;
+
+        if (isNaN(applicationHeight))
+            return;
+
+        applicationHeight = parseInt(applicationHeight, 10);
+
+        var applicationWidth = "width:100% !important;";
+        if (!heyoyaSettings.pec && heyoyaSettings.wa && heyoyaSettings.wa == 2)
+            applicationWidth = "max-width:564px !important;";//float:right !important;";
+
+        uiFrame.attr("style", "width:100% !important; height: " + applicationHeight + "px !important;;min-height: " + applicationHeight + "px !important;display:block !important;");
+        $("#heyoyaB2BApp").attr("style", applicationWidth + " height: " + applicationHeight + "px !important;min-height: " + applicationHeight + "px !important;"  + (shouldDisplayIOSMobileLayers?"position:relative !important;":""));
+
+        if (isSDK)
+            window["HeyoyaSDKWeb"].setWebviewDimensions($(window).width(), applicationHeight);
+
+        if (isWix && "undefined" != typeof Wix)
+            Wix.setHeight(applicationHeight);
+
+    }
+
+    function scrollToVideoTop(videoTop, videoHeight){
+        var bodyTop = $("body").scrollTop();
+        var uiFrameTop = uiFrame.offset().top;
+        //var windowHeight = $(window).height();
+
+        $($("body").children()[0]).before("<div id='heyoyaHeightDiv' style='position:absolute;top:-10000px;left:-10000px;height:100%;'></div>");
+        var windowHeight = $("#heyoyaHeightDiv").height();
+        $("#heyoyaHeightDiv").detach();
+
+        var videoStartingPoint = uiFrameTop + videoTop;
+
+        if ( (windowHeight - videoStartingPoint + bodyTop) >=  videoHeight )
+            return;
+
+        $('html, body').animate({
+            scrollTop: bodyTop + videoHeight - (windowHeight - videoStartingPoint + bodyTop) + 40
+        }, 2000);
+    }
+
+    function scrollTo(top){
+        $('html, body').animate({
+            scrollTop: parseInt(uiFrame.position().top,10) + parseInt(top,10)
+        }, 2000);
+    }
+
+    function sug(uid, gid){
+        if (!uid || !gid)
+            return;
+
+        messagingLibRef.postMessage(null, messagingLibRef.messageTypes.sug, [uid,gid], undefined, messagingLibRef.messageDestinations.data );
+    }
+
+
+
+    function getPageComments(sortBy, pageNumber, commentId, loadMore, pageId){
+        if (wixShowUseDemoData)
+            return;
+
+        if (sortBy == undefined)
+            sortBy = "";
+
+        var pageTitle = !isWix?(document.title?document.title:""): (wixPageTitle != null)?wixPageTitle:"";
+        if (heyoyaSettings && heyoyaSettings.affId && heyoyaSettings.affId == "niSmJop60Y")
+            pageTitle = pageTitle.split("|")[0];
+
+        var dataArray = new Array();
+
+        dataArray.push(statisticsLibRef.getPageUrl());
+        dataArray.push(pageTitle);        
+	dataArray.push(sortBy);
+        dataArray.push((pageNumber?pageNumber:""));
+        dataArray.push((commentId?commentId:"-1"));
+        dataArray.push((loadMore?loadMore:"-1"));
+        dataArray.push((pageId?pageId:"0"));
+
+
+        messagingLibRef.postMessage(null, messagingLibRef.messageTypes.getPageComments, dataArray, undefined, messagingLibRef.messageDestinations.data );
+    }
+
+    function passCommentsToUI(commentData){
+        if (commentData === undefined || commentData === "")
+            return;
+        var resultArray = new Array();
+        resultArray.push(commentData);
+        if(scrollToCommentId == null)
+            resultArray.push("-1");
+        else
+            resultArray.push(scrollToCommentId);
+
+        messagingLibRef.postMessage(null, messagingLibRef.messageTypes.displayComments, resultArray, undefined, messagingLibRef.messageDestinations.ui );
+
+    }
+
+    function getBasicInfo(destination, guestId, userId, userString, testGroup, userStation){
+        if (statisticsLibRef.getGuestId() == null && guestId != undefined && guestId != "-1")
+            statisticsLibRef.setGuestId(guestId);
+
+        if (statisticsLibRef.getUserId() == null && userId != undefined && userId != "-1")
+            statisticsLibRef.setUserId(userId);
+
+        if (statisticsLibRef.getUserString() == null && userString != undefined && userString != "-1")
+            statisticsLibRef.setUserString(userString);
+
+        var resultArray = new Array();
+        resultArray.push(statisticsLibRef.getUserId()?statisticsLibRef.getUserId():-1);
+        resultArray.push(statisticsLibRef.getGuestId()?statisticsLibRef.getGuestId():-1);
+        resultArray.push(statisticsLibRef.getSessionId());
+        resultArray.push(statisticsLibRef.getPageUrl());
+        resultArray.push(statisticsLibRef.getAffiliateId());
+        resultArray.push(statisticsLibRef.getUserString()?statisticsLibRef.getUserString(): -1);
+        resultArray.push(statisticsLibRef.getTestGroup());
+	resultArray.push(statisticsLibRef.getUserStation());
+        //resultArray.push(shouldCheckWixHiveReport()?"1":"0");
+	resultArray.push("1");
+
+        messagingLibRef.postMessage(null, messagingLibRef.messageTypes.getBasicInfo, resultArray, undefined, destination);
+    }
+
+    window.wixNavigationPrevPageId = null;
+    window.wixCompId = null;
+    window.wixShowOnAllPages = false;
+    function setWixEvents(){
+        if ("undefined" == typeof Wix)
+            return;
+
+        Wix.setHeight(300);
+
+        Wix.addEventListener(Wix.Events.SITE_PUBLISHED, function() {
+            var parentQueryString = heyoya.querystring.extract(window.location.href);
+            if(parentQueryString  && parentQueryString.instance){
+                var paramsArray = [];
+                paramsArray.push(window.wixCompId);
+                paramsArray.push(parentQueryString.instance);
+                messagingLibRef.postMessage(null, messagingLibRef.messageTypes.wixPublishStore, paramsArray, undefined, messagingLibRef.messageDestinations.ui);
+            }
+        });
+
+        Wix.addEventListener(Wix.Events.SETTINGS_UPDATED, wixEventReceived);
+        Wix.getComponentInfo(function(compInfo){
+            var compId = "";
+            if (compInfo && undefined != compInfo.compId)
+                compId = compInfo.compId;
+
+            if (compInfo && undefined != compInfo.pageId)
+                window.wixNavigationPrevPageId = compInfo.pageId;
+
+            if (compInfo && undefined != compInfo.showOnAllPages)
+                window.wixShowOnAllPages = compInfo.showOnAllPages;
+
+            window.wixCompId = compId;
+            Wix.Settings.getSiteInfo(function(siteInfo) {
+                var pageURL = wixPrepareURL(siteInfo, compId);
+                statisticsLibRef.setPageUrl(pageURL);
+                wixPageTitle = siteInfo.pageTitle;
+                if (wixPageTitle == "Single Post") {
+                    wixPageTitle = " ";
+                    if (statisticsLibRef.getAffiliateId() == "eCpGibsVe6" && window.heyoya && window.heyoya.setWixEventsSacht && window.heyoya.setWixEventsSacht != "{Page_Title}") {
+                        wixPageTitle = window.heyoya.setWixEventsSacht;
+                    } else if (pageURL != null && pageURL.indexOf("editor.wix.com") == -1 && window.heyoya.setWixEventsFunctionInterval == null) {
+                        window.heyoya.setWixEventsFunctionInterval = setInterval(window.heyoya.setWixEventsFunction, 3000);
+                    } else {
+			window.heyoya.setWixEventsFunctionIntervalCount++;
+                        if (window.heyoya.setWixEventsFunctionIntervalCount > 6) {
+                            clearInterval(window.heyoya.setWixEventsFunctionInterval);
+                            window.heyoya.setWixEventsFunctionInterval = null;
+                            window.heyoya.setWixEventsFunctionIntervalCount = 0;
+                        }
+                    }
+                } else {
+                    if (window.heyoya.setWixEventsFunctionInterval != null){
+                        clearInterval(window.heyoya.setWixEventsFunctionInterval);
+                        window.heyoya.setWixEventsFunctionInterval = null;
+                        window.heyoya.setWixEventsFunctionIntervalCount = 0;
+                    }
+                }
+
+                messagingLibRef.postMessage(null, messagingLibRef.messageTypes.wixSetPageUrl, pageURL, undefined, messagingLibRef.messageDestinations.ui );
+
+                if (uiLoaded)
+                    messagingLibRef.postMessage(null, messagingLibRef.messageTypes.setHeadlineText, wixPageTitle, undefined, messagingLibRef.messageDestinations.ui );
+
+                if (dataReady && !wixCommentRequested) {
+                    wixCommentRequested = true;
+                    getPageComments();
+                }
+
+                setInterval(wixCheckIfPageChanged, 2000);
+            });
+        });
+    }
+
+    function wixCheckIfPageChanged(){
+        Wix.getComponentInfo(function(compInfo){
+            var compId = "";
+            if (compInfo && undefined != compInfo.compId)
+                compId = compInfo.compId;
+
+            Wix.getCurrentPageId(function(pageId) {
+                if (window.wixNavigationPrevPageId != pageId && !window.wixShowOnAllPages) {
+                    return;
+                }
+
+                Wix.Settings.getSiteInfo(function(siteInfo) {
+                    var pageURL = wixPrepareURL(siteInfo, compId);
+                    if (    (statisticsLibRef.getAffiliateId() != "eCpGibsVe6" || pageURL.toLowerCase().indexOf("/popup-") == -1) &&
+                            pageURL != statisticsLibRef.getPageUrl() &&
+                            decodeURIComponent(pageURL) != statisticsLibRef.getPageUrl()
+                       ) {
+                        window.location.href = window.location.href;
+                    }
+                });
+            });
+        });
+    }
+
+    function wixPrepareURL(siteInfo, compId){
+        var pageURL = siteInfo.url;
+        
+        if(pageURL.indexOf("heycid=") != -1){
+            var parentQueryString = heyoya.querystring.extract(pageURL);
+                if(parentQueryString && parentQueryString.heycid)
+                    scrollToCommentId =  parentQueryString.heycid;
+
+            pageURL = removeURLParameter(siteInfo.url,"heycid");
+            if(pageUrl[pageUrl.length - 1] == "?")
+                pageUrl = pageUrl.substr(0, pageUrl.length - 1);
+        }
+        
+        if (siteInfo.url && siteInfo.url.indexOf("editor.wix.com") != -1 && siteInfo.url.indexOf("affId=" + heyoyaSettings.affId) == -1)
+            if (siteInfo.url.indexOf("?") == -1)
+                pageURL += "?affId=" + heyoyaSettings.affId;
+            else
+                pageURL += "&affId=" + heyoyaSettings.affId;
+
+        if (compId != "")
+            pageURL += "_hEySepBP_" + compId;
+
+        return pageURL;
+    }
+
+    function getWixSiteUrl(){
+        if ("undefined" == typeof Wix)
+            return;
+
+        Wix.getComponentInfo(function(compInfo){
+            var compId = "";
+            if (compInfo && undefined != compInfo.compId)
+                compId = compInfo.compId;
+
+            Wix.Settings.getSiteInfo(function(siteInfo) {
+                var pageURL = wixPrepareURL(siteInfo, compId);
+                statisticsLibRef.setPageUrl(pageURL);
+                messagingLibRef.postMessage(null, messagingLibRef.messageTypes.wixSetPageUrl, pageURL, undefined, messagingLibRef.messageDestinations.ui );
+            });
+        });
+    }
+
+    function wixEventReceived(message){
+        if (message == null || !message.name || !message.attributeId)
+            return;
+
+        switch (message.attributeId){
+            case "headlineTextColor":
+                messagingLibRef.postMessage(null, messagingLibRef.messageTypes.adminSetTitleTextColor,  message.attributeValue, undefined, messagingLibRef.messageDestinations.ui );
+                break;
+
+            case "headlineBgColor":
+                messagingLibRef.postMessage(null, messagingLibRef.messageTypes.adminSetTitleBackgroundColor,  message.attributeValue, undefined, messagingLibRef.messageDestinations.ui );
+                break;
+
+            case "bgColor":
+                messagingLibRef.postMessage(null, messagingLibRef.messageTypes.adminSetMainColor,  message.attributeValue, undefined, messagingLibRef.messageDestinations.ui );
+                break;
+
+            case "title":
+                messagingLibRef.postMessage(null, messagingLibRef.messageTypes.adminSetTitle,  message.attributeValue, undefined, messagingLibRef.messageDestinations.ui );
+
+            case "showHeadline":
+                messagingLibRef.postMessage(null, messagingLibRef.messageTypes.adminShowHeadline,  message.attributeValue, undefined, messagingLibRef.messageDestinations.ui );
+                break;
+
+            case "showDemoData":
+                messagingLibRef.postMessage(null, messagingLibRef.messageTypes.adminShowDemoData,  message.attributeValue, undefined, messagingLibRef.messageDestinations.ui );
+                break;
+
+            case "showMainAddCommentHeadline":
+                messagingLibRef.postMessage(null, messagingLibRef.messageTypes.adminShowMainAddCommentHeadline,  message.attributeValue, undefined, messagingLibRef.messageDestinations.ui );
+                break;
+
+            case "showReplyAddCommentHeadline":
+                messagingLibRef.postMessage(null, messagingLibRef.messageTypes.adminShowReplyAddCommentHeadline,  message.attributeValue, undefined, messagingLibRef.messageDestinations.ui );
+                break;
+
+            case "mainAddCommentHeadlineText":
+                messagingLibRef.postMessage(null, messagingLibRef.messageTypes.adminSetMainAddCommentHeadlineText,  message.attributeValue, undefined, messagingLibRef.messageDestinations.ui );
+                break;
+
+            case "replyAddCommentHeadlineText":
+                messagingLibRef.postMessage(null, messagingLibRef.messageTypes.adminSetReplyAddCommentHeadlineText,  message.attributeValue, undefined, messagingLibRef.messageDestinations.ui );
+                break;
+
+            case "subAddCommentHeadlineText":
+                messagingLibRef.postMessage(null, messagingLibRef.messageTypes.adminSetSubAddCommentHeadlineText,  message.attributeValue, undefined, messagingLibRef.messageDestinations.ui );
+                break;
+
+            case "recordingButtonsColor":
+                messagingLibRef.postMessage(null, messagingLibRef.messageTypes.adminSetRecordingButtonsColor,  message.attributeValue, undefined, messagingLibRef.messageDestinations.ui );
+                break;
+
+            case "linksColor":
+                messagingLibRef.postMessage(null, messagingLibRef.messageTypes.adminSetLinksColor,  message.attributeValue, undefined, messagingLibRef.messageDestinations.ui );
+                break;
+
+            case "cardsBackgroundColor":
+                messagingLibRef.postMessage(null, messagingLibRef.messageTypes.adminSetCardsColor,  message.attributeValue, undefined, messagingLibRef.messageDestinations.ui );
+                break;
+
+            case "textColor":
+                messagingLibRef.postMessage(null, messagingLibRef.messageTypes.adminSetTextColor,  message.attributeValue, undefined, messagingLibRef.messageDestinations.ui );
+                break;
+
+            case "buttonsColor":
+                messagingLibRef.postMessage(null, messagingLibRef.messageTypes.adminSetButtonsColor,  message.attributeValue, undefined, messagingLibRef.messageDestinations.ui );
+                break;
+
+            case "fonts":
+                messagingLibRef.postMessage(null, messagingLibRef.messageTypes.adminSetFonts,  message.attributeValue, undefined, messagingLibRef.messageDestinations.ui );
+                break;
+
+            case "showSubAddCommentHeadline":
+                messagingLibRef.postMessage(null, messagingLibRef.messageTypes.adminShowSubAddCommentHeadline,  message.attributeValue, undefined, messagingLibRef.messageDestinations.ui );
+                break;
+
+            case "showReplySubAddCommentHeadline":
+                messagingLibRef.postMessage(null, messagingLibRef.messageTypes.adminShowReplySubAddCommentHeadline,  message.attributeValue, undefined, messagingLibRef.messageDestinations.ui );
+                break;
+
+            case "replySubAddCommentHeadlineText":
+                messagingLibRef.postMessage(null, messagingLibRef.messageTypes.adminSetReplySubAddCommentHeadlineText,  message.attributeValue, undefined, messagingLibRef.messageDestinations.ui );
+                break;
+
+	    case "languages":
+                messagingLibRef.postMessage(null, messagingLibRef.messageTypes.adminSetLanguage,  message.attributeValue, undefined, messagingLibRef.messageDestinations.ui );
+                break;
+
+            case "recordingTime":
+                messagingLibRef.postMessage(null, messagingLibRef.messageTypes.adminSetRecordingTime,  message.attributeValue, undefined, messagingLibRef.messageDestinations.ui );
+                break;
+        }
+    }
+
+    function reportCommentToWix(dataString){
+        if (!isWix || !Wix || !Wix.Activities || !Wix.Activities.postActivity)
+            return;
+
+        var dataObj;
+        try{
+            dataObj = $.parseJSON(dataString);
+        } catch (err){
+            dataObj = null;
+        }
+
+        if (dataObj == null)
+            return;
+
+        if (!dataObj.text && dataObj.typeId == 2)
+            return;
+
+        var commentText = dataObj.text?dataObj.text:"";
+        if (dataObj.typeId != 2) {
+            if (dataObj.typeId == 3)
+                commentText += " ";
+
+            commentText += "https://www.heyoya.com/" + dataObj.id + ".mp3"
+        }
+
+        var loginChannel;
+        switch(dataObj.lastLoginMethod){
+            case "facebook":
+                loginChannel = "FACEBOOK";
+                break;
+
+            case "google":
+                loginChannel = "GOOGLE_PLUS";
+                break;
+
+            case "linkedin":
+                loginChannel = "LINKEDIN";
+                break;
+
+            default:
+                loginChannel = "OTHER";
+                break;
+        }
+
+        var firstName, middleName, lastName;
+        if (dataObj.firstName){
+            firstName = dataObj.firstName;
+            if (dataObj.lastName)
+                lastName = dataObj.lastName;
+            else
+                lastName = null;
+
+            middleName = null;
+        } else {
+            var fullNameBreaked = dataObj.fullName.split(" ");
+            firstName = fullNameBreaked[0];
+
+            middleName = "";
+            if (fullNameBreaked.length > 2){
+                for (var nameIterator = 1; nameIterator < fullNameBreaked.length - 1; nameIterator++){
+                    if (fullNameBreaked[nameIterator] == "")
+                        continue;
+
+                    middleName += fullNameBreaked[nameIterator] + " ";
+                }
+
+                middleName = $.trim(middleName);
+            }
+
+            lastName = fullNameBreaked[fullNameBreaked.length - 1];
+
+            if (middleName == "")
+                middleName = null;
+
+            if (lastName == "")
+                lastName = null;
+        }
+
+        if (dataObj.title == " ")
+            dataObj.title = null;
+
+        var activity = {
+            type: Wix.Activities.Type.SOCIAL_COMMENT,
+            info: {
+                text: commentText,
+                channel: "SITE",
+                commenter: {
+                    openId: {channel: loginChannel},
+                    name: {first: firstName, middle: middleName, last: lastName},
+                    email: dataObj.email
+                },
+                metadata: [{name: 'title', value: dataObj.title}]
+            },
+            contactUpdate: {
+                name: {first: firstName, middle: middleName, last: lastName},
+                emails: [{tag: "main", email: dataObj.email}],
+		picture: dataObj.photoUrl
+            }
+        };
+
+        Wix.Activities.postActivity(activity, function(d){reportCommentToWixSuccess(dataObj, d);}, function(d){reportCommentToWixError(dataObj, d);});
+    }
+
+    function reportCommentToWixSuccess(request, response){
+        if (!response || !response.contactId) {
+            if (!response)
+                messagingLibRef.postMessage(null, messagingLibRef.messageTypes.sendWixHiveResponseError, [request.id, "response object is not defined"], undefined, messagingLibRef.messageDestinations.ui );
+            else
+                messagingLibRef.postMessage(null, messagingLibRef.messageTypes.sendWixHiveResponseError, [request.id, "response.contactId is not defined"], undefined, messagingLibRef.messageDestinations.ui );
+            return;
+        }
+
+        messagingLibRef.postMessage(null, messagingLibRef.messageTypes.sendWixHiveResponseSuccess, [request.id, request.email, response.contactId], undefined, messagingLibRef.messageDestinations.ui );
+    }
+
+    function reportCommentToWixError(request, response){
+        if (response)
+            messagingLibRef.postMessage(null, messagingLibRef.messageTypes.sendWixHiveResponseError, [request.id, "Wix Error"], undefined, messagingLibRef.messageDestinations.ui );
+
+        if (wixHivePendingArray && !wixHivePendingArray[request.id]){
+            wixHivePendingArray[request.id] = true;
+            reportCommentToWix(request);
+        }
+    }
+
+    function isQuirksMode(){
+        var loweredUserAgent = navigator.userAgent.toLowerCase();
+        if ((loweredUserAgent.indexOf("msie") != -1 || loweredUserAgent.indexOf("trident") != -1) && document.compatMode != 'CSS1Compat')
+            return true;
+        else
+            return false;
+    }
+
+    function setPageHeadline(affiliateId){
+        var text = "-1";
+
+        var headlineText = $("h1:first");
+        if (headlineText.length > 0 && headlineText.text().trim() != "" &&
+            ( (affiliateId && affiliateId == "WFv7EE24tm") || headlineText.text().split(" ").length < 8 ))
+            text = headlineText.text().trim();
+        else {
+            headlineText = $("title:first");
+            if (headlineText.length > 0 && headlineText.text().trim() != "")
+                text = headlineText.text().trim();
+            else {
+                headlineText = $("h2:first");
+                if (headlineText.length > 0 && headlineText.text().trim() != "")
+                    text = headlineText.text().trim();
+            }
+        }
+
+        if (isWix && wixPageTitle != null)
+            text = wixPageTitle;
+
+        if (text && (affiliateId && affiliateId == "yhGCard6ll"))
+            text = text.split("- Breaking Israel News")[0];
+
+        messagingLibRef.postMessage(null, messagingLibRef.messageTypes.setHeadlineText, text, undefined, messagingLibRef.messageDestinations.ui );
+
+    }
+
+    function setLanguage(language){
+        messagingLibRef.postMessage(null, messagingLibRef.messageTypes.setLanguage, language, undefined, messagingLibRef.messageDestinations.ui );
+    }
+
+    //function sendPageText(){
+    //    var bodyText = extractText(document.body);
+    //    bodyText.replace(/(\r\n|\n|\r)/gm," ");
+    //
+    //  messagingLibRef.postMessage(null, messagingLibRef.messageTypes.passPageText, bodyText, undefined, messagingLibRef.messageDestinations.ui );
+    //}
+
+    function extractText(node){
+        if (!node) return '';
+        var txt = '';
+        // recursive exploration and option to uncomment the check for a <script>
+        // <script>s will have children as the the actual portion being executed
+        // is considered a text node (nodeType===3) child of the <script> itself.
+        if (node.hasChildNodes() && node.nodeName !== 'SCRIPT' && node.nodeName !== 'STYLE' && node.nodeName !== 'NOSCRIPT'){
+            for (var c = 0; c < node.childNodes.length; c++){
+                txt += extractText(node.childNodes[c]);
+            }
+            txt += " ";
+        }else if(node.nodeType===3 && node.textContent){
+            // if you don't want all the white space/newlines in the final result you can
+            // re-add the .trim() call. Otherwise, the result will probably be all over
+            // the place with whitespace
+            txt += node.textContent.trim();
+        }
+        return txt;
+    }
+
+    function getJQuery(){
+        return $;
+    }
+
+
+    function addIOSMobileLayers(commentId, left, top, link, scaleRatio){
+        if (isSDK || !shouldDisplayIOSMobileLayers || isNaN(commentId) || isNaN(left) || isNaN(top) || !link || isNaN(scaleRatio))
+            return;
+
+        if ($("#heyoyaMobileLink-" + commentId).length > 0){
+            messagingLibRef.postMessage(null, messagingLibRef.messageTypes.IOSLinkResend, "1", undefined, messagingLibRef.messageDestinations.ui);
+//            return;
+        }
+
+        if (isWix){
+            if (link.indexOf("https://ios.heyoya.com/ios-record") != -1)
+                link = link.replace("https://ios.heyoya.com/ios-record", "https://www.heyoya.net/ios-before-recording.html");
+            else
+                link = link.replace("heyoyaapp://recordComment", "https://www.heyoya.net/ios9-before-recording.html");
+	}
+
+        if (scaleRatio == 0)
+            scaleRatio = 1;
+
+        var display = "inline-block";
+        if (shouldHideIOSBoxes == true)
+            display = "none";
+
+        $("#heyoyaDiv #heyoyaB2BApp").append('<a ' + (isWix?'target="_blank"':'') + ' class="heyoya-mobile-link-element" id="heyoyaMobileLink-' + (commentId == -1?"root":commentId) + '" href="' + link + '" style="background-color:transparent;width: ' + $("#heyoyaDiv #heyoyaB2BApp").width() + 'px !important;height: ' + (scaleRatio*70) + 'px!important;top: ' + top  + 'px !important;left:0 !important;z-index:100 !important;visibility:visible !important;position:absolute !important;display:' + display + ' !important;text-decoration:none !important;" target="_top" ref="nofollow">&nbsp;</a>');
+
+	$("#heyoyaDiv #heyoyaB2BApp .heyoya-mobile-link-element").off("click touchstart touchmove").on("click touchstart touchmove", iOSClickEvent);
+    }
+
+    function clearIOSMobileLayers(){
+        if (!shouldDisplayIOSMobileLayers)
+            return;
+
+        $("#heyoyaDiv #heyoyaB2BApp .heyoya-mobile-link-element").detach();
+    }
+    
+    function initIOSMobileLayers(){
+        mobileLayerAnchors = [];
+        $("#heyoyaDiv #heyoyaB2BApp").attr("style", "position:relative !important;");
+    }
+
+    function setWARightPadding(){
+        var heyoyaDivWidth = $("#heyoyaDiv").width();
+
+        if (heyoyaDivWidth <= 564) {
+            $("#heyoyaDiv").css("padding-left", "0");
+            return;
+        }
+
+        $("#heyoyaDiv").css("padding-left", (heyoyaDivWidth - 564).toString() + "px" );
+    }
+
+    function iOSClickEvent(event){
+        event.stopPropagation();
+	setPendingWixHiveKey();
+    }
+
+    function setPushState(){
+        if ("function" != typeof history.pushState || window.heyohis != null || !heyoya.params.qs.affId || (
+                heyoya.params.qs.affId != "v1CDof2Ne4" &&
+                heyoya.params.qs.affId != "R7IBhrpO7x" &&
+                heyoya.params.qs.affId != "VBbwZ5Nvfl" &&
+                heyoya.params.qs.affId != "33u3PePB3K" &&
+                heyoya.params.qs.affId != "eUbJyMGE2Q"
+            ))
+            return;
+
+        var pushState = history.pushState;
+        history.pushState = function () {
+	    if (window.heyoya && window.heyoya.flow && window.heyoya.flow.$) {
+		clearInterval(uiImAliveIntervalUI);
+		window.heyoya.messagingUtil.dispose();
+		window.heymsgul = undefined;
+		window.heymsgcbwarp = undefined;
+                window.heyoya.flow.$()("#heyoyaDiv *").remove();
+                window.heyoya.flow.$()("#heyoyaDiv").remove();
+                window.heyoyaSettings = {};
+                window.heyoya = undefined;
+	    }
+
+            pushState.apply(history, arguments);
+        };
+
+        window.heyohis = pushState;
+    }
+
+    function calcInvisibleElementWidth(domElement){
+        if ($(domElement).length == 0)
+            return;
+
+        var element = $(domElement);
+        var oldValues = {};
+        oldValues.position = domElement.style["position"];
+        oldValues.visibility = domElement.style["visibility"];
+        oldValues.display = domElement.style["display"];
+
+        element.css("position", "absolute");
+        element.css("visibility", "hidden");
+        element.css("display", "block");
+
+        var realWidth = element.width();
+        var paddingLeft = parseInt(element.css("padding-left"), 10);
+        var paddingRight = parseInt(element.css("padding-right"), 10);
+
+        element.css("position", oldValues.position);
+        element.css("visibility", oldValues.visibility);
+        element.css("display", oldValues.display);
+
+        return realWidth - (!isNaN(paddingLeft)?paddingLeft:0) - (!isNaN(paddingRight)?paddingRight:0);
+    }
+
+    function hideRecordingBars(){
+        if (!shouldDisplayIOSMobileLayers)
+            return;
+
+        shouldHideIOSBoxes = true;
+
+        $("#heyoyaDiv #heyoyaB2BApp .heyoya-mobile-link-element").each(function(){
+            var mobileLink = $(this);
+            mobileLink.attr("style", mobileLink.attr("style").replace("display:inline-block !important;", "display:none !important;").
+                                                              replace("display :inline-block !important;", "display:none !important;").
+                                                              replace("display: inline-block !important;", "display:none !important;").
+                                                              replace("display : inline-block !important;", "display:none !important;"));
+        });
+
+        $("#heyoyaDiv #heyoyaB2BApp .heyoya-mobile-link-element").css("display", "none");
+    }
+
+    function showRecordingBars(){
+        if (!shouldDisplayIOSMobileLayers)
+            return;
+
+        shouldHideIOSBoxes = false;
+
+        $("#heyoyaDiv #heyoyaB2BApp .heyoya-mobile-link-element").each(function(){
+            var mobileLink = $(this);
+            mobileLink.attr("style", mobileLink.attr("style").replace("display:none;", "display:inline-block !important;").replace("display :none;", "display:inline-block !important;").replace("display: none;", "display:inline-block !important;").replace("display : none;", "display:inline-block !important;"));
+        });
+
+    }
+
+    function setPendingWixHiveKey(){
+//        if (!isWix)
+            return;
+
+        var originalPageUrl = statisticsLibRef.getPageUrl().replace("https://www.", "").replace("http://www.", "").replace("https://", "").replace("http://", "");
+        var pageUrl = ";" + originalPageUrl + ";";
+        var pendingPages = localStorage.getItem("pwhr");
+        if (pendingPages == null)
+            pendingPages = pageUrl;
+        else if (pendingPages.indexOf(pageUrl) == -1)
+            pendingPages += originalPageUrl + ";";
+
+        localStorage.setItem("pwhr", pendingPages);
+    }
+
+    function shouldCheckWixHiveReport(){
+        return isWix && localStorage.getItem("pwhr") != null && localStorage.getItem("pwhr").indexOf(";" + statisticsLibRef.getPageUrl().replace("https://www.", "").replace("http://www.", "").replace("https://", "").replace("http://", "") + ";") != -1;
+    }
+
+    function wixHiveReportingClearPage(pageUrl){
+//        if (!isWix || !pageUrl)
+            return;
+
+        pageUrl = pageUrl.replace("https://www.", "").replace("http://www.", "").replace("https://", "").replace("http://", "");
+
+        var pendingPages = localStorage.getItem("pwhr");
+        if (pendingPages != null){
+            pendingPages = pendingPages.replace(pageUrl + ";", "");
+            if (pendingPages == ";")
+                localStorage.removeItem("pwhr");
+            else
+                localStorage.setItem("pwhr", pendingPages);
+        }
+    }
+
+    function openWixModal(url, width, height){
+        Wix.openModal(url, width, height);
+    }
+
+    function removeURLParameter(url, parameter) {
+	if (!url || !parameter)
+	    return url;
+
+        //prefer to use l.search if you have a location/link object
+        var urlparts= url.split('?');
+        if (urlparts.length>=2) {
+
+            var prefix= encodeURIComponent(parameter)+'=';
+            var pars= urlparts[1].split(/[&;]/g);
+
+            //reverse iteration as may be destructive
+            for (var i= pars.length; i-- > 0;) {
+                //idiom for string.startsWith
+                if (pars[i].lastIndexOf(prefix, 0) !== -1) {
+                    pars.splice(i, 1);
+                }
+            }
+
+            url= urlparts[0] + (pars.length > 0 ? '?' + pars.join('&') : "");
+            return url;
+        } else {
+            return url;
+        }
+    }
+
+    function isHTML5RecordingSupported(){
+        var isGetUserMediaDefined = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+        var isGetAudioContextDefined = window.AudioContext || window.webkitAudioContext || window.mozAudioContext;
+
+        if (( !isGetUserMediaDefined && ( !navigator.mediaDevices || !navigator.mediaDevices.getUserMedia ) )   || !isGetAudioContextDefined)
+            return false;
+        else
+            return true;
+
+    }
+
+    function initiateVisibleWidgetCheck(){
+        initiateVisibleWidgetCheckIntervalNumberOfChecks = 0;
+        initiateVisibleWidgetCheckInterval = setInterval(function(){
+            if ($("#heyoyaDiv #heyB2BUI:visible").length > 0){
+                clearInterval(initiateVisibleWidgetCheckInterval);
+                initiateVisibleWidgetCheckInterval = null;
+                return;
+            }
+
+            initiateVisibleWidgetCheckIntervalNumberOfChecks++;
+            if (initiateVisibleWidgetCheckIntervalNumberOfChecks >= 3) {
+                initiateVisibleWidgetCheckIntervalNumberOfChecks = 0;
+                clearInterval(initiateVisibleWidgetCheckInterval);
+                initiateVisibleWidgetCheckInterval = null;
+                statisticsLibRef.report("heyoya-uinv");
+            }
+        }, 2000);
+    }
+
+    return {
+        init: init,
+        start: start,
+        jQueryLoaded: jQueryLoaded,
+        $:getJQuery
+
+    };
+
+
+}();
+;
+heyoya.userStorage = userStorage = function(){
+    var messagingLibRef;
+
+    function init(messagingObj){
+        messagingLibRef = messagingObj;
+    }
+
+    function writeData(name, value, expirationMili, callbackFunction){
+        if (name == undefined || name == "" || value == undefined || value == "")
+            return;
+
+        var newCookieArray = [];
+        newCookieArray.push(name);
+        newCookieArray.push(value);
+        newCookieArray.push(expirationMili);
+
+        messagingLibRef.postMessage(null,messagingLibRef.messageTypes.writeData,newCookieArray,callbackFunction,messagingLibRef.messageDestinations.data);
+
+    }
+
+    function readData(name, callbackFunction){
+        if (name == undefined || name == "")
+            return;
+
+        messagingLibRef.postMessage(null, messagingLibRef.messageTypes.getData,name,callbackFunction,messagingLibRef.messageDestinations.data);
+
+    }
+
+    return {
+        init: init,
+        writeData: writeData,
+        readData: readData
+    };
+
+
+
+}();;
+heyoya.messaging = (function(){
+    var messageTypes = {
+        readyData: 'hey_data_rdy' ,readyUI: 'hey_ui_rdy' ,initiatedUI: 'hey_ui_init',loadedUI: 'hey_ui_loaded',getBasicInfo: 'hey_basic_info',getPageComments:'hey_gpc', getSubComments:'hey_gsc',requestPageComments: 'hey_rpc', requestSubComments: 'hey_rsc' , getData:'hey_gd', writeData:'hey_wd', displayComments: 'hey_dc', appState: 'hey_as', reportLike:'hey_rl', reportDislike:'hey_rdl', dataReceived: 'hey_dr', sendEvent: 'send_event', setPageId: 'hey_sp', setNumberOfComments: 'hey_snoc', passPageText: 'hey_spt', commentShared: 'hey_share', addCommentDisplayed: 'hey_acd', setNumberOfDisplayedComments: "hey_smodc", scrollToPoint: "hey_stp", setHeadlineText: "hey_sht", sug: 'hey_sug', userLoggedIn: 'hey_uli', userLoggedOut: 'hey_ulo', commentFlagged: 'hey_clg', setLanguage: 'hey_sl', loginSuccess: 'hey_ls', scrollToVideoTop: 'hey_stvt', setHeyoyaDivOverflow: 'hey_shdo', windowResize: 'hey_winr', ajaxPageChange: 'hey_apg', setPageTitle: 'hey_spt',
+
+        uiAlive: 'hey_uial', commentPostedSuccessfully: 'hey_cps', recordWithIOSApplication: 'hey_rwia', IOSLinkAdd: 'hey_aiosl', IOSLinkResend: 'hey_rsdosl', IOSLinkRemoveAll: 'hey_ralliosl', setUIWidth: "hey_suiw",
+
+        //placement data
+        placementPlacedDone: 'hey_po_ppd', placementSelected: 'hey_po_ps', placementMarkSelected: 'hey_po_pms', hideRecordingBars: 'hey_hd_brs', showRecordingBars: 'hey_sw_brs',
+
+        //admin color & text changes
+        adminSetTitleTextColor: 'hey_ui_astc', adminSetTitleBackgroundColor: 'hey_ui_astbc', adminSetTitle: 'hey_ui_ast', adminSetMainColor: 'hey_ui_asmc', adminSetLogo: 'hey_ui_aslg', adminShowHeadline: 'hey_ui_ash', adminShowDemoData: 'hey_ui_asdd', adminSetLanguage: 'hey_ui_asl',
+  adminSetRecordingTime: 'hey_ui_rt',  adminWidgetWidth: 'hey_ui_wd',setWidth: 'hey_width',
+        adminShowMainAddCommentHeadline: 'hey_ui_smachd', adminShowReplyAddCommentHeadline: 'hey_ui_srachd', adminSetMainAddCommentHeadlineText: 'hey_ui_smacht', adminSetReplyAddCommentHeadlineText: 'hey_ui_sracht', adminSetSubAddCommentHeadlineText: 'hey_ui_ssacht', adminSetRecordingButtonsColor: 'hey_ui_srbc', adminSetFonts: 'hey_ui_sf', adminShowSubAddCommentHeadline: 'hey_ui_ssachd', adminShowReplySubAddCommentHeadline: 'hey_ui_srsachd', adminSetReplySubAddCommentHeadlineText: 'hey_ui_srsacht', adminSetLinksColor: 'hey_ui_slc', adminSetCardsColor: 'hey_ui_scc', adminSetTextColor: 'hey_ui_stc', adminSetButtonsColor: 'hey_ui_sbc',
+
+        //SDK
+        sdkEnabled: 'hey_sdk', sdkRecorderStateChanged: 'hey_sdk_rsc', sdkRecorderEventChanged: 'hey_sdk_rec', sdkUpdateUserInfo: 'hey_sdk_uui', sdkLoginSuccess: 'hey_sdk_ls', sdkCommentShared: 'hey_sdk_cs', sdkCopyToClipboard: 'hey_sdk_ctc',
+        sdkStartRecording: 'hey_sdk_sr', sdkStopRecording: 'hey_sdk_str', sdkPauseRecording: 'hey_sdk_pr', sdkResetRecording: 'hey_sdk_rr', sdkPlayRecording: 'hey_sdk_plr', sdkStopPlayRecording: 'hey_sdk_spr', sdkPausePlayRecording: 'hey_sdk_ppr',
+        sdkPlayExternalFile: 'hey_sdk_pef', sdkStopPlayExternalFile: 'hey_sdk_spef', sdkPausePlayExternalFile: 'hey_sdk_ppef',
+        sdkLoginUser: 'hey_sdk_lu', sdkPostComment: 'hey_sdk_pc',
+
+        sendToWixHive: 'hey_wx_sth', sendWixHiveResponseSuccess: 'hey_wx_shrs', sendWixHiveResponseError: 'hey_wx_shre', wixHiveReportingClearPage: 'hey_wx_rcp', wixSetPageUrl: 'hey_wx_spu', wixOpenModal: 'hey_wx_om',
+ wixPublishStore: 'hey_wx_pb',
+	newCommentFromRecordingUI: 'hey_ncfri', updateNewCommentFromRecordingUI: 'hey_uncfri', removeNewCommentFromRecordingUI: 'hey_rncfri', dataGetInfo: 'hey_glsd', dataMultiGetInfo: 'hey_mglsd', dataWriteInfo: 'hey_wlsd', dataClearInfo: 'hey_clsd'
+    };
+    var messageDestinations = {data: null ,ui:null};
+    var betweenDelimiter = "hey1234hey";
+    var dataSurroundDelimiter = "heydAtA";
+    var targetWindow = null;
+    var callbacksArray = null;
+    var messageId;
+    var windowCallbacksArray;
+
+    function init(defaultCallbackFunction, dataDestinationObj, uiDestinationObj, defaultTargetWindow){
+        windowCallbacksArray = [];
+        if (Object.prototype.toString.call( window.heymsgcbwarp ) === '[object Function]' )
+            windowCallbacksArray.push(window.heymsgcbwarp);
+
+        window.heymsgcbwarp = _callbackFunction;
+
+        if (Object.prototype.toString.call( defaultCallbackFunction ) === '[object Function]' )
+            windowCallbacksArray.push(defaultCallbackFunction);
+
+        if (defaultTargetWindow != undefined)
+            targetWindow = defaultTargetWindow;
+
+
+        if (dataDestinationObj != null)
+            messageDestinations.data = dataDestinationObj;
+
+        if (uiDestinationObj != null)
+            messageDestinations.ui = uiDestinationObj;
+
+        callbacksArray = new Array();
+        messageId = 0;
+
+        messagingUtil.init(this.gotMessage);
+    }
+
+    function gotMessage(message){
+        if (window.heymsgcbwarp== null || message == undefined || message == "" || message.indexOf == undefined || message.indexOf(betweenDelimiter) == -1)
+            return;
+
+        var messageArray = message.split(betweenDelimiter);
+
+        var messageId = messageArray[0];
+        var messageType = messageArray[1];
+
+        if (!isValidMessageType(messageType))
+            return;
+
+        messageArray.splice(0,2);
+
+
+        var callback = getCallbackFromArray(messageId);
+        if (callback != -1){
+            removeFromCallbacksArray(messageId);
+            callback(messageType,messageArray);
+        }
+        else
+            window.heymsgcbwarp(messageId,messageType,messageArray);
+
+    }
+
+
+    function postMessage(messageId,messageType,messageArray, callbackFunction, destination){
+        if ( (targetWindow == null && destination == undefined) || messageType == undefined || messageType == "" || !isValidMessageType(messageType) || messageArray == undefined || messageArray == "")
+            return;
+
+        if (callbackFunction == undefined)
+            callbackFunction = -1;
+
+        var requestMessageId;
+        if (messageId == null)
+            requestMessageId = addToCallbacksArray(callbackFunction);
+        else
+            requestMessageId = messageId;
+
+        var message = requestMessageId.toString().concat(betweenDelimiter,messageType,betweenDelimiter);
+
+        if (!(Object.prototype.toString.call( messageArray ) === '[object Array]' )){
+            message = message.concat(messageArray.toString(),betweenDelimiter);
+        }
+        else{
+            for (data in messageArray){
+                if (isNaN(data))
+                    continue;
+
+                message = message.concat(messageArray[data].toString(),betweenDelimiter);
+            }
+        }
+
+        message = message.substring(0,message.length-betweenDelimiter.length);
+
+        if (destination != undefined)
+            messagingUtil.postMessage(destination,message);
+        else
+            messagingUtil.postMessage(targetWindow,message);
+
+    }
+
+
+    function isValidMessageType(messageType){
+        var isValid = false;
+
+        for (type in messageTypes){
+            if (messageTypes[type] == messageType){
+                isValid = true;
+                break;
+            }
+        }
+
+        return isValid;
+    }
+
+    function getNextMessageId(){
+        var newMessageId = ++messageId;
+        return newMessageId;
+    }
+
+    function addToCallbacksArray(callbackFunction){
+        var messageId = "hey" + getNextMessageId();
+        callbacksArray[messageId] = callbackFunction;
+        return messageId;
+    }
+
+    function getCallbackFromArray(messageId){
+        var callback = -1;
+
+        if (callbacksArray[messageId] != undefined)
+            callback = callbacksArray[messageId];
+
+        return callback;
+
+    }
+
+    function removeFromCallbacksArray(messageId){
+        if (callbacksArray[messageId] != undefined)
+            callbacksArray = callbacksArray.splice(messageId,1);
+
+    }
+
+    function _callbackFunction(messageId,messageType,messageArray){
+        var callbacksLength = windowCallbacksArray.length;
+        if (callbacksLength == 0)
+            return;
+
+        for(var callbacksIterator = 0; callbacksIterator < callbacksLength; callbacksIterator++){
+            windowCallbacksArray[callbacksIterator](messageId,messageType,messageArray);
+        }
+    }
+
+    return {
+        init: init,
+        postMessage: postMessage,
+        gotMessage:gotMessage,
+        messageTypes: messageTypes,
+        betweenDelimiter: betweenDelimiter,
+        messageDestinations: messageDestinations,
+        isValidMessageType: isValidMessageType
+
+
+
+    };
+
+
+
+}());
+
+
+var messagingUtil = messagingUtil = (function(){
+    var getMessageCallbackFunction;
+
+    function init(clb){
+        getMessageCallbackFunction = clb;
+
+        if (!(Object.prototype.toString.call( window.heymsgul ) === '[object Undefined]' ))
+            return;
+
+        window.heymsgul = 1;
+
+        if( window.addEventListener ){
+            window.addEventListener("message", this.gotMessage, false );
+        }else{
+            window.attachEvent('onmessage', this.gotMessage );
+        }
+    }
+
+
+    function postMessage(targetWindow, message ){
+        targetWindow.postMessage( message, "*" );
+    }
+
+    function gotMessage(event){
+        if(getMessageCallbackFunction && typeof getMessageCallbackFunction == "function") {
+            getMessageCallbackFunction(event.data);
+        }
+    }
+
+    function dispose(){
+        getMessageCallbackFunction = undefined;
+
+        if( window.removeEventListener ){
+            window.removeEventListener("message", this.gotMessage, false );
+        }else{
+            if (window.detachEvent) {
+                window.detachEvent ('onmessage', this.gotMessage );
+            }
+        }
+    }
+
+
+    return {
+        init: init,
+        dispose: dispose,
+        postMessage: postMessage,
+        gotMessage:gotMessage
+    };
+}());;
+if (window.heyoya)
+    window.heyoya.messagingUtil = messagingUtil;
+;
+heyoya.utils.isPP = (function(){
+    var $;
+    var isIEFactor = navigator.appName.indexOf("Microsoft") != -1 ? 21 : 0;
+    var validPhotoProductWidth = 190;
+    var validPhotoProductHeight = 190;
+    var validPhotos;
+
+    function init(jQuery){
+        $ = jQuery;
+        $.fn.tagLower = function() {
+            return this.prop("tagName").toLowerCase();
+        };
+
+    }
+
+    function isPP(){
+        validPhotos = [];
+
+        var isPageStore = isStore();
+
+        if (!isPageStore)
+            return false;
+
+        var pathKeys = [];
+        var validPathsKeys = [];
+        var photoValidPathArray = getProductValidPath(getProductPhotoPath(pathKeys), pathKeys, validPathsKeys);
+        if (photoValidPathArray == null)
+            return false;
+
+        var isPathValid = isPhotoPathValid(photoValidPathArray, validPathsKeys);
+
+        return isPathValid;
+    }
+
+
+    function getProductPhotoPath(pathKeys){
+        var photoPaths = [];
+        var photoDomPath;
+
+        $("img").each(function(i, obj){
+            if (!isValidPhoto(obj, false))
+                return;
+
+            validPhotos.push(obj);
+
+            var validPhoto = $(obj);
+            if (validPhoto.width() < validPhotoProductWidth || validPhoto < validPhotoProductHeight)
+                return;
+
+            photoDomPath = getElementDomPath(obj);
+
+
+            if (photoPaths[photoDomPath] == undefined){
+                photoPaths[photoDomPath] = {};
+                photoPaths[photoDomPath].photos = [];
+                pathKeys.push(photoDomPath);
+            }
+
+            photoPaths[photoDomPath].photos.push(obj);
+        });
+
+
+        return photoPaths;
+
+    }
+
+    function getProductValidPath(photoPaths, photoPathsKeys, validPathsKeys){
+        if (photoPaths == null || photoPathsKeys.length == 0)
+            return null;
+
+        var pathPhotos, photosIterator, photoX, photoY, photoBoundingClientRect, photosPositionIdentical;
+        photoX = photoY = null;
+
+        var validPaths = [];
+
+        for (var pathIterator = 0; pathIterator < photoPathsKeys.length; pathIterator++){
+            if (photoPaths[photoPathsKeys[pathIterator]].photos.length == 1){
+                validPaths[photoPathsKeys[pathIterator]] = photoPaths[photoPathsKeys[pathIterator]];
+                validPathsKeys.push(photoPathsKeys[pathIterator]);
+                continue;
+            }
+
+            photosPositionIdentical = true;
+            pathPhotos = photoPaths[photoPathsKeys[pathIterator]].photos;
+            for (photosIterator = 0; photosIterator < pathPhotos.length; photosIterator++){
+                photoBoundingClientRect = getElementBoundingClientRect(pathPhotos[photosIterator]);
+
+                if (photoX == null){
+                    photoX = photoBoundingClientRect.x;
+                    photoY = photoBoundingClientRect.y;
+                } else if (photoX != photoBoundingClientRect.x || photoY != photoBoundingClientRect.y){
+                    photosPositionIdentical = false;
+                    break;
+                }
+            }
+
+            if (photosPositionIdentical){
+                validPaths[photoPathsKeys[pathIterator]] = photoPaths[photoPathsKeys[pathIterator]];
+                validPathsKeys.push(photoPathsKeys[pathIterator]);
+                continue;
+            }
+        }
+
+        if (validPathsKeys.length == 0){
+            validPaths = null;
+            validPathsKeys = null;
+        }
+
+
+
+        return validPaths;
+
+    }
+
+    function isPhotoPathValid(photoPaths, photoPathsKeys){
+        if (photoPaths == null || photoPathsKeys.length == 0)
+            return null;
+
+        var nearByElements, elementsIterator, nearByElement, nearbyAnchor;
+
+        var isValid = true;
+        for (var pathIterator = 0; pathIterator < photoPathsKeys.length; pathIterator++){
+            nearByElements = getNearByElements(photoPaths[photoPathsKeys[pathIterator]].photos[0]);
+
+            if (nearByElements == null){
+//                $(photoPaths[photoPathsKeys[pathIterator]].photos[0]).css("border", "4px solid red");
+                continue;
+            }
+
+            for (elementsIterator = 0; elementsIterator < nearByElements.length; elementsIterator++){
+                nearByElement = $(nearByElements[elementsIterator]);
+
+                nearbyAnchor = findClosestAnchor(nearByElement);
+
+                if (nearbyAnchor == null || isValidAnchorUrl(nearbyAnchor))
+                    continue;
+
+                isValid = false;
+                break;
+            }
+
+//            $(photoPaths[photoPathsKeys[pathIterator]].photos[0]).css("border", "4px solid red");
+        }
+
+        return isValid;
+    }
+
+    function isValidAnchorUrl(anchor){
+        if (!anchor || anchor == null)
+            return false;
+
+        var pageUrl =  window.location.href.split("#")[0].toLowerCase();
+        var href = anchor.attr("href")? anchor.attr("href").split("#")[0].toLowerCase(): "";
+
+        if (href == "" || href.indexOf("javascript") != -1 || href.indexOf(".jpg") != -1 || href.indexOf(".png") != -1 || href.indexOf(".gif") != -1 || href.indexOf(".jpeg") != -1 ||
+            href.indexOf(".bmp") != -1 || href.indexOf(".tiff") != -1 || href.indexOf("facebook.") != -1 || href.indexOf("plus.google.") != -1 || href.indexOf("twitter.") != -1 || href.indexOf("pintrest.") != -1)
+            return true;
+
+        if (pageUrl == href)
+            return true;
+
+        return false;
+    }
+
+    function getNearByElements(element){
+        if (!element || element == null)
+            return null;
+
+        var elementBoundingClientRect = element.getBoundingClientRect();
+
+        element = $(element);
+        var elementWidth = element.width();
+        var elementHeight = element.height();
+
+
+        var jumps = 40;
+        var maxRange = 90;
+
+        var photoStartX, photoStartY, photoEndX, photoEndY;
+
+
+        var foundElements = [];
+
+        //bottom
+        photoStartY = elementBoundingClientRect.top + elementHeight + 1;
+        photoEndY = photoStartY + maxRange;
+        photoStartX = elementBoundingClientRect.left;
+        photoEndX = photoStartX + elementWidth;
+        searchForElement(photoStartX, photoStartY, photoEndX, photoEndY, foundElements);
+
+        //left
+        photoEndX = elementBoundingClientRect.left - 1;
+        photoStartX = photoEndX - maxRange;
+        photoStartY = elementBoundingClientRect.top;
+        photoEndY = photoStartY + elementHeight;
+        searchForElement(photoStartX, photoStartY, photoEndX, photoEndY, foundElements);
+
+        //right
+        photoStartX = elementBoundingClientRect.left + elementWidth + 1;
+        photoEndX = photoStartX + maxRange;
+        photoStartY = elementBoundingClientRect.top ;
+        photoEndY = photoStartY + elementHeight;
+        searchForElement(photoStartX, photoStartY, photoEndX, photoEndY, foundElements);
+
+
+        return foundElements;
+    }
+
+
+    function searchForElement(photoStartX, photoStartY, photoEndX, photoEndY, foundElements){
+        if (validPhotos == null || validPhotos.length == 0)
+            return;
+
+        var photoBoundingClientRect;
+        var width, height;
+        for(var photosIterator = 0; photosIterator < validPhotos.length; photosIterator++){
+            photoBoundingClientRect = validPhotos[photosIterator].getBoundingClientRect();
+            width = $(validPhotos[photosIterator]).width();
+            height = $(validPhotos[photosIterator]).height();
+
+            if (photoBoundingClientRect.left <= photoEndX && photoBoundingClientRect.left + width >= photoStartX &&
+                photoBoundingClientRect.top <= photoEndY && photoBoundingClientRect.top + height >= photoStartY)
+
+                foundElements.push(validPhotos[photosIterator]);
+        }
+
+    }
+
+    function findClosestAnchor(element){
+        var closestAnchor = $(element).closest("a");
+        if (closestAnchor.length > 0)
+            return closestAnchor;
+
+        return null;
+    }
+
+
+
+    function getElementDomPath(element){
+        var tagNameLowered;
+        var result = "";
+
+        for (var currentElement = element.parentNode; currentElement; currentElement = currentElement.parentNode) {
+            tagNameLowered = currentElement.tagName.toLowerCase();
+            if (tagNameLowered === "html")
+                break;
+
+            result += tagNameLowered;
+        }
+
+        return result;
+    }
+
+    function isStore(){
+        var html = $('body').html();
+        if (!html){
+            //console.log("IsStore = false, reason - No HTML");
+            return false;
+        }
+
+        html = html.toLowerCase();
+
+        var url = window.location.href;
+        url = url.replace(/[\+-_]/g, ' ');
+        var inUrl = url.match(/\bshop\b|marketplace|kaufen|boutique|tienda/gi);
+
+        if (inUrl) {
+            return true;
+        }
+
+        html = html.replace(/[\n\t]/gi, "");
+
+        var hasStoreKeywords = html.match(/(add\s?(item)?\s?to\s?(my)?\s?(shopping|digital)?\s?(cart\b|bag\b|basket|order))|(free|no anxiety) shipping|shipping (charges|policy|options)|(continue|start|safe|secure|no minimum) shopping|order status|(refund|return) policy|easy (replacement|return)|(my|your|view|show) \bcart\b|shopping (\bcart\b|\bbag\b|\bbasket\b|categories)|(\bwatch|wish)\s?list\b|gift voucher|bulk orders|cash (purchase|on delivery)|replacement (guarantee|options)|(fast|ontime) delivery/ig);
+
+        return hasStoreKeywords;
+    }
+
+    function isValidPhoto(image, productMode){
+        var minImageArea =  360;
+        var aspectRatio = 1.0/2.0;
+        var minImageWidth = !productMode? 88 : validPhotoProductWidth;
+        var minImageHeight = !productMode? 70 : validPhotoProductHeight;
+        var imageWidth = image.width;
+        var imageHeight = image.height;
+
+        if (imageWidth < minImageWidth || imageHeight < minImageHeight)
+            return false;
+
+        if( ( imageWidth * imageHeight ) < minImageArea )
+            return false;
+
+        var ratio = imageWidth/imageHeight;
+        if( ( imageWidth * imageHeight > 2 * minImageArea ) &&
+            ( ratio < aspectRatio || ratio > 2.5 ) )
+            return false;
+
+
+
+        if ( image.getAttribute("usemap") )
+            return false;
+
+        if ( !isViewable( image ) )
+            return false;
+
+        if ( !isVisible( image ) )
+            return false;
+
+
+        var imagePosition = getElementBoundingClientRect(image);
+        if (imagePosition.x < 0 || imagePosition.y < 10 || imagePosition.y > 1000)
+            return false;
+
+
+        return true;
+    }
+
+
+    function isVisible( object ){
+        var width = object.offsetWidth,
+            height = object.offsetHeight;
+
+        return !(( width === 0 && height === 0 )
+            || ( !$.support.reliableHiddenOffsets && ((object.style && object.style.display)
+            || $.css( object, "display" )) === "none"));
+    }
+
+
+    function isViewable( object ){
+        var loweredUserAgent = navigator.userAgent.toLowerCase();
+        var parentElement;
+
+        if (!((loweredUserAgent.indexOf("msie") != -1 || loweredUserAgent.indexOf("trident") != -1) && ( document.compatMode != 'CSS1Compat' || document.documentMode != 5 ) ))
+            parentElement = getParentOverflow( object.parentNode );
+        else
+            parentElement = getParentOverflowQ( object.parentNode );
+
+        if( parentElement ){
+            var originalElementBounding = getElementBoundingClientRect(object),
+                parentElementBounding = getElementBoundingClientRect(parentElement);
+
+            // check the elements position relative to it's overflowing parent
+            if ( originalElementBounding.x >= parentElementBounding.x + parentElementBounding.width || originalElementBounding.y >= parentElementBounding.y + parentElementBounding.height ){
+                return 0;
+            } else if ( originalElementBounding.x + originalElementBounding.width <= parentElementBounding.x || originalElementBounding.y + originalElementBounding.height <= parentElementBounding.y ) {
+                return 0;
+            }
+        }
+        return 1;
+    }
+
+
+
+    function getElementBoundingClientRect(element) {
+        element = $(element);
+        var elementPosition = element.position();
+        var elementOffset = element.offset();
+
+        return {
+            width: element.width(),
+            height: element.height(),
+            x: elementOffset.left,
+            y: elementOffset.top
+        };
+    }
+
+
+    function getParentOverflow( element ){
+        if( !element || !element.parentNode || element === document )
+            return false;
+
+        if ((( element.offsetHeight < element.scrollHeight && (element.scrollHeight - element.offsetHeight) > isIEFactor) || (element.offsetWidth < element.scrollWidth && (element.scrollWidth -element.offsetWidth) > isIEFactor)) && ( $(element).css('overflow') === 'hidden' && $(element.parentNode).css('overflow') === 'visible' ))
+                return element;
+
+        return getParentOverflow( element.parentNode );
+    }
+
+    function getParentOverflowQ( element ){
+        var pobj = element.parentNode;
+        if( !element || !element.parentNode || element === document || !pobj || !pobj.parentNode || pobj === document)
+            return false;
+
+        if( ( (element.offsetHeight > pobj.offsetHeight && element.offsetHeight-pobj.offsetHeight>20) || (element.offsetWidth > pobj.offsetWidth && element.offsetWidth-pobj.offsetWidth>20)) && ( $(pobj).css('overflow') === 'hidden' && $(pobj.parentNode).css('overflow') === 'visible' ))
+                return pobj;
+
+
+        return getParentOverflowQ( element.parentNode );
+    }
+
+    return{
+        init: init,
+        isPP:isPP
+    }
+})();
+
+
+;
+heyoya.html = '<div id="heyoyaB2BApp">    <iframe id="heyB2BData" src="$dataUrl"  frameborder="0" allow="microphone;"></iframe>   <iframe id="heyB2BUI" class="normal" style="width:1px;height: 1px;position: absolute;top:-10000px;"  src="$UIUrl" frameborder="0" scrolling="no" allow="microphone;"></iframe> </div>\
+';
+
+
+
+
+heyoya.continueLoading = function(){
+
+
+
+heyoya.flow.init(heyoya.utils.loadFile,
+                   heyoya.utils.jqLoader,
+                   heyoya.messaging,
+                   heyoya.userStorage,
+                   heyoya.statistics,
+                   heyoya.params.baseUrl,
+                   heyoya.params.configurationUrl,
+                   heyoya.params.dataUrl,
+                   heyoya.params.uiUrl,
+                   heyoya.params.hostCssUrl,
+                   "v=13992",
+    			   "v=13979",
+    			   "v=13979",
+                   heyoya.params.qs,
+                   heyoya.utils.isPP,
+                   window.heyoyaSettings,
+                   heyoya.html,
+                   function(){ heyoya.flow.start(); },
+                   window.heyoyaIW,
+                   heyoya.params.heycid);
+
+}
+
+heyoya.plugins = plugins = (function(){
+    var googleBlog, statisticsLib;
+
+    function init(statisticsObj){
+        statisticsLib = statisticsObj;
+    }
+
+    function checkAndContinue(callback){
+        if (typeof callback !== "function")
+           callback = null;
+
+        if (window.parent == window && callback != null){
+            callback();
+            return;
+        }
+
+        if (window.google != undefined && typeof (window.google.Blog) == "function" ){
+            setGoogleBlog(callback)
+        }
+        else if (callback != null)
+            callback();
+
+    }
+
+    function setGoogleBlog(callback){
+        googleBlog = new window.google.Blog(function() {
+            statisticsLib.setPageUrl(googleBlog.currentPost);
+            callback();
+        }, window.name);
+    }
+
+
+    return{
+        init: init,
+        checkAndContinue: checkAndContinue
+    };
+})();;
+heyoya.plugins.init(heyoya.statistics);
+heyoya.plugins.checkAndContinue(heyoya.continueLoading);
+
+function removeURLParameter(url, parameter) {
+    //prefer to use l.search if you have a location/link object
+    var urlparts= url.split('?');
+    if (urlparts.length>=2) {
+
+        var prefix= encodeURIComponent(parameter)+'=';
+        var pars= urlparts[1].split(/[&;]/g);
+
+        //reverse iteration as may be destructive
+        for (var i= pars.length; i-- > 0;) {
+            //idiom for string.startsWith
+            if (pars[i].lastIndexOf(prefix, 0) !== -1) {
+                pars.splice(i, 1);
+            }
+        }
+
+        url= urlparts[0] + (pars.length > 0 ? '?' + pars.join('&') : "");
+        return url;
+    } else {
+        return url;
+    }
+}
+}());

@@ -1,0 +1,69 @@
+<html><head>
+    <title>hey_B2B_data_ls</title>
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script type="text/javascript">
+        var betweenDelimiter = "hey1234hey";
+        var dataSurroundDelimiter = "heydAtA";
+        var localStorageRequestDelimiter = "heyRDL";
+
+        messagingUtil = (function(){var getMessageCallbackFunction;function init(clb){getMessageCallbackFunction = clb;if (!(Object.prototype.toString.call( window.heymsgul ) === '[object Undefined]' ))return;window.heymsgul = 1;if( window.addEventListener ){window.addEventListener("message", this.gotMessage, false );}else{window.attachEvent('onmessage', this.gotMessage );}} function postMessage(targetWindow, message ){targetWindow.postMessage( message, "*" );}function gotMessage(event){if(getMessageCallbackFunction && typeof getMessageCallbackFunction == "function") {getMessageCallbackFunction(event.data);}} function dispose(){getMessageCallbackFunction = undefined;if( window.removeEventListener ){window.removeEventListener("message", this.gotMessage, false );}else{if (window.detachEvent) {window.detachEvent ('onmessage', this.gotMessage );}}} return {init: init,dispose: dispose,postMessage: postMessage,gotMessage:gotMessage};}());
+        userStorage = function(){var expiresPrefix = "ex_ls_";var noResultDefaultValue = "NO-DATA";var enabled;function init(){enabled = isEnabled();}function isEnabled(){try {  return (localStorage && (typeof localStorage).toLowerCase() == "object");return localStorage && localStorage.setItem;} catch (e) {return false;}}function set(key, value, millisecondsToAdd){var success = false;if ((!enabled) || (!(key && key != "" && value && value != "")))return success;try{localStorage[key] = value;localStorage[expiresPrefix + key] = (new Date().getTime() + millisecondsToAdd);success = true;}catch(err){clear(key);}return success;}function clear(key){if (!enabled || !key || key == "")return;try{localStorage.removeItem(key);localStorage.removeItem(expiresPrefix + key);}catch(err){}}function get(key){var result = noResultDefaultValue;if (!enabled || !key || key == "")return result;var expires = localStorage[expiresPrefix + key];if (!expires || isNaN(expires))return result;expires = parseInt(expires,10);var now = new Date().getTime();if (now > expires){clear(key);return result;}result = localStorage[key];return result;}init(); return {isEnabled: isEnabled,set: set,get: get,clear: clear,noResultDefaultValue: noResultDefaultValue};}();
+
+        function messageReceived(message) {
+            if (message == undefined || message == "" || message.indexOf == undefined || message.indexOf(betweenDelimiter) == -1) return;
+            var messageArray = message.split(betweenDelimiter);
+            var messageId = messageArray[0];
+            var messageType = messageArray[1];
+            var messageValue = messageArray[2];
+            if (!messageType || messageType == "" || !messageValue || messageValue == "") return;
+            switch (messageType) {
+                case "hey_wlsd":
+                    if (messageValue.indexOf(dataSurroundDelimiter) == -1)
+                        return;
+
+                    messageArray = messageValue.split(dataSurroundDelimiter);
+                    if (messageArray.length < 3)
+                        return;
+
+                    userStorage.set(messageArray[0], messageArray[1], messageArray[2]);
+                    break;
+
+                case "hey_glsd":
+                    var messageValueArray = messageValue.split(localStorageRequestDelimiter);
+                    if (messageValueArray.length < 2)
+                        return;
+
+                    window.parent.postMessage("1" + betweenDelimiter + "hey_glsd" + betweenDelimiter + messageValueArray[0] + localStorageRequestDelimiter + userStorage.get(messageValueArray[1]), "*");
+                    break;
+
+                case "hey_mglsd":
+                    messageArray = messageValue.split(localStorageRequestDelimiter);
+                    if (messageArray.length < 2)
+                        return;
+
+                    var messageValues = messageArray[1].split(dataSurroundDelimiter);
+
+                    var resultArray = "{";
+                    for(var arrayIterator = 0; arrayIterator < messageValues.length; arrayIterator++){
+                        resultArray += "\"" + messageValues[arrayIterator] + "\":\"" + userStorage.get(messageValues[arrayIterator]).replace(/"/g,"\\\"") + "\",";
+                    }
+                    resultArray = resultArray.substring(0, resultArray.length-1);
+                    resultArray += "}";
+
+                    window.parent.postMessage("1" + betweenDelimiter + "hey_mglsd" + betweenDelimiter + messageArray[0] + localStorageRequestDelimiter + resultArray, "*");
+                    break;
+
+                case "hey_clsd":
+                    userStorage.clear(messageValue);
+                    break;
+            }
+
+        }
+
+        messagingUtil.init(messageReceived);
+    </script>
+</head>
+<body>
+
+</body></html>
