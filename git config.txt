@@ -1,0 +1,73 @@
+git config --global user.email geetakumari3840@gmail.com
+git config --global user.name “Geeta Kumari”
+git remote add origin https://github.com/geetakumari3840/aaago.git
+
+For push new modify / new files
+
+1. git status
+2. git add –A
+3. git commit –m “message”
+4. git push origin master
+
+for pull new modify / new files
+
+1. git status
+2. git add –A
+3. git commit –m “message”
+4. git pull origin master
+************************
+
+git config –global user.email geetakumari3840@gmail.com
+git config –global user.name “Geeta Kumari”
+
+Learn git Part -1 :
+
+1) git init
+2) git add [filename] || -A
+3) git status
+4) git commit –m “msg”
+5) git remote add origin https://github.com/geetakumari3840/aaago.git
+6) git push origin master
+7) git clone repoName
+8) git pull origin master
+
+For project – 
+--- open new folder & push all file --
+1. Create one Folder [any name]
+2. Copy  / download your project files
+3. Right click – Git Bash
+4.  Config email or name 
+5. $  git config-- global user.email geetakumari3840@gmail.com
+6. $ git config -- global user.name “Geeta Kumari”
+7. $ git init 
+8. $ git status   --- for check file status --
+9. $ git add -A
+10. $ git commit –m “index.html mycss.css add” --  for make snapshot
+11. $ git remote add origin https://github.com/geetakumari3840/aaago.git -- link to github --
+12. $ git push origin master – transfer file to github --
+
+Create new folder other system and pull all file
+1. Create one Folder [any name]
+2. Right click – Git Bash
+3.  $  git clone https://github.com/geetakumari3840/aaago.git -- download all repo files –
+4. $ git pull origin master  ---- for pull new file --
+
+
+
+
+git config –global user.email geetakumari3840@gmail.com
+git config –global user.name “Geeta Kumari”
+git remote add origin https://github.com/geetakumari3840/aaago.git
+
+For push new modify / new files
+1. git status
+2. git add –A
+3. git commit –m “message”
+4. git push origin master
+
+for pull new modify / new files
+
+1. git status
+2. git add –A
+3. git commit –m “message”
+4. git pull origin master
