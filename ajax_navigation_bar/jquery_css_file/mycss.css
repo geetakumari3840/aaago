@@ -1,0 +1,35 @@
+
+.large  {
+ text-align: center;
+}
+
+.narrow {
+
+width: 25%;
+}
+
+.large {
+
+width: 50%;
+}
+
+.speech {
+
+	background-color: grey;
+}
+
+.hidden {
+
+	display: none;
+}
+
+.hover {
+
+	cursor: pointer;
+	background-color: green;
+}
+
+.first {
+
+	background-color: purple;
+}
