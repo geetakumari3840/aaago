@@ -60,6 +60,7 @@ span.footnote {
   font-family: "Times New Roman", Times, serif;
   display: block;
   margin: 1em 0;
+  color: green;
 }
 
 .chapter span.footnote {
