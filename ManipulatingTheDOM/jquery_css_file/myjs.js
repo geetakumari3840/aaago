@@ -11,7 +11,8 @@ $(document).ready(function() {
     }
   });
 
-  $('#container').append('<p>Hello</p>');
+    $('#container').append('<p>Hello</p>');
+ });
 
 
 
@@ -19,6 +20,4 @@ $(document).ready(function() {
 
 
 
-
-
-  });
+ 
