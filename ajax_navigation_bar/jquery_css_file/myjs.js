@@ -2,7 +2,7 @@ $(document).ready(function() {
 $('#switcher-default').addClass('w3-green')
 $('#switcher-large, #switcher-small, #switcher-test').addClass('w3-purple')
 //$('#switcher-small').addClass('w3-purple')
-
+$('#appHtml').append('<p>Hello</p>');
 $('#switcher button').on('click', function() {
   $('.speech').removeClass('large narrow');
 $('#switcher button').addClass('w3-purple');

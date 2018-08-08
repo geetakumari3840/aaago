@@ -1,0 +1,74 @@
+#heyoyaB2BApp div, #heyoyaB2BApp span, #heyoyaB2BApp object, #heyoyaB2BApp iframe, #heyoyaB2BApp h1, #heyoyaB2BApp h2, #heyoyaB2BApp h3, #heyoyaB2BApp h4, #heyoyaB2BApp h5, #heyoyaB2BApp h6, #heyoyaB2BApp p, #heyoyaB2BApp a, #heyoyaB2BApp img, #heyoyaB2BApp b, #heyoyaB2BApp u, #heyoyaB2BApp i, #heyoyaB2BApp center, #heyoyaB2BApp ol, #heyoyaB2BApp ul, #heyoyaB2BApp li, #heyoyaB2BApp form, #heyoyaB2BApp table, #heyoyaB2BApp tbody, #heyoyaB2BApp tfoot, #heyoyaB2BApp thead, #heyoyaB2BApp tr, #heyoyaB2BApp th, #heyoyaB2BApp td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    line-height: 1;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    color: inherit;
+    left: auto;
+    background: none;
+    height: auto;
+    width: auto;
+    /*margin-top: 200px;*/
+}
+
+#heyoyaB2BApp #heyB2BData{
+    width: 1px;
+    height: 1px;
+    position: fixed;
+    top: -100px;
+}
+
+#heyoyaB2BApp, #heyoyaB2BApp #heyB2BUI{
+    min-height: 664px !important;
+}
+
+/*@media only screen and (max-width: 480px) {*/
+    #heyoyaDiv.jwr {
+        padding: 0 !important;
+    }
+/*}*/
+
+@media only screen and (max-width: 749px){
+    #heyoyaDiv.hey-Xmtrfbi62p {
+        margin-top: 80px !important;
+    }
+}
+
+#heyoyaDiv.iltv #heyoyaB2BApp{
+/*    max-width: 700px !important; */
+    margin: 0 auto !important;
+}
+#heyoyaDiv.video-page #heyoyaB2BHeader,
+#heyoyaDiv.iltv #heyoyaB2BHeader {
+    background: #4689ce !important;
+    padding-top: 6px !important;
+    padding-bottom: 7px !important;
+    margin: 0 !important;
+    color: #fff !important;
+    font-size: 30px !important;
+    line-height: 34px !important;
+    font-weight: 400 !important;
+    width: 100% !important;
+    margin-bottom: 15px !important;
+    text-align: left !important;
+}
+#heyoyaDiv.video-page #heyoyaB2BHeader #heyoyaB2BHeaderText,
+#heyoyaDiv.iltv #heyoyaB2BHeader #heyoyaB2BHeaderText{
+    padding-left: 8px !important;
+    background: none !important;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    padding-right: 0 !important;
+    margin: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    font-size: 30px !important;
+    font-weight: 400 !important;
+}
+

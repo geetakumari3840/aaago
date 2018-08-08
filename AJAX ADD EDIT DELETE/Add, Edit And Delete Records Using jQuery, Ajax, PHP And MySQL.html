@@ -1,0 +1,886 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script async="" src="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/a"></script><script async="" src="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/get_counts.json"></script><script async="" src="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/5990996cd85a710012ca4e41.js"></script><script src="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/rules-p-31iz6hfFutd16.js" async=""></script><script src="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/jquery_002.js"></script><script src="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/quant.js" async="" type="text/javascript"></script><script async="" src="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/beacon.js"></script><script async="" src="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/analytics.js"></script><script type="text/javascript" async="" src="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/b2b_loader.html"></script><script src="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/foxpush_SDK_min.js" type="text/javascript" async=""></script><script data-cfasync="false" data-pagespeed-no-defer="">var __ez=__ez||{};__ez.evt={};__ez.ck={};__ez.dot={};__ez.template={};__ez.template.isOrig=true;__ez.evt.add=function(e,t,n){e.addEventListener?e.addEventListener(t,n,!1):e.attachEvent?e.attachEvent("on"+t,n):e["on"+t]=n()},__ez.evt.remove=function(e,t,n){e.removeEventListener?e.removeEventListener(t,n,!1):e.detachEvent?e.detachEvent("on"+t,n):delete e["on"+t]};__ez.ck.get=function(e,n){null!==n&&(e=e+"_"+n);for(var o=e+"=",t=decodeURIComponent(document.cookie).split(";"),i=0;i<t.length;i++){for(var c=t[i];" "===c.charAt(0);)c=c.substring(1);if(0===c.indexOf(o))return c.substring(o.length,c.length)}return""},__ez.ck.setByCat=function(e,n){if("undefined"!=typeof cmpIsOn){if(null!=n){var o=__ez.ck.get("ezCMPCookieConsent",null);-1!==(o=o.substring(1,o.length)).indexOf(n+"=1")?document.cookie=e:""===o&&"undefined"!=typeof cmpCookies&&(void 0===cmpCookies[n]&&(cmpCookies[n]=[]),cmpCookies[n].push(e))}}else document.cookie=e};__ez.queue=function(){var e=0,i=0,t=[],n=[],r=[],o=!0,s={func:function(e,i,n,r,o,s,a){var l=this;this.name=e,this.funcName=i,this.parameters=null===n?null:n instanceof Array?n:[n],this.isBlock=r,this.blockedBy=o,this.deleteWhenComplete=s,this.isError=!1,this.isComplete=!1,this.isInitialized=!1,this.proceedIfError=a,this.process=function(){c("... func = "+e),l.isInitialized=!0,l.isComplete=!0;var i=l.funcName.split(".");i.length>3||(3===i.length?window[i[0]][i[1]][i[2]].apply(null,this.parameters):2===i.length?window[i[0]][i[1]].apply(null,this.parameters):window[l.funcName].apply(null,this.parameters)),!0===l.deleteWhenComplete&&delete t[e],!0===l.isBlock&&(c("----- F'D: "+l.name),d())}},file:function(e,i,t,n,r,o,s){var a=this;this.name=e,this.path=i,this.async=r,this.defer=o,this.isBlock=t,this.blockedBy=n,this.isInitialized=!1,this.isError=!1,this.isComplete=!1,this.proceedIfError=s,this.process=function(){a.isInitialized=!0,c("... file = "+e);var t=document.createElement("script");t.src=i,!0===r?t.async=!0:!0===o&&(t.defer=!0),t.onerror=function(){c("----- ERR'D: "+a.name),a.isError=!0,!0===a.isBlock&&d()},t.onreadystatechange=t.onload=function(){var e=t.readyState;c("----- F'D: "+a.name),e&&!/loaded|complete/.test(e)||(a.isComplete=!0,!0===a.isBlock&&d())},document.getElementsByTagName("head")[0].appendChild(t)}}};function a(e){!0!==l(e)&&0!=o&&e.process()}function l(e){if(e.blockedBy instanceof Array)for(var i=0;i<e.blockedBy.length;i++){var n=e.blockedBy[i];if(!1===t.hasOwnProperty(n))return c(e.name+" blocked = "+n),!0;if(!0===e.proceedIfError&&!0===t[n].isError)return!1;if(!1===t[n].isComplete)return c(e.name+" blocked = "+n),!0}return!1}function c(e){var i=window.location.href,t=new RegExp("[?&]ezq=([^&#]*)","i").exec(i);"1"===(t?t[1]:null)&&console.debug(e)}function d(){++e>200||(c("let's go"),h(n),h(r))}function h(e){for(var i in e)if(!1!==e.hasOwnProperty(i)){var t=e[i];!0===t.isComplete||l(t)||!0===t.isInitialized||!0===t.isError?!0===t.isError?c(t.name+": error"):!0===t.isComplete?c(t.name+": complete already"):!0===t.isInitialized&&c(t.name+": initialized already"):t.process()}}return{addFile:function(e,i,o,l,c,d,h,f){var u=new s.file(e,i,o,l,c,d,h);!0===f?n[e]=u:r[e]=u,t[e]=u,a(u)},addFunc:function(e,o,l,c,d,h,f,u,p){!0===h&&(e=e+"_"+i++);var m=new s.func(e,o,l,c,d,f,u);!0===p?n[e]=m:r[e]=m,t[e]=m,a(m)},items:t,processAll:d,setallowLoad:function(e){o=e}}}();var __ezDotData=function(e,r){this.name=e,this.val=r};__ez.dot.b64={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",encode:function(e){var r,t,n,o,a,d,i,f="",c=0;for(e=Base64._utf8_encode(e);c<e.length;)o=(r=e.charCodeAt(c++))>>2,a=(3&r)<<4|(t=e.charCodeAt(c++))>>4,d=(15&t)<<2|(n=e.charCodeAt(c++))>>6,i=63&n,isNaN(t)?d=i=64:isNaN(n)&&(i=64),f=f+this._keyStr.charAt(o)+this._keyStr.charAt(a)+this._keyStr.charAt(d)+this._keyStr.charAt(i);return f},decode:function(e){var r,t,n,o,a,d,i="",f=0;for(e=e.replace(/[^A-Za-z0-9+/=]/g,"");f<e.length;)r=this._keyStr.indexOf(e.charAt(f++))<<2|(o=this._keyStr.indexOf(e.charAt(f++)))>>4,t=(15&o)<<4|(a=this._keyStr.indexOf(e.charAt(f++)))>>2,n=(3&a)<<6|(d=this._keyStr.indexOf(e.charAt(f++))),i+=String.fromCharCode(r),64!=a&&(i+=String.fromCharCode(t)),64!=d&&(i+=String.fromCharCode(n));return i=Base64._utf8_decode(i)},_utf8_encode:function(e){e=e.replace(/rn/g,"n");for(var r="",t=0;t<e.length;t++){var n=e.charCodeAt(t);n<128?r+=String.fromCharCode(n):n>127&&n<2048?(r+=String.fromCharCode(n>>6|192),r+=String.fromCharCode(63&n|128)):(r+=String.fromCharCode(n>>12|224),r+=String.fromCharCode(n>>6&63|128),r+=String.fromCharCode(63&n|128))}return r},_utf8_decode:function(e){for(var r="",t=0,n=c1=c2=0;t<e.length;)(n=e.charCodeAt(t))<128?(r+=String.fromCharCode(n),t++):n>191&&n<224?(c2=e.charCodeAt(t+1),r+=String.fromCharCode((31&n)<<6|63&c2),t+=2):(c2=e.charCodeAt(t+1),c3=e.charCodeAt(t+2),r+=String.fromCharCode((15&n)<<12|(63&c2)<<6|63&c3),t+=3);return r}},__ez.dot.dataToStr=function(e){if(void 0===e)return[];try{for(var r in e)e[r].val=e[r].val+""}catch(e){}return e},__ez.dot.getCC=function(){var e="XX";return"undefined"!=typeof _ezaq&&_ezaq.hasOwnProperty("country")&&(e=_ezaq.country),e},__ez.dot.getDID=function(){var e="0";return"undefined"!=typeof _ezaq&&_ezaq.hasOwnProperty("domain_id")&&(e=_ezaq.domain_id.toString()),e},__ez.dot.getEpoch=function(e){return"undefined"!=typeof _ezaq&&_ezaq.hasOwnProperty("t_epoch")&&(e=_ezaq.t_epoch),e},__ez.dot.getURL=function(e){return("undefined"!=typeof ezJsu&&1==ezJsu||"undefined"!=typeof _ez_sa&&1==_ez_sa||"undefined"!=typeof isAmp&&!0===isAmp||"undefined"!=typeof ezWp&&!0===ezWp)&&(e="//g.ezoic.net"+e),e},__ez.dot.isValid=function(e){for(var r=0;r<e.length;r++)if(e[r]instanceof __ezDotData==!1)return console.error("Invalid data. ",e[r]),!1;return!0},__ez.dot.isDefined=function(){for(var e=0;e<arguments.length;e++)if(void 0===arguments[e]||null===arguments[e])return console.error("Argument not defined. ",arguments),!1;return!0};__ez.bit=function(){function c(a,b){d(a,b),e()}function d(b,c){__ez.dot.isDefined(b)&&__ez.dot.isValid(c)&&a.push({type:"pageview",pageview_id:b,domain_id:__ez.dot.getDID(),t_epoch:__ez.dot.getEpoch(0),data:__ez.dot.dataToStr(c)})}function e(){void 0!==document.visibilityState&&"prerender"===document.visibilityState||(__ez.dot.isDefined(a)&&a.length>0&&((new Image).src=__ez.dot.getURL(b)+"?orig="+(!0===__ez.template.isOrig?1:0)+"&ds="+btoa(JSON.stringify(a))),a=[])}var a=[],b="/detroitchicago/greenoaks.gif";return{Add:d,AddAndFire:c,Fire:e}}();</script><script data-cfasync="false" data-pagespeed-no-defer="">__ez.pel=function(){function c(a,b){d(a,b,0,0,0,0,0),f()}function d(b,c,d,e,f,h,i){if(__ez.dot.isDefined(b,b.getSlotElementId)){var j=parseInt(b.getTargeting("ap")[0]),k=b.getSizes()[0],l=k.l.toString()+"x"+k.j.toString(),m=g(b),n=b.getSlotElementId();__ez.dot.isDefined(m,n)&&__ez.dot.isValid(c)&&a.push({type:"impression",impression_id:m,domain_id:__ez.dot.getDID(),unit:n,t_epoch:__ez.dot.getEpoch(0),revenue:d,est_revenue:e,ad_position:j,ad_size:l,bid_floor_filled:f,bid_floor_prev:h,stat_source_id:i,country_code:__ez.dot.getCC(),data:__ez.dot.dataToStr(c)})}}function e(b,c){var d=b.split("/");if(__ez.dot.isDefined(b)&&3===d.length&&__ez.dot.isValid(c)){var e=d[0],f=d[2];a.push({type:"impression",impression_id:f,domain_id:__ez.dot.getDID(),unit:e,t_epoch:__ez.dot.getEpoch(0),data:__ez.dot.dataToStr(c)})}}function f(){void 0!==document.visibilityState&&"prerender"===document.visibilityState||(__ez.dot.isDefined(a)&&a.length>0&&((new Image).src=__ez.dot.getURL(b)+"?orig="+(!0===__ez.template.isOrig?1:0)+"&sts="+btoa(JSON.stringify(a))),a=[])}function g(a){var b=0;try{var c=a.getTargetingMap();if(-1===a.getSlotElementId().indexOf("div-gpt-ad"))return b;if(void 0!==c)for(var e in c)if(-1!==e.indexOf("iid")&&void 0!==c[e][0]){b=c[e][0];break}}catch(a){}return b}var a=[],b="/porpoiseant/army.gif";return{Add:d,AddAndFire:c,AddById:e,Fire:f}}();var EzoicPixel=function(){this.pixels=[],this.pixelUrl="/ezoic/e.gif",("undefined"!=typeof ezJsu&&!0===ezJsu||"undefined"!=typeof _ez_sa&&!0===_ez_sa||void 0!==window.isAmp&&!0===isAmp||"undefined"!=typeof ezWp&&!0===ezWp)&&(this.pixelUrl="//g.ezoic.net"+this.pixelUrl),this.tEpoch=0,"undefined"!=typeof _ezaq&&_ezaq.hasOwnProperty("t_epoch")&&(this.tEpoch=_ezaq.t_epoch)},EzoicPixelData=function(i,e){this.name=i,this.val=e};EzoicPixel.prototype={constructor:EzoicPixel,AddAndFireImpPixel:function(i,e){this.AddImpPixel(i,e,0,0,0,0,0),this.FirePixels()},AddAndFirePVPixel:function(i,e){this.AddPVPixel(i,e),this.FirePixels()},AddImpPixel:function(i,e,t,n,o,a,r){if(this.isDefined(i,i.getSlotElementId)){var d=parseInt(i.getTargeting("ap")[0]),s=i.getSizes()[0],p=s.l.toString()+"x"+s.j.toString(),l="0",h="XX";"undefined"!=typeof _ezaq&&_ezaq.hasOwnProperty("domain_id")&&(l=_ezaq.domain_id.toString()),"undefined"!=typeof _ezaq&&_ezaq.hasOwnProperty("country")&&(h=_ezaq.country);var f=this.getSlotIID(i),c=i.getSlotElementId();this.isDefined(f,c)&&this.validateData(e)&&(e=this.convertDataToStr(e),this.pixels.push({type:"impression",impression_id:f,domain_id:l,unit:c,t_epoch:this.tEpoch,revenue:t,est_revenue:n,ad_position:d,ad_size:p,bid_floor_filled:o,bid_floor_prev:a,stat_source_id:r,country_code:h,data:e}))}},AddImpPixelById:function(i,e){var t="0";"undefined"!=typeof _ezaq&&_ezaq.hasOwnProperty("domain_id")&&(t=_ezaq.domain_id.toString());var n=i.split("/");if(this.isDefined(i)&&3===n.length&&this.validateData(e)){var o=n[0],a=n[2];e=this.convertDataToStr(e),this.pixels.push({type:"impression",impression_id:a,domain_id:t,unit:o,t_epoch:this.tEpoch,data:e})}},AddPVPixel:function(i,e){var t="0";"undefined"!=typeof _ezaq&&_ezaq.hasOwnProperty("domain_id")&&(t=_ezaq.domain_id.toString()),this.isDefined(i)&&this.validateData(e)&&(e=this.convertDataToStr(e),this.pixels.push({type:"pageview",pageview_id:i,domain_id:t,t_epoch:this.tEpoch,data:e}))},FirePixels:function(){void 0!==document.visibilityState&&"prerender"===document.visibilityState||(this.isDefined(this.pixels)&&this.pixels.length>0&&((new Image).src=this.pixelUrl+"?orig="+(!0===__ez.template.isOrig?1:0)+"&pixels="+encodeURIComponent(JSON.stringify(this.pixels))),this.pixels=[])},NewData:function(i,e){return new EzoicPixelData(i,e)},convertDataToStr:function(i){if(void 0===i)return[];try{for(var e in i)i[e].val=i[e].val+""}catch(i){}return i},getSlotIID:function(i){var e=0;try{var t=i.getTargetingMap();if(-1===i.getSlotElementId().indexOf("div-gpt-ad"))return e;if(void 0!==t)for(var n in t)if(-1!==n.indexOf("iid")&&void 0!==t[n][0]){e=t[n][0];break}}catch(i){}return e},isDefined:function(){for(var i=0;i<arguments.length;i++)if(void 0===arguments[i]||null===arguments[i])return console.error("Argument not defined. ",arguments),!1;return!0},validateData:function(i){for(var e=0;e<i.length;e++)if(i[e]instanceof EzoicPixelData==!1)return console.error("Invalid pixelData. ",i[e]),!1;return!0}};</script>
+
+<title>Add, Edit And Delete Records Using jQuery, Ajax, PHP And MySQL</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="Description" content="Add, Edit And Delete Records Using jQuery, Ajax, PHP And MySQL In this tutorial we will show you how to add, edit and delete records using jQuery, Ajax, PHP and MySQL">
+<meta name="Keywords" content="add edit and delete records using jquery ajax php and mysql,add rows using jquery,edit rows using jquery,delete rows using jquery,php ajax ,ajax php ,jquery database ,php ajax example ,ajax php example ,ajax table ,ajax database ,ajax with php ,ajax and php ,php ajax jquery, php ajax table ,php with ajax ,ajax jquery php ,php and ajax ,jquery php ajax ,ajax search box ,ajax php database ,php ajax database ,ajax examples in php with database ,jquery with php ,ajax with php example ,ajax jquery example php ,using ajax with php ,jquery and php ,php with ajax examples with database ,php ajax form ,ajax php jquery ,ajax for php ,ajax database php ,form to database ,jquery table ,table jquery ,jquery editable table ,jquery add row to table ,editable table jquery ,jquery add table row ,jquery dynamic table ,jquery table add row ,jquery insert ,ajax table ,jquery table editor ,jquery datatable ,add row to table jquery ,editable datatable ,jquery add row ,jquery table example ,dynamic table jquery ,jquery datatable editable ,jquery crud ,jquery table row ">
+<meta property="og:image" content="http://talkerscode.com/webtricks/images/add_edit_delete_records_jquery.jpg">
+
+<link rel="canonical" href="http://talkerscode.com/webtricks/add-edit-and-delete-records-using-jquery-ajax-php-and-mysql.php">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@TalkersCode">
+<meta name="twitter:title" content="Add, Edit And Delete Records Using jQuery, Ajax, PHP And MySQL On TalkersCode.com">
+<meta name="twitter:description" content="Add, Edit And Delete Records Using jQuery, Ajax, PHP And MySQL In this tutorial we will show you how to add, edit and delete records using jQuery, Ajax, PHP and MySQL">
+<meta name="twitter:image" content="http://talkerscode.com/webtricks/images/add_edit_delete_records_jquery.jpg">
+
+<link rel="stylesheet" type="text/css" href="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/header.css">
+<link rel="stylesheet" type="text/css" href="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/footer.css">
+<link rel="stylesheet" type="text/css" href="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/webtrick_tut.css">
+<link rel="stylesheet" type="text/css" href="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/big_display_style.css">
+<link rel="stylesheet" type="text/css" href="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/small_display_style.css">
+<link rel="stylesheet" type="text/css" href="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/middle_display_style.css">
+<script type="text/javascript" src="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/jquery.js"></script>
+<script type="text/javascript" src="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/prettify.js"></script>
+<link href="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/prettify.css" type="text/css" rel="stylesheet">
+
+<script type="text/javascript">var ezouid = "1";</script><!-- base href="http://talkerscode.com/webtricks/add-edit-and-delete-records-using-jquery-ajax-php-and-mysql.php" --><script type="text/javascript">
+var ezoTemplate = 'old_site_noads';
+if(typeof ezouid == 'undefined')
+{
+    var ezouid = 'none';
+}
+var ezoFormfactor = '1';
+var ezo_elements_to_check = Array();
+</script><!-- START EZHEAD -->
+<script type="text/javascript">
+var soc_app_id = '0';
+var did = 73764;
+var ezdomain = 'talkerscode.com';
+var ezoicSearchable = 1;
+</script>
+<!--{jquery}-->
+<!-- END EZHEAD -->
+<script type="text/javascript" data-cfasync="false">var _ezaq = {"ad_cache_level":0,"city":"Delhi","country":"IN","days_since_last_visit":-1,"domain_id":73764,"engaged_time_visit":0,"ezcache_level":1,"forensiq_score":-1,"form_factor_id":1,"framework_id":1,"is_return_visitor":false,"last_page_load":"","last_pageview_id":"","lt_cache_level":0,"metro_code":0,"page_ad_positions":"","page_view_count":0,"page_view_id":"a6093f37-2976-42e0-56ae-b34a562de514","postal_code":"000003","pv_event_count":0,"response_time_orig":648,"serverid":"35.154.111.232:7707","state":"DL","t_epoch":1532187524,"template_id":120,"time_on_site_visit":0,"url":"http://talkerscode.com/webtricks/add-edit-and-delete-records-using-jquery-ajax-php-and-mysql.php","user_id":0,"word_count":1186};var _ezExtraQueries = "&ez_orig=1";</script><script data-cfasync="false" type="text/javascript">var ezJsu = true;</script><script data-cfasync="false" type="text/javascript" src="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/rochester.js" async=""></script><script data-pagespeed-no-defer="" data-cfasync="false">
+function create_ezolpl() {
+    var d = new Date();
+    d.setTime(d.getTime() + (365*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    __ez.ck.setByCat("ezux_lpl_73764=" + new Date().getTime() + "|a6093f37-2976-42e0-56ae-b34a562de514; " + expires, 3);
+}
+function attach_ezolpl() {
+    if(window.attachEvent) {
+        window.attachEvent('onload', create_ezolpl);
+    } else {
+        if(window.onload) {
+            var curronload = window.onload;
+            var newonload = function(evt) {
+                curronload(evt);
+                create_ezolpl();
+            };
+            window.onload = newonload;
+        } else {
+            window.onload = create_ezolpl;
+        }
+    }
+}
+attach_ezolpl();
+</script><script src="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/edmonton.webp" async=""></script><script src="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/jellyfish.webp" async=""></script><script src="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/b2b_main.html" id="heyoya_1789563" type="text/javascript"></script><style type="text/css">        :root {            --foxpush_font_color: #474242;            --foxpush_button_bg_color: #3A3F3F;            --foxpush_button_font_color: #FFFFFF;            --foxpush_bg_color:#EEEEEE;            --foxpush_hex_font_color:71,66,66;        }        </style><link rel="stylesheet" href="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/foxpush_SDK_min.css"><link type="text/css" rel="stylesheet" href="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/hhost.css"><style type="text/css">#st-1 {
+  font-family: "Helvetica Neue", Verdana, Helvetica, Arial, sans-serif;;
+  direction: ltr;
+  display: block;
+  opacity: 1;
+  text-align: left;
+  z-index: 94034;
+}
+#st-1.st-animated {
+  -moz-transition: o 0.2s ease-in, p 0.2s ease-in, a 0.2s ease-in, c 0.2s ease-in, i 0.2s ease-in, t 0.2s ease-in, y 0.2s ease-in; -ms-transition: o 0.2s ease-in, p 0.2s ease-in, a 0.2s ease-in, c 0.2s ease-in, i 0.2s ease-in, t 0.2s ease-in, y 0.2s ease-in; -o-transition: o 0.2s ease-in, p 0.2s ease-in, a 0.2s ease-in, c 0.2s ease-in, i 0.2s ease-in, t 0.2s ease-in, y 0.2s ease-in; -webkit-transition: o 0.2s ease-in, p 0.2s ease-in, a 0.2s ease-in, c 0.2s ease-in, i 0.2s ease-in, t 0.2s ease-in, y 0.2s ease-in; transition: o 0.2s ease-in, p 0.2s ease-in, a 0.2s ease-in, c 0.2s ease-in, i 0.2s ease-in, t 0.2s ease-in, y 0.2s ease-in;
+}
+#st-1.st-hidden {
+  opacity: 0;
+}
+#st-1.st-hide {
+  display: none;
+}
+#st-1 .st-btn {
+  -moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+  -moz-transition: opacity 0.2s ease-in, top 0.2s ease-in; -ms-transition: opacity 0.2s ease-in, top 0.2s ease-in; -o-transition: opacity 0.2s ease-in, top 0.2s ease-in; -webkit-transition: opacity 0.2s ease-in, top 0.2s ease-in; transition: opacity 0.2s ease-in, top 0.2s ease-in;
+  -moz-border-radius: 4px;
+-webkit-border-radius: 4px;
+border-radius: 4px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 12px;
+  height: 40px;
+  line-height: 40px;
+  margin-right: 8px;
+  padding: 0 10px;
+  position: relative;
+  text-align: center;
+  top: 0;
+  vertical-align: top;
+  white-space: nowrap;
+}
+#st-1 .st-btn:last-child {
+  margin-right: 0;
+}
+#st-1 .st-btn > svg {
+  height: 20px;
+  width: 20px;
+  position: relative;
+  top: 10px;
+  vertical-align: top;
+}
+#st-1 .st-btn > img {
+  height: 20px;
+  width: 20px;
+  position: relative;
+  top: 10px;
+  vertical-align: top;
+}
+#st-1 .st-btn > span {
+  -moz-transition: all 0.2s ease-in; -ms-transition: all 0.2s ease-in; -o-transition: all 0.2s ease-in; -webkit-transition: all 0.2s ease-in; transition: all 0.2s ease-in;
+  color: #fff;
+  display: inline-block;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  min-width: 67px;
+  opacity: 1;
+  padding: 0 6px;
+  position: relative;
+  vertical-align: top;
+}
+#st-1.st-has-labels .st-btn {
+  min-width: 135px;
+}
+#st-1.st-has-labels .st-btn.st-remove-label {
+  min-width: 50px;
+}
+#st-1.st-has-labels .st-btn.st-remove-label > span {
+  display: none;
+}
+#st-1.st-has-labels .st-btn.st-hide-label > span {
+  display: none;
+}
+#st-1 .st-total {
+  color: #555;
+  display: inline-block;
+  font-weight: 500;
+  line-height: 15px;
+  margin-right: 0;
+  max-width: 80px;
+  padding: 4px 8px;
+  text-align: center;
+}
+#st-1 .st-total.st-hidden {
+  display: none;
+}
+#st-1 .st-total > span {
+  font-size: 20px;
+  line-height: 22px;
+  display: block;
+  padding: 0;
+}
+#st-1 .st-total > span.st-shares {
+  font-size: 12px;
+  line-height: 12px;
+}
+#st-1.st-justified {
+  display: flex;
+  text-align: center;
+}
+#st-1.st-justified .st-btn {
+  -moz-flex: 1;
+-ms-flex: 1;
+-webkit-flex: 1;
+flex: 1;
+}#st-1 .st-btn:hover {
+  opacity: .8;
+  top: -4px;
+}#st-1 .st-btn[data-network='facebook'] {
+  background-color: #3B5998;
+}
+#st-1 .st-btn[data-network='twitter'] {
+  background-color: #55acee;
+}
+#st-1 .st-btn[data-network='linkedin'] {
+  background-color: #0077b5;
+}
+#st-1 .st-btn[data-network='googleplus'] {
+  background-color: #dc4e41;
+}
+#st-1 .st-btn[data-network='reddit'] {
+  background-color: #ff4500;
+}</style></head>
+<body onload="prettyPrint()">
+
+<!-- Begin MailChimp Blogging Signup Form -->
+<script>
+document.addEventListener('DOMContentLoaded',function()
+{
+	if($(document).width()<950 || readCookie('cancel_talkerscode_blogging_subscribe')=='true')
+	{
+		
+	}
+	else
+	{
+		$("#full_window_subscribe_div").slideDown();
+		window.scrollTo(0, 0);
+	}
+});
+
+function readCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+
+function close_subscribe_window()
+{
+	$("#full_window_subscribe_div").slideUp();
+	var date=new Date();
+	date.setTime(date.getTime()+(1*24*60*60*1000));
+	document.cookie ='cancel_talkerscode_blogging_subscribe=true; expires='+date.toGMTString()+'; path=/'
+}
+</script>
+
+<div id="full_window_subscribe_div" style="display: none;">
+	<!-- Begin MailChimp Blogging Signup Form -->
+	<div id="full_mc_embed_signup">
+		
+		<h1>Register Now &amp; Try 100+ Apps On Your Mac For Free!</h1>
+		<br>
+		<h2>All The Premium Apps You wish To Try On Your Mac<br><u>100+ Premium Apps Which Makes Your Mac A Super Mac</u></h2>
+		<br>
+		<br>
+		<p>
+			<span>✓</span> Maintenance Apps |
+			<span>✓</span> Lifestyle Apps |
+			<span>✓</span> Productivity Apps |
+			<span>✓</span> Education Apps |
+			<br>
+			<span>✓</span> Creativity Apps |
+			<span>✓</span> Development Apps
+		</p>
+		
+		<p class="link_wrapper">
+			<a rel="nofollow" target="_blank" href="http://bit.ly/2IKvbcY">REGISTER NOW &amp; MAKE YOUR MAC A SUPER MAC AGAIN!</a>
+		</p>
+		
+		<p class="button_wrapper">
+			<input onclick="close_subscribe_window();" value="No I Don't Want This" type="button">
+		</p>
+
+	</div>
+	<!--End mc_embed_signup-->
+</div>
+
+<script>
+function showmenu_links()
+{
+$('#mobile_menu_links').animate({width:'toggle'});
+}
+function close_menu()
+{
+	$('#mobile_menu_links').hide();
+}
+function show_search()
+{
+	$('#search_form').toggle();
+}
+function checksearch()
+{
+var sval=document.getElementById("search_query");
+if(sval.value=="")
+{
+	return false;
+}
+else
+{
+	return true;
+}
+}
+</script>
+
+
+<!--
+<div id="sponsored_review_div">
+<p><a target="_blank" rel="nofollow" href="https://www.accuwebhosting.com/">Grab 35% Hosting Discounts on SSD and cloud hosting with FREE domain name* &rarr;</a></p>
+</div>
+-->
+
+
+<div id="header_wrapper">
+
+	<div id="header">
+	
+		<img src="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/menu_icon.png" id="menu_icon" onclick="showmenu_links();">
+		
+		<a href="http://talkerscode.com/index.php" id="sitename">TalkersCode</a>
+		<div id="menu_links">
+			<li class="main_link"><a class="main_anchor">Learn Web Development</a>
+			<ul id="sub_menu_link">
+			<li><a href="http://talkerscode.com/html/html.php">HTML</a></li>
+			<li><a href="http://talkerscode.com/css/css.php">CSS</a></li>
+			<li><a href="http://talkerscode.com/javascript/javascript.php">JavaScript</a></li>
+			<li><a href="http://talkerscode.com/jquery/jquery.php">jQuery</a></li>
+			<li><a href="http://talkerscode.com/php/php.php">PHP</a></li>
+			<li><a href="http://talkerscode.com/mysql/mysql.php">MySQL</a></li>
+			</ul>
+			</li>
+			<li class="main_link"><a class="main_anchor" href="http://talkerscode.com/webtricks.php">Tutorials</a></li>
+			<li class="main_link"><a class="main_anchor" href="http://talkerscode.com/blogging.php">Blogging</a></li>
+			<li class="main_link"><a class="main_anchor" href="http://talkerscode.com/reviews.php">Reviews</a></li>
+			<li class="main_link"><a class="main_anchor" href="http://talkerscode.com/offers.php">Offers</a></li>
+			<li class="main_link"><a class="main_anchor" href="http://talkerscode.com/advertise.php">Advertise</a></li>
+		</div>
+		
+		<input onclick="show_search();" id="search_button" value="SEARCH" type="button">
+
+		<div id="mobile_menu_links">
+			<li id="close_button" onclick="close_menu();">← CLOSE</li>
+			<li><a href="http://talkerscode.com/html/html.php">HTML</a></li>
+			<li><a href="http://talkerscode.com/css/css.php">CSS</a></li>
+			<li><a href="http://talkerscode.com/javascript/javascript.php">JavaScript</a></li>
+			<li><a href="http://talkerscode.com/jquery/jquery.php">jQuery</a></li>
+			<li><a href="http://talkerscode.com/php/php.php">PHP</a></li>
+			<li><a href="http://talkerscode.com/mysql/mysql.php">MySQL</a></li>
+			<li><a href="http://talkerscode.com/webtricks.php">Tutorials</a></li>
+			<li><a href="http://talkerscode.com/blogging.php">Blogging</a></li>
+			<li><a href="http://talkerscode.com/reviews.php">Reviews</a></li>
+			<li><a href="http://talkerscode.com/offers.php">Offers</a></li>
+			<li><a href="http://talkerscode.com/advertise.php">Advertise</a></li>
+		</div>
+
+	</div><!--end of header-->
+</div><!--end of header_wrapper-->
+
+<div id="blogging_menu_wrapper">
+	<div id="blogging_menu">
+	<p>	
+		Want To Be A Blogger 
+		&nbsp;→&nbsp;
+		<a href="http://talkerscode.com/blogging/how-to-start-a-blog.php">Start A Blog</a>
+		&nbsp;→&nbsp;
+		<a href="http://talkerscode.com/blogging/increase-website-traffic.php">Increase Traffic</a>
+		&nbsp;→&nbsp;
+		<a href="http://talkerscode.com/blogging/make-money-online.php">Make Money Online</a>
+		&nbsp;→&nbsp;
+		<a href="http://talkerscode.com/recommended-things-for-bloggers.php">Recommended Things</a>
+	</p>	
+	</div>
+</div>
+
+<div id="search_form">
+	<form methof="get" action="http://talkerscode.com/search.php" onsubmit="return checksearch();">
+		<input id="search_query" name="search" placeholder="Enter Text To Search" autofocus="" type="text">
+	</form>
+</div>
+
+
+
+<!--FoxPush Push Notification-->
+<script type="text/javascript" data-cfasync="false">
+        var _foxpush = _foxpush || [];
+        _foxpush.push(['_setDomain', 'talkerscodecom']);
+
+        (function(){
+            var foxscript = document.createElement('script');
+            foxscript.src = '//cdn.foxpush.net/sdk/foxpush_SDK_min.js';
+            foxscript.type = 'text/javascript';
+            foxscript.async = 'true';
+            var fox_s = document.getElementsByTagName('script')[0];
+            fox_s.parentNode.insertBefore(foxscript, fox_s);})();
+    </script>
+	
+<!-- Ezoic Code -->
+<script>var ezoicId = 73764;</script>
+
+<!-- Ezoic Code --><div id="wrapper">
+<div id="content">
+
+<center>
+<div id="bigad_display">
+
+
+
+</div>
+</center>
+<div id="left_div">
+<div id="webtrick_div">
+<h1 class="page_title">Add, Edit And Delete Records Using jQuery, Ajax, PHP And MySQL</h1>
+<p class="posttime">Sunday, Apr 15, 2018</p>
+
+<!--Social Sharing Buttons-->
+<script type="text/javascript" src="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/sharethis.js" async="async"></script>
+<div class="sharethis-inline-share-buttons st-left st-has-labels  st-inline-share-buttons st-animated" id="st-1"><div class="st-total ">
+  <span class="st-label">86</span>
+  <span class="st-shares">
+    Shares
+  </span>
+</div><div class="st-btn st-first" data-network="facebook" style="display: inline-block;">
+  <svg fill="#fff" preserveAspectRatio="xMidYMid meet" height="1em" width="1em" viewBox="0 0 40 40">
+  <g>
+    <path d="m21.7 16.7h5v5h-5v11.6h-5v-11.6h-5v-5h5v-2.1c0-2 0.6-4.5 1.8-5.9 1.3-1.3 2.8-2 4.7-2h3.5v5h-3.5c-0.9 0-1.5 0.6-1.5 1.5v3.5z"></path>
+  </g>
+</svg>
+  <span class="st-label">Share</span>
+</div><div class="st-btn" data-network="twitter" style="display: inline-block;">
+  <svg fill="#fff" preserveAspectRatio="xMidYMid meet" height="1em" width="1em" viewBox="0 0 40 40">
+  <g>
+    <path d="m31.5 11.7c1.3-0.8 2.2-2 2.7-3.4-1.4 0.7-2.7 1.2-4 1.4-1.1-1.2-2.6-1.9-4.4-1.9-1.7 0-3.2 0.6-4.4 1.8-1.2 1.2-1.8 2.7-1.8 4.4 0 0.5 0.1 0.9 0.2 1.3-5.1-0.1-9.4-2.3-12.7-6.4-0.6 1-0.9 2.1-0.9 3.1 0 2.2 1 3.9 2.8 5.2-1.1-0.1-2-0.4-2.8-0.8 0 1.5 0.5 2.8 1.4 4 0.9 1.1 2.1 1.8 3.5 2.1-0.5 0.1-1 0.2-1.6 0.2-0.5 0-0.9 0-1.1-0.1 0.4 1.2 1.1 2.3 2.1 3 1.1 0.8 2.3 1.2 3.6 1.3-2.2 1.7-4.7 2.6-7.6 2.6-0.7 0-1.2 0-1.5-0.1 2.8 1.9 6 2.8 9.5 2.8 3.5 0 6.7-0.9 9.4-2.7 2.8-1.8 4.8-4.1 6.1-6.7 1.3-2.6 1.9-5.3 1.9-8.1v-0.8c1.3-0.9 2.3-2 3.1-3.2-1.1 0.5-2.3 0.8-3.5 1z"></path>
+  </g>
+</svg>
+  <span class="st-label">Tweet</span>
+</div><div class="st-btn" data-network="linkedin" style="display: inline-block;">
+  <svg fill="#fff" preserveAspectRatio="xMidYMid meet" height="1em" width="1em" viewBox="0 0 40 40">
+  <g>
+    <path d="m13.3 31.7h-5v-16.7h5v16.7z m18.4 0h-5v-8.9c0-2.4-0.9-3.5-2.5-3.5-1.3 0-2.1 0.6-2.5 1.9v10.5h-5s0-15 0-16.7h3.9l0.3 3.3h0.1c1-1.6 2.7-2.8 4.9-2.8 1.7 0 3.1 0.5 4.2 1.7 1 1.2 1.6 2.8 1.6 5.1v9.4z m-18.3-20.9c0 1.4-1.1 2.5-2.6 2.5s-2.5-1.1-2.5-2.5 1.1-2.5 2.5-2.5 2.6 1.2 2.6 2.5z"></path>
+  </g>
+</svg>
+  <span class="st-label">Share</span>
+</div><div class="st-btn st-remove-label" data-network="googleplus" style="display: inline-block;">
+  <svg fill="#fff" preserveAspectRatio="xMidYMid meet" height="1em" width="1em" viewBox="0 0 40 40">
+  <g>
+    <path d="m25.2 20.3q0 3.6-1.6 6.5t-4.3 4.4-6.5 1.6q-2.6 0-5-1t-4.1-2.7-2.7-4.1-1-5 1-5 2.7-4.1 4.1-2.7 5-1q5 0 8.6 3.3l-3.5 3.4q-2-2-5.1-2-2.1 0-4 1.1t-2.8 2.9-1.1 4.1 1.1 4.1 2.8 2.9 4 1.1q1.5 0 2.7-0.4t2-1 1.4-1.4 0.8-1.4 0.4-1.3h-7.3v-4.4h12.1q0.3 1.1 0.3 2.1z m15.1-2.1v3.6h-3.6v3.7h-3.7v-3.7h-3.7v-3.6h3.7v-3.7h3.7v3.7h3.6z"></path>
+  </g>
+</svg>
+  <span class="st-label">Share</span>
+</div><div class="st-btn st-last st-remove-label" data-network="reddit" style="display: inline-block;">
+  <svg fill="#fff" preserveAspectRatio="xMidYMid meet" height="1em" width="1em" viewBox="0 0 40 40">
+  <g>
+    <path d="m40 18.9q0 1.3-0.7 2.3t-1.7 1.7q0.2 1 0.2 2.1 0 3.5-2.3 6.4t-6.5 4.7-9 1.7-8.9-1.7-6.4-4.7-2.4-6.4q0-1.1 0.2-2.1-1.1-0.6-1.8-1.6t-0.7-2.4q0-1.8 1.3-3.2t3.1-1.3q1.9 0 3.3 1.4 4.8-3.3 11.5-3.6l2.6-11.6q0-0.3 0.3-0.5t0.6-0.1l8.2 1.8q0.4-0.8 1.2-1.3t1.8-0.5q1.4 0 2.4 1t0.9 2.3-0.9 2.4-2.4 1-2.4-1-0.9-2.4l-7.5-1.6-2.3 10.5q6.7 0.2 11.6 3.6 1.3-1.4 3.2-1.4 1.8 0 3.1 1.3t1.3 3.2z m-30.7 4.4q0 1.4 1 2.4t2.4 1 2.3-1 1-2.4-1-2.3-2.3-1q-1.4 0-2.4 1t-1 2.3z m18.1 8q0.3-0.3 0.3-0.6t-0.3-0.6q-0.2-0.2-0.5-0.2t-0.6 0.2q-0.9 0.9-2.7 1.4t-3.6 0.4-3.6-0.4-2.7-1.4q-0.2-0.2-0.5-0.2t-0.6 0.2q-0.3 0.2-0.3 0.6t0.3 0.6q1 0.9 2.6 1.5t2.8 0.6 2 0.1 2-0.1 2.8-0.6 2.6-1.6z m-0.1-4.6q1.4 0 2.4-1t1-2.4q0-1.3-1-2.3t-2.4-1q-1.3 0-2.3 1t-1 2.3 1 2.4 2.3 1z"></path>
+  </g>
+</svg>
+  <span class="st-label">Share</span>
+</div></div>
+<p class="tuttags">Tags:- <a href="http://talkerscode.com/webtricks.php?category=jQuery">jQuery</a> <a href="http://talkerscode.com/webtricks.php?category=Ajax">Ajax</a> <a href="http://talkerscode.com/webtricks.php?category=PHP">PHP</a> <a href="http://talkerscode.com/webtricks.php?category=MySQL">MySQL</a></p>
+
+<div id="linkad_middle">
+
+
+</div><br>
+
+<p class="explain_para">In this tutorial we will show you how to add, edit and delete records using jQuery, Ajax, PHP 
+and MySQL.In this way you can do any modification in MySQL database dynamically means without refreshing your 
+page.In this you can insert new rows in database, edit existing row and update the row in database and delete any row 
+in database.You may also like <a href="http://talkerscode.com/webtricks/delete-multiple-records-from-mysql-using-php.php">delete multiple records from MySQL using PHP</a>.</p>
+
+<center>
+<div id="middlead_display">
+
+
+
+</div>
+</center>
+<br>
+<center><img src="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/add_edit_delete_records_jquery.jpeg" class="tut_image" alt="Add, Edit And Delete Records Using jQuery, Ajax, PHP And MySQL"></center>
+
+<br>
+<br>
+
+<p class="explain_para"><b><u>To Add, Edit And Delete Records It Takes Only Three Steps:-</u></b></p>
+<ol>
+<li>Make a PHP file to display database records</li>
+<li>Make a js file and define scripting </li>
+<li>Make a PHP file for database operations</li>
+</ol>
+<br>
+
+<center>
+<div id="second_middlead_display">
+
+
+
+</div>
+</center>
+<br>
+<p class="explain_para"><b>Step 1.Make a PHP file to display database records</b></p>
+<p class="explain_para">We make a PHP file and save it with a name <b>display_records.php</b></p>
+<div class="code_div">
+<pre class="prettyprint prettyprinted" style=""><span class="com">// Database Structure </span><span class="pln">
+CREATE TABLE </span><span class="str">`user_detail`</span><span class="pln"> </span><span class="pun">(</span><span class="pln">
+ </span><span class="str">`id`</span><span class="pln"> </span><span class="kwd">int</span><span class="pun">(</span><span class="lit">11</span><span class="pun">)</span><span class="pln"> NOT NULL AUTO_INCREMENT</span><span class="pun">,</span><span class="pln">
+ </span><span class="str">`name`</span><span class="pln"> text NOT NULL</span><span class="pun">,</span><span class="pln">
+ </span><span class="str">`age`</span><span class="pln"> </span><span class="kwd">int</span><span class="pun">(</span><span class="lit">11</span><span class="pun">)</span><span class="pln"> NOT NULL</span><span class="pun">,</span><span class="pln">
+ PRIMARY KEY </span><span class="pun">(</span><span class="str">`id`</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">)</span><span class="pln"> ENGINE</span><span class="pun">=</span><span class="typ">MyISAM</span><span class="pln"> AUTO_INCREMENT</span><span class="pun">=</span><span class="lit">5</span><span class="pln"> DEFAULT CHARSET</span><span class="pun">=</span><span class="pln">latin1
+
+</span><span class="str">&lt;html&gt;</span><span class="pln">
+</span><span class="str">&lt;head&gt;</span><span class="pln">
+</span><span class="pun">&lt;</span><span class="pln">script type</span><span class="pun">=</span><span class="str">"text/javascript"</span><span class="pln"> src</span><span class="pun">=</span><span class="str">"jquery.js"</span><span class="pun">&gt;&lt;/</span><span class="pln">script</span><span class="pun">&gt;</span><span class="pln">
+</span><span class="pun">&lt;</span><span class="pln">script type</span><span class="pun">=</span><span class="str">"text/javascript"</span><span class="pln"> src</span><span class="pun">=</span><span class="str">"modify_records.js"</span><span class="pun">&gt;&lt;/</span><span class="pln">script</span><span class="pun">&gt;</span><span class="pln">
+</span><span class="pun">&lt;/</span><span class="pln">head</span><span class="pun">&gt;</span><span class="pln">
+</span><span class="str">&lt;body&gt;</span><span class="pln">
+</span><span class="pun">&lt;</span><span class="pln">div id</span><span class="pun">=</span><span class="str">"wrapper"</span><span class="pun">&gt;</span><span class="pln">
+
+</span><span class="pun">&lt;?</span><span class="pln">php
+$host</span><span class="pun">=</span><span class="str">"localhost"</span><span class="pun">;</span><span class="pln">
+$username</span><span class="pun">=</span><span class="str">"root"</span><span class="pun">;</span><span class="pln">
+$password</span><span class="pun">=</span><span class="str">""</span><span class="pun">;</span><span class="pln">
+$databasename</span><span class="pun">=</span><span class="str">"sample"</span><span class="pun">;</span><span class="pln">
+$connect</span><span class="pun">=</span><span class="pln">mysql_connect</span><span class="pun">(</span><span class="pln">$host</span><span class="pun">,</span><span class="pln">$username</span><span class="pun">,</span><span class="pln">$password</span><span class="pun">);</span><span class="pln">
+$db</span><span class="pun">=</span><span class="pln">mysql_select_db</span><span class="pun">(</span><span class="pln">$databasename</span><span class="pun">);</span><span class="pln">
+
+$select </span><span class="pun">=</span><span class="pln">mysql_query</span><span class="pun">(</span><span class="str">"SELECT * FROM user_detail"</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">?&gt;</span><span class="pln">
+
+</span><span class="pun">&lt;</span><span class="pln">table align</span><span class="pun">=</span><span class="str">"center"</span><span class="pln"> cellpadding</span><span class="pun">=</span><span class="str">"10"</span><span class="pln"> border</span><span class="pun">=</span><span class="str">"1"</span><span class="pln"> id</span><span class="pun">=</span><span class="str">"user_table"</span><span class="pun">&gt;</span><span class="pln">
+</span><span class="str">&lt;tr&gt;</span><span class="pln">
+</span><span class="str">&lt;th&gt;</span><span class="pln">NAME</span><span class="pun">&lt;/</span><span class="pln">th</span><span class="pun">&gt;</span><span class="pln">
+</span><span class="str">&lt;th&gt;</span><span class="pln">AGE</span><span class="pun">&lt;/</span><span class="pln">th</span><span class="pun">&gt;</span><span class="pln">
+</span><span class="str">&lt;th&gt;</span><span class="pun">&lt;/</span><span class="pln">th</span><span class="pun">&gt;</span><span class="pln">
+</span><span class="pun">&lt;/</span><span class="pln">tr</span><span class="pun">&gt;</span><span class="pln">
+</span><span class="pun">&lt;?</span><span class="pln">php
+</span><span class="kwd">while</span><span class="pln"> </span><span class="pun">(</span><span class="pln">$row</span><span class="pun">=</span><span class="pln">mysql_fetch_array</span><span class="pun">(</span><span class="pln">$select</span><span class="pun">))</span><span class="pln"> 
+</span><span class="pun">{</span><span class="pln">
+ </span><span class="pun">?&gt;</span><span class="pln">
+ </span><span class="pun">&lt;</span><span class="pln">tr id</span><span class="pun">=</span><span class="str">"row&lt;?php echo $row['id'];?&gt;"</span><span class="pun">&gt;</span><span class="pln">
+  </span><span class="pun">&lt;</span><span class="pln">td id</span><span class="pun">=</span><span class="str">"name_val&lt;?php echo $row['id'];?&gt;"</span><span class="pun">&gt;&lt;?</span><span class="pln">php echo $row</span><span class="pun">[</span><span class="str">'name'</span><span class="pun">];?&gt;&lt;/</span><span class="pln">td</span><span class="pun">&gt;</span><span class="pln">
+  </span><span class="pun">&lt;</span><span class="pln">td id</span><span class="pun">=</span><span class="str">"age_val&lt;?php echo $row['id'];?&gt;"</span><span class="pun">&gt;&lt;?</span><span class="pln">php echo $row</span><span class="pun">[</span><span class="str">'age'</span><span class="pun">];?&gt;&lt;/</span><span class="pln">td</span><span class="pun">&gt;</span><span class="pln">
+  </span><span class="str">&lt;td&gt;</span><span class="pln">
+   </span><span class="pun">&lt;</span><span class="pln">input type</span><span class="pun">=</span><span class="str">'button'</span><span class="pln"> </span><span class="kwd">class</span><span class="pun">=</span><span class="str">"edit_button"</span><span class="pln"> id</span><span class="pun">=</span><span class="str">"edit_button&lt;?php echo $row['id'];?&gt;"</span><span class="pln"> value</span><span class="pun">=</span><span class="str">"edit"</span><span class="pln"> onclick</span><span class="pun">=</span><span class="str">"edit_row('&lt;?php echo $row['id'];?&gt;');"</span><span class="pun">&gt;</span><span class="pln">
+   </span><span class="pun">&lt;</span><span class="pln">input type</span><span class="pun">=</span><span class="str">'button'</span><span class="pln"> </span><span class="kwd">class</span><span class="pun">=</span><span class="str">"save_button"</span><span class="pln"> id</span><span class="pun">=</span><span class="str">"save_button&lt;?php echo $row['id'];?&gt;"</span><span class="pln"> value</span><span class="pun">=</span><span class="str">"save"</span><span class="pln"> onclick</span><span class="pun">=</span><span class="str">"save_row('&lt;?php echo $row['id'];?&gt;');"</span><span class="pun">&gt;</span><span class="pln">
+   </span><span class="pun">&lt;</span><span class="pln">input type</span><span class="pun">=</span><span class="str">'button'</span><span class="pln"> </span><span class="kwd">class</span><span class="pun">=</span><span class="str">"delete_button"</span><span class="pln"> id</span><span class="pun">=</span><span class="str">"delete_button&lt;?php echo $row['id'];?&gt;"</span><span class="pln"> value</span><span class="pun">=</span><span class="str">"delete"</span><span class="pln"> onclick</span><span class="pun">=</span><span class="str">"delete_row('&lt;?php echo $row['id'];?&gt;');"</span><span class="pun">&gt;</span><span class="pln">
+  </span><span class="pun">&lt;/</span><span class="pln">td</span><span class="pun">&gt;</span><span class="pln">
+ </span><span class="pun">&lt;/</span><span class="pln">tr</span><span class="pun">&gt;</span><span class="pln">
+ </span><span class="pun">&lt;?</span><span class="pln">php
+</span><span class="pun">}</span><span class="pln">
+</span><span class="pun">?&gt;</span><span class="pln">
+
+</span><span class="pun">&lt;</span><span class="pln">tr id</span><span class="pun">=</span><span class="str">"new_row"</span><span class="pun">&gt;</span><span class="pln">
+ </span><span class="str">&lt;td&gt;</span><span class="pun">&lt;</span><span class="pln">input type</span><span class="pun">=</span><span class="str">"text"</span><span class="pln"> id</span><span class="pun">=</span><span class="str">"new_name"</span><span class="pun">&gt;&lt;/</span><span class="pln">td</span><span class="pun">&gt;</span><span class="pln">
+ </span><span class="str">&lt;td&gt;</span><span class="pun">&lt;</span><span class="pln">input type</span><span class="pun">=</span><span class="str">"text"</span><span class="pln"> id</span><span class="pun">=</span><span class="str">"new_age"</span><span class="pun">&gt;&lt;/</span><span class="pln">td</span><span class="pun">&gt;</span><span class="pln">
+ </span><span class="str">&lt;td&gt;</span><span class="pun">&lt;</span><span class="pln">input type</span><span class="pun">=</span><span class="str">"button"</span><span class="pln"> value</span><span class="pun">=</span><span class="str">"Insert Row"</span><span class="pln"> onclick</span><span class="pun">=</span><span class="str">"insert_row();"</span><span class="pun">&gt;&lt;/</span><span class="pln">td</span><span class="pun">&gt;</span><span class="pln">
+</span><span class="pun">&lt;/</span><span class="pln">tr</span><span class="pun">&gt;</span><span class="pln">
+</span><span class="pun">&lt;/</span><span class="pln">table</span><span class="pun">&gt;</span><span class="pln">
+
+</span><span class="pun">&lt;/</span><span class="pln">div</span><span class="pun">&gt;</span><span class="pln">
+</span><span class="pun">&lt;/</span><span class="pln">body</span><span class="pun">&gt;</span><span class="pln">
+</span><span class="pun">&lt;/</span><span class="pln">html</span><span class="pun">&gt;</span></pre>
+</div>
+<br>
+<p class="explain_para">In this step we create a database table 'user_detail' and insert some rows and then display 
+the records to edit, delete and create a new row having textbox and buttons to insert new records in database.We 
+insert modify_records.js file which we were going to create in next step.You may also like <a href="http://talkerscode.com/webtricks/add-edit-and-delete-rows-from-table-dynamically-using-javascript.php">add, edit and delete rows from table dynamically using JavaScript</a>.</p>
+
+<br>
+<br>
+
+<center>
+<div id="third_middlead_display">
+
+
+
+</div>
+</center>
+<p class="explain_para"><b>Step 2.Make a js file and define scripting</b></p>
+<p class="explain_para">We make a js file and save it with a name <b>modify_records.js</b></p>
+<div class="code_div">
+<pre class="prettyprint prettyprinted" style=""><span class="kwd">function</span><span class="pln"> edit_row</span><span class="pun">(</span><span class="pln">id</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+ </span><span class="kwd">var</span><span class="pln"> name</span><span class="pun">=</span><span class="pln">document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"name_val"</span><span class="pun">+</span><span class="pln">id</span><span class="pun">).</span><span class="pln">innerHTML</span><span class="pun">;</span><span class="pln">
+ </span><span class="kwd">var</span><span class="pln"> age</span><span class="pun">=</span><span class="pln">document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"age_val"</span><span class="pun">+</span><span class="pln">id</span><span class="pun">).</span><span class="pln">innerHTML</span><span class="pun">;</span><span class="pln">
+
+ document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"name_val"</span><span class="pun">+</span><span class="pln">id</span><span class="pun">).</span><span class="pln">innerHTML</span><span class="pun">=</span><span class="str">"&lt;input type='text' id='name_text"</span><span class="pun">+</span><span class="pln">id</span><span class="pun">+</span><span class="str">"' value='"</span><span class="pun">+</span><span class="pln">name</span><span class="pun">+</span><span class="str">"'&gt;"</span><span class="pun">;</span><span class="pln">
+ document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"age_val"</span><span class="pun">+</span><span class="pln">id</span><span class="pun">).</span><span class="pln">innerHTML</span><span class="pun">=</span><span class="str">"&lt;input type='text' id='age_text"</span><span class="pun">+</span><span class="pln">id</span><span class="pun">+</span><span class="str">"' value='"</span><span class="pun">+</span><span class="pln">age</span><span class="pun">+</span><span class="str">"'&gt;"</span><span class="pun">;</span><span class="pln">
+	
+ document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"edit_button"</span><span class="pun">+</span><span class="pln">id</span><span class="pun">).</span><span class="pln">style</span><span class="pun">.</span><span class="pln">display</span><span class="pun">=</span><span class="str">"none"</span><span class="pun">;</span><span class="pln">
+ document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"save_button"</span><span class="pun">+</span><span class="pln">id</span><span class="pun">).</span><span class="pln">style</span><span class="pun">.</span><span class="pln">display</span><span class="pun">=</span><span class="str">"block"</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="kwd">function</span><span class="pln"> save_row</span><span class="pun">(</span><span class="pln">id</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+ </span><span class="kwd">var</span><span class="pln"> name</span><span class="pun">=</span><span class="pln">document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"name_text"</span><span class="pun">+</span><span class="pln">id</span><span class="pun">).</span><span class="pln">value</span><span class="pun">;</span><span class="pln">
+ </span><span class="kwd">var</span><span class="pln"> age</span><span class="pun">=</span><span class="pln">document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"age_text"</span><span class="pun">+</span><span class="pln">id</span><span class="pun">).</span><span class="pln">value</span><span class="pun">;</span><span class="pln">
+	
+ $</span><span class="pun">.</span><span class="pln">ajax
+ </span><span class="pun">({</span><span class="pln">
+  type</span><span class="pun">:</span><span class="str">'post'</span><span class="pun">,</span><span class="pln">
+  url</span><span class="pun">:</span><span class="str">'modify_records.php'</span><span class="pun">,</span><span class="pln">
+  data</span><span class="pun">:{</span><span class="pln">
+   edit_row</span><span class="pun">:</span><span class="str">'edit_row'</span><span class="pun">,</span><span class="pln">
+   row_id</span><span class="pun">:</span><span class="pln">id</span><span class="pun">,</span><span class="pln">
+   name_val</span><span class="pun">:</span><span class="pln">name</span><span class="pun">,</span><span class="pln">
+   age_val</span><span class="pun">:</span><span class="pln">age
+  </span><span class="pun">},</span><span class="pln">
+  success</span><span class="pun">:</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">response</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">response</span><span class="pun">==</span><span class="str">"success"</span><span class="pun">)</span><span class="pln">
+   </span><span class="pun">{</span><span class="pln">
+    document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"name_val"</span><span class="pun">+</span><span class="pln">id</span><span class="pun">).</span><span class="pln">innerHTML</span><span class="pun">=</span><span class="pln">name</span><span class="pun">;</span><span class="pln">
+    document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"age_val"</span><span class="pun">+</span><span class="pln">id</span><span class="pun">).</span><span class="pln">innerHTML</span><span class="pun">=</span><span class="pln">age</span><span class="pun">;</span><span class="pln">
+    document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"edit_button"</span><span class="pun">+</span><span class="pln">id</span><span class="pun">).</span><span class="pln">style</span><span class="pun">.</span><span class="pln">display</span><span class="pun">=</span><span class="str">"block"</span><span class="pun">;</span><span class="pln">
+    document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"save_button"</span><span class="pun">+</span><span class="pln">id</span><span class="pun">).</span><span class="pln">style</span><span class="pun">.</span><span class="pln">display</span><span class="pun">=</span><span class="str">"none"</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+  </span><span class="pun">}</span><span class="pln">
+ </span><span class="pun">});</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="kwd">function</span><span class="pln"> delete_row</span><span class="pun">(</span><span class="pln">id</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+ $</span><span class="pun">.</span><span class="pln">ajax
+ </span><span class="pun">({</span><span class="pln">
+  type</span><span class="pun">:</span><span class="str">'post'</span><span class="pun">,</span><span class="pln">
+  url</span><span class="pun">:</span><span class="str">'modify_records.php'</span><span class="pun">,</span><span class="pln">
+  data</span><span class="pun">:{</span><span class="pln">
+   delete_row</span><span class="pun">:</span><span class="str">'delete_row'</span><span class="pun">,</span><span class="pln">
+   row_id</span><span class="pun">:</span><span class="pln">id</span><span class="pun">,</span><span class="pln">
+  </span><span class="pun">},</span><span class="pln">
+  success</span><span class="pun">:</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">response</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">response</span><span class="pun">==</span><span class="str">"success"</span><span class="pun">)</span><span class="pln">
+   </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> row</span><span class="pun">=</span><span class="pln">document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"row"</span><span class="pun">+</span><span class="pln">id</span><span class="pun">);</span><span class="pln">
+    row</span><span class="pun">.</span><span class="pln">parentNode</span><span class="pun">.</span><span class="pln">removeChild</span><span class="pun">(</span><span class="pln">row</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+  </span><span class="pun">}</span><span class="pln">
+ </span><span class="pun">});</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="kwd">function</span><span class="pln"> insert_row</span><span class="pun">()</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+ </span><span class="kwd">var</span><span class="pln"> name</span><span class="pun">=</span><span class="pln">document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"new_name"</span><span class="pun">).</span><span class="pln">value</span><span class="pun">;</span><span class="pln">
+ </span><span class="kwd">var</span><span class="pln"> age</span><span class="pun">=</span><span class="pln">document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"new_age"</span><span class="pun">).</span><span class="pln">value</span><span class="pun">;</span><span class="pln">
+
+ $</span><span class="pun">.</span><span class="pln">ajax
+ </span><span class="pun">({</span><span class="pln">
+  type</span><span class="pun">:</span><span class="str">'post'</span><span class="pun">,</span><span class="pln">
+  url</span><span class="pun">:</span><span class="str">'modify_records.php'</span><span class="pun">,</span><span class="pln">
+  data</span><span class="pun">:{</span><span class="pln">
+   insert_row</span><span class="pun">:</span><span class="str">'insert_row'</span><span class="pun">,</span><span class="pln">
+   name_val</span><span class="pun">:</span><span class="pln">name</span><span class="pun">,</span><span class="pln">
+   age_val</span><span class="pun">:</span><span class="pln">age
+  </span><span class="pun">},</span><span class="pln">
+  success</span><span class="pun">:</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">response</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">response</span><span class="pun">!=</span><span class="str">""</span><span class="pun">)</span><span class="pln">
+   </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> id</span><span class="pun">=</span><span class="pln">response</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> table</span><span class="pun">=</span><span class="pln">document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"user_table"</span><span class="pun">);</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> table_len</span><span class="pun">=(</span><span class="pln">table</span><span class="pun">.</span><span class="pln">rows</span><span class="pun">.</span><span class="pln">length</span><span class="pun">)-</span><span class="lit">1</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> row </span><span class="pun">=</span><span class="pln"> table</span><span class="pun">.</span><span class="pln">insertRow</span><span class="pun">(</span><span class="pln">table_len</span><span class="pun">).</span><span class="pln">outerHTML</span><span class="pun">=</span><span class="str">"&lt;tr id='row"</span><span class="pun">+</span><span class="pln">id</span><span class="pun">+</span><span class="str">"'&gt;&lt;td id='name_val"</span><span class="pun">+</span><span class="pln">id</span><span class="pun">+</span><span class="str">"'&gt;"</span><span class="pun">+</span><span class="pln">name</span><span class="pun">+</span><span class="str">"&lt;/td&gt;&lt;td id='age_val"</span><span class="pun">+</span><span class="pln">id</span><span class="pun">+</span><span class="str">"'&gt;"</span><span class="pun">+</span><span class="pln">age</span><span class="pun">+</span><span class="str">"&lt;/td&gt;&lt;td&gt;&lt;input type='button' class='edit_button' id='edit_button"</span><span class="pun">+</span><span class="pln">id</span><span class="pun">+</span><span class="str">"' value='edit' onclick='edit_row("</span><span class="pun">+</span><span class="pln">id</span><span class="pun">+</span><span class="str">");'/&gt;&lt;input type='button' class='save_button' id='save_button"</span><span class="pun">+</span><span class="pln">id</span><span class="pun">+</span><span class="str">"' value='save' onclick='save_row("</span><span class="pun">+</span><span class="pln">id</span><span class="pun">+</span><span class="str">");'/&gt;&lt;input type='button' class='delete_button' id='delete_button"</span><span class="pun">+</span><span class="pln">id</span><span class="pun">+</span><span class="str">"' value='delete' onclick='delete_row("</span><span class="pun">+</span><span class="pln">id</span><span class="pun">+</span><span class="str">");'/&gt;&lt;/td&gt;&lt;/tr&gt;"</span><span class="pun">;</span><span class="pln">
+
+    document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"new_name"</span><span class="pun">).</span><span class="pln">value</span><span class="pun">=</span><span class="str">""</span><span class="pun">;</span><span class="pln">
+    document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"new_age"</span><span class="pun">).</span><span class="pln">value</span><span class="pun">=</span><span class="str">""</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+  </span><span class="pun">}</span><span class="pln">
+ </span><span class="pun">});</span><span class="pln">
+</span><span class="pun">}</span></pre>
+</div>
+<br>
+<p class="explain_para">In this step we create four funtions to edit, save, delete and insert records.In edit_row() 
+function we get row id and get the name and age text and then insert the textbox with age and name value in both the 
+columns to edit the text and then display the save button to save the records.
+
+<br>
+<br>
+
+In save_row() function we get the row id and then with the help of row id get the name and age value then send the 
+values to modify_records.php page to update the record and if the record updated successfully we display the edited 
+record in there respective row.
+
+<br>
+<br>
+
+In delete_row() function we again get the row id and send it to our modify_records.php page for deletion.
+
+<br>
+<br>
+
+In insert_row() function we get the value of new_name and new_age from the textbox we made to insert new rows and 
+send the data to modify_records.php page to insert new record in database and if record inserted successfully we 
+display the new record in our table.
+</p>
+
+<br>
+<br>
+
+<p class="explain_para"><b>Step 3.Make a PHP file for database operations</b></p>
+<p class="explain_para">We make a PHP file and save it with a name <b>modify_records.php</b></p>
+<div class="code_div">
+<pre class="prettyprint prettyprinted" style=""><span class="pun">&lt;?</span><span class="pln">php
+$host</span><span class="pun">=</span><span class="str">"localhost"</span><span class="pun">;</span><span class="pln">
+$username</span><span class="pun">=</span><span class="str">"root"</span><span class="pun">;</span><span class="pln">
+$password</span><span class="pun">=</span><span class="str">""</span><span class="pun">;</span><span class="pln">
+$databasename</span><span class="pun">=</span><span class="str">"sample"</span><span class="pun">;</span><span class="pln">
+
+$connect</span><span class="pun">=</span><span class="pln">mysql_connect</span><span class="pun">(</span><span class="pln">$host</span><span class="pun">,</span><span class="pln">$username</span><span class="pun">,</span><span class="pln">$password</span><span class="pun">);</span><span class="pln">
+$db</span><span class="pun">=</span><span class="pln">mysql_select_db</span><span class="pun">(</span><span class="pln">$databasename</span><span class="pun">);</span><span class="pln">
+
+</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">isset</span><span class="pun">(</span><span class="pln">$_POST</span><span class="pun">[</span><span class="str">'edit_row'</span><span class="pun">]))</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+ $row</span><span class="pun">=</span><span class="pln">$_POST</span><span class="pun">[</span><span class="str">'row_id'</span><span class="pun">];</span><span class="pln">
+ $name</span><span class="pun">=</span><span class="pln">$_POST</span><span class="pun">[</span><span class="str">'name_val'</span><span class="pun">];</span><span class="pln">
+ $age</span><span class="pun">=</span><span class="pln">$_POST</span><span class="pun">[</span><span class="str">'age_val'</span><span class="pun">];</span><span class="pln">
+
+ mysql_query</span><span class="pun">(</span><span class="str">"update user_detail set name='$name',age='$age' where id='$row'"</span><span class="pun">);</span><span class="pln">
+ echo </span><span class="str">"success"</span><span class="pun">;</span><span class="pln">
+ </span><span class="kwd">exit</span><span class="pun">();</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">isset</span><span class="pun">(</span><span class="pln">$_POST</span><span class="pun">[</span><span class="str">'delete_row'</span><span class="pun">]))</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+ $row_no</span><span class="pun">=</span><span class="pln">$_POST</span><span class="pun">[</span><span class="str">'row_id'</span><span class="pun">];</span><span class="pln">
+ mysql_query</span><span class="pun">(</span><span class="str">"delete from user_detail where id='$row_no'"</span><span class="pun">);</span><span class="pln">
+ echo </span><span class="str">"success"</span><span class="pun">;</span><span class="pln">
+ </span><span class="kwd">exit</span><span class="pun">();</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">isset</span><span class="pun">(</span><span class="pln">$_POST</span><span class="pun">[</span><span class="str">'insert_row'</span><span class="pun">]))</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+ $name</span><span class="pun">=</span><span class="pln">$_POST</span><span class="pun">[</span><span class="str">'name_val'</span><span class="pun">];</span><span class="pln">
+ $age</span><span class="pun">=</span><span class="pln">$_POST</span><span class="pun">[</span><span class="str">'age_val'</span><span class="pun">];</span><span class="pln">
+ mysql_query</span><span class="pun">(</span><span class="str">"insert into user_detail values('','$name','$age')"</span><span class="pun">);</span><span class="pln">
+ echo mysql_insert_id</span><span class="pun">();</span><span class="pln">
+ </span><span class="kwd">exit</span><span class="pun">();</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+</span><span class="pun">?&gt;</span></pre>
+</div>
+<br>
+<p class="explain_para">In this step we create three isset() conditions to edit, delete and insert records in database.In 
+first isset() condition we get all the three value and update the row having that particular row id and display 'success'.In 
+second isset() condition we get the row id and delete the row having that id.In third isset() condition we get the name 
+and age value and then insert in our database and then display the inserted id to create a new table row in our table in 
+display_records.php page.Always <a href="http://talkerscode.com/webtricks/validate%20the%20form%20data%20before%20and%20after%20submitting%20the%20form.php">validate data before and after submitting the form</a> to prevent sql injections.</p>
+
+<br>
+<br>
+
+<p class="explain_para">Thats all, this is how to add, edit and delete records using jQuery, Ajax, PHP and MySQL.You 
+can customize this code further as per your requirement. And please feel free to give comments on this tutorial.</p>
+
+</div><!--end of webtrick_div-->
+
+<div id="comment_div">
+<div id="about_me_div">
+
+<div class="div1">
+<p>About Founder</p>
+<img id="myimage" src="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/aboutme.jpeg">
+</div>
+
+<div class="div2">
+<p>
+Hello, My Name is Mudit Jain. I am a Web Developer, Professional Blogger and Digital Marketer from India. I 
+am the founder of TalkersCode. I started this blog in february 2015 to help web developers &amp; bloggers by providing easy 
+and best tutorials, articles and offers for web developers and bloggers.
+</p>
+<br>
+<p class="social_image_wrapper">
+<a target="_blank" href="https://www.facebook.com/muditjainblogging/"><img src="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/facebook_icon.png" class="social_image"></a>
+<a target="_blank" href="https://twitter.com/mudit101jain"><img src="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/twitter_icon_002.png" class="social_image"></a>
+<a target="_blank" href="https://www.linkedin.com/in/muditjain310/"><img src="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/linkedin_icon_002.png" class="social_image"></a>
+<a target="_blank" href="https://plus.google.com/102970142249395280883"><img src="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/googleplus_icon_002.png" class="social_image"></a>
+</p>
+</div>
+
+</div>
+
+<div id="latest_tutorial_div"><h2>Related Tutorials</h2>			<li><a href="http://talkerscode.com/webtricks/add-edit-and-delete-rows-from-table-dynamically-using-javascript.php" class="latest_tut_links"><img src="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/manipulate_table.jpeg">Add,Edit And Delete Rows From Table Dynamically Using JavaScript</a></li>
+						<li><a href="http://talkerscode.com/webtricks/delete-multiple-records-from-mysql-using-php.php" class="latest_tut_links"><img src="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/delete_multiple_records.jpeg">Delete Multiple Records From MySQL Using PHP</a></li>
+						<li><a href="http://talkerscode.com/webtricks/create-edit-and-delete-file-using-php-and-html.php" class="latest_tut_links"><img src="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/create_edit_delete_file.jpeg">Create, Edit And Delete File Using PHP And HTML</a></li>
+						<li><a href="http://talkerscode.com/webtricks/simple-add-to-cart-system-using-jquery-ajax-and-php.php" class="latest_tut_links"><img src="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/cart_system.jpeg">Simple Add To Cart System Using jQuery,Ajax And PHP</a></li>
+						<li><a href="http://talkerscode.com/webtricks/ajax-pagination-using-jquery-php-and-mysql.php" class="latest_tut_links"><img src="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/ajax_pagination.jpeg">Ajax Pagination Using jQuery, PHP And MySQL</a></li>
+						<li><a href="http://talkerscode.com/webtricks/ajax-login-form-using-jquery-php-and-mysql.php" class="latest_tut_links"><img src="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/ajax_login_form.jpeg">Ajax Login Form Using jQuery, PHP And MySQL</a></li>
+						<li><a href="http://talkerscode.com/webtricks/ajax-contact-form-using-jquery-php-and-mysql.php" class="latest_tut_links"><img src="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/ajax_contact_form.jpeg">Ajax Contact Form Using jQuery, PHP And MySQL</a></li>
+						<li><a href="http://talkerscode.com/webtricks/dynamic-dropdown-menu-using-jquery-ajax-php-and-mysql.php" class="latest_tut_links"><img src="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/dynamic_drop_down_menu.jpeg">Dynamic Drop Down Menu Using jQuery, Ajax, PHP And MySQL</a></li>
+						<li><a href="http://talkerscode.com/webtricks/load-more-results-from-database-using-jquery-ajax-php-mysql.php" class="latest_tut_links"><img src="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/load_result.jpeg">Create Load More Results From Database System Using jQuery,Ajax,PHP and MySQL</a></li>
+			</div>
+<div id="user_comments">
+
+<div id="heyoyaDiv" style="width: 640px; max-width: 100%;"><div id="heyoyaB2BApp" style="width:100% !important; height: 2016px !important;min-height: 2016px !important;">    <iframe id="heyB2BData" src="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/b2b_data.html" allow="microphone;" frameborder="0"></iframe>   <iframe id="heyB2BUI" class="normal" style="width:100% !important; height: 2016px !important;;min-height: 2016px !important;display:block !important;" src="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/b2b_ui.html" scrolling="no" allow="microphone;" frameborder="0"></iframe> </div></div><script type="text/javascript" src="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/b2b_settings.html"></script>
+
+</div></div><!--end of comment_div-->
+
+</div><!--end of left_div-->
+
+<div id="right_div">
+<script>
+	$(window).scroll(function(e){ 
+  var $el = $('#affiliate_div'); 
+  var isPositionFixed = ($el.css('position') == 'fixed');
+
+  if ($(this).scrollTop() > 450 && !isPositionFixed && $(this).scrollTop() < ($(document).height() - 900)){ 
+    $('#affiliate_div').css({'position': 'fixed', 'top': '0px'}); 
+  }
+  if ($(this).scrollTop() < 450 && isPositionFixed)
+  {
+    $('#affiliate_div').css({'position': 'static', 'top': '0px'}); 
+  }
+  if ($(this).scrollTop() > ($(document).height() - 900) && isPositionFixed)
+  {
+    $('#affiliate_div').css({'position': 'static', 'bottom': '0px'}); 
+  }
+  
+});
+</script>
+
+
+<div id="affiliate_div" style="position: static; top: 0px;">
+<a rel="nofollow" target="_blank" href="http://bit.ly/2IKvbcY">
+<span class="head">Register Now &amp; Try 100+ Paid Apps On Your Mac For Free!</span>
+<img src="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/affiliate_img1.jpeg">
+<!--
+<br>
+<p class="desc">
+Join Now #1 Email Marketing Tool & Send Lot's Of Emails For Free!
+<br>
+<br>
+Send Daily Emails To Your Subscribers For Free! And Increase Your Website Traffic And Make More Money Online.
+<br>
+<br>
+Register Using Below Link And Start Sending Emails For Free.
+</p>
+<p class="button">CLICK HERE TO REGISTER NOW</p>
+-->
+</a>
+</div></div><!--end of right_div-->
+
+</div><!--end of content-->
+</div><!--end of wrapper-->
+<div id="footerwrapper">
+<div id="footer">
+
+<div id="div1">
+<p class="footer_head">About TalkersCode</p>
+<p>TalkersCode is one of the best and biggest website for web developers
+ in India. We also started Blogging articles, reviews and offers</p>
+<br>
+<br>
+<p class="footer_head">Affiliate Disclosure</p>
+<p>We as TalkersCode may receive compensation from some of the companies whose products we review.</p>
+</div>
+
+<div id="div2">
+<p class="footer_head">Useful Links</p>
+<p><a href="http://talkerscode.com/index.php">Home</a></p>
+<p><a href="http://talkerscode.com/aboutus.php">About Us</a></p>
+<p><a href="http://talkerscode.com/contactus.php">Contact Us</a></p>
+<p><a href="http://talkerscode.com/alltutorials.php">All Post</a></p>
+<p><a href="http://talkerscode.com/sitemap.xml">Sitemap</a></p>
+<p><a href="http://talkerscode.com/rss.xml">RSS</a></p>
+</div>
+
+<div id="div3">
+<p>© 2018 All Rights Reserved To TalkersCode</p>
+<p id="social_share">
+Follow Us On →
+<br>
+<a target="_blank" href="https://www.facebook.com/talkerscode/"><img src="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/facebook_icon_002.png"></a>
+<a target="_blank" href="https://twitter.com/Talkerscode"><img src="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/twitter_icon.png"></a>
+<a target="_blank" href="https://www.linkedin.com/in/muditjain310/"><img src="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/linkedin_icon.png"></a>
+<a target="_blank" href="https://plus.google.com/102970142249395280883"><img src="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/googleplus_icon.png"></a>
+<a target="_blank" href="http://feeds.feedburner.com/Talkerscode"><img src="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/rss_icon.png"></a>
+</p>
+</div>
+
+</div>
+
+</div>
+
+
+<!--Google Analytics-->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-61824078-1', 'auto');
+  ga('send', 'pageview');
+</script><!--Begin comScore Tag--><script>var _comscore=_comscore||[];_comscore.push({c1:"2",c2:"20015427"});(function(){var s=document.createElement("script"),el=document.getElementsByTagName("script")[0];s.async=true;s.src=(document.location.protocol=="https:"?"https://sb":"http://b")+".scorecardresearch.com/beacon.js";el.parentNode.insertBefore(s,el)})();</script><noscript><img src="https://sb.scorecardresearch.com/p?c1=2&c2=20015427&cv=2.0&cj=1"/></noscript><!--End comScore Tag-->
+<!--Quantcast Tag--><script type="text/javascript">var _qevents=_qevents||[];(function(){var elem=document.createElement('script');elem.src=(document.location.protocol=="https:"?"https://secure":"http://edge")+".quantserve.com/quant.js";elem.async=true;elem.type="text/javascript";var scpt=document.getElementsByTagName('script')[0];scpt.parentNode.insertBefore(elem,scpt)})();_qevents.push({qacct:"p-31iz6hfFutd16",labels:"Domain.talkerscode_com,DomainId.73764"});</script><noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p-31iz6hfFutd16.gif?labels=Domain.talkerscode_com,DomainId.73764"border="0"height="1"width="1"alt="Quantcast"/></div></noscript><!--End Quantcast tag-->
+<script type="text/javascript" style="display:none;" async="">
+__ez.queue.addFile('edmonton.php', '//g.ezoic.net/detroitchicago/edmonton.webp?a=a&cb=0&shcb=29', true, [], true, false, false, false);
+__ez.queue.addFile('jellyfish.php', '//g.ezoic.net/porpoiseant/jellyfish.webp?a=a&cb=0&shcb=29', false, [], true, false, false, false);
+</script>
+
+ <iframe src="Add,%20Edit%20And%20Delete%20Records%20Using%20jQuery,%20Ajax,%20PHP%20And%20MySQL_files/a.html" style="width: 0px; height: 0px; border: 0px; display: none;" frameborder="0"></iframe><div class="foxpush_prompt_message" id="foxpush_prompt_message" style="display: none !important;"><p>Click On Allow To Get Our Latest Tutorials &amp; Articles Daily With Demo</p></div><div id="foxpush_native_html" style="display: none !important;">        <div class="foxpush_close_button" id="foxpush_close_button"></div>            <div class="arrow_box"></div>            <p class="domain_name"> talkerscodecom.foxpush.net wants to </p>        <p class="notification_icon">            <span class="icon">            <svg style="width: 16px; fill: #6c6d6c;enable-background:new 0 0 535.5 535.5;" version="1.1" id="foxpushlogo" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 535.5 535.5" xml:space="preserve">            <g>            <g id="notifications">        <path d="M255,510c28.05,0,51-22.95,51-51H204C204,487.05,226.95,510,255,510z M420.75,357V216.75        c0-79.05-53.55-142.8-127.5-160.65V38.25C293.25,17.85,275.4,0,255,0c-20.4,0-38.25,17.85-38.25,38.25V56.1        c-73.95,17.85-127.5,81.6-127.5,160.65V357l-51,51v25.5h433.5V408L420.75,357z"></path>    </g>    </g>    </svg>        </span>        <span class="text">            Show notifications        </span>        </p>        <div id="foxpush_buttons">            <button type="button" id="foxpush_deny">Block</button>            <button type="button" id="foxpush_subscribe">Allow</button>            </div></div></body></html>

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><title>AJAX Add Edit Delete Records in Database using PHP and jQuery</title>
+<meta name="description" content="The Database add,&nbsp;modify, delete, list, view actions are the common tasks for many application functionalities. If you want to implement these functionalities in your application, this post will be helpful for you. In this example, I have implemented the database CRUD for the comment system with AJAX. The CRUD action HTML page contains button handles […]">
+<meta name="keywords" content="AJAX Add Edit Delete Records in Database using PHP and jQuery">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index,follow"><link rel="next" href="https://phppot.com/demo/ajax-add-edit-delete-records-in-database-using-php-and-jquery/">
+<meta property="og:image" content="https://phppot.com/wp-content/uploads/2014/10/ajaxcrud.png">
+<meta property="og:image:width" content="550">
+<meta property="og:image:height" content="340">
+<meta property="og:image:alt" content="AJAX Add Edit Delete Records in Database using PHP and jQuery">
+<link rel="shortcut icon" href="https://phppot.com/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" id="solandra-style-css" href="AJAX%20Add%20Edit%20Delete%20Records%20in%20Database%20using%20PHP%20and%20jQuery_files/papers_18072018.css" type="text/css" media="all">
+<link rel="canonical" href="https://phppot.com/jquery/ajax-add-edit-delete-records-in-database-using-php-and-jquery/">
+<script type="text/javascript" async="" src="AJAX%20Add%20Edit%20Delete%20Records%20in%20Database%20using%20PHP%20and%20jQuery_files/ga.js"></script><script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-40067115-1']);
+  _gaq.push(['_setDomainName', 'phppot.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script></head>
+<body onload="prettyPrint()">
+<div id="site_header"><div class="content"><a href="https://phppot.com/" title="PhpPot Home"><img id="site-logo" src="AJAX%20Add%20Edit%20Delete%20Records%20in%20Database%20using%20PHP%20and%20jQuery_files/sprite.png" alt="PhpPot Home"></a>
+<div class="search-container">
+	<form method="get" action="/" class="search-form">
+		<input name="s" class="search" placeholder="Search PHP Pot" title="Search PhpPot" autocomplete="off">
+		<button type="submit" title="Search PhpPot" id="search-button">
+		<img src="AJAX%20Add%20Edit%20Delete%20Records%20in%20Database%20using%20PHP%20and%20jQuery_files/sprite.png" alt="Search" class="search-img"></button>
+	</form>
+</div>
+<div class="header-link-container">
+<a class="header-link" style="float:none;" href="https://phppot.com/demo/">Demo &amp; Download</a>
+<a id="header-contact-navigation" href="https://phppot.com/contact/">Contact</a>
+</div>
+</div>
+</div>
+<div class="content"><div id="menu-icon"><a href="#tutorial-menu" title="Tutorial Menu"><img src="AJAX%20Add%20Edit%20Delete%20Records%20in%20Database%20using%20PHP%20and%20jQuery_files/sprite.png" alt="Tutorial Menu" class="menu-img"></a></div><div id="tutorial-body"><div id="tutorial">
+<h1>AJAX Add Edit Delete Records in Database using PHP and jQuery</h1>
+<div class="modified-on">Last modified on May 8th, 2018 by Vincy.</div> <div class="share">
+    <ul>
+	    <li><a class="social-link facebook-social-link" href="https://www.facebook.com/sharer/sharer.php?u=https://phppot.com/jquery/ajax-add-edit-delete-records-in-database-using-php-and-jquery/" title="Share on Facebook"><img src="AJAX%20Add%20Edit%20Delete%20Records%20in%20Database%20using%20PHP%20and%20jQuery_files/sprite.png" class="facebook-social-img"><span>Share</span></a></li>
+        <li><a class="social-link twitter-social-link" href="https://twitter.com/intent/tweet?original_referer=https://phppot.com&amp;source=tweetbutton&amp;text=AJAX%20Add%20Edit%20Delete%20Records%20in%20Database%20using%20PHP%20and%20jQuery;url=https://phppot.com/jquery/ajax-add-edit-delete-records-in-database-using-php-and-jquery/&amp;via=phppot" title="Share on Twitter"><img src="AJAX%20Add%20Edit%20Delete%20Records%20in%20Database%20using%20PHP%20and%20jQuery_files/sprite.png" class="twitter-social-img"><span>Tweet</span></a></li>
+        <li><a class="social-link linkedin-social-link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://phppot.com/jquery/ajax-add-edit-delete-records-in-database-using-php-and-jquery/&amp;media=AJAX%20Add%20Edit%20Delete%20Records%20in%20Database%20using%20PHP%20and%20jQuery" title="Share on Linkedin"><img src="AJAX%20Add%20Edit%20Delete%20Records%20in%20Database%20using%20PHP%20and%20jQuery_files/sprite.png" class="linkedin-social-img"><span>Share</span></a></li>
+    </ul>
+</div>
+<p>The Database add,&nbsp;modify, delete, list, view actions are the 
+common tasks for many application functionalities. If you want to 
+implement these functionalities in your application, this post will be 
+helpful for you. In this example, I have implemented the database CRUD 
+for the comment system with AJAX. The CRUD action HTML page contains 
+button handles to trigger the AJAX request.</p>
+<p><img class="alignnone size-full wp-image-6321" src="AJAX%20Add%20Edit%20Delete%20Records%20in%20Database%20using%20PHP%20and%20jQuery_files/crud-functions.png" alt="crud-functions" srcset="https://phppot.com/wp-content/uploads/2018/04/crud-functions.png 550w, https://phppot.com/wp-content/uploads/2018/04/crud-functions-300x185.png 300w" sizes="(max-width: 550px) 100vw, 550px" width="550" height="340"></p>
+<p><a class="demo" href="https://phppot.com/demo/ajax-add-edit-delete-records-in-database-using-php-and-jquery/">View Demo</a></p>
+<p>I have created a database table <em>comment</em> to store the users’ 
+comments. I have used jQuery handlers to generate AJAX request for 
+calling PHP CRUD code. After successful CRUD action, the AJAX callback 
+will update the status on the browser. Let us learn how to add, edit and
+ delete records in MySQL database using PHP via AJAX. If you are looking
+ for a <a href="https://phppot.com/mysql/access-mysql-from-php/">non-AJAX plain PHP CRUD</a>, go through my previous tutorial.</p>
+<h2>Database Script</h2>
+<p>Run this database script to set up the CRUD example on your local 
+machine. It shows the CREATE statement and key indexes for the <em>comment</em> table</p>
+<pre class="prettyprint lang-php prettyprinted" style=""><span class="pun">--</span><span class="pln">
+</span><span class="pun">--</span><span class="pln"> </span><span class="typ">Database</span><span class="pun">:</span><span class="pln"> </span><span class="str">`blog_samples`</span><span class="pln">
+</span><span class="pun">--</span><span class="pln">
+
+</span><span class="pun">--</span><span class="pln"> </span><span class="pun">--------------------------------------------------------</span><span class="pln">
+
+</span><span class="pun">--</span><span class="pln">
+</span><span class="pun">--</span><span class="pln"> </span><span class="typ">Table</span><span class="pln"> structure </span><span class="kwd">for</span><span class="pln"> table </span><span class="str">`comment`</span><span class="pln">
+</span><span class="pun">--</span><span class="pln">
+
+CREATE TABLE </span><span class="str">`comment`</span><span class="pln"> </span><span class="pun">(</span><span class="pln">
+  </span><span class="str">`id`</span><span class="pln"> </span><span class="kwd">int</span><span class="pun">(</span><span class="lit">11</span><span class="pun">)</span><span class="pln"> NOT NULL</span><span class="pun">,</span><span class="pln">
+  </span><span class="str">`message`</span><span class="pln"> text NOT NULL
+</span><span class="pun">)</span><span class="pln"> ENGINE</span><span class="pun">=</span><span class="typ">InnoDB</span><span class="pln"> DEFAULT CHARSET</span><span class="pun">=</span><span class="pln">latin1</span><span class="pun">;</span><span class="pln">
+
+</span><span class="pun">--</span><span class="pln">
+</span><span class="pun">--</span><span class="pln"> </span><span class="typ">Indexes</span><span class="pln"> </span><span class="kwd">for</span><span class="pln"> dumped tables
+</span><span class="pun">--</span><span class="pln">
+
+</span><span class="pun">--</span><span class="pln">
+</span><span class="pun">--</span><span class="pln"> </span><span class="typ">Indexes</span><span class="pln"> </span><span class="kwd">for</span><span class="pln"> table </span><span class="str">`comment`</span><span class="pln">
+</span><span class="pun">--</span><span class="pln">
+ALTER TABLE </span><span class="str">`comment`</span><span class="pln">
+  ADD PRIMARY KEY </span><span class="pun">(</span><span class="str">`id`</span><span class="pun">);</span><span class="pln">
+
+</span><span class="pun">--</span><span class="pln">
+</span><span class="pun">--</span><span class="pln"> AUTO_INCREMENT </span><span class="kwd">for</span><span class="pln"> table </span><span class="str">`comment`</span><span class="pln">
+</span><span class="pun">--</span><span class="pln">
+ALTER TABLE </span><span class="str">`comment`</span><span class="pln">
+  MODIFY </span><span class="str">`id`</span><span class="pln"> </span><span class="kwd">int</span><span class="pun">(</span><span class="lit">11</span><span class="pun">)</span><span class="pln"> NOT NULL AUTO_INCREMENT</span><span class="pun">;</span><span class="pln">
+COMMIT</span><span class="pun">;</span></pre>
+<h2>Add Edit Delete HTML Handles</h2>
+<p>This code shows the HTML for displaying the database add, edit and 
+delete action handles to the user. I have shown a text area to add a new
+ comment to the database via AJAX.&nbsp;After entering the comment, the 
+Add button triggers the AJAX call to insert the user’s comment to the 
+browser. After successful insert, the AJAX response will update the 
+newly added record in the browser.&nbsp;Each record in the comments list
+ view contain the Edit and the Delete buttons to trigger 
+respective&nbsp;database actions. We have form controls to enter user 
+data and trigger AJAX event to perform the database action. This code 
+initially displays the list of records from database table. It also has 
+the comment-add form to enter text content to be inserted via AJAX.</p>
+<pre class="prettyprint lang-php prettyprinted" style=""><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"comment-list-box"</span><span class="tag">&gt;</span><span class="pln">
+    </span><span class="pun">&lt;?</span><span class="pln">php </span><span class="kwd">if</span><span class="pun">(!</span><span class="pln">empty</span><span class="pun">(</span><span class="pln">$comments</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="kwd">foreach</span><span class="pun">(</span><span class="pln">$comments </span><span class="kwd">as</span><span class="pln"> $k</span><span class="pun">=&gt;</span><span class="pln">$v</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="pun">?&gt;</span><span class="pln">
+    </span><span class="tag">&lt;/p&gt;</span><span class="pln">
+    </span><span class="tag">&lt;p&gt;</span><span class="pln">// display comments list
+    &lt;div class="message-box" id="message_</span><span class="pun">&lt;?</span><span class="pln">php echo $comments</span><span class="pun">[</span><span class="pln">$k</span><span class="pun">][</span><span class="str">"id"</span><span class="pun">];?&gt;</span><span class="pln">
+        "&gt;
+        </span><span class="tag">&lt;div&gt;</span><span class="pln">
+            &lt;button class="btnEditAction" name="edit"
+                onClick="showEditBox(</span><span class="pun">&lt;?</span><span class="pln">php echo $comments</span><span class="pun">[</span><span class="pln">$k</span><span class="pun">][</span><span class="str">"id"</span><span class="pun">];</span><span class="pln"> </span><span class="pun">?&gt;</span><span class="pln">)"&gt;Edit</span><span class="tag">&lt;/button&gt;</span><span class="pln">
+            &lt;button class="btnDeleteAction" name="delete"
+                onClick="callCrudAction('delete',</span><span class="pun">&lt;?</span><span class="pln">php echo $comments</span><span class="pun">[</span><span class="pln">$k</span><span class="pun">][</span><span class="str">"id"</span><span class="pun">];</span><span class="pln"> </span><span class="pun">?&gt;</span><span class="pln">)"&gt;Delete</span><span class="tag">&lt;/button&gt;</span><span class="pln">
+        </span><span class="tag">&lt;/div&gt;</span><span class="pln">
+        </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"message-content"</span><span class="tag">&gt;</span><span class="pln">
+            </span><span class="pun">&lt;?</span><span class="pln">php echo $comments</span><span class="pun">[</span><span class="pln">$k</span><span class="pun">][</span><span class="str">"message"</span><span class="pun">];</span><span class="pln"> </span><span class="pun">?&gt;</span><span class="pln">
+        </span><span class="tag">&lt;/div&gt;</span><span class="pln">
+    </span><span class="tag">&lt;/div&gt;</span><span class="pln">
+    </span><span class="pun">&lt;?</span><span class="pln">php </span><span class="pun">}}</span><span class="pln"> </span><span class="pun">?&gt;</span><span class="pln">
+</span><span class="tag">&lt;/div&gt;</span><span class="pln">
+</span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"frmAdd"</span><span class="tag">&gt;</span><span class="pln">
+    </span><span class="tag">&lt;textarea</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"txtmessage"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"txtmessage"</span><span class="pln"> </span><span class="atn">cols</span><span class="pun">=</span><span class="atv">"80"</span><span class="pln"> </span><span class="atn">rows</span><span class="pun">=</span><span class="atv">"10"</span><span class="tag">&gt;&lt;/textarea&gt;</span><span class="pln">
+    </span><span class="tag">&lt;p&gt;</span><span class="pln">
+        </span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"btnAddAction"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"submit"</span><span class="pln">
+            </span><span class="atn">onClick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">callCrudAction</span><span class="pun">(</span><span class="str">'add'</span><span class="pun">,</span><span class="str">''</span><span class="pun">)</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">Add Comment</span><span class="tag">&lt;/button&gt;</span><span class="pln">
+    </span><span class="tag">&lt;/p&gt;</span><span class="pln">
+</span><span class="tag">&lt;/div&gt;</span></pre>
+<p>Once the add form is submitted then the form data is sent to the PHP 
+page via an AJAX call. On successful add event, it reloads the list of 
+records displayed above add form.</p>
+<h2>jQuery AJAX Function to Query for Database CRUD</h2>
+<p>In this jQuery AJAX script, the <em>callCrudAction()</em> function 
+contains JavaScript switch cases to&nbsp;send the CRUD request. In each 
+case,&nbsp;I send the required CRUD action to be performed with other 
+AJAX parameters. In PHP the action parameter is received and used to 
+dispatch to the suitable case to perform the database action. In the 
+AJAX success block, I received the response text or HTML to update the 
+user about the database action.</p>
+<pre class="prettyprint lang-php prettyprinted" style=""><span class="kwd">function</span><span class="pln"> callCrudAction</span><span class="pun">(</span><span class="pln">action</span><span class="pun">,</span><span class="pln">id</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+$</span><span class="pun">(</span><span class="str">"#loaderIcon"</span><span class="pun">).</span><span class="pln">show</span><span class="pun">();</span><span class="pln">
+</span><span class="kwd">var</span><span class="pln"> queryString</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">switch</span><span class="pun">(</span><span class="pln">action</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+</span><span class="kwd">case</span><span class="pln"> </span><span class="str">"add"</span><span class="pun">:</span><span class="pln">
+queryString </span><span class="pun">=</span><span class="pln"> </span><span class="str">'action='</span><span class="pun">+</span><span class="pln">action</span><span class="pun">+</span><span class="str">'&amp;txtmessage='</span><span class="pun">+</span><span class="pln"> $</span><span class="pun">(</span><span class="str">"#txtmessage"</span><span class="pun">).</span><span class="pln">val</span><span class="pun">();</span><span class="pln">
+</span><span class="kwd">break</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">case</span><span class="pln"> </span><span class="str">"edit"</span><span class="pun">:</span><span class="pln">
+queryString </span><span class="pun">=</span><span class="pln"> </span><span class="str">'action='</span><span class="pun">+</span><span class="pln">action</span><span class="pun">+</span><span class="str">'&amp;message_id='</span><span class="pun">+</span><span class="pln"> id </span><span class="pun">+</span><span class="pln"> </span><span class="str">'&amp;txtmessage='</span><span class="pun">+</span><span class="pln"> $</span><span class="pun">(</span><span class="str">"#txtmessage_"</span><span class="pun">+</span><span class="pln">id</span><span class="pun">).</span><span class="pln">val</span><span class="pun">();</span><span class="pln">
+</span><span class="kwd">break</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">case</span><span class="pln"> </span><span class="str">"delete"</span><span class="pun">:</span><span class="pln">
+queryString </span><span class="pun">=</span><span class="pln"> </span><span class="str">'action='</span><span class="pun">+</span><span class="pln">action</span><span class="pun">+</span><span class="str">'&amp;message_id='</span><span class="pun">+</span><span class="pln"> id</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">break</span><span class="pun">;}</span><span class="pln">	 
+jQuery</span><span class="pun">.</span><span class="pln">ajax</span><span class="pun">({</span><span class="pln">
+url</span><span class="pun">:</span><span class="pln"> </span><span class="str">"crud_action.php"</span><span class="pun">,</span><span class="pln">
+data</span><span class="pun">:</span><span class="pln">queryString</span><span class="pun">,</span><span class="pln">
+type</span><span class="pun">:</span><span class="pln"> </span><span class="str">"POST"</span><span class="pun">,</span><span class="pln">
+success</span><span class="pun">:</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">data</span><span class="pun">){</span><span class="pln">
+</span><span class="kwd">switch</span><span class="pun">(</span><span class="pln">action</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+</span><span class="kwd">case</span><span class="pln"> </span><span class="str">"add"</span><span class="pun">:</span><span class="pln">
+$</span><span class="pun">(</span><span class="str">"#comment-list-box"</span><span class="pun">).</span><span class="pln">append</span><span class="pun">(</span><span class="pln">data</span><span class="pun">);</span><span class="pln">
+</span><span class="kwd">break</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">case</span><span class="pln"> </span><span class="str">"edit"</span><span class="pun">:</span><span class="pln">
+$</span><span class="pun">(</span><span class="str">"#message_"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> id </span><span class="pun">+</span><span class="pln"> </span><span class="str">" .message-content"</span><span class="pun">).</span><span class="pln">html</span><span class="pun">(</span><span class="pln">data</span><span class="pun">);</span><span class="pln">
+$</span><span class="pun">(</span><span class="str">'#frmAdd'</span><span class="pun">).</span><span class="pln">show</span><span class="pun">();</span><span class="pln">
+</span><span class="kwd">break</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">case</span><span class="pln"> </span><span class="str">"delete"</span><span class="pun">:</span><span class="pln">
+$</span><span class="pun">(</span><span class="str">'#message_'</span><span class="pun">+</span><span class="pln">id</span><span class="pun">).</span><span class="pln">fadeOut</span><span class="pun">();</span><span class="pln">
+</span><span class="kwd">break</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+$</span><span class="pun">(</span><span class="str">"#txtmessage"</span><span class="pun">).</span><span class="pln">val</span><span class="pun">(</span><span class="str">''</span><span class="pun">);</span><span class="pln">
+$</span><span class="pun">(</span><span class="str">"#loaderIcon"</span><span class="pun">).</span><span class="pln">hide</span><span class="pun">();</span><span class="pln">
+</span><span class="pun">},</span><span class="pln">
+</span><span class="pun">});}</span></pre>
+<h2>PHP Script for Database CRUD operations</h2>
+<p>This PHP code deals with the database CRUD actions using switch 
+cases. The add,&nbsp;update, delete cases performs appropriate CRUD 
+action based on the request raised via an AJAX call. After performing 
+the CRUD action, this code sends the response text or HTML to the AJAX. 
+For example, after performing the database insert, it returns the HTML 
+to display the newly added record in the list.&nbsp;On editing a record 
+this code will respond the edited text content to the AJAX. This content
+ will be updated on the browser with the reference of the record id.</p>
+<pre class="prettyprint lang-php prettyprinted" style=""><span class="pun">&lt;?</span><span class="pln">php
+require_once</span><span class="pun">(</span><span class="str">"DBController.php"</span><span class="pun">);</span><span class="pln">
+$db_handle </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">DBController</span><span class="pun">();</span><span class="pln">
+
+$action </span><span class="pun">=</span><span class="pln"> $_POST</span><span class="pun">[</span><span class="str">"action"</span><span class="pun">];</span><span class="pln">
+</span><span class="kwd">if</span><span class="pun">(!</span><span class="pln">empty</span><span class="pun">(</span><span class="pln">$action</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+	</span><span class="kwd">switch</span><span class="pun">(</span><span class="pln">$action</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+		</span><span class="kwd">case</span><span class="pln"> </span><span class="str">"add"</span><span class="pun">:</span><span class="pln">
+		    $query </span><span class="pun">=</span><span class="pln"> </span><span class="str">"INSERT INTO comment(message) VALUES('"</span><span class="pun">.</span><span class="pln">$_POST</span><span class="pun">[</span><span class="str">"txtmessage"</span><span class="pun">].</span><span class="str">"')"</span><span class="pun">;</span><span class="pln">
+		    $insert_id </span><span class="pun">=</span><span class="pln"> $db_handle</span><span class="pun">-&gt;</span><span class="pln">insert</span><span class="pun">(</span><span class="pln">$query</span><span class="pun">);</span><span class="pln">
+		    </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">$insert_id</span><span class="pun">){</span><span class="pln">
+				  echo </span><span class="str">'&lt;div class="message-box"  id="message_'</span><span class="pln"> </span><span class="pun">.</span><span class="pln"> $insert_id </span><span class="pun">.</span><span class="pln"> </span><span class="str">'"&gt;
+						&lt;div&gt;
+						&lt;button class="btnEditAction" name="edit" onClick="showEditBox(this,'</span><span class="pln"> </span><span class="pun">.</span><span class="pln"> $insert_id </span><span class="pun">.</span><span class="pln"> </span><span class="str">')"&gt;Edit&lt;/button&gt;
+&lt;button class="btnDeleteAction" name="delete" onClick="callCrudAction(\'delete\','</span><span class="pln"> </span><span class="pun">.</span><span class="pln"> $insert_id </span><span class="pun">.</span><span class="pln"> </span><span class="str">')"&gt;Delete&lt;/button&gt;
+						&lt;/div&gt;
+						&lt;div class="message-content"&gt;'</span><span class="pln"> </span><span class="pun">.</span><span class="pln"> $_POST</span><span class="pun">[</span><span class="str">"txtmessage"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">.</span><span class="pln"> </span><span class="str">'&lt;/div&gt;&lt;/div&gt;'</span><span class="pun">;</span><span class="pln">
+			</span><span class="pun">}</span><span class="pln">
+			</span><span class="kwd">break</span><span class="pun">;</span><span class="pln">
+			
+		</span><span class="kwd">case</span><span class="pln"> </span><span class="str">"edit"</span><span class="pun">:</span><span class="pln">
+		    $query </span><span class="pun">=</span><span class="pln"> </span><span class="str">"UPDATE comment set message = '"</span><span class="pun">.</span><span class="pln">$_POST</span><span class="pun">[</span><span class="str">"txtmessage"</span><span class="pun">].</span><span class="str">"' WHERE  id="</span><span class="pun">.</span><span class="pln">$_POST</span><span class="pun">[</span><span class="str">"message_id"</span><span class="pun">];</span><span class="pln">
+		    $result </span><span class="pun">=</span><span class="pln"> $db_handle</span><span class="pun">-&gt;</span><span class="pln">execute</span><span class="pun">(</span><span class="pln">$query</span><span class="pun">);</span><span class="pln">
+			</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">$result</span><span class="pun">){</span><span class="pln">
+				  echo $_POST</span><span class="pun">[</span><span class="str">"txtmessage"</span><span class="pun">];</span><span class="pln">
+			</span><span class="pun">}</span><span class="pln">
+			</span><span class="kwd">break</span><span class="pun">;</span><span class="pln">			
+		
+		</span><span class="kwd">case</span><span class="pln"> </span><span class="str">"delete"</span><span class="pun">:</span><span class="pln"> 
+		    </span><span class="kwd">if</span><span class="pun">(!</span><span class="pln">empty</span><span class="pun">(</span><span class="pln">$_POST</span><span class="pun">[</span><span class="str">"message_id"</span><span class="pun">]))</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+		        $query </span><span class="pun">=</span><span class="pln"> </span><span class="str">"DELETE FROM comment WHERE id="</span><span class="pun">.</span><span class="pln">$_POST</span><span class="pun">[</span><span class="str">"message_id"</span><span class="pun">];</span><span class="pln">
+		        $result </span><span class="pun">=</span><span class="pln"> $db_handle</span><span class="pun">-&gt;</span><span class="pln">execute</span><span class="pun">(</span><span class="pln">$query</span><span class="pun">);</span><span class="pln">
+			</span><span class="pun">}</span><span class="pln">
+			</span><span class="kwd">break</span><span class="pun">;</span><span class="pln">
+	</span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+</span><span class="pun">?&gt;</span></pre>
+<h3>DBController.php</h3>
+<p>This class includes functions to execute the queries to perform CRUD with the database. The <em>runQuery()</em> function reads the database result and returns them as an associative array. The <em>insert()</em>
+ function receives the INSERT query as its argument and executes it. 
+This function will return the newly added record id on the successful 
+database insert. The <em>execute()</em> function receives the update/delete queries based on the request sent via AJAX.</p>
+<pre class="prettyprint lang-php prettyprinted" style=""><span class="pun">&lt;?</span><span class="pln">php
+</span><span class="kwd">class</span><span class="pln"> </span><span class="typ">DBController</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+	</span><span class="kwd">private</span><span class="pln"> $host </span><span class="pun">=</span><span class="pln"> </span><span class="str">"localhost"</span><span class="pun">;</span><span class="pln">
+	</span><span class="kwd">private</span><span class="pln"> $user </span><span class="pun">=</span><span class="pln"> </span><span class="str">"root"</span><span class="pun">;</span><span class="pln">
+	</span><span class="kwd">private</span><span class="pln"> $password </span><span class="pun">=</span><span class="pln"> </span><span class="str">"test"</span><span class="pun">;</span><span class="pln">
+	</span><span class="kwd">private</span><span class="pln"> $database </span><span class="pun">=</span><span class="pln"> </span><span class="str">"blog_samples"</span><span class="pun">;</span><span class="pln">
+	
+	</span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> $conn</span><span class="pun">;</span><span class="pln">
+	
+	</span><span class="kwd">function</span><span class="pln"> __construct</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+		$this</span><span class="pun">-&gt;</span><span class="pln">conn </span><span class="pun">=</span><span class="pln"> $this</span><span class="pun">-&gt;</span><span class="pln">connectDB</span><span class="pun">();</span><span class="pln">
+		</span><span class="kwd">if</span><span class="pun">(!</span><span class="pln">empty</span><span class="pun">(</span><span class="pln">$this</span><span class="pun">-&gt;</span><span class="pln">conn</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+		    $this</span><span class="pun">-&gt;</span><span class="pln">selectDB</span><span class="pun">();</span><span class="pln">
+		</span><span class="pun">}</span><span class="pln">
+	</span><span class="pun">}</span><span class="pln">
+	
+	</span><span class="kwd">function</span><span class="pln"> connectDB</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+		$conn </span><span class="pun">=</span><span class="pln"> mysqli_connect</span><span class="pun">(</span><span class="pln">$this</span><span class="pun">-&gt;</span><span class="pln">host</span><span class="pun">,</span><span class="pln">$this</span><span class="pun">-&gt;</span><span class="pln">user</span><span class="pun">,</span><span class="pln">$this</span><span class="pun">-&gt;</span><span class="pln">password</span><span class="pun">,</span><span class="pln">$this</span><span class="pun">-&gt;</span><span class="pln">database</span><span class="pun">);</span><span class="pln">
+		</span><span class="kwd">return</span><span class="pln"> $conn</span><span class="pun">;</span><span class="pln">
+	</span><span class="pun">}</span><span class="pln">
+	
+	</span><span class="kwd">function</span><span class="pln"> selectDB</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+	    mysqli_select_db</span><span class="pun">(</span><span class="pln">$this</span><span class="pun">-&gt;</span><span class="pln">conn</span><span class="pun">,</span><span class="pln"> $this</span><span class="pun">-&gt;</span><span class="pln">database</span><span class="pun">);</span><span class="pln">
+	</span><span class="pun">}</span><span class="pln">
+	
+	</span><span class="kwd">function</span><span class="pln"> runQuery</span><span class="pun">(</span><span class="pln">$query</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+	    $result </span><span class="pun">=</span><span class="pln"> mysqli_query</span><span class="pun">(</span><span class="pln">$this</span><span class="pun">-&gt;</span><span class="pln">conn</span><span class="pun">,</span><span class="pln"> $query</span><span class="pun">);</span><span class="pln">
+		</span><span class="kwd">while</span><span class="pun">(</span><span class="pln">$row</span><span class="pun">=</span><span class="pln">mysqli_fetch_assoc</span><span class="pun">(</span><span class="pln">$result</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+			$resultset</span><span class="pun">[]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> $row</span><span class="pun">;</span><span class="pln">
+		</span><span class="pun">}</span><span class="pln">		
+		</span><span class="kwd">if</span><span class="pun">(!</span><span class="pln">empty</span><span class="pun">(</span><span class="pln">$resultset</span><span class="pun">))</span><span class="pln">
+			</span><span class="kwd">return</span><span class="pln"> $resultset</span><span class="pun">;</span><span class="pln">
+	</span><span class="pun">}</span><span class="pln">
+	
+	</span><span class="kwd">function</span><span class="pln"> numRows</span><span class="pun">(</span><span class="pln">$query</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+	    $result  </span><span class="pun">=</span><span class="pln"> mysqli_query</span><span class="pun">(</span><span class="pln">$this</span><span class="pun">-&gt;</span><span class="pln">conn</span><span class="pun">,</span><span class="pln"> $query</span><span class="pun">);</span><span class="pln">
+		$rowcount </span><span class="pun">=</span><span class="pln"> mysqli_num_rows</span><span class="pun">(</span><span class="pln">$result</span><span class="pun">);</span><span class="pln">
+		</span><span class="kwd">return</span><span class="pln"> $rowcount</span><span class="pun">;</span><span class="pln">	
+	</span><span class="pun">}</span><span class="pln">
+	
+	</span><span class="kwd">function</span><span class="pln"> insert</span><span class="pun">(</span><span class="pln">$query</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+	    $insert_id </span><span class="pun">=</span><span class="pln"> </span><span class="str">""</span><span class="pun">;</span><span class="pln">
+	    $result  </span><span class="pun">=</span><span class="pln"> mysqli_query</span><span class="pun">(</span><span class="pln">$this</span><span class="pun">-&gt;</span><span class="pln">conn</span><span class="pun">,</span><span class="pln"> $query</span><span class="pun">);</span><span class="pln">
+	    </span><span class="kwd">if</span><span class="pun">(!</span><span class="pln">empty</span><span class="pun">(</span><span class="pln">$result</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+	        $insert_id </span><span class="pun">=</span><span class="pln"> mysqli_insert_id</span><span class="pun">(</span><span class="pln">$this</span><span class="pun">-&gt;</span><span class="pln">conn</span><span class="pun">);</span><span class="pln">
+	    </span><span class="pun">}</span><span class="pln">
+	    </span><span class="kwd">return</span><span class="pln"> $insert_id</span><span class="pun">;</span><span class="pln">
+	</span><span class="pun">}</span><span class="pln">
+	
+	</span><span class="kwd">function</span><span class="pln"> execute</span><span class="pun">(</span><span class="pln">$query</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+	    $result  </span><span class="pun">=</span><span class="pln"> mysqli_query</span><span class="pun">(</span><span class="pln">$this</span><span class="pun">-&gt;</span><span class="pln">conn</span><span class="pun">,</span><span class="pln"> $query</span><span class="pun">);</span><span class="pln">
+	    </span><span class="kwd">return</span><span class="pln"> $result</span><span class="pun">;</span><span class="pln">
+	</span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+</span><span class="pun">?&gt;</span></pre>
+<h2>AJAX Add Edit Delete Output</h2>
+<p>This screenshot shows the output of the PHP example for performing add, edit, delete and read actions via AJAX.</p>
+<p><img style="display: inline; border: 0px;" title="ajax-crud" src="AJAX%20Add%20Edit%20Delete%20Records%20in%20Database%20using%20PHP%20and%20jQuery_files/ajaxcrud.png" alt="ajax-crud" width="610" height="402" border="0"></p>
+<p><a class="demo" href="https://phppot.com/demo/ajax-add-edit-delete-records-in-database-using-php-and-jquery/">View Demo</a><a class="download" href="https://phppot.com/downloads/ajax-add-edit-delete-records-in-database-using-php-and-jquery.zip">Download</a></p>
+<p>This jQuery code tutorial was published on October 10, 2014.</p>
+
+<div id="tutorial-navigation">
+<div id="previous-tutorial"><div class="navigation-label">Previous:</div><a href="https://phppot.com/jquery/load-data-dynamically-on-page-scroll-using-jquery-ajax-and-php/" rel="prev">Load Data Dynamically on Page Scroll using jQuery AJAX and PHP</a></div><div id="next-tutorial"><div class="navigation-label">Next:</div><a href="https://phppot.com/jquery/live-username-availability-check-using-php-and-jquery-ajax/" rel="next">Live Username Availability Check using PHP and jQuery AJAX</a></div></div>
+<p><a href="#top" class="top">↑ Back to Top</a></p>
+</div>
+<div id="tutorial-menu">
+	<ul class="main-menu"><li class="cat-item cat-item-72"><a href="https://phppot.com/category/php/">PHP</a></li><li class="cat-item cat-item-73"><a href="https://phppot.com/category/jquery/">jQuery</a><ul class="sub-menu"><li class="cat-item cat-item-56"><a href="https://phppot.com/category/jquery/jquery-tutorials/">jQuery Tutorials</a></li><li class="cat-item cat-item-93"><a href="https://phppot.com/category/jquery/jquery-bootstrap/">jQuery Bootstrap</a></li><li class="cat-item cat-item-82"><a href="https://phppot.com/category/jquery/jquery-effects/">jQuery Effects</a></li><li class="cat-item cat-item-87"><a href="https://phppot.com/category/jquery/jquery-animation/">jQuery Animation</a></li><li class="cat-item cat-item-86"><a href="https://phppot.com/category/jquery/jquery-menu/">jQuery Menu</a></li><li class="cat-item cat-item-80"><a href="https://phppot.com/category/jquery/jquery-ajax-form/">jQuery AJAX Form</a></li><li class="cat-item cat-item-81"><a href="https://phppot.com/category/jquery/jquery-form-validation/">jQuery Form Validation</a></li><li class="cat-item cat-item-85"><a href="https://phppot.com/category/jquery/jquery-file-upload/">jQuery File Upload</a></li><li class="cat-item cat-item-16"><a href="https://phppot.com/category/jquery/jquery-ajax/">jQuery AJAX</a></li><li class="cat-item cat-item-84"><a href="https://phppot.com/category/jquery/jquery-ajax-crud/">jQuery AJAX CRUD</a><ul class="post-list"><li class="current-post">AJAX Add Edit Delete Records in Database using PHP and jQuery</li><li><a class="post-menu" href="https://phppot.com/php/jquery-ajax-pagination/">jQuery AJAX Pagination</a></li><li><a class="post-menu" href="https://phppot.com/php/php-crud-with-search-and-pagination-using-jquery-ajax/">PHP CRUD with Search and Pagination using jQuery AJAX</a></li><li><a class="post-menu" href="https://phppot.com/jquery/jquery-ajax-add-edit-modal-window/">jQuery AJAX Add Edit Modal Window</a></li><li><a class="post-menu" href="https://phppot.com/php/php-mysql-inline-editing-using-jquery-ajax/">PHP MySQL Inline Editing using jQuery Ajax</a></li><li><a class="post-menu" href="https://phppot.com/jquery/jquery-ajax-inline-crud-with-php/">jQuery AJAX Inline CRUD with PHP</a></li><li><a class="post-menu" href="https://phppot.com/jquery/inline-insert-using-jquery-ajax/">Inline Insert using jQuery AJAX</a></li><li><a class="post-menu" href="https://phppot.com/jquery/using-jqgrid-control-with-php/">Using jqGrid Control with PHP</a></li><li><a class="post-menu" href="https://phppot.com/jquery/jquery-ajax-column-sort/">jQuery Ajax Column Sort</a></li><li><a class="post-menu" href="https://phppot.com/jquery/read-display-json-data-using-jquery-ajax/">Read Display JSON Data using jQuery AJAX</a></li></ul></li><li class="cat-item cat-item-83"><a href="https://phppot.com/category/jquery/jquery-social-media-effects/">jQuery Social Media Effects</a></li></ul></li><li class="cat-item cat-item-74"><a href="https://phppot.com/category/wordpress/">WordPress</a></li><li class="cat-item cat-item-75"><a href="https://phppot.com/category/mysql/">MySQL</a></li><li class="cat-item cat-item-76"><a href="https://phppot.com/category/css/">CSS</a></li></ul></div>
+
+<div id="social-icon">
+    <div class="heading">Share this Article</div>
+    <ul>
+        <li><a class="social-link facebook-social-link" href="https://www.facebook.com/sharer/sharer.php?u=https://phppot.com/jquery/ajax-add-edit-delete-records-in-database-using-php-and-jquery/" title="Share on Facebook"><img src="AJAX%20Add%20Edit%20Delete%20Records%20in%20Database%20using%20PHP%20and%20jQuery_files/sprite.png" class="facebook-social-img"><span>Share</span></a></li>
+        <li><a class="social-link twitter-social-link" href="https://twitter.com/intent/tweet?original_referer=https://phppot.com&amp;source=tweetbutton&amp;text=AJAX%20Add%20Edit%20Delete%20Records%20in%20Database%20using%20PHP%20and%20jQuery;url=https://phppot.com/jquery/ajax-add-edit-delete-records-in-database-using-php-and-jquery/&amp;via=phppot" title="Share on Twitter"><img src="AJAX%20Add%20Edit%20Delete%20Records%20in%20Database%20using%20PHP%20and%20jQuery_files/sprite.png" class="twitter-social-img"><span>Tweet</span></a></li>
+        <li><a class="social-link linkedin-social-link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://phppot.com/jquery/ajax-add-edit-delete-records-in-database-using-php-and-jquery/&amp;media=AJAX%20Add%20Edit%20Delete%20Records%20in%20Database%20using%20PHP%20and%20jQuery" title="Share on Linkedin"><img src="AJAX%20Add%20Edit%20Delete%20Records%20in%20Database%20using%20PHP%20and%20jQuery_files/sprite.png" title="Share on Linkedin" class="linkedin-social-img"><span>Share</span></a></li>
+    </ul>
+</div>
+</div>
+<div id="sidebar">
+	<div id="aboutcntnt"><div id="photo"><img src="AJAX%20Add%20Edit%20Delete%20Records%20in%20Database%20using%20PHP%20and%20jQuery_files/Vincy.jpeg" alt="Vincy" title="Vincy" width="100" height="100"></div><div id="aboutdesc"><p>Hello! I am Vincy, a PHP freelancer and PHP Pot is my programming blog. I'm fond of developing modern web applications.</p>
+<p><a href="mailto:vincy@phppot.com" title="Contact Me">Contact me</a>, I accept paid work.</p></div><div id="contactMe"><a href="mailto:vincy@phppot.com" title="Contact Me">vincy@phppot.com</a></div></div>
+<div class="hiadcomponent"><div class="heading">Free Email Updates</div>	<div>
+	<form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open('https://feedburner.google.com/fb/a/mailverify?uri=phppot', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
+	<p>
+	<input placeholder="Enter your email here" class="feedb-email" name="email" type="text">
+	<input value="phppot" name="uri" type="hidden">
+	<input name="loc" value="en_US" type="hidden">
+	<input value="Subscribe" class="subscribe" type="submit"></p></form>
+	</div>
+	<div>
+	</div>
+</div>
+
+<div id="recommended">
+<div class="heading">Trending Code</div>
+<ul>
+<li><a href="https://phppot.com/php/simple-php-shopping-cart/">Simple PHP Shopping Cart</a></li>
+<li><a href="https://phppot.com/php/skills-every-php-freelancer-must-have/">Skills Every PHP Freelancer Must Have</a>
+</li>
+<li><a href="https://phppot.com/php/php-restful-web-service/">PHP RESTful Web Service</a></li>
+<li><a href="https://phppot.com/jquery/php-contact-form-with-jquery-ajax/">PHP Contact Form with jQuery AJAX</a></li>
+<li><a href="https://phppot.com/jquery/jquery-ajax-inline-crud-with-php/">jQuery AJAX Inline CRUD with PHP</a>
+</li>
+<li><a href="https://phppot.com/php/how-to-become-a-full-time-freelance-php-developer-and-consultant/">How to Become a Full Time Freelance PHP Developer and Consultant</a>
+</li>
+</ul>
+</div>
+</div></div>
+<div id="footer-contact-note">
+    <div class="footer-contact-banner-title">Let's get to work.</div>
+    <div id="footer-photo">
+        <img src="AJAX%20Add%20Edit%20Delete%20Records%20in%20Database%20using%20PHP%20and%20jQuery_files/Vincy.jpeg" alt="Vincy" title="Vincy" width="100" height="100">
+    </div>
+    <div id="footer-intro">I love the web and am passionate
+        about software development. I've been programming non-stop
+        for a decade. If you're looking for application development,
+        enhancement, or problem-solving services, definitely <a class="footer-contact-link" href="https://phppot.com/contact/">contact me</a>!
+        I'd love to help you!</div>
+    <div id="footer-button-container">
+        <a id="footer-contact-navigation" href="https://phppot.com/contact/">Contact Me</a>
+    </div>
+</div>
+<div id="footer">
+    <ul id="footer-menu">
+        <li class="cat-item cat-item-2"><a href="https://phppot.com/category/php/">PHP</a></li>
+        <li class="cat-item cat-item-8"><a href="https://phppot.com/category/jquery/">jQuery</a></li>
+        <li class="cat-item cat-item-4"><a href="https://phppot.com/category/mysql/">MySQL</a></li>
+        <li class="cat-item cat-item-3"><a href="https://phppot.com/category/wordpress/">Wordpress</a></li>
+        <li class="cat-item cat-item-10"><a href="https://phppot.com/category/css/">CSS</a></li>
+    </ul>
+
+    <div class="follow">
+        <a class="linkedin" href="https://www.linkedin.com/in/vincya/" title="LinkedIn" target="_blank"><img src="AJAX%20Add%20Edit%20Delete%20Records%20in%20Database%20using%20PHP%20and%20jQuery_files/sprite.png" alt="LinkedIn" class="linkedin-img"></a><a href="https://plus.google.com/100835954832081019478/posts" title="Google Plus"><img src="AJAX%20Add%20Edit%20Delete%20Records%20in%20Database%20using%20PHP%20and%20jQuery_files/sprite.png" alt="Google Plus" class="google-plus-img"></a><a class="facebook" href="https://www.facebook.com/pages/phppotcom/1428212654057945" title="Facebook" target="_blank"><img src="AJAX%20Add%20Edit%20Delete%20Records%20in%20Database%20using%20PHP%20and%20jQuery_files/sprite.png" alt="Facebook" class="facebook-img"></a><a class="twitter" href="https://twitter.com/phppot" title="Twitter" target="_blank"><img src="AJAX%20Add%20Edit%20Delete%20Records%20in%20Database%20using%20PHP%20and%20jQuery_files/sprite.png" alt="Twitter" class="twitter-img"></a><a class="feed" href="https://phppot.com/feed/" title="Feed"><img src="AJAX%20Add%20Edit%20Delete%20Records%20in%20Database%20using%20PHP%20and%20jQuery_files/sprite.png" alt="Feed" class="feed-img"></a>
+    </div>
+    <div id="footer-bottom">
+        <p>
+            © 2018 <a href="https://phppot.com/" title="PhpPot Home">phppot.com</a>.
+            The design and content are copyrighted to Vincy and may not
+            be reproduced in any form.
+        </p>
+    </div>
+</div>
+<script async="" src="AJAX%20Add%20Edit%20Delete%20Records%20in%20Database%20using%20PHP%20and%20jQuery_files/prettify.js"></script>
+</body></html>

@@ -1,0 +1,135 @@
+if (navigator.appVersion.toLowerCase().indexOf("msie 6") == -1 &&
+    window.heyoya == undefined){
+
+if (typeof heyoyaSettings == "undefined")
+    window.heyoyaSettings = undefined;
+
+(function(){
+    window.heyoya = window.heyoya || {};
+    if( window == top || window.heyoyaShouldLoad ){
+        heyoya.utils = {};
+        heyoya.params = {};
+
+        heyoya.utils.loadFile = loadFileUtil = function(){
+    var urlTypes = {script:1, css:2, json:3};
+    var internalScriptId = 0;
+
+    function loadFile(urlType,url, callback, fallbackURL){
+        if (urlType == undefined || urlType == "" || url == undefined || url == "")
+            return;
+
+        if (url.indexOf("http://") == -1 && url.indexOf("https://") == -1)
+            url = document.location.protocol + "//" + url;
+
+        if (document.location.protocol == "https:" && url.indexOf("https://") == -1){
+            url = url.replace("http://", "https://");
+        }
+
+        switch (urlType){
+            case urlTypes.script:
+                internalScriptId++;
+
+                var script = document.createElement('script');
+                script.setAttribute('src', url);
+                script.setAttribute('id', "heyoya_" + internalScriptId +  Math.floor((Math.random()*1000000)+1));
+                script.setAttribute('type', 'text/javascript');
+
+                if (callback){
+//                    script.onload = function() {
+//                        callback();
+//                    };
+
+                    script.onload = script.onreadystatechange = function() {
+                        if ( !this.readyState || this.readyState === "loaded" || this.readyState === "complete" ) {
+                            script.onload = script.onreadystatechange = null;
+                            callback();
+                        }
+                    };
+                }
+
+                if (fallbackURL != undefined && fallbackURL != null && typeof fallbackURL == "string"){
+                    script.onerror = function(){
+                        loadFile(urlType,fallbackURL, callback);
+                    }
+                }
+
+
+                document.getElementsByTagName("head")[0].appendChild(script);
+
+                break;
+
+            case urlTypes.css:
+
+                var head = document.getElementsByTagName('head')[0];
+                var link = document.createElement('link');
+                link.type = 'text/css';
+                link.rel = 'stylesheet';
+                link.href = url;
+                head.appendChild(link);
+
+                break;
+
+
+        }
+
+    }
+
+
+    return {
+        loadFile: loadFile,
+        urlTypes: urlTypes
+    };
+
+}();;
+
+        var qs = "";
+        var baseUrl = "";
+        var scripts = document.getElementsByTagName('script');
+
+        for (var scriptsIterator = 0; scriptsIterator < scripts.length; scriptsIterator++){
+           if (scripts[scriptsIterator].src.indexOf("/b2b_loader.") != -1){
+                 if (qs == "" && scripts[scriptsIterator].src.indexOf("?") != -1)
+                   qs = scripts[scriptsIterator].src.substring(scripts[scriptsIterator].src.indexOf("?"));
+
+                 baseUrl = scripts[scriptsIterator].src.substring(0,scripts[scriptsIterator].src.indexOf("/b2b_loader")+1);
+
+                 break;
+           }
+        }
+
+        if (qs && (qs.indexOf("?affId=sdarotpm") != -1 || qs.indexOf("?affId=XRhvzgyFD8") != -1) )
+            return;
+
+        heyoya.params.initialQS = qs;
+        heyoya.params.baseUrl =  baseUrl;
+        heyoya.params.receiverUrl =  "https://commerce.heyoya.com/receiver/";
+        heyoya.params.configurationUrl = "b2b_conf.hey";
+        heyoya.params.dataUrl = "b2b_data.hey";
+        heyoya.params.uiUrl = "b2b_ui.hey";
+        heyoya.params.hostCssUrl = "css/hhost.css";
+        heyoya.params.reportUrl = "report.action";
+
+        heyoya.params.version = "v=13992";
+
+        var affiliateString = "";
+        if (heyoyaSettings && heyoyaSettings.affId)
+            affiliateString = "&affId=" + heyoyaSettings.affId;
+        else if (heyoya.params.initialQS && heyoya.params.initialQS.indexOf("affId") != -1){
+            var affiliateIndexOf = heyoya.params.initialQS.indexOf("affId");
+            var nextAmpAfterAffiliate = heyoya.params.initialQS.indexOf("&", affiliateIndexOf);
+
+            if (nextAmpAfterAffiliate != -1)
+                affiliateString = "&" + heyoya.params.initialQS.substring(affiliateIndexOf, nextAmpAfterAffiliate);
+            else
+                affiliateString = "&" + heyoya.params.initialQS.substring(affiliateIndexOf);
+        }
+
+
+        heyoya.utils.loadFile.loadFile(heyoya.utils.loadFile.urlTypes.script,heyoya.params.baseUrl + "b2b_main.hey?" + heyoya.params.version + affiliateString);
+
+    }
+
+}());
+
+
+}

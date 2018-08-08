@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html><head>
+    <title>hey_B2B_data</title>
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="b2b_ui_data/jquery.js"></script>
+    <script type="text/javascript">
+        var params = {
+            urls:{
+                receiverUrl: "https://commerce.heyoya.com/receiver/",
+                receiverStaticUrl: "https://commerce-static.heyoya.com/receiver/",
+                getByUrl: "getPageCommentsWPF.action",
+                getByParent: "getSubComments.action",
+                likeUrl: "likeComment.action",
+                dislikeUrl: "dislikeComment.action",
+                shareUrl: "commentShared.action",
+                sug: "sug.action",
+                reportUrl: "rc.action",
+                statsActionUrl: "report.action",
+                rut: "rut.action"
+            },
+            cookies: {
+                likeCookieName: "hey_l_",
+                likeVoteDuration: 2628000000,
+                userIdCookieName: "hey_m_ui",
+                userDataStringCookieName: "hey_ui_ds",
+                guestIdCookieName: "hey_ui",
+                userIdDuration: 5*365*24*60*60*1000,
+                reportCommentCookieName: "hey_rc_",
+                reportCommentDuration: 5*365*24*60*60*1000,
+                testGroupCookieName: "hey_dt_cn",
+                testGroupCookieDuration: 5*365*24*60*60*1000,
+                userStationCookieName: "hey_us",
+                userStationCookieDuration: 5*365*24*60*60*1000,
+                rutCookieName: "hey_rut_v1",
+                rutCookieDuration: 5*365*24*60*60*1000,
+                heyTermsCookieName: "hey_t",
+                heyTermsDuration: 5*365*24*60*60*1000,
+            },
+            querystring: null,
+            pageId: {},
+            lastRequestCommentsData: null,
+            lastRequestSubCommentsData: null,
+//            requestsArray: new Array(),
+            errorTemplates: {
+                defaultM:   "{\"error\":true}",
+                noData:  "{error:\"no data\"}"
+            },
+            guestId: null,
+            userId: null,
+            userObj: null,
+            sessionId: null,
+            testGroup: null,
+            userStation: null,
+            affiliateId: null,
+            pageUrl: null,
+            sugReports: {},
+            uat: 0,
+            localStorage: {
+                shouldUseLocalStorageFrame: false,
+                localStorageFrameRetryNumber: 0,
+                numberOfReadRequests: 0,
+                localStorageRequestDelimiter: "heyRDL",
+                dataSurroundDelimiter: "heydAtA",
+                callbacksMappingArray: null
+            }
+        };
+
+        var userStorageLib = userStorage = function(){
+    var expiresPrefix = "ex_ls_";
+    var noResultDefaultValue = "NO-DATA";
+    var enabled;
+
+    function init(){
+        enabled = isEnabled();
+    }
+
+    function isEnabled(){
+        try {  return (localStorage && (typeof localStorage).toLowerCase() == "object");
+            return localStorage && localStorage.setItem;
+        } catch (e) {
+            return false;
+        }
+    }
+
+    function set(key, value, millisecondsToAdd){
+        var success = false;
+
+        if ((!enabled) || (!(key && key != "" && value && value != "")))
+            return success;
+
+        try{
+            localStorage[key] = value;
+            localStorage[expiresPrefix + key] = (new Date().getTime() + millisecondsToAdd);
+            success = true;
+        }
+        catch(err){
+            clear(key);
+        }
+
+        return success;
+    }
+
+    function clear(key){
+        if (!enabled || !key || key == "")
+            return;
+
+        try{
+            localStorage.removeItem(key);
+            localStorage.removeItem(expiresPrefix + key);
+        }
+        catch(err){
+
+        }
+    }
+
+
+    function get(key){
+        var result = noResultDefaultValue;
+
+        if (!enabled || !key || key == "")
+            return result;
+
+        var expires = localStorage[expiresPrefix + key];
+
+        if (!expires || isNaN(expires))
+            return result;
+
+        expires = parseInt(expires,10);
+        var now = new Date().getTime();
+
+        if (now > expires){
+            clear(key);
+            return result;
+        }
+
+        result = localStorage[key];
+
+        return result;
+    }
+
+    init();
+
+    return {
+        isEnabled: isEnabled,
+        set: set,
+        get: get,
+        clear: clear,
+        noResultDefaultValue: noResultDefaultValue
+    };
+
+}();;
+        var messaging = (function(){
+    var messageTypes = {
+        readyData: 'hey_data_rdy' ,readyUI: 'hey_ui_rdy' ,initiatedUI: 'hey_ui_init',loadedUI: 'hey_ui_loaded',getBasicInfo: 'hey_basic_info',getPageComments:'hey_gpc', getSubComments:'hey_gsc',requestPageComments: 'hey_rpc', requestSubComments: 'hey_rsc' , getData:'hey_gd', writeData:'hey_wd', displayComments: 'hey_dc', appState: 'hey_as', reportLike:'hey_rl', reportDislike:'hey_rdl', dataReceived: 'hey_dr', sendEvent: 'send_event', setPageId: 'hey_sp', setNumberOfComments: 'hey_snoc', passPageText: 'hey_spt', commentShared: 'hey_share', addCommentDisplayed: 'hey_acd', setNumberOfDisplayedComments: "hey_smodc", scrollToPoint: "hey_stp", setHeadlineText: "hey_sht", sug: 'hey_sug', userLoggedIn: 'hey_uli', userLoggedOut: 'hey_ulo', commentFlagged: 'hey_clg', setLanguage: 'hey_sl', loginSuccess: 'hey_ls', scrollToVideoTop: 'hey_stvt', setHeyoyaDivOverflow: 'hey_shdo', windowResize: 'hey_winr', ajaxPageChange: 'hey_apg', setPageTitle: 'hey_spt',
+
+        uiAlive: 'hey_uial', commentPostedSuccessfully: 'hey_cps', recordWithIOSApplication: 'hey_rwia', IOSLinkAdd: 'hey_aiosl', IOSLinkResend: 'hey_rsdosl', IOSLinkRemoveAll: 'hey_ralliosl', setUIWidth: "hey_suiw",
+
+        //placement data
+        placementPlacedDone: 'hey_po_ppd', placementSelected: 'hey_po_ps', placementMarkSelected: 'hey_po_pms', hideRecordingBars: 'hey_hd_brs', showRecordingBars: 'hey_sw_brs',
+
+        //admin color & text changes
+        adminSetTitleTextColor: 'hey_ui_astc', adminSetTitleBackgroundColor: 'hey_ui_astbc', adminSetTitle: 'hey_ui_ast', adminSetMainColor: 'hey_ui_asmc', adminSetLogo: 'hey_ui_aslg', adminShowHeadline: 'hey_ui_ash', adminShowDemoData: 'hey_ui_asdd', adminSetLanguage: 'hey_ui_asl',
+  adminSetRecordingTime: 'hey_ui_rt',  adminWidgetWidth: 'hey_ui_wd',setWidth: 'hey_width',
+        adminShowMainAddCommentHeadline: 'hey_ui_smachd', adminShowReplyAddCommentHeadline: 'hey_ui_srachd', adminSetMainAddCommentHeadlineText: 'hey_ui_smacht', adminSetReplyAddCommentHeadlineText: 'hey_ui_sracht', adminSetSubAddCommentHeadlineText: 'hey_ui_ssacht', adminSetRecordingButtonsColor: 'hey_ui_srbc', adminSetFonts: 'hey_ui_sf', adminShowSubAddCommentHeadline: 'hey_ui_ssachd', adminShowReplySubAddCommentHeadline: 'hey_ui_srsachd', adminSetReplySubAddCommentHeadlineText: 'hey_ui_srsacht', adminSetLinksColor: 'hey_ui_slc', adminSetCardsColor: 'hey_ui_scc', adminSetTextColor: 'hey_ui_stc', adminSetButtonsColor: 'hey_ui_sbc',
+
+        //SDK
+        sdkEnabled: 'hey_sdk', sdkRecorderStateChanged: 'hey_sdk_rsc', sdkRecorderEventChanged: 'hey_sdk_rec', sdkUpdateUserInfo: 'hey_sdk_uui', sdkLoginSuccess: 'hey_sdk_ls', sdkCommentShared: 'hey_sdk_cs', sdkCopyToClipboard: 'hey_sdk_ctc',
+        sdkStartRecording: 'hey_sdk_sr', sdkStopRecording: 'hey_sdk_str', sdkPauseRecording: 'hey_sdk_pr', sdkResetRecording: 'hey_sdk_rr', sdkPlayRecording: 'hey_sdk_plr', sdkStopPlayRecording: 'hey_sdk_spr', sdkPausePlayRecording: 'hey_sdk_ppr',
+        sdkPlayExternalFile: 'hey_sdk_pef', sdkStopPlayExternalFile: 'hey_sdk_spef', sdkPausePlayExternalFile: 'hey_sdk_ppef',
+        sdkLoginUser: 'hey_sdk_lu', sdkPostComment: 'hey_sdk_pc',
+
+        sendToWixHive: 'hey_wx_sth', sendWixHiveResponseSuccess: 'hey_wx_shrs', sendWixHiveResponseError: 'hey_wx_shre', wixHiveReportingClearPage: 'hey_wx_rcp', wixSetPageUrl: 'hey_wx_spu', wixOpenModal: 'hey_wx_om',
+ wixPublishStore: 'hey_wx_pb',
+	newCommentFromRecordingUI: 'hey_ncfri', updateNewCommentFromRecordingUI: 'hey_uncfri', removeNewCommentFromRecordingUI: 'hey_rncfri', dataGetInfo: 'hey_glsd', dataMultiGetInfo: 'hey_mglsd', dataWriteInfo: 'hey_wlsd', dataClearInfo: 'hey_clsd'
+    };
+    var messageDestinations = {data: null ,ui:null};
+    var betweenDelimiter = "hey1234hey";
+    var dataSurroundDelimiter = "heydAtA";
+    var targetWindow = null;
+    var callbacksArray = null;
+    var messageId;
+    var windowCallbacksArray;
+
+    function init(defaultCallbackFunction, dataDestinationObj, uiDestinationObj, defaultTargetWindow){
+        windowCallbacksArray = [];
+        if (Object.prototype.toString.call( window.heymsgcbwarp ) === '[object Function]' )
+            windowCallbacksArray.push(window.heymsgcbwarp);
+
+        window.heymsgcbwarp = _callbackFunction;
+
+        if (Object.prototype.toString.call( defaultCallbackFunction ) === '[object Function]' )
+            windowCallbacksArray.push(defaultCallbackFunction);
+
+        if (defaultTargetWindow != undefined)
+            targetWindow = defaultTargetWindow;
+
+
+        if (dataDestinationObj != null)
+            messageDestinations.data = dataDestinationObj;
+
+        if (uiDestinationObj != null)
+            messageDestinations.ui = uiDestinationObj;
+
+        callbacksArray = new Array();
+        messageId = 0;
+
+        messagingUtil.init(this.gotMessage);
+    }
+
+    function gotMessage(message){
+        if (window.heymsgcbwarp== null || message == undefined || message == "" || message.indexOf == undefined || message.indexOf(betweenDelimiter) == -1)
+            return;
+
+        var messageArray = message.split(betweenDelimiter);
+
+        var messageId = messageArray[0];
+        var messageType = messageArray[1];
+
+        if (!isValidMessageType(messageType))
+            return;
+
+        messageArray.splice(0,2);
+
+
+        var callback = getCallbackFromArray(messageId);
+        if (callback != -1){
+            removeFromCallbacksArray(messageId);
+            callback(messageType,messageArray);
+        }
+        else
+            window.heymsgcbwarp(messageId,messageType,messageArray);
+
+    }
+
+
+    function postMessage(messageId,messageType,messageArray, callbackFunction, destination){
+        if ( (targetWindow == null && destination == undefined) || messageType == undefined || messageType == "" || !isValidMessageType(messageType) || messageArray == undefined || messageArray == "")
+            return;
+
+        if (callbackFunction == undefined)
+            callbackFunction = -1;
+
+        var requestMessageId;
+        if (messageId == null)
+            requestMessageId = addToCallbacksArray(callbackFunction);
+        else
+            requestMessageId = messageId;
+
+        var message = requestMessageId.toString().concat(betweenDelimiter,messageType,betweenDelimiter);
+
+        if (!(Object.prototype.toString.call( messageArray ) === '[object Array]' )){
+            message = message.concat(messageArray.toString(),betweenDelimiter);
+        }
+        else{
+            for (data in messageArray){
+                if (isNaN(data))
+                    continue;
+
+                message = message.concat(messageArray[data].toString(),betweenDelimiter);
+            }
+        }
+
+        message = message.substring(0,message.length-betweenDelimiter.length);
+
+        if (destination != undefined)
+            messagingUtil.postMessage(destination,message);
+        else
+            messagingUtil.postMessage(targetWindow,message);
+
+    }
+
+
+    function isValidMessageType(messageType){
+        var isValid = false;
+
+        for (type in messageTypes){
+            if (messageTypes[type] == messageType){
+                isValid = true;
+                break;
+            }
+        }
+
+        return isValid;
+    }
+
+    function getNextMessageId(){
+        var newMessageId = ++messageId;
+        return newMessageId;
+    }
+
+    function addToCallbacksArray(callbackFunction){
+        var messageId = "hey" + getNextMessageId();
+        callbacksArray[messageId] = callbackFunction;
+        return messageId;
+    }
+
+    function getCallbackFromArray(messageId){
+        var callback = -1;
+
+        if (callbacksArray[messageId] != undefined)
+            callback = callbacksArray[messageId];
+
+        return callback;
+
+    }
+
+    function removeFromCallbacksArray(messageId){
+        if (callbacksArray[messageId] != undefined)
+            callbacksArray = callbacksArray.splice(messageId,1);
+
+    }
+
+    function _callbackFunction(messageId,messageType,messageArray){
+        var callbacksLength = windowCallbacksArray.length;
+        if (callbacksLength == 0)
+            return;
+
+        for(var callbacksIterator = 0; callbacksIterator < callbacksLength; callbacksIterator++){
+            windowCallbacksArray[callbacksIterator](messageId,messageType,messageArray);
+        }
+    }
+
+    return {
+        init: init,
+        postMessage: postMessage,
+        gotMessage:gotMessage,
+        messageTypes: messageTypes,
+        betweenDelimiter: betweenDelimiter,
+        messageDestinations: messageDestinations,
+        isValidMessageType: isValidMessageType
+
+
+
+    };
+
+
+
+}());
+
+
+var messagingUtil = messagingUtil = (function(){
+    var getMessageCallbackFunction;
+
+    function init(clb){
+        getMessageCallbackFunction = clb;
+
+        if (!(Object.prototype.toString.call( window.heymsgul ) === '[object Undefined]' ))
+            return;
+
+        window.heymsgul = 1;
+
+        if( window.addEventListener ){
+            window.addEventListener("message", this.gotMessage, false );
+        }else{
+            window.attachEvent('onmessage', this.gotMessage );
+        }
+    }
+
+
+    function postMessage(targetWindow, message ){
+        targetWindow.postMessage( message, "*" );
+    }
+
+    function gotMessage(event){
+        if(getMessageCallbackFunction && typeof getMessageCallbackFunction == "function") {
+            getMessageCallbackFunction(event.data);
+        }
+    }
+
+    function dispose(){
+        getMessageCallbackFunction = undefined;
+
+        if( window.removeEventListener ){
+            window.removeEventListener("message", this.gotMessage, false );
+        }else{
+            if (window.detachEvent) {
+                window.detachEvent ('onmessage', this.gotMessage );
+            }
+        }
+    }
+
+
+    return {
+        init: init,
+        dispose: dispose,
+        postMessage: postMessage,
+        gotMessage:gotMessage
+    };
+}());;
+if (window.heyoya)
+    window.heyoya.messagingUtil = messagingUtil;
+;
+        var JSONLib = json_stringify = function(){
+    var $;
+
+    function init(jQueryLibRef){
+        $ = jQueryLibRef;
+
+    }
+
+    function toString(obj){
+        if (!$ || obj == undefined || obj == "")
+            return "error";
+
+        if(typeof JSON != "undefined" && JSON.stringify){
+            return JSON.stringify(obj);
+        }
+        else {
+            var arr = [];
+            $.each(obj, function(key, val) {
+                var next = "\""+key + "\" : ";
+                next += $.isPlainObject(val) ? toString(val) : "\""+val+"\"";
+                arr.push( next );
+            });
+            return "{ " +  arr.join(", ") + " }";
+        };
+    }
+
+
+    return {
+        init: init,
+        toString: toString
+    };
+
+}();
+;
+        var UUID = /**
+ * Created with IntelliJ IDEA.
+ * User: idan
+ * Date: 8/4/13
+ * Time: 11:01 PM
+ * To change this template use File | Settings | File Templates.
+ */
+UUID = function(){
+
+    function create(){
+        var s = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx';
+        var n = s.replace(/[xy]/g, function(c) {
+            var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+            return v.toString(16);
+        });
+        return n;
+    }
+
+
+    return {
+        create: create
+    };
+
+}();
+;
+        var querystringLib = querystring = function(){
+
+    function extract(querystring){
+        var qsResult = {};
+
+        if (!querystring)
+            return qsResult;
+
+        querystring.replace(
+            new RegExp("([^?=&]+)(=([^&]*))?", "g"),
+            function($0, $1, $2, $3)
+            {
+                if ($3 != undefined && $3 != null && $1 != undefined && $1 != null){
+                    try {
+                        qsResult[$1] = decodeURIComponent($3);
+                    }
+                    catch(err){
+
+                    }
+
+                }
+            }
+        );
+
+        return qsResult;
+    }
+
+
+    return {
+        extract: extract
+    };
+
+}();;
+        var statistics = statistics = (function(){
+    var sessionId = null;
+    var guestId = null;
+    var userId = null;
+    var userString = null;
+    var testGroup = null;
+    var userStation = null;
+    var UUIDLib = null;
+    var baseUrl = null;
+    var reportActionUrl = null;
+    var pageUrl = null;
+    var affiliateId = "heyoya";
+    var initiated = false;
+    var pendingReports = [];
+
+    function init(UUIDLibRef, baseUrlValue, reportActionUrlValue, guestIdValue, sessionIdValue, pageUrlValue, affiliateIdValue, userIdValue, userStringValue, testGroupValue, userStationValue){
+        if (UUIDLibRef)
+            UUIDLib = UUIDLibRef;
+
+        if (baseUrlValue)
+            baseUrl = baseUrlValue;
+
+        if (reportActionUrlValue)
+            reportActionUrl = reportActionUrlValue;
+
+        if (userIdValue)
+            userId = userIdValue;
+
+        if (guestIdValue)
+            guestId = guestIdValue;
+
+        if (sessionIdValue)
+            sessionId = sessionIdValue;
+        else if (UUIDLibRef)
+            sessionId = UUIDLib.create();
+
+        if (pageUrlValue)
+            pageUrl = encodeURIComponent(pageUrlValue);
+
+        if (affiliateIdValue)
+            affiliateId = affiliateIdValue;
+
+        if (userStringValue)
+            userString = userStringValue;
+
+        if (!isNaN(testGroupValue))
+            testGroup = testGroupValue;
+        else
+            testGroup = -1;
+
+        if (userStationValue)
+            userStation = userStationValue;
+
+        if (baseUrl && reportActionUrl){
+            var baseUrlIndex = baseUrl.lastIndexOf("/");
+            var reportUrlIndex = reportActionUrl.indexOf("/");
+
+            if (baseUrlIndex !== (baseUrl.length-1) && reportUrlIndex !== 0)
+                baseUrl += "/";
+            else if (baseUrlIndex === (baseUrl.length-1) && reportUrlIndex === 0)
+                reportActionUrl = reportActionUrl.substring(1);
+
+            reportActionUrl = baseUrl + reportActionUrl;
+        }
+
+        initiated = true;
+        reportBacklog();
+    }
+
+    function reportBacklog(){
+        var backlogLength = pendingReports.length;
+        for(var reportIterator=0; reportIterator < backlogLength; reportIterator++){
+            report(pendingReports[reportIterator].action, pendingReports[reportIterator].additionalParameters);
+        }
+
+        pendingReports = [];
+    }
+
+    function canReport(){
+        if (!UUIDLib || !sessionId || !reportActionUrl || !pageUrl)
+            return false;
+
+        return true;
+    }
+
+    function report(actionName, additionalParameters){
+        if (!initiated && actionName){
+            var pendingRequest = {};
+            pendingRequest.action = actionName;
+            pendingRequest.additionalParameters = additionalParameters;
+            pendingReports.push(pendingRequest);
+            return true;
+        }
+
+        if (!canReport || !actionName || Object.prototype.toString.call( actionName ) !== "[object String]" )
+            return false;
+
+
+
+        var reportUrl = reportActionUrl;
+        reportUrl += "?action=" + actionName;
+        reportUrl += "&sessionId=" + sessionId;
+
+        if (guestId)
+            reportUrl += "&userId=" + guestId;
+
+        reportUrl += "&pageUrl=" + pageUrl;
+        reportUrl += "&affiliateId=" + affiliateId;
+        reportUrl += "&tg=" + testGroup;
+
+        reportUrl += stringifyAdditionalParameters(additionalParameters);
+
+        var oImg=document.createElement("img");
+        oImg.setAttribute('src', reportUrl + '&r1=' + Math.random() + "&r2=" + Math.random() );
+        oImg.setAttribute('width', '1px');
+        oImg.setAttribute('height', '1px');
+
+        var appendObject = document.getElementById("imageContainer");
+        if (appendObject == null){
+            oImg.setAttribute('style', 'position: absolute;top: -30000px;');
+            appendObject = document.body;
+	}
+
+        appendObject.appendChild(oImg);
+
+        return true;
+    }
+
+    function stringifyAdditionalParameters(additionalParameters){
+        if (!additionalParameters || Object.prototype.toString.call( additionalParameters ) !== "[object Object]")
+            return "";
+
+        var resultString = "";
+        for (paramName in additionalParameters){
+            if (additionalParameters[paramName] == undefined || additionalParameters[paramName] == null)
+                continue;
+
+            resultString += "&" + paramName + "=" + encodeURIComponent(additionalParameters[paramName]);
+        }
+
+        return resultString;
+    }
+
+    function setGuestId(guestIdValue){
+        guestId = guestIdValue;
+    }
+
+    function setUserId(userIdValue){
+        userId = userIdValue;
+    }
+
+    function setUserString(userStringValue){
+        userString = userStringValue;
+    }
+
+    function setPageUrl(pageUrlValue){
+        pageUrl = pageUrlValue;
+    }
+
+    function setTestGroup(testGroupValue){
+        testGroup = testGroupValue;
+    }
+
+    function setUserStation(userStationValue){
+        userStation = userStationValue;
+    }
+
+    function getUserId(){
+        return userId;
+    }
+
+    function getUserString(){
+        return userString;
+    }
+
+    function getGuestId(){
+        return guestId;
+    }
+
+    function getSessionId(){
+        return sessionId;
+    }
+
+    function getPageUrl(){
+        var pageUrlDecodedUrl;
+
+        try{
+            pageUrlDecodedUrl = decodeURIComponent(pageUrl);
+        } catch(err){
+            pageUrlDecodedUrl = unescape(pageUrl);
+        }
+        return pageUrlDecodedUrl
+    }
+
+    function getAffiliateId(){
+        return affiliateId;
+    }
+
+    function getTestGroup(){
+        return testGroup;
+    }
+
+    function getUserStation(){
+        return userStation;
+    }
+
+    return{
+        init: init,
+        canReport: canReport,
+        report: report,
+        setUserId: setUserId,
+        setUserString: setUserString,
+        setGuestId: setGuestId,
+        setPageUrl: setPageUrl,
+        setTestGroup: setTestGroup,
+        setUserStation: setUserStation,
+        getUserId: getUserId,
+        getUserString: getUserString,
+        getGuestId: getGuestId,
+        getSessionId: getSessionId,
+        getPageUrl: getPageUrl,
+        getAffiliateId: getAffiliateId,
+        getTestGroup: getTestGroup,
+        getUserStation: getUserStation
+    };
+})();
+;
+        var errorService = errorService = function(){
+    var statisticsService, googleAnalyticsService, stringifyUtility;
+    function init(statisticsServiceObj, googleAnalyticsObj, stringifyUtilityObj){
+        statisticsService = statisticsServiceObj;
+        googleAnalyticsService = googleAnalyticsObj;
+        stringifyUtility = stringifyUtilityObj;
+    }
+
+    function reportOnError(msg, url, line, col, error){
+        var additionalParameters = {};
+
+        if (msg != undefined && msg != null && ( Object.prototype.toString.call( msg ) === "[object ErrorEvent]" || Object.prototype.toString.call( msg ) === "[object Event]" )){
+            if (msg.message)
+                additionalParameters.errorMessage = msg.message;
+
+            if (msg.filename)
+                additionalParameters.errorUrl = msg.filename ;
+
+            if (msg.lineno)
+                additionalParameters.errorLine = msg.lineno ;
+
+            if (msg.colno)
+                additionalParameters.errorColumn = msg.colno ;
+
+            if (msg.error)
+                additionalParameters.error = msg.error;
+        } else {
+
+            if (msg)
+                additionalParameters.errorMessage = msg;
+
+            if (url)
+                additionalParameters.errorUrl = url;
+
+            if (line)
+                additionalParameters.errorLine = line;
+
+            if (col)
+                additionalParameters.errorColumn = col;
+
+            if (error)
+                additionalParameters.error = error;
+        }
+
+        if (additionalParameters.errorMessage && (additionalParameters.errorMessage.toLowerCase() == "script error." || additionalParameters.errorMessage.toLowerCase() == "script error") && !additionalParameters.errorUrl)
+            return;
+
+        statisticsService.report("ClientError", additionalParameters);
+
+        // If you return true, then error alerts (like in older versions of
+        // Internet Explorer) will be suppressed.
+        return true;
+    }
+
+    function reportError(channelName,eventName, eventText){
+        var additionalParameters = {};
+
+        if (eventText){
+            if (typeof(eventText) == "string")
+                additionalParameters.errorMessage = eventText;
+            else
+                additionalParameters.errorMessage = stringifyUtility.toString(eventText);
+        }
+
+        statisticsService.report(eventName, additionalParameters);
+
+        googleAnalyticsService.push(['_trackEvent', channelName, eventName, eventText]);
+
+    }
+    return {
+        init: init,
+        reportOnError:reportOnError,
+        reportError: reportError
+    };
+}();
+;
+
+        function messagingInit(){
+            messaging.init(messagingCallback,null,null, window.parent);
+        }
+
+        function messagingCallback(messageId,messageType, paramsArray){
+
+            if (messageType == undefined || messageType == "" || !messaging.isValidMessageType(messageType) || paramsArray == undefined || paramsArray == "" || !(Object.prototype.toString.call( paramsArray ) === '[object Array]' ) || paramsArray.length == 0)
+                return;
+
+            var resultArray = new Array();
+
+            switch (messageType){
+                case messaging.messageTypes.getPageComments:
+                    var requestArray = [];
+                    requestArray.messageId = messageId;
+                    requestArray.pageUrl = paramsArray[0];
+                    requestArray.pageTitle = paramsArray[1];
+                    requestArray.sortType = paramsArray[2];
+                    requestArray.pageNumber = paramsArray[3];
+                    requestArray.commentId = paramsArray[4];
+                    requestArray.loadMore = paramsArray[5];
+                    requestArray.pageId = paramsArray[6];
+
+                    getPageComments(requestArray);
+                    break;
+
+                case messaging.messageTypes.requestSubComments:
+                    var requestArray = [];
+                    requestArray.messageId = messageId;
+                    requestArray.parentCommentId = paramsArray[0];
+
+                    getSubComments(requestArray);
+                    break;
+
+                case messaging.messageTypes.getData:
+                    readFromLocalStorage(paramsArray[0], function(returnValue){
+                        messaging.postMessage(messageId, messaging.messageTypes.dataReceived, returnValue);
+                    });
+
+                    break;
+
+                case messaging.messageTypes.writeData:
+                    if (paramsArray.length < 3)
+                        break;
+
+                    writeToLocalStorage(paramsArray[0],paramsArray[1],paramsArray[2]);
+
+                    messaging.postMessage(messageId, messageType,paramsArray[0]);
+
+                    break;
+
+                case messaging.messageTypes.reportDislike:
+                case messaging.messageTypes.reportLike:
+                    reportLike(messageType,paramsArray[0]);
+                    break;
+
+                case messaging.messageTypes.setPageId:
+                    params.pageId = paramsArray[0];
+                    break;
+
+
+                case messaging.messageTypes.getBasicInfo:
+                    setBasicInfo(paramsArray[1], paramsArray[0], paramsArray[2], paramsArray[3], paramsArray[4], paramsArray[5]);
+                    break;
+
+                case messaging.messageTypes.commentShared:
+                    commentShared(paramsArray[0], paramsArray[1], paramsArray[2]);
+                    break;
+
+                case messaging.messageTypes.sug:
+                    sug(paramsArray[0], paramsArray[1]);
+                    break;
+
+                case messaging.messageTypes.userLoggedIn:
+                    setUserData(paramsArray[0], paramsArray[1]);
+                    break;
+
+                case messaging.messageTypes.userLoggedOut:
+                    clearUserData();
+                    break;
+
+                case messaging.messageTypes.commentFlagged:
+                    reportComment(paramsArray[0], paramsArray[1], paramsArray[2], paramsArray[3], paramsArray[4], paramsArray[5]);
+                    break;
+
+
+                case messaging.messageTypes.sdkUpdateUserInfo:
+                    sdkUpdatedUserInfo(paramsArray[0], paramsArray[1]);
+                    break;
+
+                case messaging.messageTypes.dataGetInfo:
+                    var responseArray = paramsArray[0].split(params.localStorage.localStorageRequestDelimiter);
+                    if (responseArray < 2 || isNaN(responseArray[0]))
+                            return;
+
+                    var callback = params.localStorage.callbacksMappingArray[parseInt(responseArray[0], 10)];
+                    if (callback == undefined || typeof callback != "function")
+                            return;
+
+                    callback(responseArray[1]);
+                    break;
+
+                case messaging.messageTypes.dataMultiGetInfo:
+                    var responseArray = paramsArray[0].split(params.localStorage.localStorageRequestDelimiter);
+                    if (responseArray < 2 || isNaN(responseArray[0]))
+                            return;
+
+                    var callback = params.localStorage.callbacksMappingArray[parseInt(responseArray[0], 10)];
+                    if (callback == undefined || typeof callback != "function")
+                            return;
+
+                    var responseObj;
+                    try{
+                        responseObj = $.parseJSON(responseArray[1]);
+                    } catch (err){
+                        responseObj = null;
+                    }
+
+                    callback(responseObj);
+                    break;
+
+            }
+
+        }
+
+        function reportLike(messageType,commentId){
+            if (params.pageId == null || !commentId)
+                return;
+
+            readFromLocalStorage(params.cookies.likeCookieName + commentId, function(returnValue){
+                reportLikeCallback(messageType,commentId, returnValue);
+            });
+        }
+
+        function reportLikeCallback(messageType,commentId, storageResult){
+            if (storageResult != userStorageLib.noResultDefaultValue || params.pageId == null)
+                return;
+
+            writeToLocalStorage(params.cookies.likeCookieName + commentId,"1",params.cookies.likeVoteDuration);
+
+            var requestUrl;
+            if (messageType == messaging.messageTypes.reportLike)
+                requestUrl = params.urls.likeUrl;
+            else
+                requestUrl = params.urls.dislikeUrl;
+
+
+//            $.ajax({
+//                url: params.urls.receiverUrl + requestUrl,
+//                cache: "false",
+//                data:{
+//                    commentId: commentId,
+//                    pageId: params.pageId,
+//                    userId: params.guestId,
+//                    sessionId: params.sessionId,
+//                    affiliateId: params.affiliateId,
+//                    pageUrl: params.pageUrl
+//                }
+//            });
+
+            $.getJSON(params.urls.receiverUrl + requestUrl + "?jsoncallback=?",{
+                commentId: commentId,
+                pageId: params.pageId,
+                userId: params.guestId,
+                sessionId: params.sessionId,
+                affiliateId: params.affiliateId,
+                pageUrl: params.pageUrl
+            });
+        }
+
+        function reportComment(commentId, reporterName, reporterEmail, reportType, reporterComment, storeId){
+            if (!commentId || !reporterName || !reporterEmail || !reporterComment || !reportType)
+                return;
+
+            readFromLocalStorage(params.cookies.reportCommentCookieName + commentId, function(returnValue){
+                reportCommentCallback(commentId, reporterName, reporterEmail, reportType, reporterComment, returnValue, storeId)
+            });
+        }
+
+        function reportCommentCallback(commentId, reporterName, reporterEmail, reportType, reporterComment, hasUserReportedCommentBefore, storeId){
+            if (hasUserReportedCommentBefore != userStorageLib.noResultDefaultValue || params.pageId == null || !commentId || !reporterName || !reporterEmail || !reporterComment || !reportType)
+                return;
+
+            writeToLocalStorage(params.cookies.reportCommentCookieName + commentId,"1",params.cookies.reportCommentDuration);
+
+            $.getJSON(params.urls.receiverUrl + params.urls.reportUrl + "?jsoncallback=?",{
+                pageId: params.pageId,
+                commentId: commentId,
+                userFullName: reporterName,
+                userEmail: reporterEmail,
+                userRemarks: reporterComment,
+                abuseType: reportType,
+                userId: params.guestId,
+                sessionId: params.sessionId,
+                affiliateId: params.affiliateId,
+                pageUrl: params.pageUrl,
+                storeId: storeId
+            });
+        }
+
+        function commentShared(commentId, pageId, shareType){
+            if (!commentId || !pageId || !shareType || commentId <= 0 || pageId <= 0 || shareType <= 0 || shareType > 2)
+                return;
+
+//            $.ajax({
+//                url: params.urls.receiverUrl + params.urls.shareUrl,
+//                cache: "false",
+//                data:{
+//                    commentId: commentId,
+//                    pageId: params.pageId,
+//                    shareType: shareType
+//                }
+//            });
+
+            $.getJSON(params.urls.receiverUrl + params.urls.shareUrl + "?jsoncallback=?",{
+                commentId: commentId,
+                pageId: params.pageId,
+                shareType: shareType
+            });
+        }
+
+        function getPageComments(requestParameters){
+            if (requestParameters == undefined ||
+                    requestParameters.pageUrl == undefined || requestParameters.pageUrl == ""){
+
+                messaging.postMessage(requestParameters.messageId, messaging.messageTypes.getPageComments,params.errorTemplates.noData);
+                return;
+            }
+
+            if (requestParameters.pageTitle == undefined || requestParameters.pageTitle == "")
+                requestParameters.pageTitle = requestParameters.pageUrl;
+
+            var arrayKey = requestParameters.pageUrl + "**" + requestParameters.sortType;
+
+            var pageNumber = 1;
+            if (requestParameters.pageNumber != undefined && requestParameters.pageNumber != "")
+                pageNumber = parseInt(requestParameters.pageNumber);
+
+
+//            arrayKey += "**" + pageNumber;
+//
+//            if (params.requestsArray[arrayKey] != undefined && params.requestsArray[arrayKey] != "-1"){
+//                messaging.postMessage(requestParameters.messageId, messaging.messageTypes.getPageComments,params.requestsArray[arrayKey]);
+//                return;
+//            }
+
+            var sortTypeToSend = 1;
+            if (requestParameters.sortType != undefined && requestParameters.sortType != "")
+                sortTypeToSend = requestParameters.sortType;
+
+
+//            var timestamp = new Date();
+//            var utcTimestamp = new Date(timestamp.getUTCFullYear() + "/" + (timestamp.getUTCMonth()+1) + "/" + timestamp.getUTCDate() + " " + timestamp.getUTCHours() + ":" + timestamp.getUTCMinutes());
+
+            $.ajax({
+		url: params.urls.receiverStaticUrl.replace("https://", "//") + params.urls.getByUrl,
+                jsonpCallback : "getCommentsCallback",
+                dataType: "jsonp",
+                cache: true,
+                data: {
+                    pageUrl: requestParameters.pageUrl,
+                    pageTitle: requestParameters.pageTitle,
+		    pageId: requestParameters.pageId?requestParameters.pageId:0,
+                    sortType: sortTypeToSend,
+                    pageNumber: pageNumber,
+//                    timestamp: utcTimestamp.getTime(),
+                    affiliateId: params.affiliateId,
+                    commentId: (requestParameters.commentId?requestParameters.commentId:-1),
+                    loadMore: (requestParameters.loadMore?requestParameters.loadMore:-1),
+                    c: 2
+
+                },
+                success: function( result ) {
+                    var resultData = params.errorTemplates.defaultM;
+
+                    var commentsWithPage = result;
+                    if (commentsWithPage != null){
+                        if (commentsWithPage.page && commentsWithPage.page.id)
+                            params.pageId = commentsWithPage.page.id;
+
+                        resultData = JSONLib.toString(commentsWithPage);
+                    }
+
+                    messaging.postMessage(requestParameters.messageId, messaging.messageTypes.getPageComments,resultData);
+
+
+                },
+                error: function(){
+                    messaging.postMessage(requestParameters.messageId, messaging.messageTypes.getPageComments,params.errorTemplates.defaultM);
+                }
+
+            });
+
+
+//            $.ajax({
+//                url: params.urls.receiverUrl + params.urls.getByUrl,
+//                accepts: "json",
+//                cache: "false",
+//                data:{
+//                    pageUrl: requestParameters.pageUrl,
+//                    pageTitle: requestParameters.pageTitle,
+//                    pageId: 0,
+//                    sortType: sortTypeToSend,
+//                    pageNumber: pageNumber,
+//                    t: (new Date().getTime() * 10000) + 621355968000000000,
+//                    userId: params.guestId,
+//                    sessionId: params.sessionId,
+//                    affiliateId: params.affiliateId
+//                },
+//                dataType: "html"
+//            $.getJSON( + "?jsoncallback=getCommentsCallback",{
+//                    pageUrl: requestParameters.pageUrl,
+//                    pageTitle: requestParameters.pageTitle,
+//                    pageId: 0,
+//                    sortType: sortTypeToSend,
+//                    pageNumber: pageNumber,
+//                    t: (new Date().getTime() * 10000) + 621355968000000000,
+//                    userId: params.guestId,
+//                    sessionId: params.sessionId,
+//                    affiliateId: params.affiliateId,
+//                    commentId: (requestParameters.commentId?requestParameters.commentId:-1),
+//                    loadMore: (requestParameters.loadMore?requestParameters.loadMore:-1)
+//
+//                }
+//            ).done(function(result) {
+//                        params.lastRequestCommentsData = result;
+//                    })
+//              .fail(function() {
+//                        params.lastRequestCommentsData = params.errorTemplates.defaultM;
+//                    })
+//              .always(function() {
+////                        if (params.requestsArray[arrayKey] != undefined && params.requestsArray[arrayKey] != "-1")
+////                            return;
+//
+//                        var resultData = params.errorTemplates.defaultM;
+//
+//                        var commentsWithPage = params.lastRequestCommentsData;
+//
+//
+//                        if (commentsWithPage != null){
+//                            if (commentsWithPage.page && commentsWithPage.page.id)
+//                                params.pageId = commentsWithPage.page.id;
+//
+////                            params.requestsArray[arrayKey] = new Array();
+////                            params.requestsArray[arrayKey].dataString = params.lastRequestCommentsData;
+////                            params.requestsArray[arrayKey].dataObject = commentsWithPage.comments;
+//
+//                            resultData = JSONLib.toString(commentsWithPage);
+//                        }
+//
+//                        messaging.postMessage(requestParameters.messageId, messaging.messageTypes.getPageComments,resultData);
+//                    });
+        }
+
+        function getSubComments(requestParameters){
+            return;
+            var resultData = new Array();
+
+            if (requestParameters == undefined ||
+                    requestParameters.parentCommentId == undefined || requestParameters.parentCommentId == ""){
+
+                resultData.push(-1);
+                resultData.push(params.errorTemplates.noData);
+
+                messaging.postMessage(requestParameters.messageId, messaging.messageTypes.getSubComments,resultData);
+                return;
+            }
+
+            resultData.push(requestParameters.parentCommentId);
+
+            var arrayKey = "sub" + requestParameters.parentCommentId;
+
+
+            if (params.requestsArray[arrayKey] != undefined && params.requestsArray[arrayKey] != "-1"){
+                resultData.push(params.requestsArray[arrayKey]);
+
+                messaging.postMessage(requestParameters.messageId, messaging.messageTypes.getSubComments,resultData);
+                return;
+            }
+
+//            $.ajax({
+//                url: params.urls.receiverUrl + params.urls.getByParent,
+//                accepts: "jsonp",
+//                cache: "false",
+//                data:{
+//                    parentId: requestParameters.parentCommentId,
+//                    userId: params.guestId,
+//                    sessionId: params.sessionId,
+//                    affiliateId: params.affiliateId,
+//                    pageUrl: params.pageUrl
+//
+//
+//                },
+//                dataType: "html"
+            $.getJSON(params.urls.receiverUrl + params.urls.getByParent + "?jsoncallback=?",{
+                    parentId: requestParameters.parentCommentId,
+                    userId: params.guestId,
+                    sessionId: params.sessionId,
+                    affiliateId: params.affiliateId,
+                    pageUrl: params.pageUrl
+            }).done(function(result) {
+                        params.lastRequestSubCommentsData = result;
+                    })
+                    .fail(function() {
+                        params.lastRequestSubCommentsData = params.errorTemplates.defaultM;
+                    })
+                    .always(function() {
+                        if (params.requestsArray[arrayKey] != undefined && params.requestsArray[arrayKey] != "-1")
+                            return;
+
+
+                        var comments = params.lastRequestSubCommentsData;
+
+
+                        if (comments != null){
+                            params.requestsArray[arrayKey] = new Array();
+                            params.requestsArray[arrayKey].dataString = params.lastRequestSubCommentsData;
+                            params.requestsArray[arrayKey].dataObject = comments;
+
+                            resultData.push(params.requestsArray[arrayKey].dataString);
+                        }
+                        else
+                            resultData.push(params.errorTemplates.noData);
+
+
+                        messaging.postMessage(requestParameters.messageId, messaging.messageTypes.getSubComments, resultData);
+                    });
+        }
+
+        function sendReadyDataToHost(){
+            var keys = [];
+            keys.push(params.cookies.guestIdCookieName);
+            keys.push(params.cookies.userIdCookieName);
+            keys.push(params.cookies.userDataStringCookieName);
+            keys.push(params.cookies.testGroupCookieName);
+            keys.push(params.cookies.userStationCookieName);
+            keys.push(params.cookies.heyTermsCookieName);
+
+            readMultipleKeysFromLocalStorage(keys, function(responseArray){
+                sendReadyDataToHostCallback(responseArray);
+            });
+        }
+
+        function sendReadyDataToHostCallback(valuesArray){
+            var readyData = [];
+            var guestId = !params.querystring.guestId? userStorageLib.noResultDefaultValue : params.querystring.guestId;
+            params.testGroup = params.querystring.tg && !isNaN(params.querystring.tg)? parseInt(params.querystring.tg, 10): -1;
+
+            if (valuesArray){
+                if (guestId == userStorageLib.noResultDefaultValue){
+                    var result = valuesArray[params.cookies.guestIdCookieName];
+                    if (result != userStorageLib.noResultDefaultValue)
+                        guestId = result;
+                    else {
+                        guestId = generateGuestId();
+                        writeToLocalStorage(params.cookies.guestIdCookieName, guestId, params.cookies.userIdDuration);
+                    }
+                }
+                    params.uat = valuesArray[params.cookies.heyTermsCookieName]
+                    if(params.uat == userStorageLib.noResultDefaultValue){
+                        clearUserData();
+                        writeToLocalStorage(params.cookies.heyTermsCookieName, 1, params.cookies.heyTermsDuration);
+                    } else {
+    
+                	if (!params.userId){
+        	            var userIdResult = valuesArray[params.cookies.userIdCookieName];
+	                    if (userIdResult != userStorageLib.noResultDefaultValue)
+                        	params.userId = userIdResult;
+	                }	
+
+                	if (params.userId){
+        	            sug(params.userId, guestId);
+	                    params.userObj = valuesArray[params.cookies.userDataStringCookieName];
+                	    if (params.userObj == userStorageLib.noResultDefaultValue)
+        	                params.userObj = null;
+	                    else
+                        	writeToLocalStorage(params.cookies.userDataStringCookieName, params.userObj, params.cookies.userIdDuration);
+                	}
+                    }
+
+                if (params.testGroup == -1){
+                    params.testGroup = valuesArray[params.cookies.testGroupCookieName];
+                    if (params.testGroup == userStorageLib.noResultDefaultValue) {
+                        params.testGroup = Math.floor(Math.random() * 1000);
+                        writeToLocalStorage(params.cookies.testGroupCookieName, params.testGroup, params.cookies.testGroupCookieDuration);
+                    }
+                }
+
+                if (params.userStation == null) {
+                    params.userStation = valuesArray[params.cookies.userStationCookieName];
+                    if (params.userStation == userStorageLib.noResultDefaultValue) {
+                        params.userStation = UUID.create();
+                        writeToLocalStorage(params.cookies.userStationCookieName, params.userStation, params.cookies.userStationCookieDuration);
+                    }
+                }
+            }
+
+            if (params.userStation == null)
+                params.userStation = UUID.create();
+
+            readyData.push(guestId);
+            readyData.push(params.userId?params.userId:-1);
+            readyData.push(params.userObj?params.userObj:-1);
+            readyData.push(params.testGroup);
+            readyData.push(params.userStation);
+
+
+            params.guestId = guestId;
+            params.querystring.guestId = guestId;
+
+            messaging.postMessage(null, messaging.messageTypes.readyData, readyData);
+
+            if (!isNaN(params.userId) && params.userId > 0)
+                rut(params.userId, params.guestId);
+        }
+
+        function sug(uid, gid){
+            if (!uid || !gid)
+                return;
+
+            if (params.sugReports[uid.toString() + "-" + gid])
+                return;
+
+            params.sugReports[uid.toString() + "-" + gid] = true;
+
+            writeToLocalStorage(params.cookies.userIdCookieName, uid, params.cookies.userIdDuration);
+            writeToLocalStorage(params.cookies.guestIdCookieName, gid, params.cookies.userIdDuration);
+
+            $.getJSON(params.urls.receiverUrl + params.urls.sug + "?jsoncallback=?",{
+                uId: uid,
+                gId: gid
+            });
+        }
+
+        function rut(uid, gid){
+            if (!uid || isNaN(uid) || uid < 1)
+                return;
+
+            readFromLocalStorage(params.cookies.rutCookieName, function(returnValue){
+                if (returnValue == "1")
+                    return;
+
+                writeToLocalStorage(params.cookies.rutCookieName, 1, params.cookies.rutCookieDuration);
+
+                $.getJSON(params.urls.receiverUrl + params.urls.rut,{
+                    uId: uid,
+                    gId: gid
+                });
+
+
+            });
+
+        }
+
+        function setBasicInfo(guestId, userId, sessionId, pageUrl, affiliateId, userString){
+//            params.guestId = guestId;
+            params.sessionId = sessionId;
+            params.affiliateId = affiliateId;
+            params.pageUrl = pageUrl;
+
+            statistics.init(UUID, params.urls.receiverUrl, params.urls.statsActionUrl, guestId, sessionId, pageUrl, affiliateId, userId, userString);
+        }
+
+        function setUserData(userId, userString){
+            if (!userId || !userString){
+                clearUserData();
+                return;
+            }
+
+            writeToLocalStorage(params.cookies.userIdCookieName, userId, params.cookies.userIdDuration);
+            writeToLocalStorage(params.cookies.userDataStringCookieName, userString, params.cookies.userIdDuration);
+
+            params.userId = userId;
+
+            try{
+                params.userObj = $.parseJSON(userString);
+
+            } catch(err) {
+                params.userObj = null;
+            }
+
+            sug(userId, params.guestId);
+        }
+
+        function clearUserData(){
+            clearKeyLocalStorage(params.cookies.userIdCookieName);
+            clearKeyLocalStorage(params.cookies.userDataStringCookieName);
+
+            params.userId = null;
+            params.userObj = null;
+        }
+
+        function generateGuestId(){
+            return UUID.create();
+        }
+
+        function sdkUpdatedUserInfo(userId, userString){
+            setUserData(userId, userString);
+
+            statistics.setUserId(userId);
+            statistics.setUserString(userString);
+        }
+
+        function bodyReady() {
+            $(document).ready(function () {
+                JSONLib.init($);
+                errorService.init(statistics, null, JSONLib);
+
+                if (document.URL.indexOf("?") != -1)
+                    params.querystring = querystringLib.extract(document.URL.substring(document.URL.indexOf("?")));
+
+                sendReadyDataToHost();
+
+                $(window).bind('beforeunload', function (e) {
+                    try {
+                        $.ajax({
+                                    url: params.urls.receiverStaticUrl + params.urls.statsActionUrl,
+                                    cache: "false",
+                                    type: "GET",
+                                    async: false,
+                                    data: {
+                                        "action": "applicationUnload",
+                                        "sessionId": params.sessionId,
+                                        "userId": params.guestId,
+                                        "pageUrl": params.pageUrl,
+                                        "affiliateId": params.affiliateId
+                                    }
+                                })
+                                .always(function (data) {
+                                    var message = "";
+                                    e.returnValue = message;
+                                    return message;
+                                });
+                    } catch (err) {
+
+                    }
+                });
+            });
+        }
+
+        function createSLSFrame(isRetry){
+            if (params.localStorage.localStorageFrameRetryNumber > 3) {
+                params.localStorage.shouldUseLocalStorageFrame = false;
+                bodyReady();
+                return;
+            }
+
+            var sif = document.createElement('iframe');
+            sif.setAttribute('id', 'sif');
+            sif.setAttribute('src', params.urls.receiverStaticUrl.replace("http://", "https://").replace("/receiver/","/b2b/") + "b2b_sls.html" + (isRetry?"?r=" + Math.random().toString(): ""));
+            internalAttachEvent(sif, "load", function(){ bodyReady();});
+            internalAttachEvent(sif, "error", function(){ params.localStorage.localStorageFrameRetryNumber++; createSLSFrame(true); });
+            document.body.appendChild(sif);
+        }
+
+        function readFromLocalStorage(key, callback) {
+            if (!callback || typeof callback != "function")
+                return;
+
+            if (!params.localStorage.shouldUseLocalStorageFrame) {
+                callback(userStorageLib.get(key));
+                return;
+            }
+
+
+            var message = params.localStorage.numberOfReadRequests.toString() + params.localStorage.localStorageRequestDelimiter + key;
+            params.localStorage.callbacksMappingArray[params.localStorage.numberOfReadRequests] = callback;
+            params.localStorage.numberOfReadRequests++
+
+            messaging.postMessage(null, messaging.messageTypes.dataGetInfo, message, null, document.getElementById("sif").contentWindow);
+        }
+
+        function readMultipleKeysFromLocalStorage(keysArray, callback) {
+            if (!callback || typeof callback != "function" || !keysArray || Object.prototype.toString.call( keysArray ) != '[object Array]' )
+                return;
+
+            if (!params.localStorage.shouldUseLocalStorageFrame) {
+                var responseArray = [];
+                $.each(keysArray, function(index){
+                    responseArray[keysArray[index]] = userStorageLib.get(keysArray[index]);
+                });
+
+                callback(responseArray);
+                return;
+            }
+
+            var keysString = "";
+            $.each(keysArray, function(index){
+                keysString += keysArray[index] + "heydAtA";
+            });
+            keysString = keysString.substring(0,keysString.length - 7);
+
+            var message = params.localStorage.numberOfReadRequests.toString() + params.localStorage.localStorageRequestDelimiter + keysString;
+            params.localStorage.callbacksMappingArray[params.localStorage.numberOfReadRequests] = callback;
+            params.localStorage.numberOfReadRequests++
+
+            messaging.postMessage(null, messaging.messageTypes.dataMultiGetInfo, message, null, document.getElementById("sif").contentWindow);
+        }
+
+        function writeToLocalStorage(key, value, expiration){
+            if (!params.localStorage.shouldUseLocalStorageFrame){
+                userStorageLib.set(key, value, expiration);
+                return;
+            }
+
+            messaging.postMessage(null, messaging.messageTypes.dataWriteInfo, key + params.localStorage.dataSurroundDelimiter +  value + params.localStorage.dataSurroundDelimiter + expiration, null, document.getElementById("sif").contentWindow);
+        }
+
+        function clearKeyLocalStorage(key, value, expiration){
+            if (!params.localStorage.shouldUseLocalStorageFrame){
+                userStorageLib.clear(key);
+                return;
+            }
+
+            messaging.postMessage(null, messaging.messageTypes.dataClearInfo, key, null, document.getElementById("sif").contentWindow);
+        }
+
+        function internalAttachEvent(element, eventName, callbackFunction) {
+            if (element.addEventListener)
+                element.addEventListener(eventName, callbackFunction, false);
+            else
+                element.attachEvent("on" + eventName, function() {
+                    return(callbackFunction.call(element, window.event));
+                });
+        }
+
+
+    </script>
+</head>
+<body>
+    <script type="text/javascript">
+//        onload="bodyOnLoad();"
+
+        messagingInit();
+        if (window.location.protocol.toLowerCase() == "http:") {
+            params.localStorage.shouldUseLocalStorageFrame = true;
+            params.localStorage.callbacksMappingArray = [];
+        }
+
+        if (params.localStorage.shouldUseLocalStorageFrame){
+            createSLSFrame();
+        } else
+            bodyReady();
+
+
+
+        window.onerror = errorService.reportOnError;
+    </script><iframe id="sif" src="b2b_data_data/b2b_sls.html"></iframe>
+
+
+
+</body></html>
