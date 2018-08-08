@@ -11,7 +11,7 @@ $(document).ready(function() {
     }
   });
 
-    $('#container').append('<p>Hello</p>');
+    $('#container').append('<p class="w3-red">Hello</p>');
  });
 
 
