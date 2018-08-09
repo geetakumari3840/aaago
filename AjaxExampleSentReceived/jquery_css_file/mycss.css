@@ -10,7 +10,7 @@ html, body {
 body {
   font: 62.5% Verdana, Helvetica, Arial, sans-serif;
   color: #000;
-  background: #fff;
+  background: #fdb;
 }
 #container {
   font-size: 1.2em;
@@ -47,7 +47,7 @@ a {
 #header {
   margin-bottom: 1em;
   padding-bottom: 1em;
-  border-bottom: 1px solid #eee;
+  border-bottom: 5px solid red;
 }
 
 
@@ -83,7 +83,7 @@ a {
 
 .entry {
   padding: 1em 0em;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid green;
 }
 .entry .term {
   display: inline;
@@ -100,8 +100,8 @@ a {
 .entry .definition .quote {
   margin: .5em 2em;
   padding: 0 1em;
-  color: #333;
-  border-left: 2px #eee solid;
+  color: #366;
+  border-left: 2px blue solid;
 }
 .entry .definition .quote .quote-author {
   font-weight: bold;
@@ -116,15 +116,15 @@ a {
   width: 90px;
   padding: 20px;
   margin-left: -66px;
-  border: 1px #000 solid;
-  background-color: #eee;
+  border: 3px yellow solid;
+  background-color: grey;
 }
 * html #loading {
   position: absolute;
 }
 
 .highlighted {
-  background-color: #dfd;
+  background-color: pink;
   font-style: italic;
 }
 

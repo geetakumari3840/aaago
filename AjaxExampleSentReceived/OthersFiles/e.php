@@ -19,24 +19,28 @@ $entries = array(
     ),
     'author' => 'Gopete Sherany',
   ),
+
   'EDIBLE' => array(
     'part' => 'adj.',
     'definition' => 'Good to eat, and wholesome to digest, as
       a worm to a toad, a toad to a snake, a snake to a pig,
       a pig to a man, and a man to a worm.',
   ),
+
   'EDUCATION' => array(
     'part' => 'n.',
     'definition' => 'That which discloses to the wise and
       disguises from the foolish their lack of
       understanding.',
   ),
+
   'ELOQUENCE' => array(
     'part' => 'n.',
     'definition' => 'The art of orally persuading fools that
       white is the color that it appears to be.  It includes
       the gift of making any color appear white.',
   ),
+
   'ELYSIUM' => array(
     'part' => 'n.',
     'definition' => 'An imaginary delightful country which
@@ -45,6 +49,7 @@ $entries = array(
       fable was swept off the face of the earth by the early
       Christians &mdash; may their souls be happy in Heaven!',
   ),
+
   'EMANCIPATION' => array(
     'part' => 'n.',
     'definition' => 'A bondman\'s change from the tyranny of
@@ -57,6 +62,7 @@ $entries = array(
     ),
     'author' => 'G.J.',
   ),
+
   'EMOTION' => array(
     'part' => 'n.',
     'definition' => 'A prostrating disease caused by a
@@ -64,17 +70,20 @@ $entries = array(
       sometimes accompanied by a copious discharge of
       hydrated chloride of sodium from the eyes.',
   ),
+
   'ENVELOPE' => array(
     'part' => 'n.',
     'definition' => 'The coffin of a document; the scabbard
       of a bill; the husk of a remittance; the bed-gown of a
       love-letter.',
   ),
+
   'ENVY' => array(
     'part' => 'n.',
     'definition' => 'Emulation adapted to the meanest
       capacity.',
   ),
+
   'EPITAPH' => array(
     'part' => 'n.',
     'definition' => 'An inscription on a tomb, showing that
@@ -87,12 +96,14 @@ $entries = array(
       'Let that be said &mdash; and God forgive it!',
     ),
   ),
+
   'EVANGELIST' => array(
     'part' => 'n.',
     'definition' => 'A bearer of good tidings, particularly
       (in a religious sense) such as assure us of our own
       salvation and the damnation of our neighbors.',
   ),
+  
 );
 
 if (isset($entries[strtoupper($_REQUEST['term'])])) {
