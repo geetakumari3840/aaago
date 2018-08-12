@@ -1,0 +1,81 @@
+HTTrack3.49-2+htsswf+htsjava launched on Sat, 11 Aug 2018 14:05:44 at http://sacheefragrances.com/ +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" http://sacheefragrances.com/ -O1 "C:\Users\AJAY KUMAR\Google Drive\Camera Uploads\Website Creating Lang\sacheefragrances" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+14:10:16	Error: 	"Method Not Allowed" (405) at link sacheefragrances.com/xmlrpc.php (from sacheefragrances.com/)
+14:11:01	Warning: 	Retry after error -4 (No data (connection closed)) at link sacheefragrances.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1 (from sacheefragrances.com/)
+14:11:03	Warning: 	Retry after error -4 (No data (connection closed)) at link sacheefragrances.com/wp-content/uploads/2017/04/logo.jpg (from sacheefragrances.com/)
+14:11:16	Warning: 	Retry after error -4 (No data (connection closed)) at link sacheefragrances.com/about-us/company-brief/ (from sacheefragrances.com/)
+14:11:16	Warning: 	Retry after error -4 (No data (connection closed)) at link sacheefragrances.com/infrastructure/ (from sacheefragrances.com/)
+14:11:17	Warning: 	Retry after error -4 (No data (connection closed)) at link sacheefragrances.com/fragrances/ (from sacheefragrances.com/)
+14:12:49	Warning: 	Retry after error -4 (No data (connection closed)) at link sacheefragrances.com/wp-content/uploads/2016/01/1.png (from sacheefragrances.com/)
+14:12:49	Warning: 	Retry after error -4 (No data (connection closed)) at link sacheefragrances.com/wp-content/plugins/easy-social-icons/css/font-awesome/fonts/fontawesome-webfont.eot? (from sacheefragrances.com/wp-content/plugins/easy-social-icons/css/font-awesome/css/font-awesome.min.css?ver=4.7)
+14:12:49	Warning: 	Retry after error -4 (No data (connection closed)) at link sacheefragrances.com/wp-content/plugins/easy-social-icons/css/font-awesome/fonts/fontawesome-webfont.woff?v=4.7.0 (from sacheefragrances.com/wp-content/plugins/easy-social-icons/css/font-awesome/css/font-awesome.min.css?ver=4.7)
+14:12:51	Warning: 	Retry after error -4 (No data (connection closed)) at link sacheefragrances.com/wp-content/themes/sacheefragranees/genericons/font/genericons-regular-webfont.eot (from sacheefragrances.com/wp-content/themes/sacheefragranees/genericons/genericons.css?ver=3.0.2)
+14:12:51	Error: 	"Not Found" (404) at link sacheefragrances.com/wp-content/themes/sacheefragranees/images/bg-search.png (from sacheefragrances.com/wp-content/themes/sacheefragranees/style.css?ver=4.7.11)
+14:12:52	Error: 	"Not Found" (404) at link sacheefragrances.com/wp-content/themes/sacheefragranees/images/pattern-dark.svg (from sacheefragrances.com/wp-content/themes/sacheefragranees/style.css?ver=4.7.11)
+14:12:53	Warning: 	Retry after error -4 (No data (connection closed)) at link sacheefragrances.com/wp-content/plugins/easy-fancybox/fancybox/fancybox.png (from sacheefragrances.com/wp-content/plugins/easy-fancybox/fancybox/jquery.fancybox-1.3.8.min.css?ver=1.5.8.2)
+14:12:56	Error: 	"Not Found" (404) at link sacheefragrances.com/wp-content/themes/sacheefragranees/js/mCSB_buttons.png (from sacheefragrances.com/wp-content/themes/sacheefragranees/js/jquery.mCustomScrollbar.css)
+14:12:56	Warning: 	Moved Permanently for sacheefragrances.com/?p=2
+14:12:56	Warning: 	File has moved from sacheefragrances.com/?p=2 to http://sacheefragrances.com/about-us/
+14:12:56	Warning: 	Moved Permanently for sacheefragrances.com/?p=6
+14:12:56	Warning: 	File has moved from sacheefragrances.com/?p=6 to http://sacheefragrances.com/about-us/management/
+14:12:56	Warning: 	Moved Permanently for sacheefragrances.com/?p=8
+14:12:56	Warning: 	File has moved from sacheefragrances.com/?p=8 to http://sacheefragrances.com/about-us/history/
+14:13:04	Warning: 	Retry after error -4 (No data (connection closed)) at link sacheefragrances.com/infrastructure/ (from sacheefragrances.com/)
+14:13:47	Warning: 	Moved Permanently for sacheefragrances.com/?p=16
+14:13:47	Warning: 	File has moved from sacheefragrances.com/?p=16 to http://sacheefragrances.com/flavors/
+14:13:47	Warning: 	Retry after error -4 (No data (connection closed)) at link sacheefragrances.com/wp-content/uploads/2014/08/21-150x150.png (from sacheefragrances.com/flavors/)
+14:13:51	Warning: 	Retry after error -4 (No data (connection closed)) at link sacheefragrances.com/wp-content/uploads/2014/08/flowers_sweets_021.jpg (from sacheefragrances.com/flavors/)
+14:13:51	Warning: 	Retry after error -4 (No data (connection closed)) at link sacheefragrances.com/wp-content/uploads/2014/08/Fruit-and-yogurt-150x150.jpg (from sacheefragrances.com/flavors/)
+14:13:53	Warning: 	Retry after error -4 (No data (connection closed)) at link sacheefragrances.com/wp-content/uploads/2014/08/sparkling-sips.jpg (from sacheefragrances.com/flavors/)
+14:13:54	Warning: 	Retry after error -4 (No data (connection closed)) at link sacheefragrances.com/wp-content/uploads/2014/08/flowers_sweets_02.jpg (from sacheefragrances.com/flavors/)
+14:13:54	Warning: 	Moved Permanently for sacheefragrances.com/?p=17
+14:13:54	Warning: 	File has moved from sacheefragrances.com/?p=17 to http://sacheefragrances.com/essential-oils/
+14:13:54	Warning: 	Retry after error -4 (No data (connection closed)) at link sacheefragrances.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fsacheefragrances.com%2Fessential-oils%2F (from sacheefragrances.com/essential-oils/)
+14:13:55	Warning: 	Moved Permanently for sacheefragrances.com/essential-oils/?p=135
+14:13:55	Warning: 	File has moved from sacheefragrances.com/essential-oils/?p=135 to http://sacheefragrances.com/sachee-naturals/
+14:13:56	Warning: 	Moved Permanently for sacheefragrances.com/?p=22
+14:13:56	Warning: 	File has moved from sacheefragrances.com/?p=22 to http://sacheefragrances.com/contact-us/
+14:13:56	Warning: 	Retry after error 502 (Server Hangup) at link sacheefragrances.com/wp-content/uploads/2014/08/YouTube-logo-full_color.png (from sacheefragrances.com/contact-us/)
+14:13:58	Warning: 	Moved Permanently for sacheefragrances.com/?p=23
+14:13:58	Warning: 	File has moved from sacheefragrances.com/?p=23 to http://sacheefragrances.com/contact-us/enquiry/
+14:13:58	Warning: 	Retry after error -4 (No data (connection closed)) at link sacheefragrances.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fsacheefragrances.com%2Fcontact-us%2Fenquiry%2F (from sacheefragrances.com/contact-us/enquiry/)
+14:13:58	Warning: 	Retry after error -4 (No data (connection closed)) at link sacheefragrances.com/contact-us/career/feed/ (from sacheefragrances.com/contact-us/career/)
+14:13:58	Warning: 	Moved Permanently for sacheefragrances.com/?p=26
+14:13:58	Warning: 	File has moved from sacheefragrances.com/?p=26 to http://sacheefragrances.com/contact-us/career/
+14:13:58	Warning: 	Retry after error -4 (No data (connection closed)) at link sacheefragrances.com/wp-content/themes/sacheefragranees/genericons/font/genericons-regular-webfont.eot (from sacheefragrances.com/wp-content/themes/sacheefragranees/genericons/genericons.css?ver=3.0.2)
+14:13:58	Warning: 	Moved Permanently for sacheefragrances.com/?p=9
+14:13:58	Warning: 	File has moved from sacheefragrances.com/?p=9 to http://sacheefragrances.com/about-us/company-brief/
+14:14:18	Warning: 	Moved Permanently for sacheefragrances.com/?p=14
+14:14:18	Warning: 	File has moved from sacheefragrances.com/?p=14 to http://sacheefragrances.com/fragrances/
+14:14:18	Warning: 	Retry after error -4 (No data (connection closed)) at link sacheefragrances.com/wp-content/uploads/2014/08/2.png (from sacheefragrances.com/fragrances/)
+14:14:21	Warning: 	Retry after error -4 (No data (connection closed)) at link sacheefragrances.com/wp-content/uploads/2014/08/2-150x150.png (from sacheefragrances.com/fragrances/)
+14:14:28	Warning: 	Retry after error -4 (No data (connection closed)) at link sacheefragrances.com/wp-content/uploads/2014/08/4-150x150.png (from sacheefragrances.com/fragrances/)
+14:14:28	Warning: 	Retry after error -4 (No data (connection closed)) at link sacheefragrances.com/wp-content/uploads/2014/08/5.png (from sacheefragrances.com/fragrances/)
+14:14:30	Warning: 	Retry after error -4 (No data (connection closed)) at link sacheefragrances.com/wp-content/uploads/2014/08/6-150x150.png (from sacheefragrances.com/fragrances/)
+14:14:30	Warning: 	Retry after error -4 (No data (connection closed)) at link sacheefragrances.com/wp-content/uploads/2014/08/7-150x150.png (from sacheefragrances.com/fragrances/)
+14:14:38	Warning: 	Retry after error -4 (No data (connection closed)) at link sacheefragrances.com/wp-content/uploads/2014/08/8-150x150.png (from sacheefragrances.com/fragrances/)
+14:14:38	Warning: 	Retry after error -4 (No data (connection closed)) at link sacheefragrances.com/wp-content/uploads/2014/08/9-150x150.png (from sacheefragrances.com/fragrances/)
+14:14:41	Warning: 	Retry after error -4 (No data (connection closed)) at link sacheefragrances.com/wp-content/uploads/2014/08/flowers_sweets_021.jpg (from sacheefragrances.com/flavors/)
+14:14:41	Warning: 	Retry after error -4 (No data (connection closed)) at link sacheefragrances.com/wp-content/uploads/2014/08/flowers_sweets_02.jpg (from sacheefragrances.com/flavors/)
+14:14:47	Warning: 	Retry after error -4 (No data (connection closed)) at link sacheefragrances.com/sachee-naturals/ (from sacheefragrances.com/essential-oils/?p=135)
+14:14:48	Warning: 	Retry after error -4 (No data (connection closed)) at link sacheefragrances.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fsacheefragrances.com%2Fcontact-us%2Fenquiry%2F (from sacheefragrances.com/contact-us/enquiry/)
+14:14:51	Warning: 	Moved Permanently for sacheefragrances.com/?p=12
+14:14:51	Warning: 	File has moved from sacheefragrances.com/?p=12 to http://sacheefragrances.com/infrastructure/
+14:15:30	Warning: 	Retry after error -4 (No data (connection closed)) at link sacheefragrances.com/wp-content/uploads/2014/08/121.jpg (from sacheefragrances.com/infrastructure/)
+14:15:30	Warning: 	Retry after error -4 (No data (connection closed)) at link sacheefragrances.com/wp-content/uploads/2014/08/13N9557a1.jpg (from sacheefragrances.com/infrastructure/)
+14:15:30	Warning: 	Retry after error -4 (No data (connection closed)) at link sacheefragrances.com/wp-content/uploads/2014/08/4-150x150.png (from sacheefragrances.com/fragrances/)
+14:15:30	Warning: 	Retry after error -4 (No data (connection closed)) at link sacheefragrances.com/wp-content/uploads/2014/08/6-150x150.png (from sacheefragrances.com/fragrances/)
+14:15:40	Warning: 	Retry after error -4 (No data (connection closed)) at link sacheefragrances.com/wp-content/uploads/2014/08/8-150x150.png (from sacheefragrances.com/fragrances/)
+14:15:40	Error: 	"No data (connection closed)" (-4) after 2 retries at link sacheefragrances.com/wp-content/uploads/2014/08/flowers_sweets_021.jpg (from sacheefragrances.com/flavors/)
+14:15:40	Warning: 	Retry after error -4 (No data (connection closed)) at link sacheefragrances.com/sachee-naturals/ (from sacheefragrances.com/essential-oils/?p=135)
+14:15:59	Error: 	"No data (connection closed)" (-4) after 2 retries at link sacheefragrances.com/wp-content/uploads/2014/08/8-150x150.png (from sacheefragrances.com/fragrances/)
+14:15:59	Error: 	"No data (connection closed)" (-4) after 2 retries at link sacheefragrances.com/sachee-naturals/ (from sacheefragrances.com/essential-oils/?p=135)
+
+HTTrack Website Copier/3.49-2 mirror complete in 10 minutes 15 seconds : 229 links scanned, 170 files written (14969293 bytes overall) [14430755 bytes received at 23464 bytes/sec], 924876 bytes transferred using HTTP compression in 36 files, ratio 25%, 2.8 requests per connection
+(7 errors, 63 warnings, 0 messages)
