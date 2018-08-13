@@ -1,8 +1,12 @@
-// localhost/aaago/sacheefragrances/index.html
-
+// http://localhost/aaago/000%20sacheefragrances/index.html
 $(document).ready(function(){ 
 
-	$('body').addClass('boody')
+	$('html, body').css({
+		'background-color'		: 'white',
+		'hight'					: '100px',
+		'margin' 				: '0px',
+		'padding' 				: '0px' 	});
+	
 	$('#first').addClass('first');
 	$('#second').addClass('second');
 
