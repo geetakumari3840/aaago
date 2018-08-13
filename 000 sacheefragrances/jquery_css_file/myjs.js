@@ -9,6 +9,7 @@ $(document).ready(function(){
 	
 	$('#first').addClass('first');
 	$('#second').addClass('second');
+	$('#nav button').addClass('navbutton');
 
 //	$('body').css({background-color:'grey', margin: '0px'});
 //READ DOCUMENT CLOSE 183

@@ -10,7 +10,7 @@
   height :auto;
   margin:5px;
   padding: 5px;
-  bordver: solid 1px red;
+ 
   
 }
 .second {
@@ -20,20 +20,16 @@
   height :auto;
   margin:5px;
   padding: 5px;
-  borvder: solid 1px red;
   
 }
 
-h1 {
-    text-shadow: 2px 2px 5px red;
-}
 
-button {
+.navbutton {
 
   border: none;
   background-color: white;
   text-decoration: none;
-  color: green;
+  color: red;
   font-size: 20px;
   padding: 16px;
   display: block;
