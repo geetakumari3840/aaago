@@ -2,13 +2,12 @@
 $(document).ready(function(){ 
 
 	$('html, body').css({
-		'background-color'		: 'white',
+		'background-color'		: '#b3ccff',
 		'hight'					: '100px',
 		'margin' 				: '0px',
 		'padding' 				: '0px' 	});
 	
-	$('#first').addClass('first');
-	$('#second').addClass('second');
+	
 	$('#nav button').addClass('navbutton');
 
 //	$('body').css({background-color:'grey', margin: '0px'});
