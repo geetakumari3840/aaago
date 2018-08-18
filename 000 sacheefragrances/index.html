@@ -9,88 +9,108 @@
   <script src="jquery_css_file/myjs.js"></script>
 
   <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
-  <style> body { font-family: 'Sofia';font-size: 22px; } </style>
+  <style> #nav { font-family: 'Sofia';font-size: 22px; } </style>
 
 </head>
 <body>
+  <div class="content">
+    
 <!-- nav bar -->
-<div  class="firs w3-card-4 w3-center">
- <div class="secon w3-card-4">
-  <ul id="nav" style="overflow: auto;">
-    <img src="images/2017/04/logo.jpg" href="#" style="float: left;">
-    <button >Contact Us</button>
-    <button >Essential Oils</button>
-    <button >flavours</button>
-    <button >Fragrances</button>
-    <button >About Us</button>
+
+<div  class="firs w3-card-4 w3-center ">
+ <div id="nav" class="secon w3-card-4">
+    <ul>
+    <li style="float: left;"><img src="images/2017/04/logo.jpg" href="#"></li>
+    <li class="abt">
+      <a href="javascript:void(0)" class="dropbtn">Contact Us</a>
+      <div class="abt_cont">
+        <a href="">Enquiry</a>
+        <a href="">Career</a>
+      </div>
+    </li>
+    <li ><a href="#essential">Essential Oils</a></li>
+    <li ><a href="#flavours">Flavours</a></li>
+    <li ><a href="#fragrances">Fragrances</a></li>
+    <li class="abt">
+      <a href="javascript:void(0)" class="dropbtn">About Us</a>
+      <div class="abt_cont">
+        <a href="">Management</a>
+        <a href="">History</a>
+        <a href="">Company Brief</a>
+        <a href="">Infrastruture</a>
+      </div>
+    </li>
   </ul>
 </div>
 </div>
+
 <!-- end nav -->
-
+<div class="row">
+<div class="column">
 <!-- Slide Show -->
-<div  class="firs w3-card-4 w3-center" style="background-color: #e6ccff;">
-      <div class="secon  w3-card-4">
-  <div class="w3-content w3-display-container" style="max-width:800px; overflow: auto; ">
+<div  class="firs w3-card-4 w3-center" >
+      <div class="secon  w3-card-4" style="overflow: hidden;">
+  <div class="w3-content w3-display-container" style="float: left;">
 
-  <img class="mySlides" src="images/2016/01/1.png" style="width:100%">
-  <img class="mySlides" src="images/2016/01/2.png" style="width:100%">
-  <img class="mySlides" src="images/2016/01/3.png" style="width:100%">
-  <img class="mySlides" src="images/2016/01/4.png" style="width:100%">
-  <img class="mySlides" src="images/2016/01/5.png" style="width:100%">
-  <img class="mySlides" src="images/2016/01/6.png" style="width:100%">
-  <img class="mySlides" src="images/2016/01/7.png" style="width:100%">
-  <img class="mySlides" src="images/2016/01/8.png" style="width:100%">
-  <img class="mySlides" src="images/2016/01/9.png" style="width:100%">
+  <img class="mySlides  w3-animate-fading" src="images/2016/01/1.png" style="width:100%">
+  <img class="mySlides  w3-animate-fading" src="images/2016/01/2.png" style="width:100%">
+  <img class="mySlides  w3-animate-fading" src="images/2016/01/3.png" style="width:100%">
+  <img class="mySlides  w3-animate-fading" src="images/2016/01/4.png" style="width:100%">
+  <img class="mySlides  w3-animate-fading" src="images/2016/01/5.png" style="width:100%">
+  <img class="mySlides  w3-animate-fading" src="images/2016/01/6.png" style="width:100%">
+  <img class="mySlides  w3-animate-fading" src="images/2016/01/7.png" style="width:100%">
+  <img class="mySlides  w3-animate-fading" src="images/2016/01/8.png" style="width:100%">
+  <img class="mySlides  w3-animate-fading" src="images/2016/01/9.png" style="width:100%">
 
-  <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" 
-        style="width:100%">
-    <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
-    <div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
-    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
-    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
-    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
-  </div>
+  
 </div>
 
 <script>
-var slideIndex = 1;
-showDivs(slideIndex);
+var myIndex = 0;
+carousel();
 
-function plusDivs(n) {
-  showDivs(slideIndex += n);
-}
-
-function currentDiv(n) {
-  showDivs(slideIndex = n);
-}
-
-function showDivs(n) {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("demo");
-  if (n > x.length) {slideIndex = 1}    
-  if (n < 1) {slideIndex = x.length}
-  for (i = 0; i < x.length; i++) {
-     x[i].style.display = "none";  
-  }
-  for (i = 0; i < dots.length; i++) {
-     dots[i].className = dots[i].className.replace(" w3-white", "");
-  }
-  x[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " w3-white";
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    setTimeout(carousel, 9000);    
 }
 </script>
 
       </div>
 </div>
 <!-- end slide show  -->
+</div>
 
+<!-- about us -->
+<div class="column1">
+<div  class="firs w3-card-4 w3-center">
+      <div class="secon  w3-card-4" >
+        <img src="images/2014/09/Photo-1.jpg" style="width:70%;">
+  <p>Our passion to create the finest fragrances to enhance your senses is the fuel to our growth. On time delivery is our obsession. We serve every customer with the same degree of commitment no matter how large or small it is. </p>
+  <button class="w3-button w3-red ">About Us</button>
+      </div>
+</div>
+</div>
+</div><!-- row -->
 
+<div class="row">
+  <div class="column" style="background-color:#aaa;">
+    <h2>Column 1</h2>
+    <p>Some text..</p>
+  </div>
+  <div class="column1" style="background-color:#bbb;">
+    <h2>Column 2</h2>
+    <p>Some text..</p>
+  </div>
 
+</div>
 
-
-
-
+</div> <!-- contact -->
 </body>
 </html>

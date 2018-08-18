@@ -2,6 +2,55 @@
    Default Styles
 ***************************************/
 
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+/* Create four equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 75%;
+
+}
+
+.column1 {
+    float: left;
+    width: 25%;
+    
+}
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media (max-width: 900px) {
+    .column  { width: 75%; }
+    .column1  { width: 25%; }
+
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media (max-width: 600px) {
+    .column, .column1 {
+        width: 100%;
+    }
+}
+
+
+.content {
+
+  max-width: 1200px;
+  margin: auto;
+  padding: 10px;
+}
+
 
 .firs {
 
@@ -10,8 +59,7 @@
   height :auto;
   margin:5px;
   padding: 2px;
-  bor der-radius: 10px;
-
+  
 }
 
 .secon {
@@ -21,62 +69,88 @@
   height :auto;
   margin:5px;
   padding: 2px;
-  bor der-radius: 10px;
-
+  
 }
 
 #nav img {
 
   cursor : pointer;
-
-}
-
-.navbutton {
-
-  border: none;
-  background-color: white;
-  text-decoration: none;
-  color: #cf0b37;
-  font-size: 24px;
+  margin-left: 30px;
   padding: 0px;
-  display: block;
-  float: right;
-  cursor: pointer;
-  font-style: italic;
-  font-weight: bold;
-  width:12%
 
 }
 
-.navbutton::first-letter {
+#nav ul {
 
-  color: #00cc00;
-  font-size: xx-large;
-
-}
-
-.navbutton::first-letter:hover {
-
+  list-style-type:none;
+  margin: 0px;
+  padding: 0px;
+  background-color: white;
   color: #cf0b37;
-  font-size: xx-large;
+  font-size: 15px;
+  font-weight: bold;
+  overflow: hidden;
+  text-align: left;
 
 }
 
-.navbutton:hover {
+#nav li {
+  float: right;
+}
+
+#nav li a {
+  display: block;
+  text-decoration: none;
+  padding: 8px 16px;
+  background-color: white;
+  max-width: 140px;
+}
+
+#nav a:hover {
    
   text-decoration: underline;
   color: #00cc00;
 }
 
-nav {
+#nav a::first-letter {
 
-  overflow: auto;
-  margin: 0 30px 0 30px;
+  color: #00cc00;
+  font-size: x-large;
+
+}
+
+#nav a:hover::first-letter {
+
+  color: #cf0b37;
+  font-size: x-large;
+
+}
+/* drop button */
+
+.abt_cont {
+    display: none;
+    position: absolute;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+li.abt {
+    display: inline-block; 
+  }
+
+li a, .dropbtn {
+
+  display: inline-block;
+  text-decoration: none;
+}
+
+.abt:hover .abt_cont {
+  display: block;
 
 }
 
-img {
+ a:hover .abt_cont {
 
-  float: left;
-
+    background-color: red;
 }
+
