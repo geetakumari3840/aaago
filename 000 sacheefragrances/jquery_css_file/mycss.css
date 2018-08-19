@@ -48,13 +48,12 @@ body {
 
   max-width: 1200px;
   margin: auto;
-  padding: 10px;
-}
+  }
 
 
 .firs {
 
-  background-color: #ffff66;
+  background-color: #F5F5F5;
   width: 100%
   height :auto;
   margin:5px;
@@ -87,7 +86,7 @@ body {
   padding: 0px;
   background-color: white;
   color: #cf0b37;
-  font-size: 15px;
+  font-size: 17px;
   font-weight: bold;
   overflow: hidden;
   text-align: left;
@@ -103,7 +102,7 @@ body {
   text-decoration: none;
   padding: 8px 16px;
   background-color: white;
-  max-width: 140px;
+  max-width: 160px;
 }
 
 #nav a:hover {
@@ -112,7 +111,7 @@ body {
   color: #00cc00;
 }
 
-#nav a::first-letter {
+#bharat-p::first-letter, #nav a::first-letter {
 
   color: #00cc00;
   font-size: x-large;
@@ -154,3 +153,18 @@ li a, .dropbtn {
     background-color: red;
 }
 
+#bharat {
+
+  width:70%;
+  border:2px purple solid;
+  margin: 2px;
+  border-radius: 17px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"
+}
+
+#bharat-p {
+  text-align: justify;
+  margin:5px;
+  font-size: 16px;"
+  
+}

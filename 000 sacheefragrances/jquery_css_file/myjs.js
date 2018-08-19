@@ -2,7 +2,7 @@
 $(document).ready(function(){ 
 
 	$('html, body').css({
-		'background-color'		: '#b3ccff',
+		'background-color'		: 'black',
 		'hight'					: '100px',
 		'margin' 				: '0px',
 		'padding' 				: '0px' 	});

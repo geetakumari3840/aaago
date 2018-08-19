@@ -9,7 +9,7 @@
   <script src="jquery_css_file/myjs.js"></script>
 
   <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
-  <style> #nav { font-family: 'Sofia';font-size: 22px; } </style>
+  <style> body { font-family: 'Sofia';} </style>
 
 </head>
 <body>
@@ -17,7 +17,7 @@
     
 <!-- nav bar -->
 
-<div  class="firs w3-card-4 w3-center ">
+<div  class="firs w3-card-4 w3-center w3-animate-opacity">
  <div id="nav" class="secon w3-card-4">
     <ul>
     <li style="float: left;"><img src="images/2017/04/logo.jpg" href="#"></li>
@@ -48,21 +48,20 @@
 <div class="row">
 <div class="column">
 <!-- Slide Show -->
-<div  class="firs w3-card-4 w3-center" >
+<div  class="firs w3-card-4 w3-center w3-animate-opacity" >
       <div class="secon  w3-card-4" style="overflow: hidden;">
   <div class="w3-content w3-display-container" style="float: left;">
 
-  <img class="mySlides  w3-animate-fading" src="images/2016/01/1.png" style="width:100%">
-  <img class="mySlides  w3-animate-fading" src="images/2016/01/2.png" style="width:100%">
-  <img class="mySlides  w3-animate-fading" src="images/2016/01/3.png" style="width:100%">
-  <img class="mySlides  w3-animate-fading" src="images/2016/01/4.png" style="width:100%">
-  <img class="mySlides  w3-animate-fading" src="images/2016/01/5.png" style="width:100%">
-  <img class="mySlides  w3-animate-fading" src="images/2016/01/6.png" style="width:100%">
+  <img class="mySlides  w3-animate-top" src="images/2016/01/1.png" style="width:100%">
+  <img class="mySlides  w3-animate-bottom" src="images/2016/01/2.png" style="width:100%">
+  <img class="mySlides  w3-animate-left" src="images/2016/01/3.png" style="width:100%">
+  <img class="mySlides  w3-animate-right" src="images/2016/01/4.png" style="width:100%">
+  <img class="mySlides  w3-animate-opacity" src="images/2016/01/5.png" style="width:100%">
+  <img class="mySlides  w3-animate-zoom" src="images/2016/01/6.png" style="width:100%">
   <img class="mySlides  w3-animate-fading" src="images/2016/01/7.png" style="width:100%">
-  <img class="mySlides  w3-animate-fading" src="images/2016/01/8.png" style="width:100%">
-  <img class="mySlides  w3-animate-fading" src="images/2016/01/9.png" style="width:100%">
+  <img class="mySlides  w3-animate-top" src="images/2016/01/8.png" style="width:100%">
+  <img class="mySlides  w3-animate-zoom" src="images/2016/01/9.png" style="width:100%">
 
-  
 </div>
 
 <script>
@@ -78,7 +77,7 @@ function carousel() {
     myIndex++;
     if (myIndex > x.length) {myIndex = 1}    
     x[myIndex-1].style.display = "block";  
-    setTimeout(carousel, 9000);    
+    setTimeout(carousel, 4000);    
 }
 </script>
 
@@ -88,12 +87,30 @@ function carousel() {
 </div>
 
 <!-- about us -->
-<div class="column1">
-<div  class="firs w3-card-4 w3-center">
-      <div class="secon  w3-card-4" >
-        <img src="images/2014/09/Photo-1.jpg" style="width:70%;">
-  <p>Our passion to create the finest fragrances to enhance your senses is the fuel to our growth. On time delivery is our obsession. We serve every customer with the same degree of commitment no matter how large or small it is. </p>
-  <button class="w3-button w3-red ">About Us</button>
+<div class="column1" style="height: 500px;">
+<div  class="firs w3-card-4 w3-center w3-animate-right">
+      <div class="secon  w3-card-4">
+        
+        <img src="images/2014/09/Photo-1.jpg" id="bharat">
+
+        <p id="bharat-p" style="color:purple;">Our passion to create the finest fragrances to enhance your senses is the fuel to our growth. On time delivery is our obsession. We serve every customer with the same degree of commitment no matter how large or small it is. </p>
+  <!--      
+  
+<script>
+var myver = setTimeout(typeWriter, speed);
+var i = 0;
+var txt = 'Our passion to create the finest fragrances to enhance your senses is the fuel to our growth. On time delivery is our obsession. We serve every customer with the same degree of commitment no matter how large or small it is. ';
+var speed = 50;
+
+function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("type").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
+</script> -->
+  <button class="w3-button w3-purple w3-round" style="font-weight:bold;margin: 4px;">About Us</button>
       </div>
 </div>
 </div>
