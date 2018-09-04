@@ -1,23 +1,33 @@
 <?php
 
 $entries = array(
-  'EAVESDROP' => array(
-    'part' => 'v.i.',
-    'definition' => 'Secretly to overhear a catalogue of the
-      crimes and vices of another or yourself.',
+  'भाग-1' => array(
+'heading1' => 'संघ और उसका राज्य क्षेत्र',
+'heading2' => '(The Union and its Territories)',
+
+'kavya' => array ('सब राज्यों को मिलाकर, भारत एक संघ होगा,
+चाहें तो, नवराष्ट्रों का मिलन, विधि सम्मत होगा।
+(अनुच्छेद - 1,2)
+
+संसद चाहे, नये राज्यों का निर्माण कर सकती है,
+वर्तमान राज्यों में, परिवर्तन भी कर सकती है।
+(अनुच्छेद - 3)'
+),
+),
+
+  'भाग-1' => array(
+    'part' => 'संघ और उसका राज्य क्षेत्र',
+    'definition' => '(The Union and its Territories)',
     'quote' => array(
-      'A lady with one of her ears applied',
-      'To an open keyhole heard, inside,',
-      'Two female gossips in converse free &mdash;',
-      'The subject engaging them was she.',
-      '"I think," said one, "and my husband thinks',
-      'That she\'s a prying, inquisitive minx!"',
-      'As soon as no more of it she could hear',
-      'The lady, indignant, removed her ear.',
-      '"I will not stay," she said, with a pout,',
-      '"To hear my character lied about!"',
+      'सब राज्यों को मिलाकर, भारत एक संघ होगा,
+चाहें तो, नवराष्ट्रों का मिलन, विधि सम्मत होगा।
+(अनुच्छेद - 1,2)
+
+संसद चाहे, नये राज्यों का निर्माण कर सकती है,
+वर्तमान राज्यों में, परिवर्तन भी कर सकती है।
+(अनुच्छेद - 3)',
     ),
-    'author' => 'Gopete Sherany',
+    'author' => '(अनुच्छेद - 3)',
   ),
 
   'EDIBLE' => array(

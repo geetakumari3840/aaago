@@ -97,7 +97,7 @@ $(document).ready(function(){
 //Add -F- f.php page 163
 	$('#letter-f form').submit(function(event){
 		event.preventDefault();
-		$.get('OthersFiles/f.php', {'term':$('input[name="term"]').val()},
+		$.get('OthersFiles/e.php', {'term':$('select[name="term"]').val()},
 			function(data) {
 				$('#dictionary').html(data);
 			});

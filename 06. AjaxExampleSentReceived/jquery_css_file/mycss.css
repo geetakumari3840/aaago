@@ -85,6 +85,8 @@ a {
 .entry {
   padding: 1em 0em;
   border-bottom: 1px solid green;
+  text-align: center;
+  color:red;
 }
 .entry .term {
   display: inline;

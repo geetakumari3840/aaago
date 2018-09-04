@@ -32,7 +32,9 @@
           <h3><a href="entries-d.html">D</a></h3>
         </div>
         <div class="letter" id="letter-e">
-          <h3>E</h3>
+          
+
+       <h3>E</h3>
           <ul>
             <li><a href="e.php?term=Eavesdrop">Eavesdrop</a></li>
             <li><a href="e.php?term=Edible">Edible</a></li>
@@ -45,12 +47,21 @@
             <li><a href="e.php?term=Envy">Envy</a></li>
             <li><a href="e.php?term=Epitaph">Epitaph</a></li>
             <li><a href="e.php?term=Evangelist">Evangelist</a></li>
-          </ul>
+          </ul> 
         </div>
         <div class="letter" id="letter-f">
           <h3>F</h3>
           <form action="f.php">
-            <input type="text" name="term" value="" id="term">
+            <!--<input type="text" name="term" value="" id="term"> -->
+        
+                  <select class="w3-select w3-text-grey  w3-border w3-round" 
+                  type="text" name="term" value="" id="term">
+                  <option value="" disabled selected>&nbsp;Category</option>
+                  <option value="भाग-1">भाग-1</option>
+                  <option value="Edible">Edible</option>
+                  <option value="Eloquence">Eloquence</option>
+                 </select>
+
             <button type="submit">Search</button>
           </form>
         </div>
