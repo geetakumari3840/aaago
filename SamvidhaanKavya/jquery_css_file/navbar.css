@@ -6,7 +6,9 @@
 	background-color:  white;
 	overflow: auto;
     font-family: 'kalam', serif;
-
+    font-weight: bold;
+    text-shadow: 2px 5px 5px #001000;
+    
 }
 
 .navbar1 {
@@ -15,11 +17,14 @@
 
 .navbar a {
     float: left;
-    font-size: 15px;
+    font-size: 14px;
+    font-weight: bold;
     color: white;
     text-align: center;
     padding: 2px 5px;
     text-decoration: none;
+
+
 
 }
 
@@ -27,14 +32,15 @@
     float: left;
     overflow: hidden;
 
+
 }
 
 .dropdown .dropbtn {
-    font-size: 15px;    
+    fon -size: 18px;    
     border: none;
     outline: none;
     color: white;
-    padding: 4px 250px 0 250px;
+    padding: 4px 0px 0px 20px;
     background-color: inherit;
     font: inherit;
     margin: 0;
@@ -42,16 +48,13 @@
 }
 
 .navbar a:hover, .dropdown:hover .dropbtn {
-    background-color: red;
+    background-color: green;
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
-    ma x-width: ;
-    le ft: 0;
-    bo x-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    color: blue;
     z-index: 1;
 }
 
@@ -63,15 +66,18 @@
 /* Create three equal columns that floats next to each other */
 .column {
     float: left;
-    wid th: 33.33%;
+    width: auto;
     padding:  10px;
     background-color: white;
+    border-top: 10px green solid ;
+    outline-top: 10px blue solid ;
+    border-bottom:  5px red solid ;
     height: auto;
 }
 
 .column a {
     float: none;
-    color: black;
+    color: #700000;
     paddi ng: 16px;
     text-decoration: none;
     display: block;
