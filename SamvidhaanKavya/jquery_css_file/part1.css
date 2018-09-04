@@ -1,0 +1,22 @@
+
+.part1 {
+	max-width: 25%;
+	display: table-cell;
+	font-family: 'Amita', serif;
+	font-size: 15px;
+	font-weight: bold;
+	text-shadow: 12px 2px 10px brown;
+	border-top: 5px orange solid;
+	border-bottom: 5px orange solid;
+	background-color: white;
+}
+
+.part1 h2 {
+
+	color: blue;
+}
+
+.part1 p {
+
+	font-family: 'kalam', serif;
+}

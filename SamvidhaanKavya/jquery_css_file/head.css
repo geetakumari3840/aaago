@@ -1,0 +1,95 @@
+ body {
+	font-family: 'Amita', serif;
+    background-color: grey;
+	margin: 0px;
+	padding: 0px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.head {
+	color:white;
+text-shadow: 12px 12px 5px red;
+}
+.WCenter {
+
+	max-width: 1200px;
+	margin: auto;
+	
+	
+}
+
+.Kheader {
+	display: block;
+	overflow: auto;
+	margin:8px 0px 5px 0;
+	text-align: center;
+	background-color:  white;
+}
+
+
+.secon {
+
+  background-color:  #700000;
+  width: 100%
+  height :auto;
+  margin:5px;
+  padding: 2px;
+  
+}
+
+.title {
+
+	font-size:50px;
+	font-weight: bold;
+	text-decoration: underline;
+	letter-spacing: 7px;
+	display: inline-block;
+	margin:0px;
+	padding: 5px;
+}
+
+.india {
+
+	float: left;
+	padding-top: 6px;	
+	padding-left: 30px;
+	}
+
+.skg1 {
+
+	float:right;
+	background-color: white;
+	margin:3px 25px 3px 3px;
+	border-radius: 50px;
+
+
+}
+
+.skg2 {
+
+	margin:5px;
+	border-radius: 50px;
+
+}
+
+.skg2 img {
+
+	border-radius: 50px;
+}
+
+
+
+
+/* Body */
+.MasterPart {
+
+	display: table;
+	width: 100%;
+	text-align: center;
+	
+
+}
+

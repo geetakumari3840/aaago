@@ -1,0 +1,1914 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 4.6.4
+- https://www.phpmyadmin.net
+-
+- Host: 127.0.0.1
+- Generation Time: Sep 02, 2018 at 11:19 AM
+- Server version: 5.7.14
+- PHP Version: 5.6.25
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="https://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="sanvidhan" collation="latin1_swedish_ci" charset="latin1">
+            <pma:table name="kavya">
+                CREATE TABLE `kavya` (
+                  `SlNo` int(3) NOT NULL AUTO_INCREMENT,
+                  `Part` varchar(2) NOT NULL,
+                  `kavya1` varchar(300) CHARACTER SET utf8 NOT NULL,
+                  `kavya2` varchar(300) CHARACTER SET utf8 NOT NULL,
+                  `anu` varchar(300) CHARACTER SET utf32 NOT NULL,
+                  PRIMARY KEY (`SlNo`)
+                ) ENGINE=MyISAM AUTO_INCREMENT=269 DEFAULT CHARSET=latin1;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Database: 'sanvidhan'
+    -->
+    <database name="sanvidhan">
+        <!-- Table kavya -->
+        <table name="kavya">
+            <column name="SlNo">1</column>
+            <column name="Part">1</column>
+            <column name="kavya1">भाग-1</column>
+            <column name="kavya2">संघ और उसका राज्य क्षेत्र</column>
+            <column name="anu">(The Union and its Territories)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">2</column>
+            <column name="Part">1</column>
+            <column name="kavya1">सब राज्यों को मिलाकर, भारत एक संघ होगा,</column>
+            <column name="kavya2">चाहें तो, नवराष्ट्रों का मिलन, विधि सम्मत होगा।</column>
+            <column name="anu">अनुच्छेद - 1,2)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">3</column>
+            <column name="Part">1</column>
+            <column name="kavya1">संसद चाहे, नये राज्यों का निर्माण कर सकती है,</column>
+            <column name="kavya2">वर्तमान राज्यों में, परिवर्तन भी कर सकती है।</column>
+            <column name="anu">(अनुच्छेद - 3)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">4</column>
+            <column name="Part">2</column>
+            <column name="kavya1">भाग-2</column>
+            <column name="kavya2">नागरिकता</column>
+            <column name="anu">(Citizenship)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">5</column>
+            <column name="Part">2</column>
+            <column name="kavya1">भारत में रहने वाला व्यक्ति, भारतीय कहलाता है,</column>
+            <column name="kavya2">बाहर से आ बसे भारत में, वह भी ये हक पाता है।</column>
+            <column name="anu">(अनुच्छेद - 5)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">6</column>
+            <column name="Part">2</column>
+            <column name="kavya1">कोई स्वेच्छा से करे, विदेशी नागरिकता स्वीकार,</column>
+            <column name="kavya2">भारतीय नागरिकता पर, वह खोयेगा अधिकार।</column>
+            <column name="anu">(अनुच्छेद - 9)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">7</column>
+            <column name="Part">3</column>
+            <column name="kavya1">भाग-3</column>
+            <column name="kavya2">मूल अधिकार </column>
+            <column name="anu">(Fundamental Rights)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">8</column>
+            <column name="Part">3</column>
+            <column name="kavya1">मानव मूल अधिकारों को, महत्वपूर्ण बतलाया है,</column>
+            <column name="kavya2">इनके विरुद्ध किसी विधि को, असंगत ठहराया है।</column>
+            <column name="anu">(अनुच्छेद - 13)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">9</column>
+            <column name="Part">3</column>
+            <column name="kavya1">अनुच्छेद चौदह में, समता का अधिकार है,</column>
+            <column name="kavya2">होटल हो चाहे दुकान, सबको प्रवेश अधिकार है।</column>
+            <column name="anu">(अनुच्छेद - 14, 15)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">10</column>
+            <column name="Part">3</column>
+            <column name="kavya1">अनूसूचित जाति, जनजाति की करनी होगी भलाई</column>
+            <column name="kavya2">ताकि उनकी उन्नित हो और कमी की हो भरपाई।</column>
+            <column name="anu">(अनुच्छेद - 15)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">11</column>
+            <column name="Part">3</column>
+            <column name="kavya1">नौकरी में धर्म, जाति, लिंग का नहीं होगा भेद,</column>
+            <column name="kavya2">साफ साफ शब्दों में, समझाता सोलह अनुच्छेद।</column>
+            <column name="anu">(अनुच्छेद - 16)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">12</column>
+            <column name="Part">3</column>
+            <column name="kavya1">समाज के पिछड़े वर्गों को,हो आरक्षण का सहारा,</column>
+            <column name="kavya2">उन्नित करें दलित, जिनका जीवन वंचित सारा।</column>
+            <column name="anu">(अनुच्छेद - 16)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">13</column>
+            <column name="Part">3</column>
+            <column name="kavya1">छुआछूत कलंक का, अनुच्छेद सतरह करे अंत,</column>
+            <column name="kavya2">डॉ० अम्बेडकर हुए मसीहा, मानवता के बने संत।</column>
+            <column name="anu">(अनुच्छेद - 17)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">14</column>
+            <column name="Part">3</column>
+            <column name="kavya1">रहे ना कोई जमींदार अब, ना नवाब ना महाराजा,</column>
+            <column name="kavya2">पद ना होगा जन्म से, खुला योग्यता का दरवाजा।</column>
+            <column name="anu">(अनुच्छेद - 18)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">15</column>
+            <column name="Part">3</column>
+            <column name="kavya1">प्रतियोगिता से ही मिलेगा, अब पद और सम्मान,</column>
+            <column name="kavya2">बनो डॉक्टर और कलक्टर, खूब कमाओ नाम।</column>
+            <column name="anu">(अनुच्छेद - 18 [भाव की अभिव्यक्ति])</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">16</column>
+            <column name="Part">3</column>
+            <column name="kavya1">व्यक्त करो अपने भावों को, जो चाहे सो बोलो,</column>
+            <column name="kavya2">अन्याय से नहीं डरो, मुँह तुम अपना खोलो।</column>
+            <column name="anu">(अनुच्छेद - 19)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">17</column>
+            <column name="Part">3</column>
+            <column name="kavya1">संघ और समूह बनाना, है सबका अधिकार,</column>
+            <column name="kavya2">शांतिपूर्ण करो सम्मेलन, जो हो बिना हथियार।</column>
+            <column name="anu">(अनुच्छेद - 19)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">18</column>
+            <column name="Part">3</column>
+            <column name="kavya1">सारा भारत देश तुम्हारा, कहीं भी जा सकते हो,</column>
+            <column name="kavya2">कोई जगह पसन्द आये, वहाँ भी रह सकते हो।</column>
+            <column name="anu">(अनुच्छेद - 19)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">19</column>
+            <column name="Part">3</column>
+            <column name="kavya1">बनो वकील या व्यापारी, करो कोई भी कारोबार,</column>
+            <column name="kavya2">अनुच्छेद उन्नीस देता है, तुमको ये सारे अधिकार।</column>
+            <column name="anu">(अनुच्छेद - 19)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">20</column>
+            <column name="Part">3</column>
+            <column name="kavya1">जब तक सिद्ध नहीं हो दोष,दोषी नहीं कहलाओगे,</column>
+            <column name="kavya2">बेगुनाह साबित होने के, सब अवसर तुम पाओगे।</column>
+            <column name="anu">(अनुच्छेद - 20)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">21</column>
+            <column name="Part">3</column>
+            <column name="kavya1">पहले कारण बतलायेंगे, तभी करेंगे गिरफ्तार,</column>
+            <column name="kavya2">चौबीस घंटे में छोड़ेंगे, गिरफ्तारी यदि बेआधार।</column>
+            <column name="anu">(अनुच्छेद - 22)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">22</column>
+            <column name="Part">3</column>
+            <column name="kavya1">कोई बच्चा ना करे मजदूरी, मजदूर ना करे बेगार,</column>
+            <column name="kavya2">यदि कोई भी करे उल्लंघन, जाना होगा कारागार।</column>
+            <column name="anu">(अनुच्छेद - 23)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">23</column>
+            <column name="Part">3</column>
+            <column name="kavya1">नन्हें - नन्हें से बच्चे, नहीं करे खान में काम,</column>
+            <column name="kavya2">सरकार उन्हें देगी शिक्षा, ताकि बने बड़े इंसान।</column>
+            <column name="anu">(अनुच्छेद - 24, 21 क)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">24</column>
+            <column name="Part">3</column>
+            <column name="kavya1">किसी भी धर्म को मानो, या उसका प्रचार करो,</column>
+            <column name="kavya2">अपने बनाओ संस्थान, संचालन का काम करो।</column>
+            <column name="anu">(अनुच्छेद - 25, 26)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">25</column>
+            <column name="Part">3</column>
+            <column name="kavya1">कर से होता मुक्त है, धार्मिक कार्यों का प्रबंध,</column>
+            <column name="kavya2">सरकारी स्कूलों में है, धार्मिक शिक्षा पर प्रतिबंध।</column>
+            <column name="anu">(अनुच्छेद - 27, 28)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">26</column>
+            <column name="Part">3</column>
+            <column name="kavya1">बौद्ध मुस्लिम सिख ईसाई,अल्पसंख्यक हैं ये भाई,</column>
+            <column name="kavya2">अपने धर्म, लिपि, भाषा की, कर सकते हैं पढ़ाई।</column>
+            <column name="anu">(अनुच्छेद - 29, 30)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">27</column>
+            <column name="Part">3</column>
+            <column name="kavya1">मूल अधिकार बहुत जरूरी, प्रजातंत्र का सार,</column>
+            <column name="kavya2">इन सब की गारंटी देता, संवैधानिक उपचार।</column>
+            <column name="anu">(अनुच्छेद - 32)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">28</column>
+            <column name="Part">3</column>
+            <column name="kavya1">छीने यदि कोई अधिकार, रिट दायर करवाओ,</column>
+            <column name="kavya2">न्यायालय से लो आदेश, लागू उसे कराओ।</column>
+            <column name="anu">(अनुच्छेद - 32)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">29</column>
+            <column name="Part">3</column>
+            <column name="kavya1">शस्त्र बलों व आई०बी० में,बहुत जरूरी अनुशासन,</column>
+            <column name="kavya2">अधिकारों में अल्प कटौती, कर सकता है शासन।</column>
+            <column name="anu">(अनुच्छेद - 33)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">30</column>
+            <column name="Part">4</column>
+            <column name="kavya1">भाग-4</column>
+            <column name="kavya2">राज्य के नीति निर्देशक तत्व</column>
+            <column name="anu">(Directive Principles of State Policy)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">31</column>
+            <column name="Part">4</column>
+            <column name="kavya1">संविधान सब राज्यों को, देता है निर्देश,</column>
+            <column name="kavya2">जनता के कल्याण की, व्यवस्था करें विशेष।</column>
+            <column name="anu">(अनुच्छेद - 38)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">32</column>
+            <column name="Part">4</column>
+            <column name="kavya1">सामाजिक असमता कम हो, घटे आय का अंतर,</column>
+            <column name="kavya2">सभी क्षेत्र करें विकास, अवसर मिले निरन्तर।</column>
+            <column name="anu">(अनुच्छेद - 38)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">33</column>
+            <column name="Part">4</column>
+            <column name="kavya1">स्त्री-पुरुष सबको मिले, आजीविका के साधन,</column>
+            <column name="kavya2">सामूहिक हित हो जिसमें, बाँटो सब संसाधन।</column>
+            <column name="anu">(अनुच्छेद - 39)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">34</column>
+            <column name="Part">4</column>
+            <column name="kavya1">एक हाथ में केन्द्रित ना हों, उत्पादन के साधन,</column>
+            <column name="kavya2">नर-नारी यदि करें कार्य, तो मिले समान ही वेतन।</column>
+            <column name="anu">(अनुच्छेद - 39)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">35</column>
+            <column name="Part">4</column>
+            <column name="kavya1">कार्मिकों के स्वास्थ्य का, ध्यान रखे सरकार,</column>
+            <column name="kavya2">स्त्री - पुरुष, बच्चे न करें, हानिकारक रोजगार।</column>
+            <column name="anu">(अनुच्छेद - 39)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">36</column>
+            <column name="Part">4</column>
+            <column name="kavya1">सब बच्चे उन्नित करें, मिले माहौल अनुकूल,</column>
+            <column name="kavya2">शोषण उनका ना होये, कभी न जाना भूल।</column>
+            <column name="anu">(अनुच्छेद - 39)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">37</column>
+            <column name="Part">4</column>
+            <column name="kavya1">न्याय सर्वजन को मिले, अपराधी या सुशील,</column>
+            <column name="kavya2">कोई बहुत गरीब हो, तो मुफ्त में मिले वकील।</column>
+            <column name="anu">(अनुच्छेद - 39 क)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">38</column>
+            <column name="Part">4</column>
+            <column name="kavya1">गाँव में निश्चित करें, पंचायत का गठन,</column>
+            <column name="kavya2">जनता को शक्ति मिले, लगे विकास में धन।</column>
+            <column name="anu">(अनुच्छेद - 40)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">39</column>
+            <column name="Part">4</column>
+            <column name="kavya1">बूढ़ा हो, बेकार हो, असमर्थ या बीमार,</column>
+            <column name="kavya2">सहारा इनको भी मिले, कुछ मदद करे सरकार।</column>
+            <column name="anu">(अनुच्छेद - 41)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">40</column>
+            <column name="Part">4</column>
+            <column name="kavya1">अच्छा, सुविधाजनक हो, कार्यालय में काम,</column>
+            <column name="kavya2">गर्भवती महिलाओं को, मिले विशेष आराम।</column>
+            <column name="anu">(अनुच्छेद - 42)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">41</column>
+            <column name="Part">4</column>
+            <column name="kavya1">जीवन का स्तर सुधरे, चहुंमुखी होये विकास,</column>
+            <column name="kavya2">बेकारों को मिले काम, सुविधा और अवकाश।</column>
+            <column name="anu">(अनुच्छेद - 43)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">42</column>
+            <column name="Part">4</column>
+            <column name="kavya1">उद्योगों के प्रबन्ध में, हो मजदूरों का हाथ,</column>
+            <column name="kavya2">सहकारी समिति का स्वरूप, खिले साथ ही साथ।</column>
+            <column name="anu">(अनुच्छेद - 43 क और ख)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">43</column>
+            <column name="Part">4</column>
+            <column name="kavya1">सब नागरिकों के लिए, जो देश में करें निवास,</column>
+            <column name="kavya2">समान सिविल संहिता का, किया जाये प्रयास।</column>
+            <column name="anu">(अनुच्छेद - 44)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">44</column>
+            <column name="Part">4</column>
+            <column name="kavya1">नन्हें बच्चों को मिले, शिक्षा और सुरक्षा,</column>
+            <column name="kavya2">बनें सभ्य नागरिक वे, जीवन हो अति अच्छा।</column>
+            <column name="anu">(अनुच्छेद - 45)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">45</column>
+            <column name="Part">4</column>
+            <column name="kavya1">अनुसूचित जाति, जनजाति, वर्ग हैं सबसे दुर्बल,</column>
+            <column name="kavya2">अन्यायों पर लगे रोक, मिले शिक्षा और धन बल।</column>
+            <column name="anu">(अनुच्छेद - 46)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">46</column>
+            <column name="Part">4</column>
+            <column name="kavya1">मिलें विटामिन, पोषक तत्व, उच्च स्तरीय जीवन,</column>
+            <column name="kavya2">स्वास्थ्य सेवा में हो सुधार, रुके नशे का सेवन।</column>
+            <column name="anu">(अनुच्छेद - 47)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">47</column>
+            <column name="Part">4</column>
+            <column name="kavya1">वैज्ञानिक तकनीकों से बढ़े, कृषि और पशुपालन,</column>
+            <column name="kavya2">सुधरे नस्ल पशुओं की, वध-निषेध का हो पालन।</column>
+            <column name="anu">(अनुच्छेद - 48)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">48</column>
+            <column name="Part">4</column>
+            <column name="kavya1">पयार्वरण सुरक्षित रखो, करो जीवन का रक्षण,</column>
+            <column name="kavya2">वृक्ष लगाओ, करो हरियाली,वन जीवों का रक्षण।</column>
+            <column name="anu">(अनुच्छेद - 48 क)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">49</column>
+            <column name="Part">4</column>
+            <column name="kavya1">स्मारकों की करें सुरक्षा, रखें विशेष ध्यान,</column>
+            <column name="kavya2">इतिहास रहेगा सुरक्षित, बढ़ेगा सबका ज्ञान।</column>
+            <column name="anu">(अनुच्छेद - 49)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">50</column>
+            <column name="Part">4</column>
+            <column name="kavya1">प्रशासन का न्यायालय में, ना हो कोई दखल,</column>
+            <column name="kavya2">न्यायपालिका रहे स्वतंत्र, न्याय मिले प्रतिपल।</column>
+            <column name="anu">(अनुच्छेद - 50)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">51</column>
+            <column name="Part">4</column>
+            <column name="kavya1">सब देशों के बीच में, रहे सुरक्षा शान्ति,</column>
+            <column name="kavya2">आपस में आदर बढ़े, मिटे परस्पर भ्रान्ति।</column>
+            <column name="anu">(अनुच्छेद - 51)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">52</column>
+            <column name="Part">4</column>
+            <column name="kavya1">भाग-4क</column>
+            <column name="kavya2">मूल कर्तव्य</column>
+            <column name="anu">(Fundamental Duties)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">53</column>
+            <column name="Part">4</column>
+            <column name="kavya1">संविधान का करें पालन, झंडे का करें सम्मान,</column>
+            <column name="kavya2">इसके आदर्शों को माने, आदर से करें राष्ट्रगान।</column>
+            <column name="anu">(अनुच्छेद - 51 क [ क ])</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">54</column>
+            <column name="Part">4</column>
+            <column name="kavya1">आजादी के आदर्शों को, समझे और बयान करें,</column>
+            <column name="kavya2">देश की प्रभुता, अखंडता के, रक्षक का काम करें।</column>
+            <column name="anu">(अनुच्छेद - 51 क [ ख, ग ])</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">55</column>
+            <column name="Part">4</column>
+            <column name="kavya1">राष्ट्र की सेवा करें, स्त्री का सम्मान करें,</column>
+            <column name="kavya2">भेदभाव रहित होकर, भ्रातृत्व का निर्माण करें।</column>
+            <column name="anu">(अनुच्छेद - 51 क [ घ, ङ ])</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">56</column>
+            <column name="Part">4</column>
+            <column name="kavya1">सामाजिक संस्कृति समझें, परम्परा का मान करें,</column>
+            <column name="kavya2">प्रकृति का विस्तार करें, जीवन का सम्मान करें।</column>
+            <column name="anu">(अनुच्छेद - 51 क [ च, छ ])</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">57</column>
+            <column name="Part">4</column>
+            <column name="kavya1">वैज्ञानिक हो दृष्टिकोण, ज्ञानार्जन का काम करें,</column>
+            <column name="kavya2">सावर्जनिक सम्पत्ति का, कभी नहीं नुकसान करें।</column>
+            <column name="anu">(अनुच्छेद - 51 क [ ज, झ ])</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">58</column>
+            <column name="Part">4</column>
+            <column name="kavya1">खुद ऊंचाईयों को छू लें, लोगों को भी बढ़ायें,</column>
+            <column name="kavya2">राष्ट्र निरन्तर बढ़े आगे, सभी सफल हो जायें।</column>
+            <column name="anu">(अनुच्छेद - 51 क [ ञ ] )</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">59</column>
+            <column name="Part">4</column>
+            <column name="kavya1">माता-पिता या संरक्षक, प्रथम काम ये करवायें,</column>
+            <column name="kavya2">चाहे गरीबी हो घर में, बच्चे को शिक्षा दिलवायें।</column>
+            <column name="anu">(अनुच्छेद - 51 क [ ट ] )</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">60</column>
+            <column name="Part">5</column>
+            <column name="kavya1">भाग-5</column>
+            <column name="kavya2">संघ </column>
+            <column name="anu">(The Union)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">61</column>
+            <column name="Part">5</column>
+            <column name="kavya1">A</column>
+            <column name="kavya2">कार्यपालिका </column>
+            <column name="anu">(The Executive)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">62</column>
+            <column name="Part">5</column>
+            <column name="kavya1">भारत सरकार में राष्ट्रपति, सर्वोच्चाधिकारी होगा,</column>
+            <column name="kavya2">जल थल वायु सेना का, वह शीर्षाधिकारी होगा।</column>
+            <column name="anu">(अनुच्छेद - 52, 53)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">63</column>
+            <column name="Part">5</column>
+            <column name="kavya1">संसद विधानसभाओं द्वारा,राष्ट्रपति चयनित होगा,</column>
+            <column name="kavya2">पाँच साल का कार्यकाल,जिनका नियमित होगा।</column>
+            <column name="anu">(अनुच्छेद - 54, 56)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">64</column>
+            <column name="Part">5</column>
+            <column name="kavya1">नागिरक हो भारत का, आयु पैंतीस से कम ना हो,</column>
+            <column name="kavya2">सांसद बनने लायक हों,कोई लाभ का पद ना हो।</column>
+            <column name="anu">(अनुच्छेद - 58)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">65</column>
+            <column name="Part">5</column>
+            <column name="kavya1">मुख्य न्यायाधीश द्वारा, उनका शपथ ग्रहण होगा,</column>
+            <column name="kavya2">संविधान की रक्षा और अनुपालन का प्रण होगा।</column>
+            <column name="anu">(अनुच्छेद - 60)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">66</column>
+            <column name="Part">5</column>
+            <column name="kavya1">राष्ट्रपति यदि संविधान की, अवहेलना करते हैं,</column>
+            <column name="kavya2">संसद सदस्य उनके ऊपर, दोषारोपण करते हैं।</column>
+            <column name="anu">(अनुच्छेद - 61)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">67</column>
+            <column name="Part">5</column>
+            <column name="kavya1">संसद द्वारा दोषारोपण, महाभियोग कहलाता है,</column>
+            <column name="kavya2">दोष सिद्ध होने पर, उनको पद से हटाया जाता है।</column>
+            <column name="anu">(अनुच्छेद - 61)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">68</column>
+            <column name="Part">5</column>
+            <column name="kavya1">राष्ट्रपति सर्वोच्च हैं, पर संसद है उनसे ऊपर,</column>
+            <column name="kavya2">राष्ट्रपति संसद न्यायालय, संविधान सबसे ऊपर।</column>
+            <column name="anu">(अनुच्छेद - 61 [भाव की अभिव्यक्ति])</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">69</column>
+            <column name="Part">5</column>
+            <column name="kavya1">राष्ट्रपति यदि हों असमर्थ, अनुपस्थित या बीमार,</column>
+            <column name="kavya2">भारत के उपराष्ट्रपति, देखेंगे उनका कार्यभार।</column>
+            <column name="anu">(अनुच्छेद - 63, 65)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">70</column>
+            <column name="Part">5</column>
+            <column name="kavya1">संसद के दो सदन करें, उपराष्ट्रपति का निर्वाचन,</column>
+            <column name="kavya2">संविधान के प्रति वे लेंगे, श्रद्धा, निष्ठा के वचन।</column>
+            <column name="anu">(अनुच्छेद - 66, 69)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">71</column>
+            <column name="Part">5</column>
+            <column name="kavya1">राष्ट्रपति कर सकते हैं, किसी भी सजा को कम,</column>
+            <column name="kavya2">दे सकते हैं माफी भी, या फिर सजा का निलंबन।</column>
+            <column name="anu">(अनुच्छेद - 72)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">72</column>
+            <column name="Part">5</column>
+            <column name="kavya1">राष्ट्रपति की मदद हेतु, एक मंत्री परिषद होगी,</column>
+            <column name="kavya2">समुचित कार्यवाही हेतु, जो अपनी सलाह देगी।</column>
+            <column name="anu">(अनुच्छेद - 74)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">73</column>
+            <column name="Part">5</column>
+            <column name="kavya1">महामहिम को, सलाह का, पालन करना ही होगा,</column>
+            <column name="kavya2">इस सलाह की अनदेखी, संभव काम नहीं होगा।</column>
+            <column name="anu">(अनुच्छेद - 74)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">74</column>
+            <column name="Part">5</column>
+            <column name="kavya1">मंत्री-मंडल की नियुक्ति, राष्ट्रपति द्वारा होगी,</column>
+            <column name="kavya2">लोकसभा के प्रति भी, मंडल की जिम्मेदारी होगी।</column>
+            <column name="anu">(अनुच्छेद - 75)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">75</column>
+            <column name="Part">5</column>
+            <column name="kavya1">मंत्री-परिषद का मुखिया, प्रधानमंत्री होता है,</column>
+            <column name="kavya2">प्रजातंत्र में वह व्यक्ति, सबसे ताकतवर होता है।</column>
+            <column name="anu">(अनुच्छेद - 75)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">76</column>
+            <column name="Part">5</column>
+            <column name="kavya1">एक महान्यायवादी होगा, भारत सरकार में नियुक्त,</column>
+            <column name="kavya2">सरकार को विधि सम्बन्धी, सलाह देगा उपयुक्त।</column>
+            <column name="anu">(अनुच्छेद - 76)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">77</column>
+            <column name="Part">5</column>
+            <column name="kavya1">सरकार सब काम करेगी, राष्ट्रपति के नाम से,</column>
+            <column name="kavya2">उनको अवगत भी करायेगी, सरकार के काम से।</column>
+            <column name="anu">(अनुच्छेद - 77, 78)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">78</column>
+            <column name="Part">5</column>
+            <column name="kavya1">B</column>
+            <column name="kavya2">संसद </column>
+            <column name="anu">(Parliament)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">79</column>
+            <column name="Part">5</column>
+            <column name="kavya1">संसद भारत देश की, सबसे बड़ी संस्था होगी,</column>
+            <column name="kavya2">नये कानून बनाने हेतु, उसकी ही क्षमता होगी।</column>
+            <column name="anu">(अनुच्छेद - 79)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">80</column>
+            <column name="Part">5</column>
+            <column name="kavya1">तीन भागों से होता है, भारतीय संसद का गठन,</column>
+            <column name="kavya2">सर्वप्रथम हैं राष्ट्रपति, फिर संसद के दो सदन।</column>
+            <column name="anu">(अनुच्छेद - 79)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">81</column>
+            <column name="Part">5</column>
+            <column name="kavya1">राज्य सभा के सदस्यों का, राज्य ही करें चयन,</column>
+            <column name="kavya2">कुछ विशेष लोगों का, किया जाता है मनोनयन।</column>
+            <column name="anu">(अनुच्छेद - 80)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">82</column>
+            <column name="Part">5</column>
+            <column name="kavya1">प्रत्येक पाँच साल में होता, लोक सभा का चुनाव,</column>
+            <column name="kavya2">यही लोकतंत्र का जादू, जब लोग करे बदलाव।</column>
+            <column name="anu">(अनुच्छेद - 83)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">83</column>
+            <column name="Part">5</column>
+            <column name="kavya1">राज्य सभा में नियुक्ति हेतु, उम्र चाहिए तीस,</column>
+            <column name="kavya2">लोकसभा में आने हेतु, पूरे करें पच्चीस।</column>
+            <column name="anu">(अनुच्छेद - 84)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">84</column>
+            <column name="Part">5</column>
+            <column name="kavya1">राष्ट्रपति समय समय पर, करेंगे संसद में बैठक,</column>
+            <column name="kavya2">दोनों सदनों में अभिभाषण का, होगा उनका हक।</column>
+            <column name="anu">(अनुच्छेद - 86, 87)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">85</column>
+            <column name="Part">5</column>
+            <column name="kavya1">लोकसभा शीघ्र चुनेगी, अपना एक अध्यक्ष,</column>
+            <column name="kavya2">लोकसभा के संचालन में, होगा वह अति दक्ष।</column>
+            <column name="anu">(अनुच्छेद - 93)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">86</column>
+            <column name="Part">5</column>
+            <column name="kavya1">संसद के सब सदस्यों को, लेनी होगी एक शपथ,</column>
+            <column name="kavya2">संविधान का करेंगे पालन, अपनायेंगे उसका पथ।</column>
+            <column name="anu">(अनुच्छेद - 99)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">87</column>
+            <column name="Part">5</column>
+            <column name="kavya1">सांसद नहीं बने रहेंगे, यदि हो विकृत मानसिकता,</column>
+            <column name="kavya2">हो जायें दिवालिया, या त्यागें देश की नागरिकता।</column>
+            <column name="anu">(अनुच्छेद - 102)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">88</column>
+            <column name="Part">5</column>
+            <column name="kavya1">सांसद सदन में बोलें, या रखें स्वतंत्र विचार,</column>
+            <column name="kavya2">वाणी की स्वतंत्रता ही, है संसद का मुख्य आचार।</column>
+            <column name="anu">(अनुच्छेद - 105)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">89</column>
+            <column name="Part">5</column>
+            <column name="kavya1">संसद बनायेगी कानून और पास करेगी बिल,</column>
+            <column name="kavya2">दोनों सदनों की सहमति से, काम नहीं मुश्किल।</column>
+            <column name="anu">(अनुच्छेद - 107)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">90</column>
+            <column name="Part">5</column>
+            <column name="kavya1">जब कोई बिल पास होगा, सहमति देगें राष्ट्रपति,</column>
+            <column name="kavya2">यदि संविधान सम्मत है,तो जल्द ही देंगे स्वीकृति।</column>
+            <column name="anu">(अनुच्छेद - 111)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">91</column>
+            <column name="Part">5</column>
+            <column name="kavya1">मंत्रालय सरकारी खर्चे का, पूरा बजट बनाता है,</column>
+            <column name="kavya2">वित्त मंत्री फिर इसको, संसद में पास कराता है।</column>
+            <column name="anu">(अनुच्छेद - 112)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">92</column>
+            <column name="Part">5</column>
+            <column name="kavya1">संसद में होगी प्रयोग, हिन्दी या अंग्रेजी भाषा,</column>
+            <column name="kavya2">यदि कोई दोनों ना जाने, बोले अपनी मातृभाषा।</column>
+            <column name="anu">(अनुच्छेद - 120)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">93</column>
+            <column name="Part">5</column>
+            <column name="kavya1">किसी जज के बर्ताव पर, संसद में ना होगी बहस,</column>
+            <column name="kavya2">संसदीय कार्यवाही पर, जज का नहीं चलेगा बस।</column>
+            <column name="anu">(अनुच्छेद - 121, 122)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">94</column>
+            <column name="Part">5</column>
+            <column name="kavya1">संसद ना चल रही हो, परिस्थिति भी हो विशेष,</column>
+            <column name="kavya2">राष्ट्रपति कानून बनायें, जारी करके अध्यादेश।</column>
+            <column name="anu">(अनुच्छेद - 123)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">95</column>
+            <column name="Part">5</column>
+            <column name="kavya1">C</column>
+            <column name="kavya2">न्यायपालिका </column>
+            <column name="anu">(The Union Judiciary)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">96</column>
+            <column name="Part">5</column>
+            <column name="kavya1">पूरे भारत में एक, सर्वोच्च न्यायालय होगा,</column>
+            <column name="kavya2">न्याय का मन्दिर होगा, जजों का कार्यालय होगा।</column>
+            <column name="anu">(अनुच्छेद - 124)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">97</column>
+            <column name="Part">5</column>
+            <column name="kavya1">जज यदि बनना हो, तो चाहिए संविधान का ज्ञान,</column>
+            <column name="kavya2">वकील या जज के रूप में, पहले किया हो काम।</column>
+            <column name="anu">(अनुच्छेद - 124)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">98</column>
+            <column name="Part">5</column>
+            <column name="kavya1">इन सभी जजों का चयन, राष्ट्रपति जी करते हैं,</column>
+            <column name="kavya2">इसके लिए अन्य जजों से, सलाह भी वह करते हैं।</column>
+            <column name="anu">(अनुच्छेद - 124)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">99</column>
+            <column name="Part">5</column>
+            <column name="kavya1">पद ग्रहण से पूर्व, सब जज करते हैं ये वादा,</column>
+            <column name="kavya2">पक्षपात मैं नहीं करूंगा, रखूँ संविधान मर्यादा।</column>
+            <column name="anu">(अनुच्छेद - 124)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">100</column>
+            <column name="Part">5</column>
+            <column name="kavya1">जज हो जायें असमर्थ, या तोड़े संविधान की हद,</column>
+            <column name="kavya2">संसद करेगी महाभियोग, छोड़ना होगा उनको पद।</column>
+            <column name="anu">(अनुच्छेद - 124)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">101</column>
+            <column name="Part">5</column>
+            <column name="kavya1">सुप्रीम कोर्ट के पास, सबसे ज्यादा अधिकार,</column>
+            <column name="kavya2">मसला अपील का हो,या फिर राज्यों की तकरार।</column>
+            <column name="anu">(अनुच्छेद - 131, 132, 133, 134)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">102</column>
+            <column name="Part">5</column>
+            <column name="kavya1">जरूरत पड़े तो सुप्रीम कोर्ट, नये कानून बनाता है,</column>
+            <column name="kavya2">जटिल संवैधानिक मसलों को भी,ये सुलझाता है।</column>
+            <column name="anu">(अनुच्छेद - 141, 143)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">103</column>
+            <column name="Part">5</column>
+            <column name="kavya1">भारत में एक नियंत्रक महालेखापरीक्षक होगा,</column>
+            <column name="kavya2">केन्द्र-राज्य के खर्चों का, ब्यौरा उसे रखना होगा।</column>
+            <column name="anu">(अनुच्छेद - 148, 149)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">104</column>
+            <column name="Part">6</column>
+            <column name="kavya1">भाग-6</column>
+            <column name="kavya2">राज्य </column>
+            <column name="anu">(The States)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">105</column>
+            <column name="Part">6</column>
+            <column name="kavya1">A</column>
+            <column name="kavya2">कार्यपालिका </column>
+            <column name="anu">(The Executive)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">106</column>
+            <column name="Part">6</column>
+            <column name="kavya1">राज्यपाल हर राज्य में, सर्वोच्च अधिकारी होगा,</column>
+            <column name="kavya2">राष्ट्रपति करेंगे नियुक्ति,कार्यकाल पांच वर्ष होगा।</column>
+            <column name="anu">(अनुच्छेद - 153, 154, 155, 156)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">107</column>
+            <column name="Part">6</column>
+            <column name="kavya1">राज्यपाल की नियुक्ति हेतु, भारत का नागिरक हो,</column>
+            <column name="kavya2">आयु पैंतीस की हो, अन्य लाभ का पद ना हो।</column>
+            <column name="anu">(अनुच्छेद - 157, 158)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">108</column>
+            <column name="Part">6</column>
+            <column name="kavya1">राज्यपाल को मिलेंगे, भत्ते और विशेषािधकार,</column>
+            <column name="kavya2">साथ ही साथ होंगे वे, मुफ्त मकान के हकदार।</column>
+            <column name="anu">(अनुच्छेद - 158)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">109</column>
+            <column name="Part">6</column>
+            <column name="kavya1">उच्च न्यायालय के जज से, राज्यपाल लेंगे शपथ,</column>
+            <column name="kavya2">जनता की करेंगे सेवा, अपनायेंगे संविधान पथ।</column>
+            <column name="anu">(अनुच्छेद - 159)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">110</column>
+            <column name="Part">6</column>
+            <column name="kavya1">आपराधिक मामलों में, राज्यपाल रखते हैं शक्ति,</column>
+            <column name="kavya2">दोषी की कम करें सजा,या फिर दण्ड से दे मुक्ति।</column>
+            <column name="anu">(अनुच्छेद - 161)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">111</column>
+            <column name="Part">6</column>
+            <column name="kavya1">राज्यपाल विवेकानुसार, करेंगे कार्यों का निर्वाह,</column>
+            <column name="kavya2">अन्य मामलों में वे लेंगे, मंत्री परिषद से सलाह।</column>
+            <column name="anu">(अनुच्छेद - 163)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">112</column>
+            <column name="Part">6</column>
+            <column name="kavya1">राज्यपाल ही करेंगे, राज्य मुख्यमंत्री की नियुक्ति,</column>
+            <column name="kavya2">फिर उनकी सलाह पर, अन्य मंत्रियों की नियुक्ति।</column>
+            <column name="anu">(अनुच्छेद - 164)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">113</column>
+            <column name="Part">6</column>
+            <column name="kavya1">राज्य के कुल मंत्रियों की, संख्या निर्धारित होगी,</column>
+            <column name="kavya2">एम एल ए की संख्या का,पंद्रह प्रतिशत ही होगी।</column>
+            <column name="anu">(अनुच्छेद - 164)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">114</column>
+            <column name="Part">6</column>
+            <column name="kavya1">राज्य मंत्रियों की शपथ, संविधान के प्रति होगी,</column>
+            <column name="kavya2">सारी जनता की सेवा, पक्षपात रहित होगी।</column>
+            <column name="anu">(अनुच्छेद - 164)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">115</column>
+            <column name="Part">6</column>
+            <column name="kavya1">मंत्री को गोपनीयता की, शपथ ग्रहण करनी होगी,</column>
+            <column name="kavya2">कुछ विषयों की जानकारी, उन्हें गुप्त रखनी होगी।</column>
+            <column name="anu">(अनुच्छेद - 164)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">116</column>
+            <column name="Part">6</column>
+            <column name="kavya1">राज्यपाल ही नियुक्त करेंगे, राज्य का महाधिवक्ता,</column>
+            <column name="kavya2">कानूनी विषयों पर होगा,वो ही अधिकारिक वक्ता।</column>
+            <column name="anu">(अनुच्छेद - 165)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">117</column>
+            <column name="Part">6</column>
+            <column name="kavya1">राज्य की कार्यवाही होगी, राज्यपाल के नाम से,</column>
+            <column name="kavya2">मुख्यमंत्री अवगत करायेंगे, उनको अपने काम से।</column>
+            <column name="anu">(अनुच्छेद - 166, 167)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">118</column>
+            <column name="Part">6</column>
+            <column name="kavya1">B</column>
+            <column name="kavya2">विधान मण्डल </column>
+            <column name="anu">(The State Legislature)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">119</column>
+            <column name="Part">6</column>
+            <column name="kavya1">सब राज्यों में होगा, विधानसभा एक मुख्य सदन,</column>
+            <column name="kavya2">कुछ में अतिरिक्त होगा, विधानपरिषद का गठन।</column>
+            <column name="anu">(अनुच्छेद - 168)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">120</column>
+            <column name="Part">6</column>
+            <column name="kavya1">विधानसभा में होगा, जनसंख्या का सही अनुपात,</column>
+            <column name="kavya2">ताकि हर समाज के लोग, पूरी रखें अपनी बात।</column>
+            <column name="anu">(अनुच्छेद - 170)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">121</column>
+            <column name="Part">6</column>
+            <column name="kavya1">उम्र यदि पच्चीस की हो, मन में हो सेवा का भाव,</column>
+            <column name="kavya2">एम०एल०ए० बनने हेतु, लड़ सकते हो तुम चुनाव।</column>
+            <column name="anu">(अनुच्छेद - 173)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">122</column>
+            <column name="Part">6</column>
+            <column name="kavya1">संविधान प्रति रखनी होगी, हर सदस्य को निष्ठा,</column>
+            <column name="kavya2">मेरा भारत रहे अखण्ड, ऊँची उसकी रहे प्रतिष्ठा।</column>
+            <column name="anu">(अनुच्छेद - 173)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">123</column>
+            <column name="Part">6</column>
+            <column name="kavya1">विधानसभा अध्यक्ष, करेंगे सभा का संचालन,</column>
+            <column name="kavya2">हर दल रखे अपनी बात,हो नियमों का भी पालन।</column>
+            <column name="anu">(अनुच्छेद - 178)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">124</column>
+            <column name="Part">6</column>
+            <column name="kavya1">सदन में हर सदस्य, अपनी बात कह सकता है,</column>
+            <column name="kavya2">बेखौफ, बेहिचक विचार, व्यक्त कर सकता है।</column>
+            <column name="anu">(अनुच्छेद - 194)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">125</column>
+            <column name="Part">6</column>
+            <column name="kavya1">सदन, सदस्यों के वेतन को भी, तय कर सकता है,</column>
+            <column name="kavya2">जरूरत पड़े तो भत्तों में, बढ़ोत्तरी कर सकता है।</column>
+            <column name="anu">(अनुच्छेद - 195)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">126</column>
+            <column name="Part">6</column>
+            <column name="kavya1">विधानसभा राज्य का बिल भी,पास कर सकती है,</column>
+            <column name="kavya2">फिर उस पर राज्यपाल से, स्वीकृति ले सकती है।</column>
+            <column name="anu">(अनुच्छेद - 196)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">127</column>
+            <column name="Part">6</column>
+            <column name="kavya1">राज्यपाल सहमत होने पर, अपनी मुहर लगायेंगे,</column>
+            <column name="kavya2">बिल में कुछ गड़बड़ है, तो राष्ट्रपति को बतायेंगे।</column>
+            <column name="anu">(अनुच्छेद - 200)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">128</column>
+            <column name="Part">6</column>
+            <column name="kavya1">विधानसभा बना सकती है, राज्य के लिए कानून,</column>
+            <column name="kavya2">जिसमें राज्य का हित हो, जनता को मिले सुकून।</column>
+            <column name="anu">(अनुच्छेद - 200)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">129</column>
+            <column name="Part">6</column>
+            <column name="kavya1">राज्य बजट बतलायेगा,सरकार का वार्षिक खर्चा,</column>
+            <column name="kavya2">योजनाओं के मुद्दो पर, फिर होगी सदन में चर्चा।</column>
+            <column name="anu">(अनुच्छेद - 202, 203)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">130</column>
+            <column name="Part">6</column>
+            <column name="kavya1">हिन्दी, अंग्रेजी, स्थानीय, होंगी सदन की भाषा,</column>
+            <column name="kavya2">कोई न जाने यदि इन्हें भी, बोलेगा वह मातृभाषा।</column>
+            <column name="anu">(अनुच्छेद - 210)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">131</column>
+            <column name="Part">6</column>
+            <column name="kavya1">जज के आचरण पर, नहीं करेगा सदन बहस,</column>
+            <column name="kavya2">सदन की कार्यवाही पर भी, न चले कोर्ट का बस।</column>
+            <column name="anu">(अनुच्छेद - 211, 212)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">132</column>
+            <column name="Part">6</column>
+            <column name="kavya1">विधानसभा का सत्र न हो, परिस्थिति हो विशेष,</column>
+            <column name="kavya2">राज्यपाल कानून बनायें, जारी करके अध्यादेश।</column>
+            <column name="anu">(अनुच्छेद - 213)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">133</column>
+            <column name="Part">6</column>
+            <column name="kavya1">अध्यादेश को सदन द्वारा, करना होगा पास,</column>
+            <column name="kavya2">वर्ना होगा बेअसर वह, बीते यदि डेढ़ मास।</column>
+            <column name="anu">(अनुच्छेद - 21३)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">134</column>
+            <column name="Part">6</column>
+            <column name="kavya1">C</column>
+            <column name="kavya2">राज्यों के उच्च न्यायालय</column>
+            <column name="anu">(The High Courts in the States)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">135</column>
+            <column name="Part">6</column>
+            <column name="kavya1">हर राज्य में न्याय हेतु, एक उच्च न्यायालय होगा,</column>
+            <column name="kavya2">जिसमें जनता की खातिर, न्याय द्वार खुला होगा।</column>
+            <column name="anu">(अनुच्छेद - 214)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">136</column>
+            <column name="Part">6</column>
+            <column name="kavya1">दस साल का न्यायिक अनुभव, या रहा हो वकील,</column>
+            <column name="kavya2">तब होगा उच्च न्यायालय का, जज बनने काबिल।</column>
+            <column name="anu">(अनुच्छेद - 217)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">137</column>
+            <column name="Part">6</column>
+            <column name="kavya1">राष्ट्रपति द्वारा होगी, न्यायधीश की नियुक्ति,</column>
+            <column name="kavya2">बासठ वर्ष पूरा होने पर, होगी पद से मुक्ति।</column>
+            <column name="anu">(अनुच्छेद - 217)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">138</column>
+            <column name="Part">6</column>
+            <column name="kavya1">न्यायधीश लेंगे शपथ, राज्यपाल के साथ,</column>
+            <column name="kavya2">सब लोगों को देंगे न्याय, बिना किए पक्षपात।</column>
+            <column name="anu">(अनुच्छेद - 219)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">139</column>
+            <column name="Part">6</column>
+            <column name="kavya1">D</column>
+            <column name="kavya2">अधीनस्थ न्यायालय</column>
+            <column name="anu">(Subordinate Courts)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">140</column>
+            <column name="Part">6</column>
+            <column name="kavya1">छोटे न्यायालयों पर होगी, हाईकोर्ट की निगरानी,</column>
+            <column name="kavya2">नियमपूर्वक कार्य करें सब, कोई न करे मनमानी।</column>
+            <column name="anu">(अनुच्छेद - 233)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">141</column>
+            <column name="Part">6</column>
+            <column name="kavya1">जिला जजों की नियुक्ति, राज्यपाल द्वारा होगी,</column>
+            <column name="kavya2">इससे सम्बन्धित सलाह, हाईकोर्ट द्वारा होगी।</column>
+            <column name="anu">(अनुच्छेद - 233)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">142</column>
+            <column name="Part">6</column>
+            <column name="kavya1">सात वर्ष वकालत वाला, जिला जज बनने योग्य,</column>
+            <column name="kavya2">अन्य न्यायिक पदों हेतु, है लोक सेवा आयोग।</column>
+            <column name="anu">(अनुच्छेद - 233)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">143</column>
+            <column name="Part">7</column>
+            <column name="kavya1">भाग-7</column>
+            <column name="kavya2">प्रथम अनूसूची के भाग ख में राज्य</column>
+            <column name="anu">(The States in Part B of FirstvSchedule)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">144</column>
+            <column name="Part">7</column>
+            <column name="kavya1">A</column>
+            <column name="kavya2">निरसित </column>
+            <column name="anu">(Repealed)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">145</column>
+            <column name="Part">8</column>
+            <column name="kavya1">भाग-8</column>
+            <column name="kavya2">संघ राज्यक्षेत्र</column>
+            <column name="anu">(The Union Territories)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">146</column>
+            <column name="Part">8</column>
+            <column name="kavya1">संघ राज्यक्षेत्रों के लिए, प्रशासक होगें जिम्मेदार,</column>
+            <column name="kavya2">चाहे हो दमन, दीव या अंडमान और निकोबार।</column>
+            <column name="anu">(अनुच्छेद - 239)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">147</column>
+            <column name="Part">8</column>
+            <column name="kavya1">राजधानी दिल्ली में है, उपराज्यपाल का शासन,</column>
+            <column name="kavya2">यहाँ विधानसभा भी है, जहाँ जनता करें निर्वाचन।</column>
+            <column name="anu">(अनुच्छेद - 239 क [ क ])</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">148</column>
+            <column name="Part">8</column>
+            <column name="kavya1">भाग-9</column>
+            <column name="kavya2">पंचायतें</column>
+            <column name="anu">(The Panchayats)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">149</column>
+            <column name="Part">8</column>
+            <column name="kavya1">तेजी से हो सबका विकास, हो जनता का शासन,</column>
+            <column name="kavya2">इसके लिए करना होगा, पंचायतों का प्रशासन।</column>
+            <column name="anu">(अनुच्छेद - 243 ख)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">150</column>
+            <column name="Part">8</column>
+            <column name="kavya1">ग्राम सभा हो, पंचायत हो और हो जिला परिषद,</column>
+            <column name="kavya2">अनुसूचित जाति, जनजाति हेतु आरक्षित हों पद।</column>
+            <column name="anu">(अनुच्छेद - 243 ग, घ)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">151</column>
+            <column name="Part">8</column>
+            <column name="kavya1">महिलायें भी समाज की, हैं महत्वपूर्ण ईकाई,</column>
+            <column name="kavya2">उनके लिए आरक्षित हो, अध्यक्ष पद एक तिहाई।</column>
+            <column name="anu">(अनुच्छेद - 243 घ)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">152</column>
+            <column name="Part">8</column>
+            <column name="kavya1">राज्य पंचायतो को देंगे, शक्ति और अधिकार,</column>
+            <column name="kavya2">विकास हो, न्याय मिले, हो जनता का उपकार।</column>
+            <column name="anu">(अनुच्छेद - 243 छ)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">153</column>
+            <column name="Part">8</column>
+            <column name="kavya1">पंचायत कर सकती है, टैक्स वसूली का भी काम,</column>
+            <column name="kavya2">खर्चा-पूर्ति के लिए, राज्य भी देगा उन्हें अनुदान।</column>
+            <column name="anu">(अनुच्छेद - 243 ज)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">154</column>
+            <column name="Part">8</column>
+            <column name="kavya1">प्रत्येक पाँच साल में होगा, पंचायत का निर्वाचन,</column>
+            <column name="kavya2">राज्य चुनाव आयोग करेगा, इन सबका संचालन।</column>
+            <column name="anu">(अनुच्छेद - 243 ट)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">155</column>
+            <column name="Part">9</column>
+            <column name="kavya1">भाग-9 क</column>
+            <column name="kavya2">नगरपालिकायें</column>
+            <column name="anu">(The Municipalities)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">156</column>
+            <column name="Part">9</column>
+            <column name="kavya1">शहरों में नगरपालिका, है पंचायत का दूसरा रूप,</column>
+            <column name="kavya2">वार्ड और उसकी समितियों जैसा होगा प्रारूप।</column>
+            <column name="anu">(अनुच्छेद - 243 थ, द, ध)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">157</column>
+            <column name="Part">9</column>
+            <column name="kavya1">महिला, कमजोर वर्गों का, आरक्षण करना होगा,</column>
+            <column name="kavya2">योजना लागू करने को, टैक्स वसूल करना होगा।</column>
+            <column name="anu">(अनुच्छेद - 243 न, भ)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">158</column>
+            <column name="Part">9</column>
+            <column name="kavya1">महानगर क्षेत्र में आबादी है, दस लाख से ज्यादा,</column>
+            <column name="kavya2">प्रमुख, मेयर कहलाता है,जिम्मेदारी भी है ज्यादा।</column>
+            <column name="anu">(अनुच्छेद - 243 त, थ, ब)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">159</column>
+            <column name="Part">9</column>
+            <column name="kavya1">भाग-9 ख</column>
+            <column name="kavya2">सहकारी समितियां</column>
+            <column name="anu">(The Co-Operative Societies)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">160</column>
+            <column name="Part">9</column>
+            <column name="kavya1">लोग बना सकते हैं, अपनी एक सहकारी समिति,</column>
+            <column name="kavya2">बोर्ड करेगा संचालन,बेहतर होगी आर्थिक स्थिति।</column>
+            <column name="anu">(अनुच्छेद - 243 यज, यञ)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">161</column>
+            <column name="Part">10</column>
+            <column name="kavya1">भाग-10</column>
+            <column name="kavya2">अनुसूचित और जनजाति क्षेत्र</column>
+            <column name="anu">(The Scheduled and Tribal Areas)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">162</column>
+            <column name="Part">10</column>
+            <column name="kavya1">एस०टी० लोगों के विकास का, है विशेष प्रावधान,</column>
+            <column name="kavya2">अनुसूचित क्षेत्रों का भी, खूब रखना होगा ध्यान।</column>
+            <column name="anu">(अनुच्छेद - 244)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">163</column>
+            <column name="Part">10</column>
+            <column name="kavya1">जनजाति के लिए, एक सलाहकार परिषद होगी,</column>
+            <column name="kavya2">जिससे उनके प्रशासन की, नीति निर्धारित होगी।</column>
+            <column name="anu">(अनुच्छेद - 244, पाँचवी अनुसूची)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">164</column>
+            <column name="Part">10</column>
+            <column name="kavya1">उनके कल्याण कार्यों पर, राज्यपाल रखें निगरानी</column>
+            <column name="kavya2">भूमि उनकी रहे सुरक्षित, साहूकार न करें मनमानी।</column>
+            <column name="anu">(अनुच्छेद - 244, पाँचवी अनुसूची)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">165</column>
+            <column name="Part">10</column>
+            <column name="kavya1">राज्यपाल उनके क्षेत्रों में, परिवर्तन कर सकते हैं,</column>
+            <column name="kavya2">शान्ति सुरक्षा कानूनों में, बदली भी कर सकते हैं।</column>
+            <column name="anu">(अनुच्छेद - 244, पाँचवी अनुसूची)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">166</column>
+            <column name="Part">10</column>
+            <column name="kavya1">असम राज्य में होंगे, स्वशासी जिला और प्रदेश,</column>
+            <column name="kavya2">लागू नहीं होंगे इन पर, राज्य सरकार के निर्देश।</column>
+            <column name="anu">(अनुच्छेद - 244, छठी अनुसूची)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">167</column>
+            <column name="Part">10</column>
+            <column name="kavya1">जंगल और जनजाति में है, बहुत गहरा संबंध,</column>
+            <column name="kavya2">संतुलन कैसे रखा जाये, इसका है सही प्रबंध।</column>
+            <column name="anu">(अनुच्छेद - 244, छठी अनुसूची)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">168</column>
+            <column name="Part">10</column>
+            <column name="kavya1">वनभूमि का, उत्पादों का, जनजाति करे प्रयोग,</column>
+            <column name="kavya2">वन भी रहे सुरक्षित, ना हो जीविका में अवरोध।</column>
+            <column name="anu">(अनुच्छेद - 244, छठी अनुसूची)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">169</column>
+            <column name="Part">10</column>
+            <column name="kavya1">राज्यपाल ऐसे क्षेत्रों में, निश्चित करें सुशासन,</column>
+            <column name="kavya2">शिक्षा, स्वास्थ्य, संचार के दिलवाये सब साधन।</column>
+            <column name="anu">(अनुच्छेद - 244, छठी अनुसूची)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">170</column>
+            <column name="Part">11</column>
+            <column name="kavya1">भाग-11</column>
+            <column name="kavya2">संघ और राज्यों के बीच में सम्बन्ध</column>
+            <column name="anu">(Relations between the Union and the States)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">171</column>
+            <column name="Part">11</column>
+            <column name="kavya1">संसद पूरे भारत में, कानून बना सकती है,</column>
+            <column name="kavya2">विधानसभा केवल राज्य में, ऐसा कर सकती है।</column>
+            <column name="anu">(अनुच्छेद - 245)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">172</column>
+            <column name="Part">11</column>
+            <column name="kavya1">कानून बनाने की शक्ति, केन्द्र-राज्य की है पृथक,</column>
+            <column name="kavya2">विषय उनके निर्धारित हैं, ताकि ना हो कोई शक।</column>
+            <column name="anu">(अनुच्छेद - 246)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">173</column>
+            <column name="Part">11</column>
+            <column name="kavya1">संघ सूची में लिखे हैं, संसद के अधिकार,</column>
+            <column name="kavya2">जैसे रक्षा, रेल, विदेश, सेना, दूर संचार।</column>
+            <column name="anu">(अनुच्छेद - 246, सातवीं अनुसूची - संघ सूची)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">174</column>
+            <column name="Part">11</column>
+            <column name="kavya1">राज्य सूची में वर्णित है, विधानसभा के अधिकार,</column>
+            <column name="kavya2">जैसे पुलिस स्वास्थ्य कृषि, वन विधुत कारागार।</column>
+            <column name="anu">(अनुच्छेद - 246, सातवीं अनुसूची - राज्य सूची)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">175</column>
+            <column name="Part">11</column>
+            <column name="kavya1">कुछ विषय ऐसे हैं, जिन पर दोनों का अधिकार,</column>
+            <column name="kavya2">इनमें से हैं शिक्षा, सजा, न्याय, वन, व्यापार।</column>
+            <column name="anu">(अनुच्छेद - 246, सातवीं अनुसूची - समवर्ती सूची)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">176</column>
+            <column name="Part">11</column>
+            <column name="kavya1">फिर भी संसद बड़ी है, श्रेष्ठ हैं उसके अधिकार,</column>
+            <column name="kavya2">राष्ट्रहित में कानून बनाये, करे अन्तराष्ट्रीय करार।</column>
+            <column name="anu">(अनुच्छेद - 247, 248, 249, 250, 251, 252, 253, 254)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">177</column>
+            <column name="Part">11</column>
+            <column name="kavya1">कानूनों का अनुपालन निश्चित करे राज्य सरकार,</column>
+            <column name="kavya2">वर्ना निर्देशित भी कर सकती है, भारत सरकार।</column>
+            <column name="anu">(अनुच्छेद - 256)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">178</column>
+            <column name="Part">11</column>
+            <column name="kavya1">केंद्र, राज्य सरकारों को, दे सकता है आदेश,</column>
+            <column name="kavya2">देशहित के कामों में, यदि मुश्किल आती है पेश।</column>
+            <column name="anu">(अनुच्छेद - 257)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">179</column>
+            <column name="Part">11</column>
+            <column name="kavya1">दो राज्यों में विवाद हो, या नदी जल का बँटवारा,</column>
+            <column name="kavya2">केन्द्र कानून बनाकर, कर सकता है निपटारा।</column>
+            <column name="anu">(अनुच्छेद - 262)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">180</column>
+            <column name="Part">11</column>
+            <column name="kavya1">राज्यों के झगड़ों को, सब मिलजुल के सुलझायें,</column>
+            <column name="kavya2">जाँच एवं सुझाव हेतु, परिषद एक बनायें।</column>
+            <column name="anu">(अनुच्छेद - 263)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">181</column>
+            <column name="Part">12</column>
+            <column name="kavya1">भाग-12</column>
+            <column name="kavya2">वित्त, सम्पत्ति, संविदाएँ और वाद</column>
+            <column name="anu">(Finance, Property, Contracts and Suits)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">182</column>
+            <column name="Part">12</column>
+            <column name="kavya1">टैक्स द्वारा जो पैसा आये, संचित धन कहलाये,</column>
+            <column name="kavya2">भाँति-भाँति के खर्चों में, यह धन काम में आये।</column>
+            <column name="anu">(अनुच्छेद - 266)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">183</column>
+            <column name="Part">12</column>
+            <column name="kavya1">कुछ खर्चे करने पड़ते हैं, एकदम और कई बार,</column>
+            <column name="kavya2">जिसकी खातिर कंटीजेंसी फंड,रखती हैं सरकार।</column>
+            <column name="anu">(अनुच्छेद - 267)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">184</column>
+            <column name="Part">12</column>
+            <column name="kavya1">केंद्र और राज्य सरकारें, दोनों लें जनता से कर,</column>
+            <column name="kavya2">फिर नियमानुसार आपस में, बाँटें इसे बराबर।</column>
+            <column name="anu">(अनुच्छेद - 268, 269, 270)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">185</column>
+            <column name="Part">12</column>
+            <column name="kavya1">केन्द्र को, राज्य सरकारों को, देना होगा अनुदान,</column>
+            <column name="kavya2">जनजाति क्षेत्रों के विकास का, रखना होगा ध्यान।</column>
+            <column name="anu">(अनुच्छेद - 275)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">186</column>
+            <column name="Part">12</column>
+            <column name="kavya1">वित्त आयोग सुझाव देता है, धन के वितरण पर,</column>
+            <column name="kavya2">ताकि राज्यों को मिले, उन्नित के बराबर अवसर।</column>
+            <column name="anu">(अनुच्छेद - 280, 281)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">187</column>
+            <column name="Part">12</column>
+            <column name="kavya1">केंद्र की सम्पत्ति पर, राज्य नहीं लगायें कर,</column>
+            <column name="kavya2">केंद्र भी इस सम्बन्ध में, करे राज्य का आदर।</column>
+            <column name="anu">(अनुच्छेद - 285, 289)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">188</column>
+            <column name="Part">12</column>
+            <column name="kavya1">केंद्र, राज्य कर सकते हैं, व्यापार और कारोबार,</column>
+            <column name="kavya2">समुद्री खनिजों पर होगा,केवल केंद्र का अधिकार।</column>
+            <column name="anu">(अनुच्छेद - 297, 298)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">189</column>
+            <column name="Part">12</column>
+            <column name="kavya1">राष्ट्रपति की ओर से, साइन होंगे सब करार,</column>
+            <column name="kavya2">पर कोई चूक हुई तो, नहीं होंगे वे जिम्मेदार।</column>
+            <column name="anu">(अनुच्छेद - 299)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">190</column>
+            <column name="Part">12</column>
+            <column name="kavya1">कोई व्यक्ति कर सकता है, सम्पत्ति को संचित,</column>
+            <column name="kavya2">कानून बिना उसे, नहीं कर सकते हैं वंचित।</column>
+            <column name="anu">(अनुच्छेद - 300 क)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">191</column>
+            <column name="Part">13</column>
+            <column name="kavya1">भाग-13</column>
+            <column name="kavya2">भारत के राज्य क्षेत्र के अन्दर व्यापार, वाणिज्य और समागम</column>
+            <column name="anu">(Trade, Commerce and Intercourse in India)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">192</column>
+            <column name="Part">13</column>
+            <column name="kavya1">कोई कहीं भी कर सकता है, वाणिज्य या व्यापार,</column>
+            <column name="kavya2">जिसे जनहित में नियमित, कर सकती है सरकार।</column>
+            <column name="anu">(अनुच्छेद - 301, 302)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">193</column>
+            <column name="Part">13</column>
+            <column name="kavya1">केन्द्र फंड के वितरण में, न करे किसी से पक्षपात,</column>
+            <column name="kavya2">साधन विहीन राज्यों का,फिर भी देना होगा साथ।</column>
+            <column name="anu">(अनुच्छेद - 303)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">194</column>
+            <column name="Part">14</column>
+            <column name="kavya1">भाग-14</column>
+            <column name="kavya2">संघ और राज्यों के अधीन सेवाएँ</column>
+            <column name="anu">(Services under the Union and the States)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">195</column>
+            <column name="Part">14</column>
+            <column name="kavya1">सरकारी कामकाज हेतु, नियुक्त होते हैं अधिकारी,</column>
+            <column name="kavya2">कार्य सुचारू रूप से हो, लेते हैं जिम्मेदारी।</column>
+            <column name="anu">(अनुच्छेद - 309)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">196</column>
+            <column name="Part">14</column>
+            <column name="kavya1">कोई अधिकारी कर्मठ है, काम है उसका अच्छा,</column>
+            <column name="kavya2">संविधान उसको देता है, काफी अधिक सुरक्षा।</column>
+            <column name="anu">(अनुच्छेद - 310, 311)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">197</column>
+            <column name="Part">14</column>
+            <column name="kavya1">नियुक्ति कर्ता ही किसी को, पद से हटा सकता है,</column>
+            <column name="kavya2">विधिवत जाँच कराके, सजा सुना सकता है।</column>
+            <column name="anu">(अनुच्छेद - 311)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">198</column>
+            <column name="Part">14</column>
+            <column name="kavya1">किसी कार्यवाही से पहले, व्यक्ति को सुनना होगा,</column>
+            <column name="kavya2">उसके दोष बताने होंगे, फिर निर्णय करना होगा।</column>
+            <column name="anu">(अनुच्छेद - 311)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">199</column>
+            <column name="Part">14</column>
+            <column name="kavya1">यदि गंभीर अपराध में, दोषी सिद्ध हुआ अधिकारी,</column>
+            <column name="kavya2">पद से हटाया जा सकता है, उसे बिना इन्क्वारी।</column>
+            <column name="anu">(अनुच्छेद - 311, 2 क)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">200</column>
+            <column name="Part">14</column>
+            <column name="kavya1">कभी-कभी सुरक्षा हित में, जाँच नहीं हो सकती है,</column>
+            <column name="kavya2">बिना जाँच, अधिकारी की सेवामुक्ति हो सकती है।</column>
+            <column name="anu">(अनुच्छेद - 311, 2 ख, ग)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">201</column>
+            <column name="Part">14</column>
+            <column name="kavya1">केंद्र में भर्ती हेतु है, संघ लोक सेवा आयोग,</column>
+            <column name="kavya2">आवेदन कर सकते हैं, सेवा के इच्छुक सब लोग।</column>
+            <column name="anu">(अनुच्छेद - 315)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">202</column>
+            <column name="Part">14</column>
+            <column name="kavya1">आयोग करेगा संचालित, नियुक्ति हेतु परीक्षा,</column>
+            <column name="kavya2">उच्च सेवाओं में चाहिए, ग्रेजुएट तक की शिक्षा।</column>
+            <column name="anu">(अनुच्छेद - 315, 320)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">203</column>
+            <column name="Part">14</column>
+            <column name="kavya1">राज्यों में भर्ती हेतु है, राज्य लोक सेवा आयोग,</column>
+            <column name="kavya2">छोटे राज्य चाहें तो, बनेगा एक संयुक्त आयोग।</column>
+            <column name="anu">(अनुच्छेद - 315)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">204</column>
+            <column name="Part">14</column>
+            <column name="kavya1">आयोग में होंगे सदस्य, होगा एक अध्यक्ष,</column>
+            <column name="kavya2">रहें हो सरकारी पद पर, छवि हो उनकी निष्पक्ष।</column>
+            <column name="anu">(अनुच्छेद - 316)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">205</column>
+            <column name="Part">14</column>
+            <column name="kavya1">आयोग, भर्ती सम्बन्धित, अपनी सलाह भी देगा,</column>
+            <column name="kavya2">राष्ट्रपति को हर साल, सब कार्यों का ब्यौरा देगा।</column>
+            <column name="anu">(अनुच्छेद - 323)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">206</column>
+            <column name="Part">14</column>
+            <column name="kavya1">भाग-14क</column>
+            <column name="kavya2">अधिकरण </column>
+            <column name="anu">(Tribunals)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">207</column>
+            <column name="Part">14</column>
+            <column name="kavya1">केंद्र, राज्य स्तर पर होंगे, प्रशासनिक अधिकरण,</column>
+            <column name="kavya2">भर्ती, सेवा के झगड़ों का, किया करेंगे निराकरण।</column>
+            <column name="anu">(अनुच्छेद - 323 क)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">208</column>
+            <column name="Part">14</column>
+            <column name="kavya1">कुछ अधिकरण करेंगे, अन्य विवादों का निपटारा,</column>
+            <column name="kavya2">टैक्स, श्रम विवाद, या खाद्य वस्तुओं का बँटवारा।</column>
+            <column name="anu">(अनुच्छेद - 323 ख)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">209</column>
+            <column name="Part">15</column>
+            <column name="kavya1">भाग-15</column>
+            <column name="kavya2">निर्वाचन </column>
+            <column name="anu">(Elections)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">210</column>
+            <column name="Part">15</column>
+            <column name="kavya1">प्रजातन्त्र का मुख्य तन्त्र है, निर्वाचन आयोग,</column>
+            <column name="kavya2">इसकी मदद से सरकारों को, चुनते हैं हम लोग।</column>
+            <column name="anu">(अनुच्छेद - 324)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">211</column>
+            <column name="Part">15</column>
+            <column name="kavya1">मुख्य चुनाव अायुक्त करायें, चुनाव का संचालन,</column>
+            <column name="kavya2">आचार संहिता का करवायें, सख्ती से अनुपालन।</column>
+            <column name="anu">(अनुच्छेद - 324)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">212</column>
+            <column name="Part">15</column>
+            <column name="kavya1">राष्ट्रपति, उपराष्ट्रपति, संसद या विधानमंडल,</column>
+            <column name="kavya2">सबके चुनाव पर आयोग, निगरानी रखे प्रतिपल।</column>
+            <column name="anu">(अनुच्छेद - 324)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">213</column>
+            <column name="Part">15</column>
+            <column name="kavya1">चुनाव आयुक्तों को देता है, संविधान सुरक्षा,</column>
+            <column name="kavya2">स्वतन्त्र चुनावों से ही होती, प्रजातन्त्र की रक्षा।</column>
+            <column name="anu">(अनुच्छेद - 324)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">214</column>
+            <column name="Part">15</column>
+            <column name="kavya1">लोकसभा, विधान सभा का, जब भी हो निर्वाचन,</column>
+            <column name="kavya2">आयोग को सब सहयोग, देगा राज्य प्रशासन।</column>
+            <column name="anu">(अनुच्छेद - 324)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">215</column>
+            <column name="Part">15</column>
+            <column name="kavya1">वोटर लिस्ट में शामलि होगा, हर वयस्क का नाम,</column>
+            <column name="kavya2">इस सब को निष्पक्ष कराना, है आयोग का काम।</column>
+            <column name="anu">(अनुच्छेद - 325)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">216</column>
+            <column name="Part">15</column>
+            <column name="kavya1">अठारह वर्ष का हर व्यक्ति, रखता है मताधिकार,</column>
+            <column name="kavya2">अपनी इच्छा के अनुसार, चुन सकता है सरकार।</column>
+            <column name="anu">(अनुच्छेद - 326)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">217</column>
+            <column name="Part">15</column>
+            <column name="kavya1">एम०पी० और एम०एल०ए० बने, हो चुनाव निष्पक्ष,</column>
+            <column name="kavya2">लोकतंत्र कायम रहे, यही आयोग का लक्ष्य।</column>
+            <column name="anu">(अनुच्छेद - 324 [भाव की अभिव्यक्ति])</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">218</column>
+            <column name="Part">16</column>
+            <column name="kavya1">भाग-16</column>
+            <column name="kavya2">कुछ वर्गों के सम्बन्ध में विशेष उपबन्ध</column>
+            <column name="anu">(Special Provisions relating to Certain Classes)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">219</column>
+            <column name="Part">16</column>
+            <column name="kavya1">अनुसूचित जाति, जनजाति का है विशेष प्रबंध,</column>
+            <column name="kavya2">लोकसभा में है आरक्षण, है अनुपातिक संबंध।</column>
+            <column name="anu">(अनुच्छेद - 330)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">220</column>
+            <column name="Part">16</column>
+            <column name="kavya1">ऐंग्लो इंिडयन लोग यदि, संख्या में कम लगते हैं,</column>
+            <column name="kavya2">राष्ट्रपति लोकसभा में, दो सदस्य रख सकते हैं।</column>
+            <column name="anu">(अनुच्छेद - 331)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">221</column>
+            <column name="Part">16</column>
+            <column name="kavya1">एससी, एसटी लोगों की, िजतनी जनसंख्या होगी,</column>
+            <column name="kavya2">उतनी ही, विधानसभा में, सीटों की संख्या होगी।</column>
+            <column name="anu">(अनुच्छेद - 332)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">222</column>
+            <column name="Part">16</column>
+            <column name="kavya1">सरकारी सेवाओं में,एससी, एसटी का हो स्थान,</column>
+            <column name="kavya2">थोड़ी छूट मिले अंकों में, ताकि भर्ती हो आसान।</column>
+            <column name="anu">(अनुच्छेद - 335)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">223</column>
+            <column name="Part">16</column>
+            <column name="kavya1">राष्ट्रीय अनुसूचितजाति आयोग करे हकों की रक्षा</column>
+            <column name="kavya2">उनसे संबंधित समस्याओं की, करता है ये परीक्षा।</column>
+            <column name="anu">(अनुच्छेद - 338)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">224</column>
+            <column name="Part">16</column>
+            <column name="kavya1">एक अध्यक्ष, उपाध्यक्ष और अन्य सदस्य होंगे,</column>
+            <column name="kavya2">संविधान के प्रावधान, उन्हें लागू करने होंगे।</column>
+            <column name="anu">(अनुच्छेद - 338)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">225</column>
+            <column name="Part">16</column>
+            <column name="kavya1">एस० सी० लोगों के हितों में, न हो कोई कोताही,</column>
+            <column name="kavya2">साबित हो आरोप यदि, आयोग करे कार्यवाही।</column>
+            <column name="anu">(अनुच्छेद - 338)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">226</column>
+            <column name="Part">16</column>
+            <column name="kavya1">अन्य कल्याणकारी, उपाय खोजकर लायेगा,</column>
+            <column name="kavya2">राष्ट्रपति को आयोग, अपने सुझाव बतलायेगा।</column>
+            <column name="anu">(अनुच्छेद - 338)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">227</column>
+            <column name="Part">16</column>
+            <column name="kavya1">आयोग का दर्जा, सिविल न्यायालय का होगा,</column>
+            <column name="kavya2">सबकी पेशी कराने का हक, उसे प्राप्त होगा।</column>
+            <column name="anu">(अनुच्छेद - 338)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">228</column>
+            <column name="Part">16</column>
+            <column name="kavya1">राष्ट्रपति आयोग की रिपोर्ट, संसद में रखवायेंगे,</column>
+            <column name="kavya2">सिफारिशों पर कारर्वाई से, अवगत भी करवायेंगे।</column>
+            <column name="anu">(अनुच्छेद - 338)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">229</column>
+            <column name="Part">16</column>
+            <column name="kavya1">आयोग चाहे, तो संबंधित कागज, पेश करने होंगे,</column>
+            <column name="kavya2">शपथपत्र देकर सारे सबूत, प्रकट करने होंगे।</column>
+            <column name="anu">(अनुच्छेद - 338)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">230</column>
+            <column name="Part">16</column>
+            <column name="kavya1">एस० सी० संबंधित, कोई निर्णय लेती है सरकार,</column>
+            <column name="kavya2">आयोग से लेकर सलाह, उसे करना होगा विचार।</column>
+            <column name="anu">(अनुच्छेद - 338)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">231</column>
+            <column name="Part">16</column>
+            <column name="kavya1">एक राष्ट्रीय अनुसूचित जनजाति आयोग भी होगा</column>
+            <column name="kavya2">एस सी आयोग जैसा स्तर, इसको भी प्राप्त होगा।</column>
+            <column name="anu">(अनुच्छेद - 338 क)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">232</column>
+            <column name="Part">16</column>
+            <column name="kavya1">वैसी ही शक्ति होगी, वही कार्य वह करेगा,</column>
+            <column name="kavya2">जनजाति के हितों की रक्षा, हर हालत में करेगा।</column>
+            <column name="anu">(अनुच्छेद - 338 क)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">233</column>
+            <column name="Part">16</column>
+            <column name="kavya1">एस०टी० की उन्नित हेतु, आयोग की होगी नियुक्ति</column>
+            <column name="kavya2">राज्य यदि करे ढिलाई, केंद्र करेगा सख्ती।</column>
+            <column name="anu">(अनुच्छेद - 339)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">234</column>
+            <column name="Part">16</column>
+            <column name="kavya1">सामाजिक, शैक्षिक दृष्टि से, पिछड़े हैं जो लोग,</column>
+            <column name="kavya2">राष्ट्रपति उनके लिए, गठित करें आयोग।</column>
+            <column name="anu">(अनुच्छेद - 340)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">235</column>
+            <column name="Part">16</column>
+            <column name="kavya1">आयोग अध्ययन करेगा, कैसे हो उनका सुधार,</column>
+            <column name="kavya2">कैसे केंद्र-राज्य बन सकते, उन लोगों के मददगार।</column>
+            <column name="anu">(अनुच्छेद - 340)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">236</column>
+            <column name="Part">16</column>
+            <column name="kavya1">आयोग राष्ट्रपति को देगा, सिफारिशें ब्यौरेवार,</column>
+            <column name="kavya2">संसद को फिर करना होगा, भलाई हेतु विचार।</column>
+            <column name="anu">(अनुच्छेद - 340)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">237</column>
+            <column name="Part">17</column>
+            <column name="kavya1">भाग-17</column>
+            <column name="kavya2">राजभाषा </column>
+            <column name="anu">(Official Language)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">238</column>
+            <column name="Part">17</column>
+            <column name="kavya1">संघ की भाषा हिंदी, लिपि देवनागरी होगी,</column>
+            <column name="kavya2">शासकीय प्रयोजन हेतु, अंग्रेजी की जरूरत होगी।</column>
+            <column name="anu">(अनुच्छेद - 343)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">239</column>
+            <column name="Part">17</column>
+            <column name="kavya1">राष्ट्रपति भाषाविदों का, एक आयोग करें गठित,</column>
+            <column name="kavya2">हिंदी के प्रचार हेतु, प्रयास करे जो संगठित।</column>
+            <column name="anu">(अनुच्छेद - 344)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">240</column>
+            <column name="Part">17</column>
+            <column name="kavya1">हिंदी भाषा हो समृद्ध, बढ़े ज्ञान और विज्ञान,</column>
+            <column name="kavya2">अहिंदी भाषी लोगों का, आयोग रखे ध्यान।</column>
+            <column name="anu">(अनुच्छेद - 344)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">241</column>
+            <column name="Part">17</column>
+            <column name="kavya1">विधानसभा स्थानीय भाषा को, कर ले अंगीकार,</column>
+            <column name="kavya2">पर सरकारी कामों में, रहे अंग्रेजी बरकरार।</column>
+            <column name="anu">(अनुच्छेद - 345)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">242</column>
+            <column name="Part">17</column>
+            <column name="kavya1">दो राज्यों को आपस में, यदि करना है पत्राचार,</column>
+            <column name="kavya2">दोनों मिलकर हिंदी को, कर सकते हैं स्वीकार।</column>
+            <column name="anu">(अनुच्छेद - 346)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">243</column>
+            <column name="Part">17</column>
+            <column name="kavya1">उच्च, उच्चतम न्यायालय में, अंग्रेजी प्रयुक्त होगी,</column>
+            <column name="kavya2">आदेशों,अधिनियमों की प्रति, अंग्रेजी में ही होगी।</column>
+            <column name="anu">(अनुच्छेद - 348)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">244</column>
+            <column name="Part">17</column>
+            <column name="kavya1">भाषाई अल्पसंख्यकों का, सरकार रखे ध्यान,</column>
+            <column name="kavya2">मातृभाषा में ही मिले, सब विषयों का ज्ञान।</column>
+            <column name="anu">(अनुच्छेद - 350 क, ख)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">245</column>
+            <column name="Part">17</column>
+            <column name="kavya1">सरकार हिंदी को करे समृद्ध, खूब करे प्रचार,</column>
+            <column name="kavya2">अन्य भाषाओं के शब्दों से, करे इसका विस्तार।</column>
+            <column name="anu">(अनुच्छेद - 351)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">246</column>
+            <column name="Part">18</column>
+            <column name="kavya1">भाग-18</column>
+            <column name="kavya2">आपात उपबन्ध</column>
+            <column name="anu">(Emergency Provisions)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">247</column>
+            <column name="Part">18</column>
+            <column name="kavya1">युद्ध का हो संकट, विद्रोहियों का बिछा हो जाल,</column>
+            <column name="kavya2">राष्ट्रपति सन्तुष्टि करके,घोषित करें आपातकाल।</column>
+            <column name="anu">(अनुच्छेद - 352)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">248</column>
+            <column name="Part">18</column>
+            <column name="kavya1">आपातकाल के लिए चाहिए, संसद की मंजूरी,</column>
+            <column name="kavya2">एक माह के भीतर ही, यह सहमति अति जरूरी।</column>
+            <column name="anu">(अनुच्छेद - 352)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">249</column>
+            <column name="Part">18</column>
+            <column name="kavya1">इस दौरान मिल जाते हैं,केंद्र को ज्यादा अधिकार,</column>
+            <column name="kavya2">केंद्र सरकार चला सकती है,राज्य की भी सरकार।</column>
+            <column name="anu">(अनुच्छेद - 353)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">250</column>
+            <column name="Part">18</column>
+            <column name="kavya1">केंद्र, राज्य की करेगा, हर हालत में सुरक्षा,</column>
+            <column name="kavya2">चाहे वाह्य आक्रमण हो या सशस्त्र विद्रोह से रक्षा।</column>
+            <column name="anu">(अनुच्छेद - 355)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">251</column>
+            <column name="Part">18</column>
+            <column name="kavya1">राज्य यदि नहीं चल रहा, संविधान के अनुसार,</column>
+            <column name="kavya2">राज्यपाल राष्ट्रपति को देंगे, रिपोर्ट सिलसिलेवार।</column>
+            <column name="anu">(अनुच्छेद - 356)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">252</column>
+            <column name="Part">18</column>
+            <column name="kavya1">फिर उस राज्य में लागू होगा, राष्ट्रपति शासन,</column>
+            <column name="kavya2">भारत सरकार हाथ में लेगी, वहाँ का प्रशासन।</column>
+            <column name="anu">(अनुच्छेद - 356)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">253</column>
+            <column name="Part">18</column>
+            <column name="kavya1">उदघोषणा का संसद द्वारा, करना होगा अनुमोदन,</column>
+            <column name="kavya2">दो महीनों में पास करेंगे, संसद के दोनों सदन।</column>
+            <column name="anu">(अनुच्छेद - 356)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">254</column>
+            <column name="Part">18</column>
+            <column name="kavya1">आपातकाल में छिन जायेंगे, सारे मूल अधिकार,</column>
+            <column name="kavya2">बचेगी शारीरिक स्वतंत्रता व जीने का अधिकार।</column>
+            <column name="anu">(अनुच्छेद - 358, 359)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">255</column>
+            <column name="Part">18</column>
+            <column name="kavya1">भारत में यदि पैदा हो, आर्थिक संकट काल,</column>
+            <column name="kavya2">राष्ट्रपति घोषित करते हैं, वित्तीय आपातकाल।</column>
+            <column name="anu">(अनुच्छेद - 352)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">256</column>
+            <column name="Part">18</column>
+            <column name="kavya1">इस दौरान राज्यों के खर्चे, किये जायेंगे कम,</column>
+            <column name="kavya2">घट जायेंगे कमर्चािरयों और जजों के वेतन।</column>
+            <column name="anu">(अनुच्छेद - 360)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">257</column>
+            <column name="Part">19</column>
+            <column name="kavya1">भाग-19</column>
+            <column name="kavya2">प्रकीर्ण </column>
+            <column name="anu">(Miscellaneous)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">258</column>
+            <column name="Part">19</column>
+            <column name="kavya1">राष्ट्रपति व राज्यपाल को, प्राप्त हैं विशेषाधिकार,</column>
+            <column name="kavya2">ना उन पर कोई केस चलेगा, न होंगे वे गिरफ्तार।</column>
+            <column name="anu">(अनुच्छेद - 361)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">259</column>
+            <column name="Part">19</column>
+            <column name="kavya1">यदि कोई छपवाता है, संसद की कार्यवाही,</column>
+            <column name="kavya2">न्यायालय नही करेगा, कोई दाण्डिक कार्यवाही।</column>
+            <column name="anu">(अनुच्छेद - 361 क)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">260</column>
+            <column name="Part">20</column>
+            <column name="kavya1">भाग-20</column>
+            <column name="kavya2">संविधान का संशोधन </column>
+            <column name="anu">(Amendment of the Constitution)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">261</column>
+            <column name="Part">20</column>
+            <column name="kavya1">संसद चाहे, कर सकती है, संविधान में संशोधन,</column>
+            <column name="kavya2">दो तिहाई बहुमत से, यदि पास करें दोनों सदन।</column>
+            <column name="anu">(अनुच्छेद - 368)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">262</column>
+            <column name="Part">20</column>
+            <column name="kavya1">फिर ये विधेयक, राष्ट्रपति को भेजा जायेगा,</column>
+            <column name="kavya2">उनकी स्वीकृति मिलने पर, संशोधन कहलायेगा।</column>
+            <column name="anu">(अनुच्छेद - 368)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">263</column>
+            <column name="Part">21</column>
+            <column name="kavya1">भाग-21</column>
+            <column name="kavya2">अस्थायी, संक्रमणकालीन और विशेष उपबन्ध</column>
+            <column name="anu">(Temporary, Transitional and Special Provisions)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">264</column>
+            <column name="Part">21</column>
+            <column name="kavya1">जम्मू और कश्मीर राज्य का, है विशेष अधिकार,</column>
+            <column name="kavya2">संसद का कानून चलेगा, जब राज्य करे स्वीकार।</column>
+            <column name="anu">(अनुच्छेद - 370)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">265</column>
+            <column name="Part">21</column>
+            <column name="kavya1">कई बहुत से राज्यों में भी, हैं विशेष उपबन्ध,</column>
+            <column name="kavya2">उनकी उन्नित और विकास हो, कुछ ऐसे प्रबंध।</column>
+            <column name="anu">(अनुच्छेद - 371, 371 क, ख, ग, घ, ङ, च, छ, ज, झ, ञ)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">266</column>
+            <column name="Part">22</column>
+            <column name="kavya1">भाग-22</column>
+            <column name="kavya2">संक्षिप्त नाम, प्रारम्भ, हिन्दी में प्राधिकृत पाठ</column>
+            <column name="anu">(Short Title, Commencement, Authoritative Text in Hindi)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">267</column>
+            <column name="Part">22</column>
+            <column name="kavya1">हमारा ये संविधान,भारत का संविधान कहलायेगा,</column>
+            <column name="kavya2">छब्बीस जनवरी 1950 से, पूरा लागू हो जायेगा।</column>
+            <column name="anu">(अनुच्छेद - 393, 394)</column>
+        </table>
+        <table name="kavya">
+            <column name="SlNo">268</column>
+            <column name="Part">22</column>
+            <column name="kavya1">राष्ट्रपति जी संविधान को, हिन्दी में छपवायेंगे।</column>
+            <column name="kavya2">हिन्दी, अंग्रेजी संस्करण ही, अधिकृत कहलायेंगे।</column>
+            <column name="anu">(अनुच्छेद - 394 क)</column>
+        </table>
+    </database>
+</pma_xml_export>
