@@ -11,8 +11,9 @@
 
 .head {
 	color:white;
-text-shadow: 12px 12px 5px red;
+	text-shadow: 12px 12px 5px red;
 }
+
 .WCenter {
 
 	max-width: 1200px;
@@ -32,7 +33,7 @@ text-shadow: 12px 12px 5px red;
 
 .secon {
 
-  background-color:  #700000;
+  background-color:  #701111;
   width: 100%
   height :auto;
   margin:5px;
@@ -67,6 +68,12 @@ text-shadow: 12px 12px 5px red;
 
 
 }
+.sk g1:hover {
+
+	backgrou nd-color: transparent;
+	box-shadow: 10px 4px 8px 2px white, 10px 6px 20px 4px green, 
+				10px 6px 20px 6px blue, 10px 6px 20px 8px yellow;
+	}
 
 .skg2 {
 
@@ -80,6 +87,11 @@ text-shadow: 12px 12px 5px red;
 	border-radius: 50px;
 }
 
+
+.india img:hover {
+
+	width: 70px;
+}
 
 
 

@@ -19,14 +19,62 @@
    @import url('https://fonts.googleapis.com/css?family=Amita&effect=shadow-multiple|3d');
    @import url('https://fonts.googleapis.com/css?family=Kalam&effect=shadow-multiple|3d');
  
- </style>    
+ </style>  
+ <style type="text/css">
+
+.button_example{
+ border:4px solid #26759E;
+ border-radius: 23px;
+ box-shadow: #878787 0px 2px 2px ;
+ 
+ -webkit-box-shadow: #878787 0px 2px 2px ;
+ -moz-box-shadow: #878787 0px 2px 2px ; 
+ -webkit-border-radius: 201px;
+ -moz-border-radius: 23px;
+ 
+
+ font-size:12px;
+ padding: 2px 20px 3px 20px;
+ text-decoration:none;
+ display:inline-block;
+
+ font-weight:bold;
+ color: #FFFFFF;
+ background-color: #3093C7; 
+ text-shadow: 2px 2px 0 rgba(0,0,0,0.3); 
+
+ background-image: -webkit-gradient(linear, left top, left bottom, from(#3093C7), to(#1C5A85));
+ background-image: -webkit-linear-gradient(top, #3093C7, #1C5A85);
+ background-image: -moz-linear-gradient(top, #3093C7, #1C5A85);
+ background-image: -ms-linear-gradient(top, #3093C7, #1C5A85);
+ background-image: -o-linear-gradient(top, #3093C7, #1C5A85);
+ background-image: linear-gradient(to bottom, #3093C7, #1C5A85);
+ 
+ filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#3093C7, endColorstr=#1C5A85);
+}
+
+.button_example:hover{
+ 
+ border:4px solid #26759E;
+ background-color: #26759E; 
+ 
+ background-image: -webkit-gradient(linear, left top, left bottom, from(#26759E), to(#133D5B));
+ background-image: -webkit-linear-gradient(top, #26759E, #133D5B);
+ background-image: -moz-linear-gradient(top, #26759E, #133D5B);
+ background-image: -ms-linear-gradient(top, #26759E, #133D5B);
+ background-image: -o-linear-gradient(top, #26759E, #133D5B);
+ background-image: linear-gradient(to bottom, #26759E, #133D5B);
+ 
+ filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#26759E, endColorstr=#133D5B);
+}
+</style>  
 </head>
 
 <body>
    <div class="WCenter">
 
     <!-- Header -->
-       <header class="Kheader w3-card-4">
+       <header class="Kheader w3-card-4  w3-animate-bottom">
         <div class="secon w3-card-4">
         <div class="india"><img src="images/india2.jpg" height="70" alt="India"></div>
         <div class="head title font-effect-3d">संविधान काव्य</div>
@@ -37,7 +85,7 @@
        </header>
     <!-- End Header -->
     <!-- Nav Bar -->
-    <nav class="navbar w3-card-4">
+    <nav class="navbar w3-card-4  w3-animate-zoom">
         <div class="secon1 w3-card-4">
             <div class="navbar1">
                 <a href="#home" class="w3-bar-item w3-button"><i class="fa fa-home w3-xlarge"></i></a>
@@ -83,7 +131,7 @@
 
 
                      <div class="dropdown">
-                    <button class="dropbtn">विषय-सूची  <i class="fa fa-caret-down w3-center"></i></button>
+                    <button class="button_example">विषय-सूची  <i class="fa fa-caret-down w3-center"></i></button>
                     <div class="dropdown-content">
 
                       <div class="row   w3-card-4">
@@ -177,7 +225,7 @@
     <!-- Body -->
     <div class="MasterPart">
       <!-- Body Part 1 -->
-          <div class="part1 w3-card-4">
+          <div class="part1 w3-card-4 w3-animate-left">
                 
           <h2>संविधान की उद्देशिका <br>(Preamble)</h2>
           <p>हम भारत के लोग, आज ये संविधान अपनाते हैं,<br>
@@ -189,13 +237,13 @@
           <p>बंधुता बढ़े हर एक से, हर व्यक्ति इज्जत पाये,<br>
           राष्ट्र हमारा रहे अखंड, एकता बढ़ती जाये।</p>
 
-          <p><span style="color:red">26 नवम्बर 1949,</span>  दृढ़निश्चय हम करते हैं,<br>
+          <p><span>26 नवम्बर 1949,</span>  दृढ़निश्चय हम करते हैं,<br>
           संविधान को अंगीकृत, आत्मार्पित करते हैं।</p>
           </div>
       <!-- End Body Part 1 -->
 
       <!--  Body Part 2 -->
-         <div class="part2 w3-card-4">
+         <div class="part2 w3-card-4 w3-animate-zoom">
           <div>
             <h1>"संविधान काव्य"</h1>
             <img src="images/SKGautam2.jpg" height="150" alt="SKGautam">
@@ -208,7 +256,7 @@
       <!-- End Body Part 2 -->
       
       <!--  Body Part 3 -->   
-          <div class="part3 w3-card-4">
+          <div class="part3 w3-card-4  w3-animate-right">
                 <div><img src="images/ambedkar.jpg" height="150" alt="ambedkar"></div>
               <div class="samarpan">
                   <h2>समपर्ण</h2>
@@ -230,3 +278,7 @@
   
 </body>
 </html>
+<br><br><br>
+
+https://cssgradientbutton.com/
+http://cssbuttoncreator.com/

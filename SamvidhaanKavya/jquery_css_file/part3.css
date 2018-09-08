@@ -16,10 +16,12 @@
 	color:red;
 	font-weight:bold;
 	text-align:center;
+	}
+
+.samarpan h2:hover {
 	text-shadow: 15px 12px 3px  grey;  
 
 }
-
 .samarpan h4 {
 	margin:10px;
 	text-align: justify;
@@ -48,5 +50,11 @@
 	border:2px blue solid;
 	border-radius: 20px;
 	margin-top:12px;
+}
+
+
+
+.part3 img:hover {
+
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
