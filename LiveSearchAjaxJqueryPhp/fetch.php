@@ -14,39 +14,90 @@ if(isset($_POST['search'])) {
         if (mysqli_num_rows($result)>0)
         {
             //$output .= '<h4 align="center">Search Result</h4>';
-            $output .= '<table border=1  >
-                            <tr class="w3-txt-red">
+            $output .= '</br><table border=1 class="w3-small w3-center">
+                            <tr>
                             <th>Sl.No.</th>
                             <th>GSTIN</th>
                             <th>Name of Party</th>
                             <th>Address</th>
-                            <th>Bank Account</th>
-                            <th>Bank Name</th>
                             <th>Range</th>
                             <th>Authority</th>
+                            <th style="width:10%">Bank Name</th>
+                            <th style="width:10%">Bank Account</th>
                             </tr>';
             while($row = mysqli_fetch_array($result))
                 {
                     $output .= '
-                    <td>'.$row["SlNo"].'</td>
+                   <tr> <td>'.$row["SlNo"].'</td>
                     <td>'.$row["GSTIN"].'</td>
                     <td>'.$row["TradeName"].'</td>
                     <td>'.$row["Address"].'</td>
-                    <td>'.$row["BankAc"].'</td>
-                    <td>'.$row["BankName"].'</td>
                     <td>'.$row["RangeNo"].'</td>
                     <td>'.$row["Authority"].'</td>
-                    </tr>
+                    <td>'.$row["BankName"].'</td>';
 
-                '
-                ;
+                if ($row["BankAc"] !="") {
+                    $output .=  '<td>'.$row["BankAc"].'</td>';
                 }
+                else {
+                    $output .=  '<td><button class="w3-btn w3-red">Add Bank A/c</button></td>';
+                }
+                     $output .='</tr>';
+                
+                
+            }
                 $output .= '</table>';
             echo $output;
         }
         else
             {
-                echo 'Data Not Found';
+    ?>
+        <h1 class="w3-center w3-text-red">Add Assessee Master</h1>
+
+        <form class="w3-container" name="AddAssessee" action="" method="post">
+<table>
+    <tr>
+        <th><input class="w3-input w3-border w3-round" type="text" 
+                name="GSTIN" placeholder="GSTIN" required> </th>
+        <th><input class="w3-input w3-border w3-round" type="text" 
+                name="TradeName" placeholder="Name of the Party" required></th>
+        <th ><input class="w3-input w3-border w3-round" type="text" 
+                name="Address" placeholder="Address" required></th>
+
+
+       <th> <input class="w3-input w3-border w3-round" type="text" 
+                name="Mobile" placeholder="Mobile No." ></th>
+       <th> <input class="w3-input w3-border w3-round" type="text" 
+                name="Email" placeholder="Email Id" ></th>
+       <th> 
+
+<select class="w3-select w3-text-grey  w3-border w3-round" name="RangeNo" type="number" required>
+                  <option value="" disabled selected>&nbsp;Range</option>
+                  <option value="6">Range 6</option>
+                  <option value="7">Range 7</option>
+                  <option value="8">Range 8</option>
+                  <option value="9">Range 9</option>
+                  <option value="10">Range 10</option>
+                 </select></th>
+</tr><tr>
+        <th><input class="w3-input w3-border w3-round" type="text" 
+                name="BankAc" placeholder="Bank Account No." required></th>
+       <th> <input class="w3-input w3-border w3-round" type="text" 
+                name="BankName" placeholder="Bank'Name" required></th>
+       <th ><input class="w3-input w3-border w3-round" type="text" 
+                name="BankBranch" placeholder="Bank Branch" required></th>
+
+       <th> <input class="w3-input w3-border w3-round" type="text" 
+                name="IFSC" placeholder="IFS Code" required></th>
+        <th><input class="w3-input w3-border w3-round" type="text" 
+                name="MICR" placeholder="MICR" required></th>
+      <th > <button class="w3-btn w3-purple">Submit</button></th>
+</tr>      
+</table>
+        </form>
+
+
+    <?php
             }
 }
 ?>
