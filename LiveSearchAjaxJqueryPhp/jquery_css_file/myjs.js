@@ -1,11 +1,12 @@
 $(document).ready(function(){
 
+$('th').addClass('w3-red');
 $('#live').keyup(function(){
 
 
         
 			var txt = $(this).val();
-
+            if (txt !='') {
             $.ajax ({
                 url:"fetch.php",
                 method:"post",
@@ -16,5 +17,10 @@ $('#live').keyup(function(){
                     $('#result').html(data);
                 }
             });
+        }
+        else
+        {
+            
+        }
 	});
 });
