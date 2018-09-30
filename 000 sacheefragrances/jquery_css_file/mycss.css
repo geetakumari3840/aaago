@@ -12,14 +12,14 @@ body {
 
 /* Create four equal columns that floats next to each other */
 .column {
-    float: left;
-    width: 75%;
+    floa t: left;
+    widt h: 75%;
 
 }
 
 .column1 {
-    float: left;
-    width: 25%;
+    flo at: left;
+    wid th: 25%;
     
 }
 /* Clear floats after the columns */
@@ -46,7 +46,7 @@ body {
 
 .content {
 
-  max-width: 1200px;
+  max-width: 900px;
   margin: auto;
   }
 
@@ -86,7 +86,7 @@ body {
   padding: 0px;
   background-color: white;
   color: #cf0b37;
-  font-size: 17px;
+  font-size: 14px;
   font-weight: bold;
   overflow: hidden;
   text-align: left;
@@ -100,9 +100,9 @@ body {
 #nav li a {
   display: block;
   text-decoration: none;
-  padding: 8px 16px;
+  padding: 6px 5px;
   background-color: white;
-  max-width: 160px;
+  max-width: 12 0px;
 }
 
 #nav a:hover {

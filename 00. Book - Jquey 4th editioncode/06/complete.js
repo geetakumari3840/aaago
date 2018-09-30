@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $('#letter-a a').click(function(event) {
+  $('#letter-a a').mouseenter(function(event) {
     event.preventDefault();
 
     $.ajaxSetup({
@@ -16,7 +16,7 @@ $(document).ready(function() {
     });
   });
 
-  $('#letter-b a').click(function(event) {
+  $('#letter-b a').mouseleave(function(event) {
     event.preventDefault();
     $.getJSON('b.json', function(data) {
       var html = '';
