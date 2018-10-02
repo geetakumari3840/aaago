@@ -17,6 +17,7 @@
       <h1 >Live Search Data - Ajax SQL PHP Jquery HTML</h1>
       <input type="text" id="live"  name="live" placeholder="Type Some word" />
     </div>
+    <button  class="Add w3-red w3-button">Aaago</button>
   <div id="result"></div>
   <div id="result2"></div>
 </body>
@@ -29,25 +30,25 @@
       <span class="close w3-button w3-text-red w3-xlarge w3-display-topright">&times;</span>
       <h4 class="w3-xlarge modal_title">Add Bank Details</h4>
     </header>
-    <div class="w3-container">
+    <div class="w3-container"><br>
       <form id="AddBankM" method="post">
-        <table>
-          <tr>
-        <th><input class="w3-input w3-border w3-round" type="text" 
-                name="BankAc" placeholder="Bank Account No." required/></th>
-       <th> <input class="w3-input w3-border w3-round" type="text" 
-                name="BankName" placeholder="Bank'Name" required/></th>
-       <th ><input class="w3-input w3-border w3-round" type="text" 
-                name="BankBranch" placeholder="Bank Branch" required/></th>
+          
+        <input class="w3-input w3-border w3-round" type="text" 
+                name="BankAc" placeholder="Bank Account No." required/>
+        <input class="w3-input w3-border w3-round" type="text" 
+                name="BankName" placeholder="Bank'Name" required/>
+       <input class="w3-input w3-border w3-round" type="text" 
+                name="BankBranch" placeholder="Bank Branch" required/>
 
-       <th> <input class="w3-input w3-border w3-round" type="text" 
-                name="IFSC" placeholder="IFS Code" required/></th>
-        <th><input class="w3-input w3-border w3-round" type="text" 
-                name="MICR" placeholder="MICR" required/></th>
-      <th > <input type="submit2" name="insert2" id="insert2" value="insert2" 
-          class="w3-btn w3-red w3-round" /></th>
-        </tr> 
-          </table>
+        <input class="w3-input w3-border w3-round" type="text" 
+                name="IFSC" placeholder="IFS Code" required/>
+        <input class="w3-input w3-border w3-round" type="text" 
+                name="MICR" placeholder="MICR" required/>
+                <br>
+      <tr class="w3-center"> <input type="submit2" name="insert2" id="insert2" value="Insert" 
+          class="w3-btn w3-red w3-round w3-center" />
+         
+          
       </form>
       <br>
     </div>
