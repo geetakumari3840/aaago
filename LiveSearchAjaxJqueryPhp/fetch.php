@@ -56,52 +56,10 @@ if(isset($_POST['search'])) {
         else
             {
     ?>
-        <h1 class="w3-center w3-text-red">Add Assessee Master</h1>
-
-        <form class="w3-container" id="AddAssessee" method="post" action="AddAssessee.php">
-<table>
-    <tr>
-        <th><input class="w3-input w3-border w3-round" type="text" 
-                name="GSTIN" placeholder="GSTIN" required/> </th>
-        <th><input class="w3-input w3-border w3-round" type="text" 
-                name="TradeName" placeholder="Name of the Party" required/></th>
-        <th ><input class="w3-input w3-border w3-round" type="text" 
-                name="Address" placeholder="Address" required/></th>
-
-
-       <th> <input class="w3-input w3-border w3-round" type="text" 
-                name="Mobile" placeholder="Mobile No." /></th>
-       <th> <input class="w3-input w3-border w3-round" type="text" 
-                name="Email" placeholder="Email Id" /></th>
-       <th> 
-
-<select class="w3-select w3-text-grey  w3-border w3-round" name="RangeNo" type="text" required>
-                  <option value="" disabled selected>&nbsp;Range</option>
-                  <option value="6">Range 6</option>
-                  <option value="7">Range 7</option>
-                  <option value="8">Range 8</option>
-                  <option value="9">Range 9</option>
-                  <option value="10">Range 10</option>
-                 </select></th>
-</tr><tr>
-        <th><input class="w3-input w3-border w3-round" type="text" 
-                name="BankAc" placeholder="Bank Account No." required/></th>
-       <th> <input class="w3-input w3-border w3-round" type="text" 
-                name="BankName" placeholder="Bank'Name" required/></th>
-       <th ><input class="w3-input w3-border w3-round" type="text" 
-                name="BankBranch" placeholder="Bank Branch" required/></th>
-
-       <th> <input class="w3-input w3-border w3-round" type="text" 
-                name="IFSC" placeholder="IFS Code" required/></th>
-        <th><input class="w3-input w3-border w3-round" type="text" 
-                name="MICR" placeholder="MICR" required/></th>
-      <th > <input type="submit" name="insert" id="insert" value="insert" 
-          class="w3-btn w3-red w3-round" /></th>
-</tr>      
-</table>
-        </form>
-
-
+    <div class="w3-center">
+      <br>
+   <button id="Assessee" class="w3-btn w3-purple w3-round">Add Assessee Profile</button>
+</div>
     <?php
             }
 }

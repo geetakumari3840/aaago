@@ -77,8 +77,8 @@ if (confirm ("Are you sure you want to remore this image from database?"))
 
  $(document).ready(function(){
 
-    $('.Add').click(function(){
-      $('#AddBankf').show();
+    $('#Assessee').click(function(){
+      $('#AddProfile').show();
     });
 
   });
