@@ -1,6 +1,7 @@
 
  <?php
-if(isset($_REQUEST)) {
+  /*if(isset($_POST["Bank_id"])) {
+
     $servername = "localhost";
     $username = "2027387_salary";
     $password = "b4513.4513z";
@@ -13,7 +14,51 @@ if(isset($_REQUEST)) {
     $IFSC = $_POST['IFSC'];
     $MICR = $_POST['MICR'];
     $ID = $_POST['id'];
+*/
+try {
+$connect = new PDO('mysql:host=localhost;dbname=2027387_salary', '2027387_salary', 'b4513.4513z');
+    
+//$SlNo=$_POST["Bank_id"];
+$SlNo='327';
+echo $SlNo;
+$query = "SELECT * FROM assesseemaster WHERE SlNo = $SlNo";
+$statement = $connect->prepare($query);
+$statement->execute();
+$result = $statement->fetchAll();
+// set the PDO error mode to exception
+    $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo "Connected successfully"; 
+    }
+catch(PDOException $e)
+    {
+    echo "Connection failed: " . $e->getMessage();
+    }
 
+
+//echo "fsdfsffsdfdsfsfsafsafs dsf sdf saf sdf sad fsf asf ";
+
+foreach($result as $row)
+{
+   
+ $output['BankAc'] = $row["BankAc"];
+ $output['BankBranch'] = $row["BankBranch"];
+ $output['IFSC'] = $row["IFSC"];
+ $output['MICR'] = $row["MICR"];
+
+
+ $output['BankName'] = $row["BankName"];
+ $output['BankAc'] = $row["BankAc"];
+ $output['BankBranch'] = $row["BankBranch"];
+ $output['IFSC'] = $row["IFSC"];
+ $output['MICR'] = $row["MICR"];
+
+}
+ 
+
+echo json_encode($output);
+/*
+echo "<br>";
+ echo  $output['BankName'];
 
 $sql = "INSERT INTO assesseemaster (BankAc, BankName, BankBranch, IFSC, MICR ) VALUES 
 		('$BankAc', '$BankName', '$BankBranch', '$IFSC', '$MICR') WHERE SlNo='$ID'";
@@ -69,6 +114,6 @@ mysqli_close($conn);
 
 
 
-//end
-}
+//end */
+} 
 ?>

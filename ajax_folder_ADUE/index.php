@@ -9,7 +9,7 @@
   <script src="jquery_css_file/myjs.js"></script>
    <link rel="stylesheet" href="jquery_css_file/w3.css"> 
    <link rel="stylesheet" href="jquery_css_file/mycss.css">   
-   
+
 </head>
 <body>
 
