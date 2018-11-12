@@ -29,7 +29,7 @@
                 </tr>  
                 <tr>  
                      <td width="30%"><label>Bank Name</label></td>  
-                     <td width="70%">'.$row["BankName"].' Year</td>  
+                     <td width="70%">'.$row["BankName"].'</td>  
                 </tr>  
            ';  
       }  

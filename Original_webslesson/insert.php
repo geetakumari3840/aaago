@@ -18,7 +18,8 @@
            gender='$gender',   
            designation = '$designation',   
            age = '$age'   
-           WHERE id='".$_POST["employee_id"]."'";  
+           WHERE id='".
+		   $_POST["employee_id"]."'";  
            $message = 'Data Updated';  
       }  
       else  

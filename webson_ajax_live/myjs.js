@@ -1,12 +1,36 @@
 
  $(document).ready(function(){  
+// Search Result 
+fetch_data();
+  function fetch_data()
+  {
+    
+// live search data 
+$('#live').keyup(function(){
+     
+      var txt = $(this).val();
+            if (txt !='') {
+            $.ajax ({
+                url:"fetch1.php",
+                method:"post",
+                data:{search:txt},
+                dataType:"text",
+                success:function(data)
+                {
+                    $('#result').html(data);
+                }
+            });
+        }
+        else
+        {
+            
+        }
+  });
+}
 
-  // Add Employee Data 
+// end search result
 
-      $('#add').click(function(){  
-           $('#insert').val("Insert");  
-           $('#insert_form')[0].reset();  
-      });  
+  
   
 // Update REcord 
       $(document).on('click', '.edit_data', function(){  
@@ -23,13 +47,15 @@
                      $('#Mobile').val(data.Mobile);  
                      $('#Email').val(data.Email);
                      $('#RangeNo').val(data.RangeNo);  
-                     $('#BankAc').val(data.BankAc);  
+                     $('#BankAc').val(data.BankAc);
+            //         $('#Authority').val(data.Authority);  
                      $('#BankName').val(data.BankName);  
                      $('#BankBranch').val(data.BankBranch);  
                      $('#IFSC').val(data.IFSC);    
                      $('#MICR').val(data.MICR);  
-                     $('#assessee_id').val(data.assessee_id);  
-                     $('#insert').val("Update");  
+                     $('#assessee_id').val(data.SlNo);  
+                     $('#insert').val("Update");
+                     $('#headingg').text("Update Records");  
                      $('#add_data_Modal').modal('show');  
                 }  
            });  
@@ -39,24 +65,6 @@
 
       $('#insert_form').on("submit", function(event){  
            event.preventDefault();  
-           if($('#name').val() == "")  
-           {  
-                alert("Name is required");  
-           }  
-           else if($('#address').val() == '')  
-           {  
-                alert("Address is required");  
-           }  
-           else if($('#designation').val() == '')  
-           {  
-                alert("Designation is required");  
-           }  
-           else if($('#age').val() == '')  
-           {  
-                alert("Age is required");  
-           }  
-           else  
-           {  
                 $.ajax({  
                      url:"insert.php",  
                      method:"POST",  
@@ -67,10 +75,10 @@
                      success:function(data){  
                           $('#insert_form')[0].reset();  
                           $('#add_data_Modal').modal('hide');  
-                          $('#employee_table').html(data);  
+                          $('#result').html(data);  
                      }  
                 });  
-           }  
+       
       });  
 
 // view data
@@ -90,6 +98,22 @@
                 });  
            }            
       });
+
+//next recored display
+
+   $('#submit2').click(function(){
+      var monthid = val('#RecNo');
+
+      if (monthid !='')
+      {
+  $('#ntable').html("<tr><td  colspan='7' class='text-danger' align='center'>hello</td></tr>");
+      }
+   else
+      {
+   $('#ntable').html('Blank')
+      }  
+      });  
+
 
 //end tag  
  });  

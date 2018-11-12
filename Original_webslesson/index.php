@@ -103,7 +103,8 @@
       $('#add').click(function(){  
            $('#insert').val("Insert");  
            $('#insert_form')[0].reset();  
-      });  
+      });
+	  
       $(document).on('click', '.edit_data', function(){  
            var employee_id = $(this).attr("id");  
            $.ajax({  
@@ -111,7 +112,7 @@
                 method:"POST",  
                 data:{employee_id:employee_id},  
                 dataType:"json",  
-                success:function(data){  
+               success:function(data){  
                      $('#name').val(data.name);  
                      $('#address').val(data.address);  
                      $('#gender').val(data.gender);  

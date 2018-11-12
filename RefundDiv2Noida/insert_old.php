@@ -1,16 +1,17 @@
 <?php  
- $connect = mysqli_connect("localhost", "2027387_salary", "b4513.4513z", "refunddivii");  
+//session_start();
+  include "pfiles/connect.php";
  if(!empty($_POST))  
  {  
       $output = '';  
       $messAuthority = '';  
       $GSTIN = mysqli_real_escape_string($connect, $_POST["GSTIN"]);  
-      $TradeName = mysqli_real_escape_string($connect, $_POST["TradeName"]);
+      $PartyName = mysqli_real_escape_string($connect, $_POST["PartyName"]);
       $Mobile = mysqli_real_escape_string($connect, $_POST["Mobile"]);
-      $Email = mysqli_real_escape_string($connect, $_POST["Email"]);  
+      $Area = mysqli_real_escape_string($connect, $_POST["Area"]);  
       $Address = mysqli_real_escape_string($connect, $_POST["Address"]);  
-      $RangeNo = mysqli_real_escape_string($connect, $_POST["RangeNo"]);  
-      $Authority = "center";  
+      $Division = mysqli_real_escape_string($connect, $_POST["Division"]);  
+      $Authority = "1";  
       $BankAc = mysqli_real_escape_string($connect, $_POST["BankAc"]);
       $BankName = mysqli_real_escape_string($connect, $_POST["BankName"]);
       $BankBranch = mysqli_real_escape_string($connect, $_POST["BankBranch"]);
@@ -21,13 +22,13 @@
       if($_POST["assessee_id"] != '')  
       {  
    $query = "  
-           UPDATE assesseemaster   
+           UPDATE stateassesseemaster   
            SET GSTIN='$GSTIN',   
-           TradeName='$TradeName',   
+           PartyName='$PartyName',   
            Address='$Address',   
-           RangeNo = '$RangeNo', 
+           Division = '$Division', 
            Mobile = '$Mobile',
-           Email = '$Email',  
+           Area = '$Area',  
            BankAc = '$BankAc',
            BankName = '$BankName',
            BankBranch = '$BankBranch',
@@ -36,17 +37,12 @@
            WHERE SlNo='".$_POST["assessee_id"]."'
            ";  
            $messAuthority = 'Data Updated';  
-/* 
-   */
-
-
       }  
       else  
       {  
            $query = "  
-           INSERT INTO assesseemaster (GSTIN, TradeName, Address, RangeNo, Authority,
-           BankAc, BankName, BankBranch, IFSC, MICR)  
-           VALUES('$GSTIN', '$TradeName', '$Address', '$RangeNo', 'Center', 
+           INSERT INTO stateassesseemaster (GSTIN, PartyName, Address, Division, Authority, BankAc, BankName, BankBranch, IFSC, MICR)  
+           VALUES('$GSTIN', '$PartyName', '$Address', '$Division', '1', 
            '$BankAc', '$BankName', '$BankBranch', '$IFSC', '$MICR')  
            ";  
            $messAuthority = 'Data Inserted';  
@@ -54,7 +50,7 @@
       if(mysqli_query($connect, $query))  
       {  
            $output .= '<label class="text-success">' . $messAuthority . '</label>';  
-           $select_query = "SELECT * FROM assesseemaster ORDER BY SlNo DESC LIMIT 115";  
+           $select_query = "SELECT * FROM stateassesseemaster ORDER BY SlNo DESC LIMIT 115";  
            $result = mysqli_query($connect, $select_query); 
            $output .= '
                       <div class="table-responsive">  
@@ -79,9 +75,9 @@
                           <td>'.$row["GSTIN"].'</br>
                           <p class="text-danger" align="center">
                                '.$row["Authority"].'</p></td>
-                          <td>'.$row["TradeName"].'</br>
+                          <td>'.$row["PartyName"].'</br>
                               '.$row["Address"].'</td>
-                          <td>'.$row["RangeNo"].'</td>
+                          <td>'.$row["Division"].'</td>
                           <td>'.$row["BankAc"].'</td>
                           <td>'.$row["BankName"].'</br>
                               '.$row["BankBranch"].'</td>

@@ -1,0 +1,18 @@
+SlNo,,,,,,,
+GSTIN,,GSTIN,"GSTIN:GSTIN,","GSTIN,","JJJJ.$GSTIN_clean.HHHH,",$GSTIN = $_POST['GSTIN'];,
+NameOfParty,,NameOfParty,"NameOfParty:NameOfParty,","NameOfParty,","JJJJ.$NameOfParty_clean.HHHH,",$NameOfParty = $_POST['NameOfParty'];,
+Division,,Division,"Division:Division,","Division,","JJJJ.$Division_clean.HHHH,",$Division = $_POST['Division'];,
+NodalFile,,NodalFile,"NodalFile:NodalFile,","NodalFile,","JJJJ.$NodalFile_clean.HHHH,",$NodalFile = $_POST['NodalFile'];,
+NodalDate,,NodalDate,"NodalDate:NodalDate,","NodalDate,","JJJJ.$NodalDate_clean.HHHH,",$NodalDate = $_POST['NodalDate'];,
+CGSTRDate,,CGSTRDate,"CGSTRDate:CGSTRDate,","CGSTRDate,","JJJJ.$CGSTRDate_clean.HHHH,",$CGSTRDate = $_POST['CGSTRDate'];,
+Khand,,Khand,"Khand:Khand,","Khand,","JJJJ.$Khand_clean.HHHH,",$Khand = $_POST['Khand'];,
+RFD,,RFD,"RFD:RFD,","RFD,","JJJJ.$RFD_clean.HHHH,",$RFD = $_POST['RFD'];,"$RFD_clean = mysqli_real_escape_string($con, $RFD[$count]);"
+RFDMonth,,RFDMonth,"RFDMonth:RFDMonth,","RFDMonth,","JJJJ.$RFDMonth_clean.HHHH,",$RFDMonth = $_POST['RFDMonth'];,"$RFDMonth_clean = mysqli_real_escape_string($con, $RFDMonth[$count]);"
+RFDYear,,RFDYear,"RFDYear:RFDYear,","RFDYear,","JJJJ.$RFDYear_clean.HHHH,",$RFDYear = $_POST['RFDYear'];,"$RFDYear_clean = mysqli_real_escape_string($con, $RFDYear[$count]);"
+SanctionOrderNo,,SanctionOrderNo,"SanctionOrderNo:SanctionOrderNo,","SanctionOrderNo,","JJJJ.$SanctionOrderNo_clean.HHHH,",$SanctionOrderNo = $_POST['SanctionOrderNo'];,"$SanctionOrderNo_clean = mysqli_real_escape_string($con, $SanctionOrderNo[$count]);"
+SanctonOrderDate,,SanctonOrderDate,"SanctonOrderDate:SanctonOrderDate,","SanctonOrderDate,","JJJJ.$SanctonOrderDate_clean.HHHH,",$SanctonOrderDate = $_POST['SanctonOrderDate'];,"$SanctonOrderDate_clean = mysqli_real_escape_string($con, $SanctonOrderDate[$count]);"
+CGST,,CGST,"CGST:CGST,","CGST,","JJJJ.$CGST_clean.HHHH,",$CGST = $_POST['CGST'];,"$CGST_clean = mysqli_real_escape_string($con, $CGST[$count]);"
+IGST,,IGST,"IGST:IGST,","IGST,","JJJJ.$IGST_clean.HHHH,",$IGST = $_POST['IGST'];,"$IGST_clean = mysqli_real_escape_string($con, $IGST[$count]);"
+Cess,,Cess,"Cess:Cess,","Cess,","JJJJ.$Cess_clean.HHHH,",$Cess = $_POST['Cess'];,"$Cess_clean = mysqli_real_escape_string($con, $Cess[$count]);"
+ARN,,,,,,,
+ARNDate,,,,,,,
