@@ -16,8 +16,27 @@
     document.body.innerHTML = PrintContent;
     window.print();
     document.body.innerHTML = restorepage;
+     return false;
   }
   </script>
+  <style>
+    body {
+      font-family: "Times New Roman", Times, serif;
+      font-style: normal;
+      font-size: 15px;
+      font-weight: bold;
+      font-variant: normal;
+      width: 900px;
+      margin: 0 auto;
+     
+    }
+
+table {
+
+    width: 100%;
+    text-align: center;
+}
+  </style>
 </head>
 
 <body class="container">
@@ -26,15 +45,15 @@
   <div class="table-responsive">
     <form id="form_note">
 <table>
-  <tr>
-    <td><input type="number" class="form-control" name="From_id" 
-              value="1" id="From_id" required>
+  <tr style="text-align: center;"> 
+    <td style="width: 7%;"><input type="number" class="form-control" 
+        name="From_id" value="1" id="From_id" required>
     </td>
-    <td><input type="number" class="form-control" name="To_id"  
-              value="50" id="To_id" required>
+    <td style="width: 7%;"><input type="number" class="form-control" 
+        name="To_id"  value="50" id="To_id" required>
     </td>
-    <td><select name="Div_id" id="Div_id" type="number" 
-                class="form-control" required>
+    <td style="width: 12%;"><select name="Div_id" id="Div_id" 
+        type="number" class="form-control" required>
                   <option value="1">Division-I</option>
                   <option value="2">Division-II</option>
                   <option value="3">Division-III</option>
@@ -60,18 +79,20 @@
 </table>
 </form>
 </div>
- <div class="print" style="display: none;text-align: center;"><br>
+<!--<a href="javascript:;" id="print">Open</a>-->
+ <div class="print"  target="_blank" style="display: none;text-align: center;"><br>
       <button type="button" class="btn btn-danger btn-xl" 
       onclick="PrintContent('page1')">Print</button>
   </div>
-<div  id="page1" >
+<div   target="_blank" id="page1" >
   <!-- Header 1 -->
 <div class="header" style="display: none;">
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Following refund sanction orders received from State Goods & Service Tax are being forwarded to concerned jurisdictional officer for necessary action at their end:
 </div>
 <!-- Header 2 -->
 <div class="header2" style="display: none;">
-  <table>
+
+<table>
   <tr>
     <td>
       <img src="pfiles/logo.jpg" alt="ashok">
@@ -144,6 +165,22 @@
 
 <script>
  $(document).ready(function(){  
+
+
+/* ////////java new tab printing
+  function nWin() {
+  var w = window.open();
+  var html = $("#page1").html();
+
+    $(w.document.body).html(html);
+    w.print();
+}
+
+$(function() {
+    $("a#print").click(nWin);
+});
+//////////////////// */
+
 $('#something').click(function() {
     location.reload();
 });
