@@ -13,11 +13,17 @@ $query ="SELECT stateorderrefundii.GSTIN,
                 stateassesseemaster.Address, 
                 stateorderrefundii.Khand, 
                 stateorderrefundii.SanctionOrderNo, 
+                 stateorderrefundii.SanctionOrderDate, 
                 stateorderrefundii.CGST, 
                 stateorderrefundii.IGST, 
                 stateorderrefundii.Cess, 
                 stateorderrefundii.RFD, 
-                stateorderrefundii.Division    
+                stateorderrefundii.Division,
+                stateorderrefundii.ARN,
+                stateorderrefundii.RFDMonth, 
+                stateorderrefundii.RFDYear,
+                stateorderrefundii.RFD2Month, 
+                stateorderrefundii.RFD2Year     
                 FROM stateorderrefundii 
                 INNER JOIN stateassesseemaster ON 
                 stateorderrefundii.GSTIN=stateassesseemaster.GSTIN
@@ -30,12 +36,14 @@ else {
                 stateorderrefundii.NameOfParty,
                 stateassesseemaster.Address, 
                 stateorderrefundii.Khand, 
-                stateorderrefundii.SanctionOrderNo, 
+                stateorderrefundii.SanctionOrderNo,
+                stateorderrefundii.SanctionOrderDate, 
                 stateorderrefundii.CGST, 
                 stateorderrefundii.IGST, 
                 stateorderrefundii.Cess, 
                 stateorderrefundii.RFD, 
-                stateorderrefundii.Division    
+                stateorderrefundii.Division,
+                stateorderrefundii.ARN     
                 FROM stateorderrefundii 
                 INNER JOIN stateassesseemaster ON 
                 stateorderrefundii.GSTIN=stateassesseemaster.GSTIN
@@ -47,61 +55,52 @@ else {
 
 $result = mysqli_query($connect, $query);
 $output .='
-
-  
-    <table border=1 style="width:880px;">
-      <tr style="text-align:center;background-color:#F8F8FF">
-        <th>Sl<br>No</th>
-        <th style="text-align:left;"">Name of Party & Address</th>
-        <th>Khand</th>
-        <th>Sanction <br>order No. </th>
-        <th>CGST<br>Amount</th>
-        <th>IGST<br>Amount</th>
-        <th>Cess<br>Amount</th>
-        <th>RFD</th>
-        <th>Div.</th>
- 
-      </tr>
+<table border="1" style="width: 800px; margin: auto;">
+  <tr >
+    <th>Sl.<br>No.</th>
+    <th style="text-align:Left;">GSTIN <br>
+        Name of Party & <br>
+        Address<br></th>
+    <th style="text-align:Left;">ARN No.<br>
+        Refund Period<br>
+        Final/Provisional</th>
+    <th style="text-align:Left;">Khand<br>
+        Order No.<br>
+        Order Date<br></th>
+    <th style="text-align:right;">IGST<br>
+        CGST<br>
+        Cess</th>
+  </tr>
       ';
 while ($row = mysqli_fetch_array($result))
 {
 $count = $count + 1;
 $output .='
     <tr style="margin:0px;padding:0px;">
-        <td style="width:4%;">'.$count.'</td>
-        <td style="text-align:left;width:42%">'.$row['GSTIN'].'<br>'.$row['NameOfParty'].','.$row['Address'].'</td>
-        <td style="width:5%;">'.$row['Khand'].'</td>
-        <td style="width:9%;">'.$row['SanctionOrderNo'].'</td>
-        <td>'.$row['CGST'].'</td>
-        <td>'.$row['IGST'].'</td>
-        <td>'.$row['Cess'].'</td>
-        <td style="width:4%;">'.$row['RFD'].'</td>
-        <td style="width:4%;">';
-
-         switch ($row['Division']) {
-             case 1:
-                 $output .= 'I';
-                 break;
-             case 2:
-                 $output .= 'II';
-                 break;
-                 case 3:
-                 $output .= 'III';
-                 break;
-                 case 4:
-                 $output .= 'IV';
-                 break;
-                 case 5:
-                 $output .= 'V';
-                 break;
-                 case 6:
-                 $output .= 'IV';
-                 break;
-             default:
-                 # code...
-                 break;
-         }
-$output .='</td></tr>';
+        <td style="width:5%;">'.$count.'</td>
+        <td style="text-align:left;width:50%">
+            '.$row['GSTIN'].'<br>
+            '.$row['NameOfParty'].'<br>
+            '.$row['Address'].'
+        </td>
+        <td style="text-align:left;width:15%;">
+            '.$row['ARN'].'<br>
+            '.$row['RFDMonth'].'/'.$row['RFDYear'].' to 
+            '.$row['RFD2Month'].'/'.$row['RFD2Year'].'<br>RFD-
+            '.$row['RFD'].'
+        </td>
+        <td style="text-align:left;width:15%;">Khand-
+            '.$row['Khand'].'<br>Order No.
+            '.$row['SanctionOrderNo'].'<br>
+            '.$row['SanctionOrderDate'].'
+        </td>
+        <td style="text-align:right;width:15%;">
+            '.$row['IGST'].'/-<br>
+            '.$row['CGST'].'/-<br>
+            '.$row['Cess'].'/-
+        </td>
+    </tr>';
+        
 }
 
 $output .='</table>';

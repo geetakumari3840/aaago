@@ -23,8 +23,8 @@
     body {
       font-family: "Times New Roman", Times, serif;
       font-style: normal;
-      font-size: 15px;
-      font-weight: bold;
+      font-size: 13px;
+      font-wei ght: bold;
       font-variant: normal;
       width: 900px;
       margin: 0 auto;
@@ -36,7 +36,17 @@ table {
     width: 100%;
     text-align: center;
 }
+th, td {
+      padding: 2px;
+      margin: 0px;
+      text-align: center;
+  }
+  th {
+    font-size: 15px;
+  }
+  
   </style>
+
 </head>
 
 <body class="container">
@@ -71,115 +81,115 @@ table {
         <button id="Btn2" type="button" 
                 class="btn btn-success btn-xl">Display Letter</button>
     </td>
+
    <td>
         <button id="something" type="button" 
-                class="btn btn-default btn-xl">Refresh</button>
+                class="btn btn-warning btn-xl">Refresh</button>
     </td>
     </tr>
 </table>
 </form>
 </div>
 <!--<a href="javascript:;" id="print">Open</a>-->
- <div class="print"  target="_blank" style="display: none;text-align: center;"><br>
+ <div class="print" style="display: none;text-align: center;"><br>
       <button type="button" class="btn btn-danger btn-xl" 
       onclick="PrintContent('page1')">Print</button>
   </div>
 <div   target="_blank" id="page1" >
   <!-- Header 1 -->
-<div class="header" style="display: none;">
+<div class="header" style="display: none;width: 900px;">
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Following refund sanction orders received from State Goods & Service Tax are being forwarded to concerned jurisdictional officer for necessary action at their end:
 </div>
 <!-- Header 2 -->
 <div class="header2" style="display: none;">
 
-<table>
+<table border="0" style="width: 900px;">
   <tr>
     <td>
       <img src="pfiles/logo.jpg" alt="ashok">
     </td>
     <td>
-<span><b>कार्यालय सहायक आयुक्त </b></span><br>               
-<span>OFFICE OF THE ASSISTANT COMMISSIONER</span> <br>              
-<span>केन्द्रीय कर (वस्तु एवं सेवाकर और केन्द्रीय उत्पाद) मण्डल-II, नोएडा      </span>  <br>     
-<span>CENTRAL TAX (GST & CENTRAL EXCISE) DIVISION-II, NOIDA </span><br>  
- <span>C-56/42, RENU TOWER, SECTOR-62, NOIDA / सी.-56/42, रेनू टावर, सेक्टर-६२, नोएडा  </span>               
+<span style="font-size: 18px;">कार्यालय सहायक आयुक्त </span><br>               
+<span style="font-size: 18px;">OFFICE OF THE ASSISTANT COMMISSIONER</span> <br>              
+<span style="font-size: 18px;">केन्द्रीय कर (वस्तु एवं सेवाकर और केन्द्रीय उत्पाद) मण्डल-II, नोएडा      </span>  <br>     
+<span style="font-size: 18px;">CENTRAL TAX (GST & CENTRAL EXCISE) DIVISION-II, NOIDA </span><br>  
+ <span style="font-size: 16px;">C-56/42, RENU TOWER, SECTOR-62, NOIDA / सी.-56/42, रेनू टावर, सेक्टर-६२, नोएडा  </span>               
     </td>
     <td>
       <img src="pfiles/gst.jpg" alt="GST">
     </td>
   </tr>
   <tr>
-    <td colspan="2"><br>C.No. V(18)Ref/ CGST/Misc./StateOrder/N/D-II/207/17-18</td>
-    <td>Dated:</td>
+    <td colspan="3" style="text-align: left;"><br>C.No. V(18)Ref/ CGST/Misc./StateOrder/N/D-II/207/17-18<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>  Dated:</td>
   </tr>
 </table> 
-<table>
+<table border="0" style="width: 900px;">
   <tr>
-    <td><br>To,</td>
+    <td><br>To,</td> <td><br></td>
   </tr>
   <tr>
     <td></td>
-    <td>The Deputy / Assistant Commissioner</td>
+    <td style="text-align: left;">
+      The Deputy / Assistant Commissioner<br>
+      Central Goods & Service Tax,<br>
+      <span id="DivFID">Division-I/II/III/IV/V Noida</span>
+      <br>
+
+    </td>
   </tr>
-    <tr>
-    <td></td>
-    <td>Central Goods & Service Tax,</td>
-  </tr>
-    <tr>
-    <td></td>
-    <td id="div_no">Division-I/II/III/IV/V Noida</td>
-  </tr>
+  
       <tr>
     <td></td>
-    <td><br>Subject:- Forwarding of Provisional Refund Orders received from State Goods & Service Tax -C/reg</td>
+    <td style="text-align: left;font-size:17px;"><br><i><u>Subject:- Forwarding of Provisional Refund Orders received from State Goods & Service Tax -C/reg</u></i></td>
   </tr>
         <tr>
    
-    <td colspan="2"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Following refund sanction orders received from State Goods & Service Tax are being forwarded to concerned jurisdictional officer for necessary action at their end:</td>
+    <td colspan="2" style="text-align:justify"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Following refund sanction orders received from State Goods & Service Tax are being forwarded to concerned jurisdictional officer for necessary action at their end:</td>
   </tr>
 </table>
 </div>
 <!-- Main  -->
 <div id="NoteSheetAll"></div>
-<br><br><br><br>
+
+
 
 <!-- Footer 1 -->
-<div class="footer" style="display: none;">
+<div class="footer" style="display: none;width:900px;">
+    <br>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In above context, Letters addressing to the above said Divisions are put up for kind perusal, approval & signature please.</div>
+ <br><br><br><br>
     <table><tr>
-    <td>Inspector(R/R)</td>
-    <td>Nodal Officer(CGST)</td></tr>
+    <td style="text-align: left;">Inspector(R/R)</td>
+    <td style="text-align: left;">Nodal Officer(CGST)</td></tr>
      </table>
 </div>
 <!-- Footer 2 -->
 <div class="footer2" style="display: none;">
-    <table><tr>
-    <td>Inspector(R/R)</td>
-    <td>Nodal Officer(CGST)</td></tr>
+    <table border="0" style="width: 900px;">
+    </tr><tr>
+    <td colspan="2" style="text-align: justify;"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The above mentioned Provisional / Final refund orders are being forwarded (signed in original) to you for the payment of CGST/IGST/Cess amount, sanctioned from the State Goods & Service Tax. </td>
+    <tr>
+      <td style="text-align: left;width: 70%;">
+        Encl: As above 
+      </td>
+      <td style="text-align: center;width: 30%;">
+          Yours faithfully,<br><br><br><br>
+           Assistant Commissioner (Nodal Officer)<br>
+           Central GST (Manual Refund)<br>
+           Commissionerate, Noida
+      </td>
+    </tr>
+   
      </table>
 </div>
-
+</div>
 </div>
 </div>
 </body>
 </html>
-
 <script>
  $(document).ready(function(){  
 
-
-/* ////////java new tab printing
-  function nWin() {
-  var w = window.open();
-  var html = $("#page1").html();
-
-    $(w.document.body).html(html);
-    w.print();
-}
-
-$(function() {
-    $("a#print").click(nWin);
-});
-//////////////////// */
 
 $('#something').click(function() {
     location.reload();
@@ -206,6 +216,32 @@ $('#Btn2').click(function (event) {
        $('.page1').empty();
 $('.header2, .footer2, .print').show();
   $('.header, .footer').hide();
+  var dfid = $('#Div_id').val();
+//alert (dfid);
+ if (dfid==1) {
+    dfidn = "I"
+ }
+ else if (dfid==2){
+   dfidn = "II"
+ }
+  else if (dfid==3){
+   dfidn = "III"
+ }
+  else if (dfid==4){
+   dfidn = "IV"
+ }
+  else if (dfid==5){
+   dfidn = "V"
+ }
+  else if (dfid==6){
+   dfidn = "VI"
+ }
+ else
+ {
+   dfidn = "I to VI"
+ }
+
+$('#DivFID').text('Division-'+dfidn+' Noida');
   $.ajax({
          method: 'POST',
          url:  'NoteAll.php',
@@ -216,5 +252,6 @@ $('.header2, .footer2, .print').show();
          }
       });
           });
+//end tag
 	});
 </script>
