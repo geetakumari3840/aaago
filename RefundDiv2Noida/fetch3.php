@@ -57,10 +57,11 @@ $output .='
         <td>'.$row['IGST'].'</td>
         <td>'.$row['Cess'].'</td>
         <td align="center">
-            <button type="button" class="btn btn-warning btn-sm edit_data2" 
+         <div   class="btn-group btn-group-sm">
+            <button type="button" class="btn btn-warning edit_data2" 
               id="'.$row['SlNo'].'">Edit </button>
-              <button type="button" class="btn btn-danger btn-sm delete_data2" 
-              id="'.$row['SlNo'].'">Delete</button></td>
+              <button type="button" class="btn btn-danger delete_data2" 
+              id="'.$row['SlNo'].'">Delete</button></div></td>
     </tr>';
 }
 

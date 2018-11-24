@@ -19,8 +19,8 @@ $sql = "SELECT * FROM stateassesseemaster WHERE PartyName LIKE '%".$search."%'";
             style="width: 100%;">  
             <tr class="bg-success">                                          
               <th colspan="3"  style="width: 45%;text-align: center;">Assessee Details </th>
-              <th colspan="3"  style="width: 45%;text-align: center;"> Bank details </th>
-              <th  style="width: 10%;text-align: center;">Action</th> 
+              <th colspan="3"  style="width: 40%;text-align: center;"> Bank details </th>
+              <th  style="width: 15%;text-align: center;">Action</th> 
             </tr>';
             while($row = mysqli_fetch_array($result))
                 {
@@ -44,11 +44,12 @@ $sql = "SELECT * FROM stateassesseemaster WHERE PartyName LIKE '%".$search."%'";
      
 
                 <td align='center'>
-            <button type='button' class='btn btn-warning btn-sm edit_data' 
+                <div   class='btn-group btn-group-sm'>
+            <button type='button' class='btn btn-warning edit_data' 
               id='".$row['SlNo']."'>Edit </button>
-              <button type='button' class='btn btn-danger btn-sm delete_data' 
+              <button type='button' class='btn btn-danger delete_data' 
               id='".$row['SlNo']."'>Delete</button>
-
+                    </div>
                           </td>
                           </tr>
                     ";                      

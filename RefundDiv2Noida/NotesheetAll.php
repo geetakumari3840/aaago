@@ -1,3 +1,8 @@
+<?php
+session_start(); 
+  if(isset($_SESSION["username"]))
+    {
+?>
 <!DOCTYPE html>  
  <html>  
   <head>  
@@ -9,16 +14,7 @@
    <script src="pfiles/jquery.min.js"></script> 
    <link rel="stylesheet" href="pfiles/mycss.css"> 
    <script src="pfiles/myjs.js"></script>
-  <script>
-     function PrintContent (el) {
-    var restorepage = document.body.innerHTML;
-    var PrintContent = document.getElementById(el).innerHTML;
-    document.body.innerHTML = PrintContent;
-    window.print();
-    document.body.innerHTML = restorepage;
-     return false;
-  }
-  </script>
+   <script src="pfiles/printThis.js"></script>
   <style>
     body {
       font-family: "Times New Roman", Times, serif;
@@ -26,10 +22,20 @@
       font-size: 13px;
       font-wei ght: bold;
       font-variant: normal;
-      width: 900px;
+      wid th: 900px;
       margin: 0 auto;
      
     }
+
+
+.image11{
+     width: 9.182cm;
+    height: 2.721cm;
+    margin-top: 0.199cm;
+    background-image: url("/pfiles/logo.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+}
 
 table {
 
@@ -52,17 +58,18 @@ th, td {
 <body class="container">
   
   <div><br>
-  <div class="table-responsive">
+  <div class="table-responsive" 
+  style="text-align: center;background-color: grey;width: 900px; margin: 0px auto;">
     <form id="form_note">
 <table>
   <tr style="text-align: center;"> 
-    <td style="width: 7%;"><input type="number" class="form-control" 
+    <td style="width: 10%;"><input type="number" class="form-control" 
         name="From_id" value="1" id="From_id" required>
     </td>
-    <td style="width: 7%;"><input type="number" class="form-control" 
+    <td style="width: 10%;"><input type="number" class="form-control" 
         name="To_id"  value="50" id="To_id" required>
     </td>
-    <td style="width: 12%;"><select name="Div_id" id="Div_id" 
+    <td style="width: 15%;"><select name="Div_id" id="Div_id" 
         type="number" class="form-control" required>
                   <option value="1">Division-I</option>
                   <option value="2">Division-II</option>
@@ -82,31 +89,28 @@ th, td {
                 class="btn btn-success btn-xl">Display Letter</button>
     </td>
 
-   <td>
-        <button id="something" type="button" 
-                class="btn btn-warning btn-xl">Refresh</button>
-    </td>
+
     </tr>
 </table>
 </form>
-</div>
+</div><br>
 <!--<a href="javascript:;" id="print">Open</a>-->
- <div class="print" style="display: none;text-align: center;"><br>
-      <button type="button" class="btn btn-danger btn-xl" 
-      onclick="PrintContent('page1')">Print</button>
+ <div class="print" style="display: none;text-align: center;">
+<button type="button" class="btn btn-danger btn-xl" id="printn">Print</button>
   </div>
-<div   target="_blank" id="page1" >
+<div id="page1" >
   <!-- Header 1 -->
-<div class="header" style="display: none;width: 900px;">
+<div class="header" style="display: none;wid th: 900px;">
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Following refund sanction orders received from State Goods & Service Tax are being forwarded to concerned jurisdictional officer for necessary action at their end:
 </div>
 <!-- Header 2 -->
 <div class="header2" style="display: none;">
 
-<table border="0" style="width: 900px;">
+<table border="0" style="wid th: 900px;">
   <tr>
     <td>
-      <img src="pfiles/logo.jpg" alt="ashok">
+      <div  id="image11"></div>
+      <!--<img src="pfiles/logo.jpg" alt="ashok"> -->
     </td>
     <td>
 <span style="font-size: 18px;">कार्यालय सहायक आयुक्त </span><br>               
@@ -123,7 +127,7 @@ th, td {
     <td colspan="3" style="text-align: left;"><br>C.No. V(18)Ref/ CGST/Misc./StateOrder/N/D-II/207/17-18<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>  Dated:</td>
   </tr>
 </table> 
-<table border="0" style="width: 900px;">
+<table border="0" style="wid th: 900px;">
   <tr>
     <td><br>To,</td> <td><br></td>
   </tr>
@@ -154,7 +158,7 @@ th, td {
 
 
 <!-- Footer 1 -->
-<div class="footer" style="display: none;width:900px;">
+<div class="footer" style="display: none;wi dth:900px;">
     <br>
 <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In above context, Letters addressing to the above said Divisions are put up for kind perusal, approval & signature please.</div>
  <br><br><br><br>
@@ -165,7 +169,7 @@ th, td {
 </div>
 <!-- Footer 2 -->
 <div class="footer2" style="display: none;">
-    <table border="0" style="width: 900px;">
+    <table border="0" style="wi dth: 900px;">
     </tr><tr>
     <td colspan="2" style="text-align: justify;"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The above mentioned Provisional / Final refund orders are being forwarded (signed in original) to you for the payment of CGST/IGST/Cess amount, sanctioned from the State Goods & Service Tax. </td>
     <tr>
@@ -190,10 +194,16 @@ th, td {
 <script>
  $(document).ready(function(){  
 
-
-$('#something').click(function() {
-    location.reload();
+$("#printn").on('click',function(e){
+    $("#page1").printThis({
+            debug: true,
+            importCSS: true,
+            importStyle: true,
+            //loadCSS: "/Data.css",
+            pageTitle: false,
+        });
 });
+
 
 $('#Btn1').click(function (event) {
       event.preventDefault();
@@ -255,3 +265,13 @@ $('#DivFID').text('Division-'+dfidn+' Noida');
 //end tag
 	});
 </script>
+
+<?php
+    } 
+  else
+    {
+    $yourURL="login1.php";
+      echo ("<script>location.href='$yourURL'</script>");
+    }
+?>
+ 

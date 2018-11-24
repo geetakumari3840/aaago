@@ -57,6 +57,8 @@ if (isset($_POST['reg_user'])) {
 
 // LOGIN USER
 if (isset($_POST['login_user'])) {
+
+  echo ($_POST['username']);
   $username = mysqli_real_escape_string($connect, $_POST['username']);
   $password = mysqli_real_escape_string($connect, $_POST['password']);
 

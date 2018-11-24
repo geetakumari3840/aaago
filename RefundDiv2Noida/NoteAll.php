@@ -1,3 +1,4 @@
+<script src="pfiles/printThis.js"></script>
 <?php
 //session_start();
     include "pfiles/connect.php";
@@ -23,7 +24,7 @@ $query ="SELECT stateorderrefundii.GSTIN,
                 stateorderrefundii.GSTIN=stateassesseemaster.GSTIN
                 WHERE stateorderrefundii.SlNo BETWEEN $From_id AND $To_id 
                AND stateorderrefundii.Division  = $Div_id
-                ORDER BY stateorderrefundii.SlNo DESC";
+                ORDER BY stateorderrefundii.Division ASC";
 }
 else {
     $query ="SELECT stateorderrefundii.GSTIN,
@@ -41,7 +42,7 @@ else {
                 stateorderrefundii.GSTIN=stateassesseemaster.GSTIN
                 WHERE stateorderrefundii.SlNo BETWEEN $From_id AND $To_id 
               
-                ORDER BY stateorderrefundii.SlNo DESC";
+                ORDER BY stateorderrefundii.Division ASC ";
 }
 
 
@@ -49,7 +50,7 @@ $result = mysqli_query($connect, $query);
 $output .='
 
   
-    <table border=1 style="width:880px;">
+    <table border=1 style="wi dth:880px;">
       <tr style="text-align:center;background-color:#F8F8FF">
         <th>Sl<br>No</th>
         <th style="text-align:left;"">Name of Party & Address</th>
