@@ -28,7 +28,7 @@
    </div>
 
    <div class="btn-group">
-  		<button type="button"  id="Refresh" class="btn btn-primary">Refresh</button>
+  		<button type="button"  id="Refresh" class="btn btn-warning">Refresh</button>
     </div>
 </div><br>
 

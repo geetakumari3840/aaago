@@ -23,17 +23,16 @@ $output .='
         <th>SlNo</th>
         <th>Name of Party</th>
         <th>Div</th>
-        <th>Nodal <br>File</th>
-        <th>Nodal<br>Date</th>
+        <th>Nodal File<br>Date</th>
         <th>CGSTR<br>Date</th>
         <th>Khand</th>
         <th>RFD</th>
         <th>Period</th>
-        <th>Order<br>No</th>
-        <th>Order<br>Date</th>
+        <th>Order No<br>Date</th>
         <th>CGST</th>
         <th>IGST</th>
         <th>Cess</th>
+        <th>ARN <br>Date</th>
         <th style="width:10%"">Action</th>
       </tr>
       ';
@@ -44,18 +43,156 @@ $output .='
     <tr>
         <td>'.$row['SlNo'].'</td>
         <td>'.$row['GSTIN'].'</br>'.$row['NameOfParty'].'</td>
-        <td>'.$row['Division'].'</td>
-        <td>'.$row['NodalFile'].'</td>
-        <td>'.$row['NodalDate'].'</td>
-        <td>'.$row['CGSTRDate'].'</td>
+        <td>';
+                switch ($row['Division']) {
+             case 1:
+                 $output .= 'I';
+                 break;
+             case 2:
+                 $output .= 'II';
+                 break;
+                 case 3:
+                 $output .= 'III';
+                 break;
+                 case 4:
+                 $output .= 'IV';
+                 break;
+                 case 5:
+                 $output .= 'V';
+                 break;
+                 case 6:
+                 $output .= 'IV';
+                 break;
+             default:
+                 # code...
+                 break;
+         }
+    $output .= '</td><td>'.$row['NodalFile'].'</br>';
+    $output .= date('d-m-Y', strtotime($row['NodalDate']));
+    $output .='</td><td>';
+    $output .= date('d-m-Y', strtotime($row['CGSTRDate']));
+    $output .='</td>
         <td>'.$row['Khand'].'</td>
         <td>'.$row['RFD'].'</td>
-        <td>'.$row['RFDMonth'].'/ '.$row['RFDYear'].'</td>
-        <td>'.$row['SanctionOrderNo'].'</td>
-        <td>'.$row['SanctionOrderDate'].'</td>
+        <td>';
+        $chmonth1 = $row['RFDMonth'];
+        $chmonth2 = $row['RFD2Month'];
+        $chyear1 = $row['RFDYear'];
+        $chyear2 = $row['RFD2Year'];
+switch ($chmonth1) {
+    case "1":
+        $chmonth11 = "JAN";
+        break;
+    case "2":
+        $chmonth11 = "FEB";
+        break;
+    case "3":
+        $chmonth11 = "MAR";
+        break;
+    case "4":
+        $chmonth11 = "APR";
+        break;
+    case "5":
+        $chmonth11 = "MAY";
+        break;
+    case "6":
+        $chmonth11 = "JUN";
+        break;
+    case "7":
+        $chmonth11 = "JUL";
+        break;
+    case "8":
+        $chmonth11 = "AUG";
+        break;
+    case "9":
+        $chmonth11 = "SEP";
+        break;
+    case "10":
+        $chmonth11 = "OCT";
+        break;
+    case "11":
+        $chmonth11 = "NOV";
+        break;
+    case "12":
+        $chmonth11 = "DEC";
+        break;
+    default:
+        $chmonth11 = "NA";
+}
+switch ($chmonth2) {
+    case "1":
+        $chmonth22 = "JAN";
+        break;
+    case "2":
+        $chmonth22 = "FEB";
+        break;
+    case "3":
+        $chmonth22 = "MAR";
+        break;
+    case "4":
+        $chmonth22 = "APR";
+        break;
+    case "5":
+        $chmonth22 = "MAY";
+        break;
+    case "6":
+        $chmonth22 = "JUN";
+        break;
+    case "7":
+        $chmonth22 = "JUL";
+        break;
+    case "8":
+        $chmonth22 = "AUG";
+        break;
+    case "9":
+        $chmonth22 = "SEP";
+        break;
+    case "10":
+        $chmonth22 = "OCT";
+        break;
+    case "11":
+        $chmonth22 = "NOV";
+        break;
+    case "12":
+        $chmonth22 = "DEC";
+        break;
+    default:
+        $chmonth22 = "NA";
+}
+$FromP = ($chmonth11.'-'.$chyear1);
+$ToP = ($chmonth22.'-'.$chyear2);
+    if ($FromP != $ToP)
+    {
+ $output .= $FromP.' to '.$ToP;
+    }
+    else
+    {
+    $output .= $FromP;
+    }
+$output .='<td>'.$row['SanctionOrderNo'].'</br>';
+$output .= date('d-m-Y', strtotime($row['SanctionOrderDate']));
+$output .='</td>
         <td>'.$row['CGST'].'</td>
         <td>'.$row['IGST'].'</td>
         <td>'.$row['Cess'].'</td>
+        <td>';  
+        if ($row['ARN']==1) 
+        {
+$output .='';
+        }
+        else
+        {
+$output .= ''.$row['ARN'].'';
+        }
+$output .='<br>';
+  if ($row['ARNDate']==1) {
+            $output .='';
+        }
+        else
+        {
+          $output .= date('d-m-Y', strtotime($row['ARNDate']));
+        }
+           $output .='</td>
         <td align="center">
          <div   class="btn-group btn-group-sm">
             <button type="button" class="btn btn-warning edit_data2" 

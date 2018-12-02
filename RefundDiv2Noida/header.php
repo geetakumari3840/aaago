@@ -4,7 +4,7 @@
 ?>
 <div class="row">
   <div class="col-lg-2">
-    <h3 align="left">Welcome - <?php echo $_SESSION["username"];?>
+    <h4 align="left">Welcome - <?php echo $_SESSION["username"];?></h4>
   </div>
   <div  class="col-lg-8">
     <h3 align="center" class="text-danger">

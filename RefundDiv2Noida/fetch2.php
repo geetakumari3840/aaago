@@ -24,6 +24,10 @@ include "pfiles/connect.php";
       $SanctonOrderDay = $_POST['SanctonOrderDay'];
       $SanctonOrderMonth = $_POST['SanctonOrderMonth'];
       $SanctonOrderYear = $_POST['SanctonOrderYear'];
+      $ARN = $_POST['ARN'];
+      $ARNDay = $_POST['ARNDay'];
+      $ARNMonth = $_POST['ARNMonth'];
+      $ARNYear = $_POST['ARNYear'];
       $CGST = $_POST['CGST'];
       $IGST = $_POST['IGST'];
       $Cess = $_POST['Cess'];
@@ -50,15 +54,31 @@ $SanctionOrderNo_clean = mysqli_real_escape_string($connect, $SanctionOrderNo[$c
 $SanctonOrderDay_clean = mysqli_real_escape_string($connect, $SanctonOrderDay[$count]);
 $SanctonOrderMonth_clean = mysqli_real_escape_string($connect, $SanctonOrderMonth[$count]);
 $SanctonOrderYear_clean = mysqli_real_escape_string($connect, $SanctonOrderYear[$count]);
+$ARN_clean = mysqli_real_escape_string($connect, $ARN[$count]);
+$ARNDay_clean = mysqli_real_escape_string($connect, $ARNDay[$count]);
+$ARNMonth_clean = mysqli_real_escape_string($connect, $ARNMonth[$count]);
+$ARNYear_clean = mysqli_real_escape_string($connect, $ARNYear[$count]);
 $CGST_clean = mysqli_real_escape_string($connect, $CGST[$count]);
 $IGST_clean = mysqli_real_escape_string($connect, $IGST[$count]);
 $Cess_clean = mysqli_real_escape_string($connect, $Cess[$count]);
 $RFD_clean = mysqli_real_escape_string($connect, $RFD[$count]);
 $SanctionOrderDate = 2000+$SanctonOrderYear_clean.'-'.$SanctonOrderMonth_clean.'-'.$SanctonOrderDay_clean;
-//echo $SanctonOrderDate;
+if (is_null($ARNDay_clean) || $ARNDay_clean === 0 || $ARNDay_clean== "") {
+  $ARNDate1 = "1-1-1";
+}
+else {
+$ARNDate1 = 2000+$ARNYear_clean.'-'.$ARNMonth_clean.'-'.$ARNDay_clean;
+}
 
-      if($CGST_clean != '' && $IGST_clean != '' && $Cess_clean != '' && $SanctionOrderNo_clean != '') 
-     {
+if (is_null($ARN_clean) || $ARN_clean === 0 || $ARN_clean== "") {
+  $ARN_clean1 = 1;
+}
+else
+{
+  $ARN_clean1 = $ARN_clean;
+}
+
+//echo $SanctonOrderDate;
      $query .= '
      INSERT INTO stateorderrefundii ( GSTIN,
                                       NameOfParty,
@@ -76,7 +96,9 @@ $SanctionOrderDate = 2000+$SanctonOrderYear_clean.'-'.$SanctonOrderMonth_clean.'
                                       CGST,
                                       IGST,
                                       Cess,
-                                      RFD
+                                      RFD,
+                                      ARN,
+                                      ARNDate
                                     ) 
      VALUES("'.$GSTIN.'", "'.$NameOfParty.'", "'.$Division.'",
 "'.$NodalFile.'", "'.$NodalDate.'", "'.$CGSTRDate.'", "'.$Khand.'", 
@@ -84,8 +106,8 @@ $SanctionOrderDate = 2000+$SanctonOrderYear_clean.'-'.$SanctonOrderMonth_clean.'
 "'.$RFD2Month_clean.'", "'.$RFD2Year_clean.'", 
 "'.$SanctionOrderNo_clean.'", "'.$SanctionOrderDate.'",  
 "'.$CGST_clean.'", "'.$IGST_clean.'", "'.$Cess_clean.'", 
-"'.$RFD_clean.'" );';
-      }
+"'.$RFD_clean.'", "'.$ARN_clean1.'", "'.$ARNDate1.'"  );';
+      
      }
 
 
@@ -109,25 +131,20 @@ if ($RFD_clean ==6 OR  $RFD_clean == 4 ) { }
   else {array_push($errors, "RFD_clean only 17 to 18");}
 
 if (empty($SanctionOrderNo_clean)) { array_push($errors, "SanctionOrderNo_clean is required"); }
-if (empty($CGST_clean)) { array_push($errors, "SanctionOrderNo_clean is required"); }
-if (empty($IGST_clean)) { array_push($errors, "SanctionOrderNo_clean is required"); }
-if (empty($Cess_clean)) { array_push($errors, "SanctionOrderNo_clean is required"); }
+
+
 
 //echo ($count);
 if ($query !='') {
-
-
    if(count($errors) === 0)
     {
-       mysqli_multi_query($connect, $query);
-     
-    echo "Item Data Inserted";
-//include "test2.php";
-     }
+      mysqli_multi_query($connect, $query);
+      echo "Item Data Inserted";
+    }
     else
     {
       echo "Please Re-Check, Before Save \n Some Filed are Blank or\n Filed Background Color are Black or Red !!";
-      //echo $query;
+
     }
    }
    else

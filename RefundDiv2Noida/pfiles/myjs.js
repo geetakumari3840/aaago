@@ -59,8 +59,7 @@ $('.RFDYear, .RFD2Year, .SanctonOrderYear').blur(function(){
     $(this).css('background-color','white');
     $('#alert1').empty();
     
-    $('.RFD2Month').val($('.RFDMonth').val());
-    $('.RFD2Year').val($('.RFDYear').val());
+  
   }
   else
   {
@@ -71,6 +70,12 @@ $('.RFDYear, .RFD2Year, .SanctonOrderYear').blur(function(){
   }
   
 });
+
+//$('.RFDYear').blur(function(){
+  //$('.RFD2Month').val($('.RFDMonth').val());
+    //$('.RFD2Year').val($('.RFDYear').val());
+
+//});
 // khand
 $('#Khand').blur(function(){
   var kd = $(this).val();
@@ -147,14 +152,15 @@ LoadClean();
   $('.SanctonOrderDay').val('');
   $('.SanctonOrderMonth').val('');
   $('.SanctonOrderYear').val('');
+  $('.ARN').val('');
+  $('.ARNDay').val('');
+  $('.ARNMonth').val('');
+  $('.ARNYear').val('');
   $('.CGST').val('');
   $('.IGST').val('');
   $('.Cess').val('');
   $('.RFD').val('');
 }
-
-
-
 
 // Search Result 
   $('#live').focus(function(event){
@@ -280,22 +286,29 @@ LoadClean();
 //Add Multi column
        var count = 1;
  $('#add_multi').click(function(){
+ 
  count = count + 1;
- var html_code = "<tr class='bg-danger'  id='row"+count+"'>";
-    html_code += "<td><input type='text' class='form-control RFDMonth' placeholder='MM' maxlength='2' name='RFDMonth' required></td>";
-    html_code += "<td><input type='text'  class='form-control RFDYear' placeholder='YY' maxlength='2' name='RFDYear'></td>";
-    html_code += "<td><input type='text'  class='form-control RFD2Month' placeholder='MM' maxlength='2' name='RFD2Month' required></td>";
-    html_code += "<td><input type='text'  class='form-control RFD2Year' placeholder='YY' maxlength='2' name='RFD2Year'></td>";
-    html_code += "<td><input type='text'  class='form-control SanctionOrderNo' placeholder='1234' maxlength='4' name='SanctionOrderNo'></td>";
-    html_code += "<td><input type='text'  class='form-control  SanctonOrderDay' placeholder='DD' maxlength='2' name='SanctonOrderDay'></td>";
-    html_code += "<td><input type='text'  class='form-control SanctonOrderMonth'  placeholder='MM' maxlength='2' name='SanctonOrderMonth' required></td>";
-    html_code += "<td><input type='text'  class='form-control  SanctonOrderYear' placeholder='YY' maxlength='2' name='SanctonOrderYear'></td>";
-    html_code += "<td><input type='text'  class='form-control CGST' placeholder='In Rs.' maxlength='8' name='CGST'></td>";
-    html_code += "<td><input type='text'  class='form-control IGST' placeholder='In Rs.' maxlength='8' name='IGST'></td>";
-    html_code += "<td><input type='text'  class='form-control Cess' placeholder='In Rs.' maxlength='8' name='Cess'></td>";
-    html_code += "<td><input type='text'  class='form-control RFD' placeholder='4/6' maxlength='1' name='RFD'></td>";
+
+  var html_code = "<tr class='bg-info'  id='row"+count+"'>";
+    html_code += "<td><input type='text' class='form-con trol RFDMonth' placeholder='MM' maxlength='2' size='2' name='RFDMonth' required>";
+    html_code += "<input type='text'  class='form-con trol RFDYear' placeholder='YY' maxlength='2' size='2' name='RFDYear'></td>";
+    html_code += "<td><input type='text'  class='form-con trol RFD2Month' placeholder='MM' maxlength='2' size='2' name='RFD2Month' required>";
+    html_code += "<input type='text'  class='form-con trol RFD2Year' placeholder='YY' maxlength='2' size='2' name='RFD2Year'></td>";
+    html_code += "<td><input type='text'  class='form-con trol SanctionOrderNo' placeholder='1234' size='3' maxlength='4' name='SanctionOrderNo'></td>";
+    html_code += "<td><input type='text'  class='form-con trol  SanctonOrderDay' placeholder='DD' size='2' maxlength='2' name='SanctonOrderDay'>";
+    html_code += "<input type='text'  class='form-con trol SanctonOrderMonth'  placeholder='MM' size='2' maxlength='2' name='SanctonOrderMonth' required>";
+    html_code += "<input type='text'  class='form-con trol  SanctonOrderYear' placeholder='YY' size='2' maxlength='2' name='SanctonOrderYear'></td>";
+    html_code += "<td><input type='text' class='ARN' placeholder='ARN Number' size='18' maxlength='15' name='ARN'></td>";
+    html_code += "<td><input type='text' class='form-con trol  ARNDay' placeholder='DD' size='2' maxlength='2' name='ARNDay'>";
+    html_code += "<input type='text'  class='form-con trol ARNMonth'  placeholder='MM' size='2' maxlength='2' name='ARNMonth' required>";
+    html_code += "<input type='text'  class='form-con trol  ARNYear' placeholder='YY' size='2' maxlength='2' name='ARNYear'></td>";
+    html_code += "<td><input type='text'  class='form-con trol CGST' placeholder='In Rs.' maxlength='8' size='8' name='CGST'></td>";
+    html_code += "<td><input type='text'  class='form-con trol IGST' placeholder='In Rs.' maxlength='8' size='8' name='IGST'></td>";
+    html_code += "<td><input type='text'  class='form-con trol Cess' placeholder='In Rs.' maxlength='8' size='8' name='Cess'></td>";
+    html_code += "<td><input type='text'  class='form-cont rol RFD' placeholder='4/6' maxlength='1' size='2' name='RFD'></td>";
   html_code += "<td><button type='button' name='remove' data-row='row"+count+"' class='btn btn-danger btn-xs remove'>-</button></td>";   
-     html_code += "</tr>";  
+     html_code += "</tr>"; 
+
  $('#crud_table').append(html_code);
  check_form ();
 });
@@ -318,6 +331,10 @@ LoadClean();
             var SanctonOrderDay = [];
             var SanctonOrderMonth = [];
             var SanctonOrderYear = [];
+            var ARN = [];
+            var ARNDay = [];
+            var ARNMonth = [];
+            var ARNYear = [];
             var CGST = [];
             var IGST = [];
             var Cess = [];
@@ -347,6 +364,14 @@ LoadClean();
            SanctonOrderMonth.push($(this).val());});
           $('.SanctonOrderYear').each(function(){
            SanctonOrderYear.push($(this).val());});
+          $('.ARN').each(function(){
+           ARN.push($(this).val());});
+          $('.ARNDay').each(function(){
+           ARNDay.push($(this).val());});
+          $('.ARNMonth').each(function(){
+           ARNMonth.push($(this).val());});
+          $('.ARNYear').each(function(){
+           ARNYear.push($(this).val());});
           $('.CGST').each(function(){ 
             CGST.push($(this).val());});
           $('.IGST').each(function(){ 
@@ -375,6 +400,10 @@ LoadClean();
                       SanctonOrderDay:SanctonOrderDay,
                       SanctonOrderMonth:SanctonOrderMonth,
                       SanctonOrderYear:SanctonOrderYear,
+                      ARN:ARN,
+                      ARNDay:ARNDay,
+                      ARNMonth:ARNMonth,
+                      ARNYear:ARNYear,
                       CGST:CGST,
                       IGST:IGST,
                       Cess:Cess,

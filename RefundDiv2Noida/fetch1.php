@@ -139,7 +139,17 @@ else
     alert ("Please Edit the Assessee Profile, GSTIN No. Blank");
 }
 
+  
+var divval = $('#Division1').val();
 
+if (divval == '2')
+{
+  $('.arnhiden').show();
+}
+else
+{
+   $('.arnhiden').hide();
+}
 //eng tag 
 }); 
 </script>

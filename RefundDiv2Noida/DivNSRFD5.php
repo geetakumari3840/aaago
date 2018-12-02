@@ -114,7 +114,7 @@ body {
 <div id="page1" >
   <!-- Header 1 -->
 <div class="header" style="display: none;width: 800px;margin: auto;">
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Placed opposite are Final / Provisional Refund Orders received from the Deputy / Assistant  Commissioner (Nodal Officer), CGST, Noida, vide letter having C.No.<span id="dispach_no"></span> dated <span id="dispach_date"></span> of below mentioned parties and details are as under for your kind perusal please.  <br> <br>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Placed opposite are Final / Provisional Refund Orders received from the Deputy / Assistant  Commissioner (Nodal Officer), CGST, Noida, vide letter having C.No.<span id="dispach_no">00</span> dated <span id="dispach_date">00</span> of below mentioned parties and details are as under for your kind perusal please.  <br> <br>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
 The detail of amount to be sanctioned (as mentioned in above said letter) is as under:
 </div>
 
@@ -167,7 +167,13 @@ $('#Btn1').click(function (event) {
         $('#NoteSheetAll').show();
       $('.page1').empty();
 $('.header, .footer, .print').show();
-		$('.rfd5').hide();   
+		$('.rfd5').hide();
+    var sdn =  $("#Dis_id").val();
+    var sdd =  $("#DisD_id").val();
+    if (sdn !='' && sdd !='')
+    {
+    $('#dispach_no').text($("#Dis_id").val());
+$('#dispach_date').text($("#DisD_id").val());  
             $.ajax({
                      method: 'POST',
                      url:  'NoteAll2.php',
@@ -177,6 +183,12 @@ $('.header, .footer, .print').show();
 
                      }
                   });
+        }
+        else
+        {
+          alert ("Dispatch No. or Dispatch Date is Blank");
+        }
+
           });
 
 $('#Btn2').click(function (event) {
@@ -185,6 +197,8 @@ $('#Btn2').click(function (event) {
 $('.print').show();
   $('.header, .footer').hide();
   $('#NoteSheetAll').show();
+
+
 
           $.ajax({
                      method: 'POST',

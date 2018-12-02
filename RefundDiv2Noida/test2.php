@@ -19,11 +19,14 @@
     <script src="pfiles/printThis.js"></script>    
 </head>  
 <body> 
-<div id="print1">i am ajay kumar</div> 
+<div " id="print1">i am ajay kumar</div> 
+<div  style='background-image: url("images/logo.jpg");'></div>
 <button id="kk">Print</button>
+<input type="text" name="name" lengh=="4">
+<input type="text" name="address">
 </body>
 </html>
-<script>
+<script>`
 	
 	$(document).ready(function(){
 

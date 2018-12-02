@@ -5,35 +5,35 @@
       <tr align="center" class="bg-warning">
         <td style="width: 14%;">
           <label>SGST Office File</label>
-          <input type="text"  class="form-control" id="NodalFile" 
+          <input type="text" id="NodalFile" 
           placeholder="File No." name="NodalFile" maxlength="4" 
-          style="text-align: center;" autofocus required>
+          style="text-align: center;" value="1234"  autofocus required>
         </td>
         <td >
           <label>SGST Dispath Date</label>
-          <input type="date"  class="form-control" id="NodalDate" 
-          placeholder="File Date" name="NodalDate"  
-          style="text-align: center;" required>
+          <input type="date"  id="NodalDate" 
+          placehold er="File Date" name="NodalDate"  
+          style="text-align: center;" value="3-2-2012" required>
         </td>
         <td>
           <label>CGST Receiving Date</label>
-          <input type="date" class="form-control" id="CGSTRDate" 
-          placeholder="Forwarding Date" name="CGSTRDate" 
-          style="text-align: center;" required>
+          <input type="date"  id="CGSTRDate" 
+          placehol der="Forwarding Date" name="CGSTRDate" 
+          style="text-align: center;" value="2012-3-2" required>
         </td>
 
         <td  style="width: 47%">
-          <label>Name of Assessee</label>
+          <label>Name of Assessee</label><br>
           <input type="text"  list="browers" id="live" name="NameOfParty"
-          placeholder="Name of Party" class="form-control live"  
-          style="text-align: left;" required>
+          placeholder="Name of Party" class="form-con trol live"  
+          style="text-align: left;" size="70" required>
           <datalist id="browers"><div id="result"></div></datalist>
         </td>
         <td style="width: 7%;">
           <label>Khand</label>
-          <input type="text"  class="form-control" id="Khand" 
+          <input type="text"   id="Khand" value="12" 
           placeholder="No." maxlength="2" name="Khand" 
-          style="text-align: center;" min=1 max=36 required></td>
+          style="text-align: center;" size="3" min=1 max=36 required></td>
       </tr>
     </table>
 </div>
@@ -45,51 +45,60 @@
  <div id="table-responsive">
     <table  id="crud_table"  align="center"  class="table table-bordered" style="width: 100%;">
   <tr class="bg-danger">
-    <th colspan="4" style="text-align: center;">Refund Claim Period</th>
-    <th colspan="4" style="text-align: center;">Sanction Order</th>
-    <th style="width: 11%;text-align: center;" 
+    <th colspan="2" style="text-align: center;">Refund Claim Period</th>
+    <th colspan="2" style="text-align: center;">Sanction Order</th>
+    <th rowspan="2" style="text-align: center;">ARN No.</th>
+    <th rowspan="2" style="text-align: center;">ARN Date</th>
+    <th style="width: 7%;text-align: center;margin: 0px;padding: 0px;" 
     rowspan="2">C.G.S.T. <br>(In Rs.)</th>
-    <th style="width: 11%;text-align: center;" 
+    <th style="width: 7%;text-align: center;margin: 0px;padding: 0px;" 
     rowspan="2">I.G.S.T. <br>(In Rs.)</th>
-    <th style="width: 11%;text-align: center;" 
+    <th style="width: 7%;text-align: center;margin: 0px;padding: 0px;" 
     rowspan="2">Cess <br>(In Rs.)</th>
-    <th style="width: 6%;text-align: center;" 
+    <th style="width: 3%;text-align: center;margin: 0px;padding: 0px;" 
     rowspan="2">R.F.D. <br>Form</th>
-    <th style="width: 2%;text-align: center;" 
+    <th style="width: 3%;text-align: center;margin: 0px;padding: 0px;" 
     rowspan="2">Action</th>
   </tr>
        <tr class="bg-danger">
-        <th style="width: 6%;text-align: center;" >Month</th>
-        <th style="width: 6%;text-align: center;" >Year</th>
-        <th style="width: 8%;text-align: center;" >To Month</th>
-        <th style="width: 6%;text-align: center;" >Year</th>
-        <th style="width: 6%;text-align: center;" >No.</th>
-        <th style="width: 18%;text-align: center;" colspan="3">Date</th>
+        <td style="width: 10%;text-align: center;" >From</td>
+        <td style="width: 10%;text-align: center;" >To</td>
+       
+        <td style="width: 6%;text-align: center;" >No.</td>
+        <td style="width: 15%;text-align: center;" >Date</td>
   </tr>
   <tr class="bg-info">
-    <td><input class="form-control RFDMonth" placeholder="MM" 
-        type="text"  maxlength="2" required></td>
-    <td><input type="text"  class="form-control RFDYear"  
-        placeholder="YY" maxlength="2" name="RFDYear" required></td>
-    <td><input type="text"  class="form-control RFD2Month"  
-        placeholder="MM" maxlength="2" name="RFD2Month" required></td>
-    <td><input type="text"  class="form-control RFD2Year"  
-        placeholder="YY" maxlength="2" name="RFD2Year"  required></td>
-    <td><input type="text"  class="form-control SanctionOrderNo"  
+    <td><input class="RFDMonth" placeholder="MM" type="text"  maxlength="2" 
+        size="2" value="1" required>
+    <input type="text"  class="RFDYear" placeholder="YY" maxlength="2" 
+        name="RFDYear"  size="2" value="17" required></td>
+    <td><input type="text"  class="RFD2Month"  value="12" 
+        placeholder="MM" maxlength="2" name="RFD2Month"  size="2" required>
+    <input type="text"  class="RFD2Year"  value="18" 
+        placeholder="YY" maxlength="2" name="RFD2Year"   size="2" required></td>
+    <td><input type="text"  class="SanctionOrderNo"   size="3" value="12" 
         placeholder="1234" maxlength="4" name="SanctionOrderNo"></td>
-    <td><input type="text"  class="form-control SanctonOrderDay"  
-      placeholder="DD" maxlength="2" name="SanctonOrderDay" required></td>
-    <td><input type="text"  class="form-control SanctonOrderMonth"  
-    placeholder="MM" maxlength="2" name="SanctonOrderMonth" required></td>
-    <td><input type="text"  class="form-control SanctonOrderYear"  
+    <td><input type="text"  class="SanctonOrderDay"   size="2" value="12" 
+      placeholder="DD" maxlength="2" name="SanctonOrderDay" required>
+    <input type="text"  class="SanctonOrderMonth"   size="2" value="12" 
+    placeholder="MM" maxlength="2" name="SanctonOrderMonth" required>
+    <input type="text"  class="SanctonOrderYear"   size="2" value="17" 
     placeholder="YY" maxlength="2" name="SanctonOrderYear" required></td>
-    <td><input type="text"  class="form-control CGST"  
-        placeholder="In Rs." maxlength="8" name="CGST" required></td>
-    <td><input type="text"  class="form-control IGST"  
-        placeholder="In Rs." maxlength="8" name="IGST" required></td>
-    <td><input type="text"  class="form-control Cess"  
-        placeholder="In Rs." maxlength="8" name="Cess" required></td>
-    <td><input type="text"  class="form-control RFD"  
+    <td><input type="text"  class="ARN"   size="18" 
+        placeholder="Application No." maxlength="15" name="ARN" required></td>
+    <td><input type="text"  class="ARNDay"   size="2" 
+      placeholder="DD" maxlength="2" name="ARNDay" required>
+    <input type="text"  class="ARNMonth"   size="2" 
+    placeholder="MM" maxlength="2" name="ARNMonth" required>
+    <input type="text"  class="ARNYear"   size="2" 
+    placeholder="YY" maxlength="2" name="ARNYear" required></td>
+    <td><input type="text"  class="CGST"   size="8" value="12" 
+        placeholder="In Rs." maxlength="9" name="CGST" required></td>
+    <td><input type="text"  class="IGST"   size="8" value="12" 
+        placeholder="In Rs." maxlength="9" name="IGST" required></td>
+    <td><input type="text"  class="Cess"   size="8" value="0" 
+        placeholder="In Rs." maxlength="9" name="Cess" required></td>
+    <td><input type="text"  class="RFD"   size="2" value="4" 
         placeholder="4/6" maxlength="1" name="RFD" required></td>
     <td align="right">
         <button type="button" name="add_multi" id="add_multi" 

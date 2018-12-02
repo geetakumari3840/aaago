@@ -28,15 +28,6 @@ session_start();
     }
 
 
-.image11{
-     width: 9.182cm;
-    height: 2.721cm;
-    margin-top: 0.199cm;
-    background-image: url("/pfiles/logo.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
 table {
 
     width: 100%;
@@ -106,11 +97,10 @@ th, td {
 <!-- Header 2 -->
 <div class="header2" style="display: none;">
 
-<table border="0" style="wid th: 900px;">
+<table border="0" style="width: 900px;">
   <tr>
-    <td>
-      <div  id="image11"></div>
-      <!--<img src="pfiles/logo.jpg" alt="ashok"> -->
+    <td style="background: #ffffff url("/images/logo.jpg") no-repeat;">
+      <img src="http://localhost/aaago/RefundDiv2Noida/images/logo.jpg" alt="ashok">
     </td>
     <td>
 <span style="font-size: 18px;">कार्यालय सहायक आयुक्त </span><br>               
@@ -120,7 +110,7 @@ th, td {
  <span style="font-size: 16px;">C-56/42, RENU TOWER, SECTOR-62, NOIDA / सी.-56/42, रेनू टावर, सेक्टर-६२, नोएडा  </span>               
     </td>
     <td>
-      <img src="pfiles/gst.jpg" alt="GST">
+      <img src="http://localhost/aaago/RefundDiv2Noida/images/gst.jpg" alt="GST">
     </td>
   </tr>
   <tr>

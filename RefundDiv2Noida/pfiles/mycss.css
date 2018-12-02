@@ -1,4 +1,34 @@
-body {
+ body {
+      font-family: "Times New Roman", Times, serif;
+      font-style: normal;
+      font-size: 13px;
+      font-wei ght: bold;
+      font-variant: normal;
+      wid th: 900px;
+      margin: 0 auto;
+     
+    }
+
+
+.image11 {
+    
+     background: #ffffff url("/images/logo.jpg") no-repeat left top;
+}
+
+table {
+
+    width: 100%;
+    text-align: center;
+}
+th, td {
+      padding: 2px;
+      margin: 0px;
+      text-align: center;
+  }
+  th {
+    font-size: 15px;
+  }
+  body {
 		  font-family: "Times New Roman", Times, serif;
 		  font-style: normal;
 		  font-size: 12px;
