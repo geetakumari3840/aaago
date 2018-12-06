@@ -13,7 +13,7 @@ $query ="SELECT stateorderrefundii.GSTIN,
                 stateassesseemaster.Address, 
                 stateorderrefundii.Khand, 
                 stateorderrefundii.SanctionOrderNo, 
-                 stateorderrefundii.SanctionOrderDate, 
+                stateorderrefundii.SanctionOrderDate, 
                 stateorderrefundii.CGST, 
                 stateorderrefundii.IGST, 
                 stateorderrefundii.Cess, 
@@ -28,7 +28,7 @@ $query ="SELECT stateorderrefundii.GSTIN,
                 INNER JOIN stateassesseemaster ON 
                 stateorderrefundii.GSTIN=stateassesseemaster.GSTIN
                 WHERE stateorderrefundii.SlNo BETWEEN $From_id AND $To_id 
-               AND stateorderrefundii.Division  = $Div_id
+                AND stateorderrefundii.Division  = $Div_id
                 ORDER BY stateorderrefundii.SlNo DESC";
 }
 else {
@@ -48,7 +48,6 @@ else {
                 INNER JOIN stateassesseemaster ON 
                 stateorderrefundii.GSTIN=stateassesseemaster.GSTIN
                 WHERE stateorderrefundii.SlNo BETWEEN $From_id AND $To_id 
-              
                 ORDER BY stateorderrefundii.SlNo DESC";
 }
 
@@ -85,7 +84,7 @@ $output .='
         </td>
         <td style="text-align:left;width:15%;">';
 
-if ($row['ARN']==1) 
+if ($row['ARN']==1 OR $row['ARN']==0 OR $row['ARN']=="") 
         {
 $output .='-----------';
         }

@@ -45,9 +45,8 @@ $(document).ready(function(){
   });
 
    $("#CTS").click(function(){
-       $("#main_frame").hide("slow");
-        alert("Center to State");
-     $("#main_frame").text("hi");
+      $("#main_frame").show();
+     $("#main_frame").load('CentralForm.php');
   });
 
     $("#Rept").click(function(){

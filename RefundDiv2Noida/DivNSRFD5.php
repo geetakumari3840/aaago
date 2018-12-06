@@ -67,15 +67,15 @@ body {
   
   <br>
   <div class="table-responsive" 
-  style="text-align: center;background-color: grey;width: 900px; margin: 0px auto;">
+  style="text-align: center;background-color: grey;width: 950px; margin: 0px auto;">
     <form id="form_note">
 <table>
   <tr style="text-align: center;"> 
     <td style="width: 10%;"><input type="number" class="form-control" 
-        name="From_id" value="1" id="From_id" required>
+        name="From_id"  id="From_id" required>
     </td>
     <td style="width: 10%;"><input type="number" class="form-control" 
-        name="To_id"  value="50" id="To_id" required>
+        name="To_id"   id="To_id" required>
     </td>
     <td style="width: 15%;"><select name="Div_id" id="Div_id" 
         type="number" class="form-control" required>
@@ -98,9 +98,13 @@ body {
         <button id="Btn1" type="button" 
                 class="btn btn-info btn-xl">Display Notesheet</button>
     </td>
+    <td>
+        <button id="Btn3" type="button" 
+                class="btn btn-warning btn-xl">General RFD5</button>
+    </td>
      <td>
         <button id="Btn2" type="button" 
-                class="btn btn-primary btn-xl">RFD-05</button>
+                class="btn btn-primary btn-xl">Display RFD-05</button>
     </td>
     </tr>
 </table>
@@ -193,12 +197,18 @@ $('#dispach_date').text($("#DisD_id").val());
 
 $('#Btn2').click(function (event) {
       event.preventDefault();
-       $('.page1').empty();
-$('.print').show();
-  $('.header, .footer').hide();
-  $('#NoteSheetAll').show();
 
-
+ 
+            var sdn =  $("#Dis_id").val();
+            var sdd =  $("#DisD_id").val();
+        if (sdn !='' && sdd !='')
+        {
+            $('#dispach_no').text($("#Dis_id").val());
+            $('#dispach_date').text($("#DisD_id").val()); 
+            $('.page1').empty();
+            $('.print').show();
+            $('.header, .footer').hide();
+            $('#NoteSheetAll').show();
 
           $.ajax({
                      method: 'POST',
@@ -209,9 +219,30 @@ $('.print').show();
 
                      }
                   });
- });
+}
+              else
+              {
+                alert ("Dispatch No. or Dispatch Date is Blank");
+              }
+         });
 
+$('#Btn3').click(function (event) {
+      event.preventDefault();
+        $('.page1').empty();
+        //$('.print').show();
+        $('.header, .footer').hide();
+        $('#NoteSheetAll').show();
+          $.ajax({
+                     method: 'POST',
+                     url:  'printpayment.php',
+                     data:$('#form_note').serialize(), 
+                     success:function (data) {
+                      $('#NoteSheetAll').html(data);
 
+                     }
+                  });
+        });
 
+// End Tag
 	});
 </script>

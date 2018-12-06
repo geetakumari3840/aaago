@@ -3,7 +3,8 @@ session_start();
 include "pfiles/connect.php";
 $From_id = $_POST['From_id'];
 $To_id = $_POST['To_id'];
-$Div_id = $_POST['Div_id'];
+$DisD_id = $_POST['DisD_id'];
+$Div_id = 2;
 $count = 0;
 $output ='';
 $query ="SELECT printpayment.GSTIN,
@@ -57,7 +58,9 @@ $count = $count + 1;
     </td>
   </tr>
   <tr style="text-align: left;font-size: 11px;font-weight: normal;">
-    <td colspan="2" style="text-align: left;">C.No. V(18)Ref/ CGST/Misc./StateOrder/N/D-II/207/17-18</td><td style="text-align: left;">  Dated:</td>
+    <td colspan="2" style="text-align: left;">C.No. V(18)Ref/ CGST/Misc./StateOrder/N/D-II/207/17-18</td><td style="text-align: right;">Dated:
+      <?php echo date('d-m-Y', strtotime($DisD_id)) ?>
+    </td>
   </tr>
   <tr>
     <td colspan="3" style="font-weight: bold;">
@@ -178,15 +181,12 @@ $ToP = ($chmonth22.'-'.$chyear2);
     {
      echo $FromP;
     }
-
-
-
       ?>
-
-
       </td>
-      <td style="text-align: left;vertical-align: top;">
-      Dated :<br> <br>        
+      <td style="text-align: right;vertical-align: top;">
+      Dated :
+      <?php echo date('d-m-Y', strtotime($DisD_id)) ?>
+      <br> <br>        
       <div style="color:transparent;font-size: 5px;">_</div>
       <span>Order Dated :&nbsp;</span>
       <?php echo date('d-m-Y', strtotime($row['SanctionOrderDate'])) ?>

@@ -6,9 +6,10 @@
 $From_id = $_POST['From_id'];
 $To_id = $_POST['To_id'];
 $Div_id = $_POST['Div_id'];
+
 $count = 0;
 $output ='';
-if($_POST["Div_id"] != '')  {
+if($Div_id != '')  {
 $query ="SELECT stateorderrefundii.GSTIN,
                 stateorderrefundii.NameOfParty,
                 stateassesseemaster.Address, 
@@ -18,13 +19,13 @@ $query ="SELECT stateorderrefundii.GSTIN,
                 stateorderrefundii.IGST, 
                 stateorderrefundii.Cess, 
                 stateorderrefundii.RFD, 
-                stateorderrefundii.Division    
+                stateassesseemaster.Division    
                 FROM stateorderrefundii 
                 INNER JOIN stateassesseemaster ON 
                 stateorderrefundii.GSTIN=stateassesseemaster.GSTIN
                 WHERE stateorderrefundii.SlNo BETWEEN $From_id AND $To_id 
-               AND stateorderrefundii.Division  = $Div_id
-                ORDER BY stateorderrefundii.Division ASC";
+               AND stateorderrefundii.Division  = $Div_id 
+                ORDER BY stateorderrefundii.Division, stateorderrefundii.NameOfParty  ASC";
 }
 else {
     $query ="SELECT stateorderrefundii.GSTIN,
