@@ -1,42 +1,45 @@
 
 <!-- SGST Letter Head Details -->
- 
+ <div style="text-align: center;background-color: pink;padding: 5px;">
       <form method="post" id="Central_form">  
       
-      <input  type="text" class="form-contr ol" size="30"
+      <input  type="text" class="form-contr ol live1" size="30"
               name="CPartyName" list="browers"  id="CPartyName" placeholder="Name of the Party" required/>
                <datalist id="browers"><div id="result"></div></datalist>
-      <input  type="text" class="form-contr ol" size="55"
-              name="Address" id="Address" placeholder="Address" required/>
-      <input  type="text" class="form-contr ol" size="11"
-              name="GSTIN" id="GSTIN" placeholder="GSTIN" required/> 
+      <input  type="text" class="form-contr ol" size="45"
+              name="CAddress" id="CAddress" placeholder="Address" required/>
+      <input  type="text" class="form-contr ol" size="15"
+              name="CGSTIN" id="CGSTIN" placeholder="GSTIN" required/> 
       <input  type="text" class="form-contr ol" size="2"
-              name="Division" id="Division" placeholder="Div" required/>
-      <input  type="text" class="form-contr ol" id="DispatchNo" size="6"
-              name="DispatchNo" placeholder="Dispatch No." required/>
+              name="CDivision" id="CDivision" placeholder="Div" required/>
+      <input  type="text" class="form-contr ol" id="DisNo" size="6"
+              name="DisNo" placeholder="Dispatch No." required/>
       <input  type="text" class="form-contr ol" size="1"
-              name="DispatchDay" id="DispatchDay" placeholder="DD" required/>
+              name="DisDay" id="DisDay" placeholder="DD" required/>
       <input  type="text" class="form-contr ol" size="1"
-              name="DispatchMonth" id="DispatchMonth" placeholder="MM" required/>
+              name="DisMonth" id="DisMonth" placeholder="MM" required/>
       <input  type="text" class="form-contr ol" size="1"
-              name="DispatchYear" id="DispatchYear" placeholder="YY" required/>
+              name="DisYear" id="DisYear" placeholder="YY" required/>
 
-      <input  type="text" class="form-contr ol" id="SanctionNo"  size="6"
-              name="SanctionNo" placeholder="Sanction No." required/>
+      <input  type="text" class="form-contr ol" id="SanNo"  size="6"
+              name="SanNo" placeholder="Sanction No." required/>
       <input  type="text" class="form-contr ol" size="1"
-              name="SanctionDay" id="SanctionDay" placeholder="DD" required/>
+              name="SanDay" id="SanDay" placeholder="DD" required/>
       <input  type="text" class="form-contr ol" size="1"
-              name="SanctionMonth" id="SanctionMonth" placeholder="MM" required/>
+              name="SanMonth" id="SanMonth" placeholder="MM" required/>
       <input  type="text" class="form-contr ol" size="1"
-              name="SanctionYear" id="SanctionYear" placeholder="YY" required/>
+              name="SanYear" id="SanYear" placeholder="YY" required/>
 
-      <input  type="text" class="form-contr ol" size="6"
+      <input  type="text" class="form-contr ol" size="8"
               name="SGST" id="SGST"  placeholder="Amount" required/>
       <input  type="text" class="form-contr ol" size="1"
               name="RFD" id="RFD"  placeholder="RFD" required/>
      
      <input type="hidden" name="assessee_id" id="assessee_id"/>  
-     <button  type="submit" name="insert" id="insert" >Insert</button>
+     <button  type="submit" name="insert" id="insert" class="btn btn-info btn-sm">Insert</button>
       </form>  
-  
+  </div>
+  <br>
+
+   <div id="insert_item_data"></div>
  <script src="pfiles/myjs2.js"></script>  

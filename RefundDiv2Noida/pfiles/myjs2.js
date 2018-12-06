@@ -1,9 +1,5 @@
 
 $(document).ready(function(){ 
-  
-  $('input').css('background-color','white');
-  $("input").css("text-align","center");
-
 
  /// Enter to Next Filed
    $('input').bind("keydown", function(e) {
@@ -23,6 +19,7 @@ $(document).ready(function(){
     });
   //////
 function check_form () {
+  
   //input blank
  
 $('input').blur(function(){
@@ -53,7 +50,7 @@ $('.SanctonOrderDay').blur(function(){
   
 });
 //rfd 
-$('.RFD').blur(function(){
+$('#RFD').blur(function(){
   var rd = $(this).val();
   if (rd == '4' || rd == '6'  )
   {
@@ -79,10 +76,6 @@ check_form ();
  $('#results').empty();
 }
   
-$('#CAll').click(function(){
-LoadClean();
-});
-
 
 
 // Search Result 
@@ -102,25 +95,43 @@ LoadClean();
 ///////// */
 
 // Select Party Name
-  $('.live').change(function(event){
+  $('.live1').change(function(event){
     event.preventDefault();
-    var txt = $(this).val();
-    if ( txt !='') {
+    var Party_id = $('#CPartyName').val();
+
+    if ( Party_id !='') {
     $.ajax ({
-      url:"fetch1.php",
-       method:"post",
-       data:{search:txt},
-       dataType:"text",
-       success:function(data)
-      {
-        $('#results').html(data);
-        //  $('.live').val('');
+                url:"fetch.php",  
+                method:"POST",  
+                data:{Party_id:Party_id},  
+                dataType:"json",  
+                success:function(data){  
+                     $('#CGSTIN').val(data.GSTIN);  
+                     $('#CAddress').val(data.Address);  
+                     $('#CDivision').val(data.Division);  
+                    
       }
 
     });
+  
 }
   });
 /////////
+ 
+      function Cfetch_item_data ()
+      {
+        var search_id = $('#CPartyName').val();
+        $.ajax ({
+          url:"CFetch.php",
+          method:"POST",
+          data : {search_id:search_id},
+          success:function(data)
+          {
+            $('#insert_item_data').html(data);
+          }
+        });
+      }
+      Cfetch_item_data ();
 
 //* Update REcord 
       $(document).on('click', '.edit_data', function(){  
@@ -151,56 +162,25 @@ LoadClean();
            });  
       });  
 
-//* Update REcord 2
-      $(document).on('click', '.edit_data2', function(){  
-           var assessee_id2 = $(this).attr("id");   
-           $.ajax({  
-                url:"fetch.php",  
-                method:"POST",  
-                data:{assessee_id2:assessee_id2},  
-                dataType:"json",  
-                success:function(data){  
-                    $('#GSTIN1').val(data.GSTIN);
-                    $('#NameOfParty1').val(data.NameOfParty);
-                    $('#Division1').val(data.Division);
-                    $('#NodalFile1').val(data.NodalFile);
-                    $('#NodalDate1').val(data.NodalDate);
-                    $('#CGSTRDate1').val(data.CGSTRDate);
-                    $('#Khand1').val(data.Khand);
-                    $('#RFD1').val(data.RFD);
-                    $('#RFDMonth1').val(data.RFDMonth);
-                    $('#RFDYear1').val(data.RFDYear);
-                    $('#SanctionOrderNo1').val(data.SanctionOrderNo);
-                    $('#SanctonOrderDate1').val(data.SanctionOrderDate);
-                    $('#SanctonOrderMonth1').val(data.SanctonOrderMonth);
-                    $('#SanctonOrderYear1').val(data.SanctonOrderYear);
-                    $('#CGST1').val(data.CGST);
-                    $('#IGST1').val(data.IGST);
-                    $('#Cess1').val(data.Cess);
-  
-                    $('#assessee_id2').val(data.SlNo);  
-                    $('#insert').val("Update");
-                    $('#headingg').text("Update Records");  
-                    $('#add_data_Modal2').modal('show');  
-                }  
-           });  
-      });
+
 
 //Update Record Insert into Data Base
 
-      $('#insert_form').on("submit", function(event){  
+      $('#Central_form').on("submit", function(event){  
            event.preventDefault();  
+          
                 $.ajax({  
-                     url:"insert.php",  
+                     url:"Cinsert.php",  
                      method:"POST",  
-                     data:$('#insert_form').serialize(),  
+                     data:$('#Central_form').serialize(),  
                      beforeSend:function(){  
                           $('#insert').val('Inserting');  
                      },   
                      success:function(data){  
-                          $('#insert_form')[0].reset();  
-                          $('#add_data_Modal').modal('hide'); 
+                          $('#Central_form')[0].reset();  
+                         
                           alert(data); 
+                          Cfetch_item_data ();
                           //$('#result1').html(data);  
                      }  
                 });  

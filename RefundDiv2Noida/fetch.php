@@ -15,4 +15,11 @@
       $row = mysqli_fetch_array($result);  
       echo json_encode($row);  
  } 
+   if(isset($_POST["Party_id"]))  
+ {  
+      $query = "SELECT * FROM stateassesseemaster WHERE PartyName = '".$_POST["Party_id"]."'";  
+      $result = mysqli_query($connect, $query);  
+      $row = mysqli_fetch_array($result);  
+      echo json_encode($row);  
+ } 
  ?>
