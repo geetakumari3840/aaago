@@ -11,6 +11,7 @@ include "pfiles/connect.php";
 {
       $GSTIN = $_POST['GSTIN'];
       $NameOfParty = $_POST['NameOfParty'];
+      $Address = $_POST['Address'];
       $Division = $_POST['Division'];
       $NodalFile = $_POST['NodalFile'];
       $NodalDate = $_POST['NodalDate'];
@@ -37,6 +38,7 @@ if (empty($NodalDate)) { array_push($errors, "NodalDate is required"); }
 if (empty($CGSTRDate)) { array_push($errors, "CGSTRDate is required"); }
 if (empty($GSTIN)) { array_push($errors, "GSTIN is required"); }
 if (empty($NameOfParty)) { array_push($errors, "NameOfParty is required"); }
+if (empty($Address)) { array_push($errors, "Address is required"); }
 if (empty($Division)) { array_push($errors, "Division is required"); }
 if ($Khand < 37 && $Khand > 0 ) { } 
   else {array_push($errors, "Khan No. only 1 to 36");}
@@ -82,6 +84,7 @@ else
      $query .= '
      INSERT INTO stateorderrefundii ( GSTIN,
                                       NameOfParty,
+                                      Address,
                                       Division,
                                       NodalFile,
                                       NodalDate,
@@ -100,7 +103,7 @@ else
                                       ARN,
                                       ARNDate
                                     ) 
-     VALUES("'.$GSTIN.'", "'.$NameOfParty.'", "'.$Division.'",
+     VALUES("'.$GSTIN.'", "'.$NameOfParty.'", "'.$Address.'", "'.$Division.'",
 "'.$NodalFile.'", "'.$NodalDate.'", "'.$CGSTRDate.'", "'.$Khand.'", 
 "'.$RFDMonth_clean.'", "'.$RFDYear_clean.'", 
 "'.$RFD2Month_clean.'", "'.$RFD2Year_clean.'", 

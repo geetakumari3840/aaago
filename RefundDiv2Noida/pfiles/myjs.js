@@ -339,15 +339,15 @@ LoadClean();
             var IGST = [];
             var Cess = [];
             var RFD = [];
-
             var GSTIN = $('#GSTIN1').val();
             var NameOfParty = $('#NameOfParty1').val();
             var Division = $('#Division1').val();
+            var Address = $('#Address1').val();
             var NodalFile = $('#NodalFile').val();
             var NodalDate = $('#NodalDate').val();
             var CGSTRDate = $('#CGSTRDate').val();
             var Khand = $('#Khand').val();
-         
+            
           $('.RFDMonth').each(function(){
            RFDMonth.push($(this).val()); });
           $('.RFDYear').each(function(){
@@ -387,6 +387,7 @@ LoadClean();
                 data:{
                       GSTIN:GSTIN,
                       NameOfParty:NameOfParty,
+                      Address:Address,
                       Division:Division,
                       NodalFile:NodalFile,
                       NodalDate:NodalDate,

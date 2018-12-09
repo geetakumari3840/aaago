@@ -21,7 +21,7 @@ $output .='
     <table  class="table table-bordered" style="width:100%;text-align:center;">
       <tr  align="center" class="bg-info">
         <th>SlNo</th>
-        <th>Name of Party</th>
+        <th>Name of Party & Address</th>
         <th>Div</th>
         <th>Nodal File<br>Date</th>
         <th>CGSTR<br>Date</th>
@@ -42,7 +42,10 @@ while ($row = mysqli_fetch_array($result))
 $output .='
     <tr>
         <td>'.$row['SlNo'].'</td>
-        <td>'.$row['GSTIN'].'</br>'.$row['NameOfParty'].'</td>
+        <td>'.$row['GSTIN'].'</br>'.$row['NameOfParty'].',<br> '.$row['Address'].'
+
+
+        </td>
         <td>';
                 switch ($row['Division']) {
              case 1:

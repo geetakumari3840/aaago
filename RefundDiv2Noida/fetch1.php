@@ -28,6 +28,7 @@ $sql = "SELECT * FROM stateassesseemaster WHERE PartyName LIKE '%".$search."%'";
               $output .=" 
   <input type='hidden' name='GSTIN1' id='GSTIN1' value='".$row["GSTIN"]."'/>
   <input type='hidden' name='NameOfParty' id='NameOfParty1' value='".$row["PartyName"]."'/>
+  <input type='hidden' name='Address' id='Address1' value='".$row["Address"]."'/>
   <input type='hidden' name='Division1' id='Division1' value='".$row["Division"]."'/>
 
                   <tr>  
