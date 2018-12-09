@@ -7,19 +7,19 @@
           <label>SGST Office File</label>
           <input type="text" id="NodalFile" 
           placeholder="File No." name="NodalFile" maxlength="4" 
-          style="text-align: center;" value="1234"  autofocus required>
+          style="text-align: center;" va lue="1234"  autofocus required>
         </td>
         <td >
           <label>SGST Dispath Date</label>
           <input type="date"  id="NodalDate" 
           placehold er="File Date" name="NodalDate"  
-          style="text-align: center;" value="3-2-2012" required>
+          style="text-align: center;" va lue="3-2-2012" required>
         </td>
         <td>
           <label>CGST Receiving Date</label>
           <input type="date"  id="CGSTRDate" 
           placehol der="Forwarding Date" name="CGSTRDate" 
-          style="text-align: center;" value="2012-3-2" required>
+          style="text-align: center;" va lue="2012-3-2" required>
         </td>
 
         <td  style="width: 47%">
@@ -31,7 +31,7 @@
         </td>
         <td style="width: 7%;">
           <label>Khand</label>
-          <input type="text"   id="Khand" value="12" 
+          <input type="text"   id="Khand" va lue="12" 
           placeholder="No." maxlength="2" name="Khand" 
           style="text-align: center;" size="3" min=1 max=36 required></td>
       </tr>
@@ -41,7 +41,7 @@
 <div id="alert1" style="color:transparent;">ajay</div>
   <!-- Party Details -->
     
- <!--   <input type="hidden" id="Bank" name="Bank" value="ICICI Bank"> -->
+ <!--   <input type="hidden" id="Bank" name="Bank" va lue="ICICI Bank"> -->
  <div id="table-responsive">
     <table  id="crud_table"  align="center"  class="table table-bordered" style="width: 100%;">
   <tr class="bg-danger">
@@ -69,20 +69,20 @@
   </tr>
   <tr class="bg-info">
     <td><input class="RFDMonth" placeholder="MM" type="text"  maxlength="2" 
-        size="2" value="1" required>
+        size="2" va lue="1" required>
     <input type="text"  class="RFDYear" placeholder="YY" maxlength="2" 
-        name="RFDYear"  size="2" value="17" required></td>
-    <td><input type="text"  class="RFD2Month"  value="12" 
+        name="RFDYear"  size="2" va lue="17" required></td>
+    <td><input type="text"  class="RFD2Month"  va lue="12" 
         placeholder="MM" maxlength="2" name="RFD2Month"  size="2" required>
-    <input type="text"  class="RFD2Year"  value="18" 
+    <input type="text"  class="RFD2Year"  va lue="18" 
         placeholder="YY" maxlength="2" name="RFD2Year"   size="2" required></td>
-    <td><input type="text"  class="SanctionOrderNo"   size="3" value="12" 
+    <td><input type="text"  class="SanctionOrderNo"   size="3" va lue="12" 
         placeholder="1234" maxlength="4" name="SanctionOrderNo"></td>
-    <td><input type="text"  class="SanctonOrderDay"   size="2" value="12" 
+    <td><input type="text"  class="SanctonOrderDay"   size="2" va lue="12" 
       placeholder="DD" maxlength="2" name="SanctonOrderDay" required>
-    <input type="text"  class="SanctonOrderMonth"   size="2" value="12" 
+    <input type="text"  class="SanctonOrderMonth"   size="2" va lue="12" 
     placeholder="MM" maxlength="2" name="SanctonOrderMonth" required>
-    <input type="text"  class="SanctonOrderYear"   size="2" value="17" 
+    <input type="text"  class="SanctonOrderYear"   size="2" va lue="17" 
     placeholder="YY" maxlength="2" name="SanctonOrderYear" required></td>
     <td><input type="text"  class="ARN"   size="18" 
         placeholder="Application No." maxlength="15" name="ARN" required></td>
@@ -92,13 +92,13 @@
     placeholder="MM" maxlength="2" name="ARNMonth" required>
     <input type="text"  class="ARNYear"   size="2" 
     placeholder="YY" maxlength="2" name="ARNYear" required></td>
-    <td><input type="text"  class="CGST"   size="8" value="12" 
+    <td><input type="text"  class="CGST"   size="8" va lue="12" 
         placeholder="In Rs." maxlength="9" name="CGST" required></td>
-    <td><input type="text"  class="IGST"   size="8" value="12" 
+    <td><input type="text"  class="IGST"   size="8" va lue="12" 
         placeholder="In Rs." maxlength="9" name="IGST" required></td>
-    <td><input type="text"  class="Cess"   size="8" value="0" 
+    <td><input type="text"  class="Cess"   size="8" va lue="0" 
         placeholder="In Rs." maxlength="9" name="Cess" required></td>
-    <td><input type="text"  class="RFD"   size="2" value="4" 
+    <td><input type="text"  class="RFD"   size="2" va lue="4" 
         placeholder="4/6" maxlength="1" name="RFD" required></td>
     <td align="right">
         <button type="button" name="add_multi" id="add_multi" 

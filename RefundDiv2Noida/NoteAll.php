@@ -10,6 +10,11 @@ $Div_id = $_POST['Div_id'];
 $count = 0;
 $output ='';
 if($Div_id != '')  {
+    $query ="SELECT * FROM stateorderrefundii 
+            WHERE SlNo BETWEEN $From_id AND $To_id 
+            AND Division  = $Div_id 
+            ORDER BY Division, NameOfParty  ASC";
+    /*
 $query ="SELECT stateorderrefundii.GSTIN,
                 stateorderrefundii.NameOfParty,
                 stateassesseemaster.Address, 
@@ -26,24 +31,13 @@ $query ="SELECT stateorderrefundii.GSTIN,
                 WHERE stateorderrefundii.SlNo BETWEEN $From_id AND $To_id 
                AND stateorderrefundii.Division  = $Div_id 
                 ORDER BY stateorderrefundii.Division, stateorderrefundii.NameOfParty  ASC";
+                */
 }
 else {
-    $query ="SELECT stateorderrefundii.GSTIN,
-                stateorderrefundii.NameOfParty,
-                stateassesseemaster.Address, 
-                stateorderrefundii.Khand, 
-                stateorderrefundii.SanctionOrderNo, 
-                stateorderrefundii.CGST, 
-                stateorderrefundii.IGST, 
-                stateorderrefundii.Cess, 
-                stateorderrefundii.RFD, 
-                stateorderrefundii.Division    
-                FROM stateorderrefundii 
-                INNER JOIN stateassesseemaster ON 
-                stateorderrefundii.GSTIN=stateassesseemaster.GSTIN
-                WHERE stateorderrefundii.SlNo BETWEEN $From_id AND $To_id 
-              
-                ORDER BY stateorderrefundii.Division ASC ";
+    $query ="SELECT * FROM stateorderrefundii 
+            WHERE SlNo BETWEEN $From_id AND $To_id 
+          
+            ORDER BY Division, NameOfParty  ASC";
 }
 
 
