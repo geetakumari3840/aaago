@@ -177,6 +177,45 @@ LoadClean();
           });
    });
 ///////// */
+// Range Result 
+  $('#Area').focus(function(event){
+    event.preventDefault();
+           $.ajax ({
+             url:"RangeSelectList.php",
+             method:"post",
+             dataType:"text",
+             success:function(data)
+            {
+              $('#AreaCode').html(data);
+            }
+
+          });
+   });
+///////// */
+// Select Range Name
+  $('.area').change(function(event){
+    event.preventDefault();
+    var txt = $(this).val();
+   
+    if ( txt !='') {
+    $.ajax ({
+      url:"RangeFetch.php",
+       method:"post",
+       data:{search:txt},
+       dataType:"json", 
+       success:function(data)
+      {
+         $('#Sector').val(data.Sector);  
+         $('#Rangee').val(data.Rangee);  
+         $('#Division').val(data.Division); 
+          alert("ajay");
+          $('#BankAc').focus();
+      }
+
+    });
+}
+  });
+/////////
 
 // Select Party Name
   $('.live').change(function(event){
@@ -213,9 +252,9 @@ LoadClean();
                      $('#Address').val(data.Address);  
                      $('#Mobile').val(data.Mobile);  
                      $('#Area').val(data.Area);
+                     $('#Rangee').val(data.Rangee);
                      $('#Division').val(data.Division);  
                      $('#BankAc').val(data.BankAc);
-            //         $('#Authority').val(data.Authority);  
                      $('#BankName').val(data.BankName);  
                      $('#BankBranch').val(data.BankBranch);  
                      $('#IFSC').val(data.IFSC);    

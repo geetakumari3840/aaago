@@ -8,47 +8,15 @@ $Div_id = $_POST['Div_id'];
 $count = 0;
 $output ='';
 if($_POST["Div_id"] != '')  {
-$query ="SELECT stateorderrefundii.GSTIN,
-                stateorderrefundii.NameOfParty,
-                stateassesseemaster.Address, 
-                stateorderrefundii.Khand, 
-                stateorderrefundii.SanctionOrderNo, 
-                stateorderrefundii.SanctionOrderDate, 
-                stateorderrefundii.CGST, 
-                stateorderrefundii.IGST, 
-                stateorderrefundii.Cess, 
-                stateorderrefundii.RFD, 
-                stateorderrefundii.Division,
-                stateorderrefundii.ARN,
-                stateorderrefundii.RFDMonth, 
-                stateorderrefundii.RFDYear,
-                stateorderrefundii.RFD2Month, 
-                stateorderrefundii.RFD2Year     
-                FROM stateorderrefundii 
-                INNER JOIN stateassesseemaster ON 
-                stateorderrefundii.GSTIN=stateassesseemaster.GSTIN
-                WHERE stateorderrefundii.SlNo BETWEEN $From_id AND $To_id 
-                AND stateorderrefundii.Division  = $Div_id
-                ORDER BY stateorderrefundii.SlNo DESC";
+$query ="SELECT * FROM stateorderrefundii 
+               WHERE SlNo BETWEEN $From_id AND $To_id 
+                AND Division  = $Div_id
+                ORDER BY SlNo, NameOfParty, SanctionOrderNo DESC";
 }
 else {
-    $query ="SELECT stateorderrefundii.GSTIN,
-                stateorderrefundii.NameOfParty,
-                stateassesseemaster.Address, 
-                stateorderrefundii.Khand, 
-                stateorderrefundii.SanctionOrderNo,
-                stateorderrefundii.SanctionOrderDate, 
-                stateorderrefundii.CGST, 
-                stateorderrefundii.IGST, 
-                stateorderrefundii.Cess, 
-                stateorderrefundii.RFD, 
-                stateorderrefundii.Division,
-                stateorderrefundii.ARN     
-                FROM stateorderrefundii 
-                INNER JOIN stateassesseemaster ON 
-                stateorderrefundii.GSTIN=stateassesseemaster.GSTIN
-                WHERE stateorderrefundii.SlNo BETWEEN $From_id AND $To_id 
-                ORDER BY stateorderrefundii.SlNo DESC";
+$query ="SELECT * FROM stateorderrefundii 
+               WHERE SlNo BETWEEN $From_id AND $To_id 
+               ORDER BY SlNo, NameOfParty, SanctionOrderNo DESC";
 }
 
 
@@ -66,8 +34,8 @@ $output .='
     <th style="text-align:Left;">Khand<br>
         Order No.<br>
         Order Date<br></th>
-    <th style="text-align:right;">IGST<br>
-        CGST<br>
+    <th style="text-align:right;">CGST<br>
+        IGST<br>
         Cess</th>
   </tr>
       ';
@@ -200,8 +168,8 @@ $output .='<br>RFD-'.$row['RFD'].'
 $output .= date('d-m-Y', strtotime($row['SanctionOrderDate']));
 $output .='</td>
         <td style="text-align:right;width:15%;">
-            '.$row['IGST'].'/-<br>
             '.$row['CGST'].'/-<br>
+            '.$row['IGST'].'/-<br>
             '.$row['Cess'].'/-
         </td>
     </tr>';

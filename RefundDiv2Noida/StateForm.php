@@ -143,8 +143,11 @@
               name="Address" id="Address" placeholder="Address" required/>
       <input  type="text" class="form-control"
               name="Mobile" id="Mobile" placeholder="Mobile No." />
-      <input  type="text" class="form-control"
+      <input  type="text" list="browers1" class="form-control area"
               name="Area" id="Area" placeholder="Area Id" />
+          <datalist id="browers1"><div id="AreaCode"></div></datalist>
+       <input  type="text" class="form-control"
+              name="Rangee" id="Rangee" placeholder="Range" />
         
  <select name="Division" id="Division" type="text" class="form-control" required>
                   <option value="" disabled selected>Division</option>

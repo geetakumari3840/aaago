@@ -33,7 +33,7 @@ $query ="SELECT printpayment.GSTIN,
                 printpayment.GSTIN=stateassesseemaster.GSTIN
                 WHERE printpayment.SlNo BETWEEN $From_id AND $To_id 
                AND printpayment.Division  = $Div_id
-                ORDER BY printpayment.SlNo DESC";
+              ORDER BY printpayment.NameOfParty, printpayment.SanctionOrderNo";
 $result = mysqli_query($connect, $query);
 
 while ($row = mysqli_fetch_array($result))

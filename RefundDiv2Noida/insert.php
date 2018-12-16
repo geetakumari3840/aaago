@@ -8,7 +8,8 @@
       $GSTIN = mysqli_real_escape_string($connect, $_POST["GSTIN"]);  
       $PartyName = mysqli_real_escape_string($connect, $_POST["PartyName"]);
       $Mobile = mysqli_real_escape_string($connect, $_POST["Mobile"]);
-      $Area = mysqli_real_escape_string($connect, $_POST["Area"]);  
+      $Area = mysqli_real_escape_string($connect, $_POST["Area"]); 
+      $Rangee = mysqli_real_escape_string($connect, $_POST["Rangee"]);  
       $Address = mysqli_real_escape_string($connect, $_POST["Address"]);  
       $Division = mysqli_real_escape_string($connect, $_POST["Division"]);  
       $Authority = "1";  
@@ -18,7 +19,6 @@
       $IFSC = mysqli_real_escape_string($connect, $_POST["IFSC"]);
       $MICR = mysqli_real_escape_string($connect, $_POST["MICR"]);
      
-
       if($_POST["assessee_id"] != '')  
       {  
    $query = "  
@@ -28,7 +28,8 @@
            Address='$Address',   
            Division = '$Division', 
            Mobile = '$Mobile',
-           Area = '$Area',  
+           Area = '$Area',
+           Rangee = '$Rangee',  
            BankAc = '$BankAc',
            BankName = '$BankName',
            BankBranch = '$BankBranch',
@@ -40,12 +41,10 @@
       }  
       else  
       {  
-           $query = "  
-           INSERT INTO stateassesseemaster (GSTIN, PartyName, Address, Division, Authority, BankAc, BankName, BankBranch, IFSC, MICR)  
-           VALUES('$GSTIN', '$PartyName', '$Address', '$Division', '1', 
-           '$BankAc', '$BankName', '$BankBranch', '$IFSC', '$MICR')  
-           ";  
-           $messAuthority = 'Data Inserted';  
+       $query = "  
+       INSERT INTO stateassesseemaster (GSTIN, PartyName, Address, Area, Rangee, Division, Authority, BankAc, BankName, BankBranch, IFSC, MICR)  
+       VALUES('$GSTIN', '$PartyName', '$Address', '$Area', '$Rangee', '$Division', '1', '$BankAc', '$BankName', '$BankBranch', '$IFSC', '$MICR')";  
+         $messAuthority = 'Data Inserted';  
       }  
       if(mysqli_query($connect, $query))  
       {  
@@ -53,7 +52,7 @@
                  
       }  
             echo $output; 
-            //echo $messAuthority;
+            echo $query;
  }  
  ?>
  
