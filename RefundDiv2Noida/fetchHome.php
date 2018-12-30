@@ -1,25 +1,18 @@
 <?php
 //  session_start();
 include "pfiles/connect.php";
-    $search_id = $_POST['search_id'];
-
+if(isset($_POST['search'])) {
+$search_id = $_POST['search'];
 $output ='';
-if($_POST["search_id"] != '')  
 
-{
-$query ="SELECT * FROM stateorderrefundii WHERE NodalFile LIKE $search_id ORDER BY SlNo DESC";
-}
-else
-{
- $query ="SELECT * FROM stateorderrefundii  ORDER BY SlNo DESC";
-}
+$query ="SELECT * FROM stateorderrefundii WHERE NameOfParty LIKE '%$search_id%' ORDER BY NodalFile DESC";
 
 $result = mysqli_query($connect, $query);
 $output .='
 
   <div class="table-responsive">
     <table  class="table table-bordered" style="width:100%;text-align:center;">
-      <tr  align="center" class="bg-info">
+     <tr style="text-align: center;background-color: #cccccf;">
         <th>SlNo</th>
         <th>Name of Party & Address</th>
         <th>Div</th>
@@ -33,7 +26,7 @@ $output .='
         <th>IGST</th>
         <th>Cess</th>
         <th>ARN <br>Date</th>
-        <th style="width:10%"">Action</th>
+        
       </tr>
       ';
 while ($row = mysqli_fetch_array($result))
@@ -188,7 +181,7 @@ $output .='';
 $output .= ''.$row['ARN'].'';
         }
 $output .='<br>';
-  if ($row['ARNDate']==1) {
+  if ($row['ARNDate'] =="") {
             $output .='';
         }
         else
@@ -196,17 +189,12 @@ $output .='<br>';
           $output .= date('d-m-Y', strtotime($row['ARNDate']));
         }
            $output .='</td>
-        <td align="center">
-         <div   class="btn-group btn-group-sm">
-            <button type="button" class="btn btn-warning edit_data2" 
-              id="'.$row['SlNo'].'">Edit </button>
-              <button type="button" class="btn btn-danger delete_data2" 
-              id="'.$row['SlNo'].'">Delete</button></div></td>
+
     </tr>';
 }
 
 $output .='</table>';
 echo $output;
-
+}
 ?>
 

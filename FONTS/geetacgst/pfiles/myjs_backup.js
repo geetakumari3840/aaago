@@ -177,45 +177,6 @@ LoadClean();
           });
    });
 ///////// */
-// Range Result 
-  $('#Area').focus(function(event){
-    event.preventDefault();
-           $.ajax ({
-             url:"RangeSelectList.php",
-             method:"post",
-             dataType:"text",
-             success:function(data)
-            {
-              $('#AreaCode').html(data);
-            }
-
-          });
-   });
-///////// */
-// Select Range Name
-  $('.area').change(function(event){
-    event.preventDefault();
-    var txt = $(this).val();
-   // alert("Check Your Range and Division");
-    if ( txt !='') {
-    $.ajax ({
-      url:"RangeFetch.php",
-       method:"post",
-       data:{search:txt},
-       dataType:"json", 
-       success:function(data)
-      {
-         $('#Sector').val(data.Sector);  
-         $('#Rangee').val(data.Rangee);  
-         $('#Division').val(data.Division); 
-         
-          $('#Khand1').focus();
-      }
-
-    });
-}
-  });
-/////////
 
 // Select Party Name
   $('.live').change(function(event){
@@ -238,6 +199,47 @@ LoadClean();
   });
 /////////
 
+
+// Range Result 
+  $('#Area').focus(function(event){
+    event.preventDefault();
+           $.ajax ({
+             url:"RangeSelectList.php",
+             method:"post",
+             dataType:"text",
+             success:function(data)
+            {
+              $('#AreaCode').html(data);
+            }
+
+          });
+   });
+///////// */
+// Select Range Name
+  $('.area').change(function(event){
+    event.preventDefault();
+    var txt = $(this).val();
+    alert("Check Your Range and Division");
+    if ( txt !='') {
+    $.ajax ({
+      url:"RangeFetch.php",
+       method:"post",
+       data:{search:txt},
+       dataType:"json", 
+       success:function(data)
+      {
+         $('#Sector').val(data.Sector);  
+         $('#Rangee').val(data.Rangee);  
+         $('#Division').val(data.Division); 
+         $('#BankAc').focus();
+      }
+
+    });
+}
+  });
+/////////
+
+
 //* Update REcord 
       $(document).on('click', '.edit_data', function(){  
            var assessee_id = $(this).attr("id");   
@@ -250,12 +252,10 @@ LoadClean();
                      $('#GSTIN1').val(data.GSTIN);  
                      $('#PartyName').val(data.PartyName);  
                      $('#Address').val(data.Address);  
-                     $('#Mobile').val(data.Mobile);
-                     $('#ContactPerson').val(data.ContactPerson);
+                     $('#Mobile').val(data.Mobile);  
                      $('#Area').val(data.Area);
                      $('#Rangee').val(data.Rangee);
-                     $('#Division').val(data.Division); 
-                     $('#Khand1').val(data.Khand);  
+                     $('#Division').val(data.Division);  
                      $('#BankAc').val(data.BankAc);
                      $('#BankName').val(data.BankName);  
                      $('#BankBranch').val(data.BankBranch);  
@@ -280,24 +280,22 @@ LoadClean();
                 success:function(data){  
                     $('#GSTIN1').val(data.GSTIN);
                     $('#NameOfParty1').val(data.NameOfParty);
-                    $('#Address1').val(data.Address);
                     $('#Division1').val(data.Division);
                     $('#NodalFile1').val(data.NodalFile);
                     $('#NodalDate1').val(data.NodalDate);
                     $('#CGSTRDate1').val(data.CGSTRDate);
-                    $('#Khand2').val(data.Khand);
+                    $('#Khand1').val(data.Khand);
                     $('#RFD1').val(data.RFD);
                     $('#RFDMonth1').val(data.RFDMonth);
                     $('#RFDYear1').val(data.RFDYear);
-                    $('#RFD2Month1').val(data.RFD2Month);
-                    $('#RFD2Year1').val(data.RFD2Year);
                     $('#SanctionOrderNo1').val(data.SanctionOrderNo);
-                    $('#SanctionOrderDate1').val(data.SanctionOrderDate);
+                    $('#SanctonOrderDate1').val(data.SanctionOrderDate);
+                    $('#SanctonOrderMonth1').val(data.SanctonOrderMonth);
+                    $('#SanctonOrderYear1').val(data.SanctonOrderYear);
                     $('#CGST1').val(data.CGST);
                     $('#IGST1').val(data.IGST);
                     $('#Cess1').val(data.Cess);
-                    $('#ARN1').val(data.ARN);
-                    $('#ARNDate1').val(data.ARNDate);
+  
                     $('#assessee_id2').val(data.SlNo);  
                     $('#insert').val("Update");
                     $('#headingg').text("Update Records");  
@@ -326,28 +324,6 @@ LoadClean();
                 });  
        
       });  
-
-  //Update Record Insert into Data Base
-
-      $('#insert_form2').on("submit", function(event){  
-           event.preventDefault(); 
-
-                $.ajax({  
-                     url:"insert_edit.php",  
-                     method:"POST",  
-                     data:$('#insert_form2').serialize(),  
-                     beforeSend:function(){  
-                          $('#insert').val('Inserting');  
-                     },   
-                     success:function(data){  
-                          $('#insert_form2')[0].reset();  
-                          $('#add_data_Modal2').modal('hide'); 
-                          alert(data); 
-                          fetch_item_data (); 
-                     }  
-                });  
-       
-      }); 
 //Add Multi column
        var count = 1;
  $('#add_multi').click(function(){
@@ -355,25 +331,22 @@ LoadClean();
  count = count + 1;
 
   var html_code = "<tr class='bg-info'  id='row"+count+"'>";
-   
-    html_code += "<td><input type='text'  class='form-con trol SanctionOrderNo' placeholder='1234' size='3' maxlength='4' name='SanctionOrderNo'></td>";
-    html_code += "<td><input type='text'  class='form-con trol  SanctonOrderDay' placeholder='DD' size='2' maxlength='2' name='SanctonOrderDay'>";
-    html_code += "<input type='text'  class='form-con trol SanctonOrderMonth'  placeholder='MM' size='2' maxlength='2' name='SanctonOrderMonth' required>";
-    html_code += "<input type='text'  class='form-con trol  SanctonOrderYear' placeholder='YY' size='2' maxlength='2' name='SanctonOrderYear'></td>";
-    html_code += "<td><input type='text'  class='form-con trol CGST' placeholder='In Rs.' maxlength='8' size='8' name='CGST'></td>";
-    html_code += "<td><input type='text'  class='form-con trol IGST' placeholder='In Rs.' maxlength='8' size='8' name='IGST'></td>";
-    html_code += "<td><input type='text'  class='form-con trol Cess' placeholder='In Rs.' maxlength='8' size='8' name='Cess'></td>";
-    html_code += "<td><input type='text'  class='form-cont rol RFD' placeholder='4/6' maxlength='1' size='2' name='RFD'></td>";    
-    
     html_code += "<td><input type='text' class='form-con trol RFDMonth' placeholder='MM' maxlength='2' size='2' name='RFDMonth' required>";
     html_code += "<input type='text'  class='form-con trol RFDYear' placeholder='YY' maxlength='2' size='2' name='RFDYear'></td>";
     html_code += "<td><input type='text'  class='form-con trol RFD2Month' placeholder='MM' maxlength='2' size='2' name='RFD2Month' required>";
     html_code += "<input type='text'  class='form-con trol RFD2Year' placeholder='YY' maxlength='2' size='2' name='RFD2Year'></td>";
+    html_code += "<td><input type='text'  class='form-con trol SanctionOrderNo' placeholder='1234' size='3' maxlength='4' name='SanctionOrderNo'></td>";
+    html_code += "<td><input type='text'  class='form-con trol  SanctonOrderDay' placeholder='DD' size='2' maxlength='2' name='SanctonOrderDay'>";
+    html_code += "<input type='text'  class='form-con trol SanctonOrderMonth'  placeholder='MM' size='2' maxlength='2' name='SanctonOrderMonth' required>";
+    html_code += "<input type='text'  class='form-con trol  SanctonOrderYear' placeholder='YY' size='2' maxlength='2' name='SanctonOrderYear'></td>";
     html_code += "<td><input type='text' class='ARN' placeholder='ARN Number' size='18' maxlength='15' name='ARN'></td>";
     html_code += "<td><input type='text' class='form-con trol  ARNDay' placeholder='DD' size='2' maxlength='2' name='ARNDay'>";
     html_code += "<input type='text'  class='form-con trol ARNMonth'  placeholder='MM' size='2' maxlength='2' name='ARNMonth' required>";
     html_code += "<input type='text'  class='form-con trol  ARNYear' placeholder='YY' size='2' maxlength='2' name='ARNYear'></td>";
-    
+    html_code += "<td><input type='text'  class='form-con trol CGST' placeholder='In Rs.' maxlength='8' size='8' name='CGST'></td>";
+    html_code += "<td><input type='text'  class='form-con trol IGST' placeholder='In Rs.' maxlength='8' size='8' name='IGST'></td>";
+    html_code += "<td><input type='text'  class='form-con trol Cess' placeholder='In Rs.' maxlength='8' size='8' name='Cess'></td>";
+    html_code += "<td><input type='text'  class='form-cont rol RFD' placeholder='4/6' maxlength='1' size='2' name='RFD'></td>";
   html_code += "<td><button type='button' name='remove' data-row='row"+count+"' class='btn btn-danger btn-xs remove'>-</button></td>";   
      html_code += "</tr>"; 
 

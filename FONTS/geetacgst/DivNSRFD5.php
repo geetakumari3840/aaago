@@ -71,10 +71,10 @@ body {
     <form id="form_note">
 <table>
   <tr style="text-align: center;"> 
-    <td style="width: 10%;"><input type="text" class="form-control" 
+    <td style="width: 10%;"><input type="number" class="form-control" 
         name="From_id"  id="From_id" required>
     </td>
-    <td style="width: 10%;"><input type="text" class="form-control" 
+    <td style="width: 10%;"><input type="number" class="form-control" 
         name="To_id"   id="To_id" required>
     </td>
     <td style="width: 15%;"><select name="Div_id" id="Div_id" 
@@ -201,7 +201,7 @@ $('#Btn2').click(function (event) {
  
             var sdn =  $("#Dis_id").val();
             var sdd =  $("#DisD_id").val();
-        if (sdd !='')
+        if (sdn !='' && sdd !='')
         {
             $('#dispach_no').text($("#Dis_id").val());
             $('#dispach_date').text($("#DisD_id").val()); 
@@ -222,7 +222,7 @@ $('#Btn2').click(function (event) {
 }
               else
               {
-                alert ("Dispatch Date is Blank");
+                alert ("Dispatch No. or Dispatch Date is Blank");
               }
          });
 

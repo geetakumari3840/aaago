@@ -31,9 +31,9 @@ $query ="SELECT printpayment.GSTIN,
                 FROM printpayment 
                 INNER JOIN stateassesseemaster ON 
                 printpayment.GSTIN=stateassesseemaster.GSTIN
-              WHERE  /* printpayment.SlNo BETWEEN $From_id AND $To_id 
-               AND */printpayment.Division  = $Div_id 
-              ORDER BY printpayment.NameOfParty, printpayment.SanctionOrderNo";
+                WHERE printpayment.SlNo BETWEEN $From_id AND $To_id 
+               AND printpayment.Division  = $Div_id
+                ORDER BY printpayment.NameOfParty, printpayment.SanctionOrderNo";
 $result = mysqli_query($connect, $query);
 
 while ($row = mysqli_fetch_array($result))
@@ -44,7 +44,7 @@ $count = $count + 1;
 <table border="0" style="width: 900px; margin: auto;">
   <tr>
     <td>
-      <img src="http://localhost/aaago/RefundDiv2Noida/images/logo.jpg" alt="ashok">
+      <img src="http://cgstnoida.co.nf/images/logo.jpg" alt="ashok">
     </td>
     <td style="font-weight: bold;font-size: 13px;">
 <span>कार्यालय सहायक आयुक्त </span><br>               
@@ -54,12 +54,12 @@ $count = $count + 1;
  <span style="font-size: 12px;">C-56/42, RENU TOWER, SECTOR-62, NOIDA / सी.-56/42, रेनू टावर, सेक्टर-६२, नोएडा  </span>               
     </td>
     <td>
-      <img src="http://localhost/aaago/RefundDiv2Noida/images/gst.jpg" alt="GST">
+      <img src="http://cgstnoida.co.nf/images/gst.jpg" alt="GST">
     </td>
   </tr>
   <tr style="text-align: left;font-size: 11px;font-weight: normal;">
-    <td colspan="2" style="text-align: left;">C.No. V(18)Ref/ CGST/Misc./StateOrder/N/D-II/207/17-18</td><td style="text-align: left;">Dated:
-   
+    <td colspan="2" style="text-align: left;">C.No. V(18)Ref/ CGST/Misc./StateOrder/N/D-II/207/17-18</td><td style="text-align: right;">Dated:
+      <?php echo date('d-m-Y', strtotime($DisD_id)) ?>
     </td>
   </tr>
   <tr>
@@ -70,7 +70,7 @@ $count = $count + 1;
   </tr>
     <tr>
     <td colspan="2" style="text-align: left;">
-      Payment Advice No: - &nbsp;207&nbsp;
+      Payment Advice No: - &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       /AC/Div-II/CGST/Noida/18-19<br>
       To PAO, Central Tax (GST & Central Excise), Sector-62, Noida<br>
       <div style="color:transparent;font-size: 5px;">a</div>

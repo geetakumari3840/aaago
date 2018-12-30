@@ -54,11 +54,11 @@ th, td {
     <form id="form_note">
 <table>
   <tr style="text-align: center;"> 
-    <td style="width: 10%;"><input type="text" class="form-control" 
-        name="From_id" id="From_id" required>
+    <td style="width: 10%;"><input type="number" class="form-control" 
+        name="From_id" value="1" id="From_id" required>
     </td>
-    <td style="width: 10%;"><input type="text" class="form-control" 
-        name="To_id"   id="To_id" required>
+    <td style="width: 10%;"><input type="number" class="form-control" 
+        name="To_id"  value="50" id="To_id" required>
     </td>
     <td style="width: 15%;"><select name="Div_id" id="Div_id" 
         type="number" class="form-control" required>
