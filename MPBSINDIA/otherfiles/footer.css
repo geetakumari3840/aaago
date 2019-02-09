@@ -1,0 +1,42 @@
+body {
+
+    margin: 0px;
+    padding: 0px;
+  }
+
+ .header1 {
+    
+    
+    background-image: url("../images/mpbsindia_logo.png"), url("../images/Buddhist_flag.gif") ;
+    background-repeat: no-repeat;
+    background-position: 10% 20%, 90% 60%;
+    background-color: #000060;
+    background-size: 115px, 120px;
+   
+    }
+    
+.heading {  
+  color:white;
+  font-weight: bold;
+  font-size:50px;
+  font-family: 'Merienda', cursive;
+  text-shadow: 4px 4px 4px pink;
+  text-align: center;
+
+}
+
+.moto {
+  color :yellow;
+  font-size:30px;
+  font-family: 'Merienda', cursive;
+     text-shadow: 4px 4px 4px red;
+     text-align: center;
+     padding: 0px;
+     margin: 0px;
+}
+  footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+
+ 

@@ -1,0 +1,40 @@
+#nav {
+   background-color: #000066;
+   box-shadow: 10px 10px 15px grey; }
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  width: 1020px;
+  margin: auto;
+  overflow: hidden;
+  color:white;
+  text-align: center;
+  font-size: 18px;
+  
+}
+
+li {
+  float: left;
+  width: auto;
+  padding: 0px 15px 0px 15px;
+  border-right: 2px solid #bbb;
+}
+
+li:last-child {
+  border-right: none;
+}
+
+li a {
+  display: block;
+  padding: 5px;
+  font-weight: bold;
+
+  
+  }
+
+li a:hover {
+  color: white;
+  
+  }
+
